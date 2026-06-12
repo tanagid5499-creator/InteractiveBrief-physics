@@ -239,3 +239,36 @@
 /* the de-boxed column lists want a hair more row separation so dividers read calmly */
 .objective-list li, .steps li, .q-card { padding-block: clamp(.9rem, 1.6vw, 1.15rem); }
 
+/* ════════════════════════════════════════════════════════════════════════
+   GESTALT REDESIGN — Chunk 3: two distinct callouts (Figure–ground)
+   A callout SHOULD be a contained figure — this is where a box is right.
+   Two clearly different kinds so a student reads the intent instantly:
+     • ข้อควรระวัง — warm amber = stop, avoid this mistake
+     • ควรรู้      — cool blue  = helpful knowledge, no danger
+   A type eyebrow names each (Similarity within a kind; contrast between kinds).
+   ════════════════════════════════════════════════════════════════════════ */
+.note { gap: .9rem; align-items: flex-start; box-shadow: none; padding: 1.1rem 1.3rem 1.2rem; }
+.note > div, .note > p { width: 100%; }
+.note-kind {
+  display: block; font-family: var(--font-head); font-weight: 700;
+  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .3rem;
+}
+.note strong { display: block; margin-bottom: .2rem; }     /* the title sits under the kind eyebrow */
+.note ul { margin-top: .4rem; }
+
+/* ข้อควรระวัง (caution) — warm, a notch more present than 'good to know' */
+.note-warn { background: var(--caution-bg); border: 1px solid var(--caution-line); }
+.note-warn .note-icon { background: var(--caution); }
+.note-warn .note-kind { color: #b5650f; }                  /* darker amber → AA on the warm tint */
+.note-warn strong { color: #8a4d09; }
+
+/* ควรรู้ (good to know) — cool blue, calmer */
+.note-info { background: var(--blue-50); border: 1px solid var(--blue-200); }
+.note-info .note-icon { background: var(--blue-500); }
+.note-info .note-kind { color: var(--blue-600); }
+.note-info strong { color: var(--navy); }
+
+/* ── Chunk 4: conclusion — the reflective 5th point spans the full width ──── */
+.conclusion-points li.cp-extra { grid-column: 1 / -1; }
+.cp-ico { border-radius: 50%; }   /* round marker, consistent with the rest */
+

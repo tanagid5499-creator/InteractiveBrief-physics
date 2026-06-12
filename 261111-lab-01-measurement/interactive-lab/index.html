@@ -18,7 +18,7 @@
 
   <!-- design system (shared across all 261111 labs) + per-lab overrides -->
   <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=7">
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="styles.css?v=11">
   <script defer src="../../shared/brief-core.js?v=7"></script>
   <script defer src="js/app.js?v=3"></script>
 </head>
@@ -226,7 +226,7 @@
       </ol>
       <div class="note note-info">
         <span class="note-icon" aria-hidden="true">◆</span>
-        <p><strong>สิ่งที่จะได้ลงมือทำ:</strong> ฝึกอ่านสเกลทั้งสามเครื่องมือ · วัดเส้นผ่านศูนย์กลาง/เส้นรอบวง/ความหนา · หา \(\pi_{\mathrm{exp}}\), ปริมาตรและความหนาแน่นของทรงกระบอก, พื้นที่หน้าตัดเส้นลวด</p>
+        <div><span class="note-kind">ควรรู้</span><p><strong>สิ่งที่จะได้ลงมือทำ</strong> ฝึกอ่านสเกลทั้งสามเครื่องมือ · วัดเส้นผ่านศูนย์กลาง/เส้นรอบวง/ความหนา · หา \(\pi_{\mathrm{exp}}\), ปริมาตรและความหนาแน่นของทรงกระบอก, พื้นที่หน้าตัดเส้นลวด</p></div>
       </div>
     </section>
 
@@ -258,7 +258,7 @@
       </div>
       <div class="note note-info">
         <span class="note-icon" aria-hidden="true">◆</span>
-        <p><strong>ความคลาดเคลื่อนสองแบบ:</strong> เชิงระบบ (systematic) จากเครื่องมือ/วิธี/ผู้วัด แก้ได้ด้วยการสอบเทียบ · แบบสุ่ม (random) จากปัจจัยควบคุมไม่ได้ ลดได้ด้วยการวัดซ้ำแล้วเฉลี่ย</p>
+        <div><span class="note-kind">ควรรู้</span><p><strong>ความคลาดเคลื่อนสองแบบ</strong> เชิงระบบ (systematic) จากเครื่องมือ/วิธี/ผู้วัด แก้ได้ด้วยการสอบเทียบ · แบบสุ่ม (random) จากปัจจัยควบคุมไม่ได้ ลดได้ด้วยการวัดซ้ำแล้วเฉลี่ย</p></div>
       </div>
       <aside class="prompt-card" style="margin-top:1.4rem">
         <p class="prompt-tag">ลองตอบเร็ว</p>
@@ -370,7 +370,7 @@
       <div class="note note-warn">
         <span class="note-icon" aria-hidden="true">!</span>
         <div>
-          <strong>ระวังระหว่างวัด</strong>
+          <span class="note-kind">ข้อควรระวัง</span><strong>ระวังระหว่างวัด</strong>
           <ul>
             <li>วางตาตั้งฉากกับสเกลเพื่อลด parallax</li>
             <li>ตรวจและแก้ zero error ก่อนนำค่าไปเฉลี่ย</li>
@@ -384,6 +384,10 @@
     <section class="section spotlight" id="practice" data-title="ฝึกอ่านสเกล">
       <header class="section-head"><div><p class="kicker">ฝึกอ่านค่าแบบโต้ตอบ</p><h2>แบบฝึกอ่านสเกล</h2></div></header>
       <p class="lead">เลื่อนแถบเพื่อกำหนดค่าที่ต้องอ่าน หรือกดปุ่มตัวอย่าง แล้วฝึกอ่านจากสเกลจำลองให้ตรงกับค่าที่แสดง</p>
+      <div class="note note-warn">
+        <span class="note-icon" aria-hidden="true">!</span>
+        <div><span class="note-kind">ข้อควรระวัง</span><strong>มองให้ตั้งฉากกับสเกล</strong><p>วางสายตาตั้งฉากกับขีดสเกลทุกครั้ง การมองเฉียงทำให้อ่านค่าคลาดเคลื่อน (parallax) — ฝึกในซิมูเลเตอร์ให้คุ้นตาก่อนวัดของจริง</p></div>
+      </div>
 
       <div class="simulator-grid">
         <section class="simulator-panel">
@@ -464,7 +468,7 @@
         <h3>1 · วัดด้วยไม้บรรทัด → หา \(\pi_{\mathrm{exp}}\)</h3>
         <div class="note note-warn compact">
           <span class="note-icon" aria-hidden="true">!</span>
-          <div><strong>ก่อนบันทึกค่า</strong><ul><li>ทุกค่าต้องใช้หน่วยเดียวกันก่อนหาค่าเฉลี่ย</li><li>วัดเส้นรอบวงด้วยเส้นด้าย ทำเครื่องหมายตำแหน่งเดิมทุกครั้ง</li></ul></div>
+          <div><span class="note-kind">ข้อควรระวัง</span><strong>ก่อนบันทึกค่า</strong><ul><li>ทุกค่าต้องใช้หน่วยเดียวกันก่อนหาค่าเฉลี่ย</li><li>วัดเส้นรอบวงด้วยเส้นด้าย ทำเครื่องหมายตำแหน่งเดิมทุกครั้ง</li></ul></div>
         </div>
         <div class="table-wrap">
           <table class="data-table" data-group="ruler">
@@ -578,7 +582,7 @@
         </ol>
         <aside class="note note-info note-block">
           <span class="note-icon" aria-hidden="true">◆</span>
-          <div><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>parallax ขณะอ่านสเกล</li><li>zero error ของเวอร์เนียร์/ไมโครมิเตอร์</li><li>แรงกดและความไม่สม่ำเสมอของวัตถุ</li></ul></div>
+          <div><span class="note-kind">ควรรู้</span><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>parallax ขณะอ่านสเกล</li><li>zero error ของเวอร์เนียร์/ไมโครมิเตอร์</li><li>แรงกดและความไม่สม่ำเสมอของวัตถุ</li></ul></div>
         </aside>
       </div>
       <aside class="prompt-card" style="margin-top:1.4rem">
@@ -633,6 +637,7 @@
           <li><span class="cp-ico">2</span><div><h3>เทียบกับค่าจริง</h3><p>รายงานร้อยละความคลาดเคลื่อนของ \(\pi_{\mathrm{exp}}\) เทียบ \(\pi\) และร้อยละความแตกต่างของผลจากสองเครื่องมือ</p></div></li>
           <li><span class="cp-ico">3</span><div><h3>ตัดสินความน่าเชื่อถือ</h3><p>บอกว่าค่าใดน่าเชื่อถือที่สุด โดยอ้างความละเอียดเครื่องมือและการกระจายของค่าที่วัดซ้ำ</p></div></li>
           <li><span class="cp-ico">4</span><div><h3>แหล่งคลาดเคลื่อนและการปรับปรุง</h3><p>ระบุสาเหตุหลักหนึ่งอย่าง (เช่น parallax, zero error, แรงกด) และเสนอวิธีลดในการทดลองครั้งถัดไป</p></div></li>
+          <li class="cp-extra"><span class="cp-ico">5</span><div><h3>ความรู้ที่ได้เพิ่มเติม</h3><p>เขียนสิ่งที่ค้นคว้าหรือควรรู้เพิ่มเติมจากการทดลองนี้ด้วยคำพูดของตนเอง เช่น การนำเครื่องมือวัดไปใช้ในงานจริง ความเชื่อมโยงกับเลขนัยสำคัญในวิชาอื่น หรือเทคนิคลดความคลาดเคลื่อนที่ค้นพบระหว่างทำการทดลอง</p></div></li>
         </ul>
       </div>
       <p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
