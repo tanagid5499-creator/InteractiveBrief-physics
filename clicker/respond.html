@@ -13,6 +13,7 @@
 <style>
   :root{--page:#f3f7ff;--ink:#14213d;--muted:#51607d;--blue:#1d4fd0;--blue2:#2563eb;--band:#e6eefc;--line:#d6e0f5;--surface:#fff;--ok:#0f6e56;--accent:#d9480f;}
   *{box-sizing:border-box}
+  [hidden]{display:none !important}   /* author display: rules (e.g. .status{display:flex}) otherwise defeat the hidden attribute */
   body{font-family:'Sarabun',sans-serif;background:var(--page);color:var(--ink);margin:0;padding:1rem;line-height:1.5;max-width:520px;margin:0 auto}
   .mono{font-family:'IBM Plex Mono',monospace}
   .head{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-bottom:1rem}
