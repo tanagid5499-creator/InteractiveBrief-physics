@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>261112 · Lab 03 · สเปกตรัมของวัตถุร้อนและไฮโดรเจน · Lab Brief</title>
+  <meta name="description" content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261112 บทที่ 3 สเปกตรัมของวัตถุร้อนและของอะตอมไฮโดรเจน">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231d4fd0'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E03%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <script defer src="../../shared/brief-core.js?v=7"></script>
+  <script defer src="js/app.js?v=1"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+
+  <header class="topbar" id="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#hero" aria-label="กลับสู่ด้านบน"><span class="brand-badge">03</span><span class="brand-text"><strong>สเปกตรัมแสง</strong><small>261112 · ปฏิบัติการฟิสิกส์ 2</small></span></a>
+      <nav class="phase-nav" id="chipNav" aria-label="สารบัญบทปฏิบัติการ">
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">เริ่มต้น</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#hero">บทนำ</a><a class="chip" role="menuitem" href="#hook">ชวนคิด</a><a class="chip" role="menuitem" href="#objectives">จุดประสงค์</a></div></div>
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">หลักการ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#concept">แนวคิดหลัก</a><a class="chip" role="menuitem" href="#theory">ทฤษฎี</a><a class="chip" role="menuitem" href="#equipment">อุปกรณ์</a><a class="chip" role="menuitem" href="#formula">สูตร</a></div></div>
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">ลงมือทำ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#procedure">ขั้นตอน</a><a class="chip" role="menuitem" href="#data">ตารางข้อมูล</a><a class="chip" role="menuitem" href="#example">ตัวอย่าง</a><a class="chip" role="menuitem" href="#checkpoint">ตรวจสอบ</a></div></div>
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">สรุปผล</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#analysis">วิเคราะห์</a><a class="chip" role="menuitem" href="#discussion">อภิปราย</a><a class="chip" role="menuitem" href="#conclusion">สรุป</a></div></div>
+      </nav>
+      <div class="topbar-meta">
+        <span class="sec-counter" aria-hidden="true"><b id="secNow">01</b><span>/14</span></span>
+        <div class="ratio-seg" role="group" aria-label="อัตราส่วนการแสดงผล"><span class="ratio-seg-ico" aria-hidden="true">▭</span><button type="button" data-ratio="full" aria-pressed="true">จอเต็ม</button><button type="button" data-ratio="43" aria-pressed="false">4:3</button><button type="button" data-ratio="169" aria-pressed="false">16:9</button></div>
+        <button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
+      </div>
+    </div>
+    <div class="read-progress" role="progressbar" aria-label="ความคืบหน้าการอ่าน" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="readBar"></span></div>
+  </header>
+
+  <main id="main">
+    <section class="section hero" id="hero" data-title="บทนำ">
+      <div class="hero-top"><p class="hero-eyebrow">261112 · ปฏิบัติการฟิสิกส์ 2 · บทที่ 03</p><h1 class="hero-title">สเปกตรัมของวัตถุร้อนและของอะตอมไฮโดรเจน</h1></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <figure class="hero-question"><figcaption class="hq-tag">คำถามชวนคิด</figcaption><blockquote class="hq-text">ทำไมวัตถุร้อนให้แสง <strong>ต่อเนื่อง</strong> ทุกสี แต่แก๊สไฮโดรเจนให้เพียง <strong>เส้นสีเฉพาะ</strong> ไม่กี่เส้น</blockquote></figure>
+          <ul class="hero-meta"><li><span class="hm-num">R<sub>H</sub></span><span class="hm-label">\(\dfrac{1}{\lambda}=R_H\!\left(\dfrac{1}{n_1^2}-\dfrac{1}{n_2^2}\right)\)</span></li></ul>
+          <div class="hero-actions"><a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a><a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a></div>
+        </div>
+        <figure class="hero-visual">
+          <span class="fig-tag">FIG.1 · เส้นสเปกตรัมไฮโดรเจน</span>
+          <svg viewBox="0 0 320 200" role="img" aria-label="สเปกตรัมเส้นของไฮโดรเจน (อนุกรมบาลเมอร์) เส้นม่วง น้ำเงิน เขียว แดง">
+            <rect x="30" y="48" width="260" height="70" rx="4" fill="#14213d"/>
+            <rect x="70" y="48" width="3" height="70" fill="#7f77dd"/>
+            <rect x="92" y="48" width="3" height="70" fill="#4a6cf0"/>
+            <rect x="128" y="48" width="3.5" height="70" fill="#1d9e75"/>
+            <rect x="244" y="48" width="4" height="70" fill="#e24b4a"/>
+            <text x="248" y="138" text-anchor="middle" class="d-label">656 (Hα)</text>
+            <text x="129" y="138" text-anchor="middle" class="d-label">486</text>
+            <text x="71" y="138" text-anchor="middle" class="d-label">410</text>
+            <text x="160" y="32" text-anchor="middle" class="d-label">ความยาวคลื่น (nm) →</text>
+          </svg>
+          <figcaption>อะตอมไฮโดรเจนเปล่งแสงเป็นเส้นเฉพาะ (อนุกรมบาลเมอร์) ตามการเปลี่ยนระดับพลังงานของอิเล็กตรอน</figcaption>
+        </figure>
+      </div>
+      <p class="scroll-hint" aria-hidden="true">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
+    </section>
+
+    <section class="section" id="hook" data-title="ชวนคิด">
+      <header class="section-head"><div><p class="kicker">ชวนคิดก่อนเริ่ม</p><h2>ทำไมแก๊สให้ "เส้น" ไม่ใช่ "แถบ"</h2></div></header>
+      <div class="split">
+        <div class="prose"><p>วัตถุร้อน (เช่นไส้หลอด) เปล่งแสงทุกความยาวคลื่นเป็นสเปกตรัม <strong>ต่อเนื่อง</strong> แต่แก๊สที่ถูกกระตุ้นเปล่งแสงเป็นเส้น <strong>เฉพาะ</strong> เพียงไม่กี่เส้น</p><p>เพราะอิเล็กตรอนในอะตอมมีระดับพลังงานเป็นชั้น ๆ การกระโดดลงแต่ละชั้นปล่อยโฟตอนพลังงานเฉพาะ จึงได้เส้นสีเฉพาะ</p></div>
+        <aside class="prompt-card"><p class="prompt-tag">ลองตอบเร็ว</p>
+          <div class="quick-quiz" data-answer="สเปกตรัมเส้น">
+            <h3 class="prompt-q">แก๊สไฮโดรเจนที่ถูกกระตุ้นให้เรืองแสง ให้สเปกตรัมแบบใด?</h3>
+            <div class="quiz-options"><button type="button" data-quiz-option="สเปกตรัมเส้น">สเปกตรัมเส้น (เฉพาะ)</button><button type="button" data-quiz-option="สเปกตรัมต่อเนื่อง">สเปกตรัมต่อเนื่อง</button><button type="button" data-quiz-option="ไม่มีแสง">ไม่เปล่งแสง</button></div>
+            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="objectives" data-title="จุดประสงค์">
+      <header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
+      <ol class="objective-list">
+        <li><span class="obj-no">1</span><div><h3>ศึกษาสเปกตรัมของแสง</h3><p>เปรียบเทียบสเปกตรัมต่อเนื่องของวัตถุร้อนกับสเปกตรัมเส้นของแก๊ส</p></div></li>
+        <li><span class="obj-no">2</span><div><h3>หาค่าคงที่ริดเบิร์ก</h3><p>วัดความยาวคลื่นเส้นบาลเมอร์ของไฮโดรเจน แล้วหา \(R_H\) จากความชันของกราฟ</p></div></li>
+      </ol>
+      <div class="note note-info"><span class="note-icon" aria-hidden="true">◆</span><p><strong>สิ่งที่จะได้ลงมือทำ:</strong> ส่องสเปกโตรสโคปดูสเปกตรัมต่อเนื่อง (หลอดไส้) และสเปกตรัมเส้น (หลอดไฮโดรเจน) · อ่านความยาวคลื่น \(\lambda\) ของเส้นบาลเมอร์ · เขียนกราฟ \(1/\lambda\)–\((\tfrac14-\tfrac1{n^2})\) หา \(R_H\)</p></div>
+    </section>
+
+    <section class="section band" id="concept" data-title="แนวคิดหลัก">
+      <header class="section-head"><div><p class="kicker">ภาพรวมแนวคิด</p><h2>ต่อเนื่อง เส้น และระดับพลังงาน</h2></div></header>
+      <p class="lead">ชนิดของสเปกตรัมบอกถึงแหล่งกำเนิดแสง: วัตถุร้อนให้สเปกตรัมต่อเนื่อง ส่วนอะตอมเดี่ยวให้สเปกตรัมเส้นที่เป็นลายนิ้วมือของธาตุ</p>
+      <div class="card-grid cols-3">
+        <article class="info-card"><span class="ic-step">A</span><h3>สเปกตรัมต่อเนื่อง</h3><p>วัตถุร้อน (ไส้หลอด) เปล่งทุกความยาวคลื่น เห็นเป็นแถบสีรุ้งต่อเนื่อง</p></article>
+        <article class="info-card"><span class="ic-step">B</span><h3>สเปกตรัมเส้น</h3><p>แก๊สถูกกระตุ้นเปล่งเฉพาะบางความยาวคลื่น เป็นเส้นสีเฉพาะของธาตุ</p></article>
+        <article class="info-card"><span class="ic-step">C</span><h3>ระดับพลังงาน</h3><p>อิเล็กตรอนกระโดดจากชั้น \(n_2\) ลง \(n_1\) ปล่อยโฟตอน \(E=hf=hc/\lambda\)</p></article>
+      </div>
+    </section>
+
+    <section class="section spotlight" id="theory" data-title="ทฤษฎี">
+      <header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>สูตรริดเบิร์กและอนุกรมบาลเมอร์</h2></div></header>
+      <div class="theory-grid">
+        <div class="prose">
+          <p>ความยาวคลื่นของเส้นสเปกตรัมไฮโดรเจนเป็นไปตามสูตรริดเบิร์ก \(\dfrac{1}{\lambda}=R_H\!\left(\dfrac{1}{n_1^2}-\dfrac{1}{n_2^2}\right)\)</p>
+          <p>เส้นในย่านที่ตามองเห็น (อนุกรมบาลเมอร์) มี \(n_1=2\) และ \(n_2=3,4,5,6\) จึงได้ \(\dfrac{1}{\lambda}=R_H\!\left(\dfrac14-\dfrac1{n^2}\right)\)</p>
+          <p>เขียนกราฟ \(1/\lambda\) กับ \(\left(\tfrac14-\tfrac1{n^2}\right)\) จะได้เส้นตรงผ่านจุดกำเนิด ความชัน = \(R_H\)</p>
+          <ul class="tick-list"><li>\(n_2=3\) → เส้นแดง Hα (656 nm)</li><li>\(n_2\) มากขึ้น เส้นเลื่อนไปทางสีม่วง</li></ul>
+        </div>
+        <aside class="prompt-card"><p class="prompt-tag">ลองตอบเร็ว</p>
+          <div class="quick-quiz" data-answer="n₁ = 2">
+            <h3 class="prompt-q">อนุกรมบาลเมอร์ (เส้นที่ตามองเห็น) มีชั้นปลายทาง \(n_1\) เท่าใด?</h3>
+            <div class="quiz-options"><button type="button" data-quiz-option="n₁ = 2">n₁ = 2</button><button type="button" data-quiz-option="n₁ = 1">n₁ = 1</button><button type="button" data-quiz-option="n₁ = 3">n₁ = 3</button></div>
+            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="equipment" data-title="อุปกรณ์">
+      <header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
+      <div class="card-grid cols-3 equip-grid">
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: สเปกโตรสโคป"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2"><rect x="20" y="30" width="30" height="12" rx="2"/><path d="M50 36h14"/><rect x="64" y="22" width="16" height="28" rx="2"/><path d="M30 30l6-8h8"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>สเปกโตรสโคป</h3><p>แยกแสงเป็นสเปกตรัมด้วยเกรตติง/ปริซึม พร้อมสเกลอ่านความยาวคลื่น</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: หลอดสเปกตรัมไฮโดรเจน"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="40" y="14" width="16" height="40" rx="8"/><path d="M48 6v8M48 54v8"/><path d="M44 30h8M44 38h8" stroke-width="1.5"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>หลอดสเปกตรัมไฮโดรเจน</h3><p>หลอดบรรจุแก๊สไฮโดรเจน เมื่อจ่ายไฟแรงสูงจะเรืองแสงเป็นเส้นสเปกตรัม</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: แหล่งจ่ายไฟแรงสูง"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="24" y="18" width="48" height="32" rx="3"/><path d="M44 26l-6 10h10l-6 10"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>แหล่งจ่ายไฟแรงสูง</h3><p>จ่ายไฟให้หลอดสเปกตรัมเรืองแสง ระวังไฟแรงสูง</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: หลอดไส้ (วัตถุร้อน)"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="48" cy="30" r="14"/><path d="M44 30q4 -8 8 0M42 44h12M44 48h8"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>หลอดไส้ (วัตถุร้อน)</h3><p>ให้สเปกตรัมต่อเนื่อง ใช้เทียบกับสเปกตรัมเส้นของแก๊ส</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: หลอดสเปกตรัมแก๊สอื่น"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="34" y="14" width="12" height="40" rx="6"/><rect x="52" y="14" width="12" height="40" rx="6"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>หลอดสเปกตรัมแก๊สอื่น</h3><p>เช่น ฮีเลียม/นีออน เพื่อเปรียบเทียบลายเส้นสเปกตรัมของแต่ละธาตุ</p></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section" id="formula" data-title="สูตร">
+      <header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
+      <div class="card-grid cols-3">
+        <article class="formula-card formula-accent"><h3>สูตรริดเบิร์ก</h3><p class="formula">\[\dfrac{1}{\lambda}=R_H\!\left(\dfrac{1}{n_1^2}-\dfrac{1}{n_2^2}\right)\]</p><p class="formula-note">เส้นสเปกตรัมไฮโดรเจน</p></article>
+        <article class="formula-card"><h3>อนุกรมบาลเมอร์</h3><p class="formula">\[\dfrac{1}{\lambda}=R_H\!\left(\dfrac14-\dfrac1{n^2}\right)\]</p><p class="formula-note">\(n_1=2,\ n=3,4,5,6\)</p></article>
+        <article class="formula-card"><h3>พลังงานโฟตอน</h3><p class="formula">\[E=hf=\dfrac{hc}{\lambda}\]</p><p class="formula-note">จากการเปลี่ยนระดับพลังงาน</p></article>
+        <article class="formula-card"><h3>เส้นตรงหา \(R_H\)</h3><p class="formula">\[y=\dfrac1\lambda,\ x=\dfrac14-\dfrac1{n^2}\]</p><p class="formula-note">ความชัน = \(R_H\) (ผ่านจุดกำเนิด)</p></article>
+        <article class="formula-card"><h3>ค่าอ้างอิง</h3><p class="formula">\[R_H\approx1.097\times10^{7}\]</p><p class="formula-note">\(\mathrm{m^{-1}}\)</p></article>
+        <article class="formula-card"><h3>ร้อยละความคลาดเคลื่อน</h3><p class="formula">\[\%\,\mathrm{err}=\dfrac{|R_H-R_{ref}|}{R_{ref}}\times100\]</p><p class="formula-note">เทียบค่ามาตรฐาน</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="procedure" data-title="ขั้นตอน">
+      <header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
+      <ol class="steps">
+        <li><span class="step-n">1</span><div><h3>สอบเทียบสเปกโตรสโคป</h3><p>ปรับโฟกัสและสเกลของสเปกโตรสโคปให้อ่านความยาวคลื่นได้ถูกต้อง</p></div></li>
+        <li><span class="step-n">2</span><div><h3>ดูสเปกตรัมต่อเนื่อง</h3><p>ส่องหลอดไส้ (วัตถุร้อน) สังเกตแถบสีรุ้งต่อเนื่อง</p></div></li>
+        <li><span class="step-n">3</span><div><h3>ดูสเปกตรัมเส้น</h3><p>จ่ายไฟแรงสูงให้หลอดไฮโดรเจน ส่องดูเส้นสเปกตรัมเฉพาะ</p></div></li>
+        <li><span class="step-n">4</span><div><h3>อ่านความยาวคลื่นเส้นบาลเมอร์</h3><p>อ่าน \(\lambda\) ของเส้นแดง น้ำเงิน-เขียว และม่วง (\(n=3,4,5,6\))</p></div></li>
+        <li><span class="step-n">5</span><div><h3>คำนวณและเขียนกราฟ</h3><p>หา \(1/\lambda\) และ \((\tfrac14-\tfrac1{n^2})\) เขียนกราฟแล้วหาความชัน \(=R_H\)</p></div></li>
+      </ol>
+      <div class="note note-warn"><span class="note-icon" aria-hidden="true">!</span><div><strong>ความปลอดภัย — ไฟแรงสูง</strong><ul><li>อย่าสัมผัสขั้วหลอดสเปกตรัมขณะจ่ายไฟ</li><li>หลอดร้อน รอให้เย็นก่อนเปลี่ยน</li><li>มองผ่านช่องสเปกโตรสโคป ไม่จ้องหลอดโดยตรงเป็นเวลานาน</li></ul></div></div>
+    </section>
+
+    <section class="section band" id="data" data-title="ตารางข้อมูล">
+      <header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>ตารางผลการทดลอง (อนุกรมบาลเมอร์)</h2></div></header>
+      <p class="lead">กรอกความยาวคลื่น \(\lambda\) ของแต่ละเส้น ระบบคำนวณ \(1/\lambda\) และ \((\tfrac14-\tfrac1{n^2})\) เขียนกราฟ \(1/\lambda\)–\((\tfrac14-\tfrac1{n^2})\) แล้วหาค่าคงที่ริดเบิร์ก \(R_H\) จากความชัน</p>
+
+      <div class="worksheet-block">
+        <div class="data-foot">
+          <div class="table-wrap" style="flex:1"><table class="data-table">
+            <thead><tr><th scope="col">\(n\) (→2)</th><th scope="col">\(\lambda\) (nm)</th><th scope="col">\(1/\lambda\) (m⁻¹)</th><th scope="col">\(\tfrac14-\tfrac1{n^2}\)</th></tr></thead>
+            <tbody id="specBody">
+              <tr data-row data-n="3"><th scope="row">3 · แดง</th><td><input id="lam3" data-lam data-store="lam3" type="number" step="0.1" inputmode="decimal" value="656.3"></td><td data-inv>—</td><td data-x>—</td></tr>
+              <tr data-row data-n="4"><th scope="row">4 · น้ำเงิน-เขียว</th><td><input id="lam4" data-lam data-store="lam4" type="number" step="0.1" inputmode="decimal" value="486.1"></td><td data-inv>—</td><td data-x>—</td></tr>
+              <tr data-row data-n="5"><th scope="row">5 · น้ำเงิน-ม่วง</th><td><input id="lam5" data-lam data-store="lam5" type="number" step="0.1" inputmode="decimal" value="434.0"></td><td data-inv>—</td><td data-x>—</td></tr>
+              <tr data-row data-n="6"><th scope="row">6 · ม่วง</th><td><input id="lam6" data-lam data-store="lam6" type="number" step="0.1" inputmode="decimal" value="410.2"></td><td data-inv>—</td><td data-x>—</td></tr>
+            </tbody>
+          </table></div>
+          <figure class="chart-card"><svg id="specGraph" viewBox="0 0 520 320" role="img" aria-label="กราฟ 1/λ กับ (1/4 − 1/n²)"></svg><figcaption>กราฟ \(1/\lambda\)–\((\tfrac14-\tfrac1{n^2})\) ความชัน = \(R_H\)</figcaption></figure>
+        </div>
+        <div class="result-summary" style="margin-top:1rem">
+          <h3>ผลวิเคราะห์สด</h3>
+          <dl>
+            <div><dt>ค่าคงที่ริดเบิร์ก \(R_H\) (ความชัน)</dt><dd id="rhOutput">—</dd></div>
+            <div class="rs-em"><dt>ร้อยละความคลาดเคลื่อน (เทียบ 1.097×10⁷)</dt><dd id="errOutput">—</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="actions-row"><button type="button" class="btn btn-soft" id="resetTable">ล้างข้อมูลตาราง</button><span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span></div>
+    </section>
+
+    <section class="section" id="example" data-title="ตัวอย่าง">
+      <header class="section-head"><div><p class="kicker">ทำตามทีละบรรทัด</p><h2>ตัวอย่างการคำนวณ</h2></div></header>
+      <p class="lead">ตัวอย่างค่าสมมติเพื่อแสดงวิธีหาค่าคงที่ริดเบิร์กจากเส้นเดียว (ค่าจริงใช้ความชันของกราฟรวมทุกเส้น)</p>
+      <div class="reveal-controls"><button type="button" class="btn btn-primary" id="exampleShow">แสดงตัวอย่างการคำนวณ</button><button type="button" class="btn btn-ghost" id="exampleHide" hidden>ซ่อนตัวอย่าง</button></div>
+      <div class="example-body" id="exampleBody" hidden></div>
+    </section>
+
+    <section class="section" id="checkpoint" data-title="ตรวจสอบ">
+      <header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
+      <div class="prompt-card prompt-wide">
+        <p class="prompt-tag">คำถามท้าทาย</p>
+        <p class="prompt-q">เหตุใดวัตถุร้อน (ไส้หลอด) จึงให้สเปกตรัม <strong>ต่อเนื่อง</strong> แต่แก๊สไฮโดรเจนให้สเปกตรัม <strong>เส้น</strong>?</p>
+        <div class="reveal-controls"><button type="button" class="btn btn-primary" id="answerShow">แสดงคำตอบ</button><button type="button" class="btn btn-ghost" id="answerHide" hidden>ซ่อนคำตอบ</button></div>
+        <div class="answer-body" id="answerBody" hidden>
+          <p>ในของแข็งร้อน อะตอมจำนวนมากอยู่ชิดกัน ระดับพลังงานเหลื่อมซ้อนจนต่อเนื่อง จึงเปล่งทุกความยาวคลื่น</p>
+          <ul class="tick-list"><li>แก๊สเบาบาง อะตอมเดี่ยวมีระดับพลังงานแยกชัด → เปล่งเฉพาะบางความยาวคลื่น</li><li>ตำแหน่งเส้นจึงเป็น "ลายนิ้วมือ" ของธาตุ</li></ul>
+          <p class="muted">บทเรียน: รูปแบบสเปกตรัมบอกทั้งชนิดแหล่งกำเนิดและองค์ประกอบของสาร</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="analysis" data-title="วิเคราะห์">
+      <header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
+      <div class="split">
+        <ol class="analysis-steps">
+          <li>คำนวณ \(1/\lambda\) และ \((\tfrac14-\tfrac1{n^2})\) ของแต่ละเส้น</li>
+          <li>เขียนกราฟ \(1/\lambda\) กับ \((\tfrac14-\tfrac1{n^2})\) ลากเส้นตรงผ่านจุดกำเนิด</li>
+          <li>ความชัน = ค่าคงที่ริดเบิร์ก \(R_H\)</li>
+          <li>เทียบกับค่ามาตรฐาน \(1.097\times10^{7}\,\mathrm{m^{-1}}\) ด้วยร้อยละความคลาดเคลื่อน</li>
+        </ol>
+        <aside class="note note-info note-block"><span class="note-icon" aria-hidden="true">◆</span><div><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>การสอบเทียบสเกลของสเปกโตรสโคป</li><li>การอ่านตำแหน่งเส้นที่ไม่คม</li><li>เส้นจาง (\(n\) สูง) อ่านยาก</li></ul></div></aside>
+      </div>
+    </section>
+
+    <section class="section band" id="discussion" data-title="อภิปราย">
+      <header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
+      <div class="q-grid">
+        <article class="q-card"><span class="q-no">Q1</span><p>เหตุใดสเปกตรัมเส้นจึงเป็น "ลายนิ้วมือ" ที่ระบุชนิดธาตุได้?</p></article>
+        <article class="q-card"><span class="q-no">Q2</span><p>อนุกรมบาลเมอร์ต่างจากอนุกรมไลมาน/พาสเชนอย่างไร และอยู่ในย่านใด?</p></article>
+        <article class="q-card"><span class="q-no">Q3</span><p>เหตุใดการเขียนกราฟ \(1/\lambda\) กับ \((\tfrac14-\tfrac1{n^2})\) จึงให้เส้นตรงผ่านจุดกำเนิด?</p></article>
+        <article class="q-card"><span class="q-no">Q4</span><p>เส้นสเปกตรัมที่ \(n\) สูงขึ้นเข้าใกล้กันมากขึ้นเพราะอะไร?</p></article>
+        <article class="q-card"><span class="q-no">Q5</span><p>ค่า \(R_H\) ที่วัดได้ใกล้เคียงค่ามาตรฐานเพียงใด เพราะเหตุใด?</p></article>
+      </div>
+    </section>
+
+    <section class="section spotlight" id="conclusion" data-title="สรุป">
+      <header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
+      <div class="conclusion-grid">
+        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong> จากข้อมูลของคุณเอง</p>
+        <ul class="conclusion-points">
+          <li><span class="cp-ico">1</span><div><h3>เปรียบเทียบสเปกตรัม</h3><p>อธิบายความต่างของสเปกตรัมต่อเนื่อง (วัตถุร้อน) กับสเปกตรัมเส้น (ไฮโดรเจน)</p></div></li>
+          <li><span class="cp-ico">2</span><div><h3>รายงานความยาวคลื่น</h3><p>ระบุ \(\lambda\) ของเส้นบาลเมอร์ที่วัดได้ พร้อม \(1/\lambda\)</p></div></li>
+          <li><span class="cp-ico">3</span><div><h3>รายงาน \(R_H\)</h3><p>หาค่าคงที่ริดเบิร์กจากความชันกราฟ พร้อมหน่วย m⁻¹</p></div></li>
+          <li><span class="cp-ico">4</span><div><h3>เทียบและอภิปราย</h3><p>เปรียบเทียบกับค่ามาตรฐานด้วยร้อยละความคลาดเคลื่อน และระบุแหล่งคลาดเคลื่อน</p></div></li>
+        </ul>
+      </div>
+      <p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
+    </section>
+  </main>
+
+  <nav class="stepper" aria-label="นำทางทีละส่วน"><button type="button" id="prevSec" aria-label="ส่วนก่อนหน้า">‹</button><span id="stepLabel">บทนำ</span><button type="button" id="nextSec" aria-label="ส่วนถัดไป">›</button></nav>
+  <div class="present-bar" id="presentBar" hidden><span class="present-label">▶ โหมดนำเสนอ</span><button type="button" id="presentPrev" aria-label="สไลด์ก่อนหน้า">‹</button><span id="presentCounter">1 / 14</span><button type="button" id="presentNext" aria-label="สไลด์ถัดไป">›</button><button type="button" id="presentExit" class="present-exit">✕ ออก (Esc)</button></div>
+  <div class="present-progress" id="presentProgress" aria-hidden="true"><span></span></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden><span id="toastMsg"></span><button type="button" id="toastUndo">เลิกทำ</button></div>
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="ภาพขยายอุปกรณ์"><div class="lightbox-inner"><button class="lightbox-close" id="lightboxClose" type="button" aria-label="ปิดภาพขยาย">✕</button><div class="lightbox-body" id="lightboxBody"></div></div></div>
+  <noscript><p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่การคำนวณและปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p></noscript>
+</body>
+</html>

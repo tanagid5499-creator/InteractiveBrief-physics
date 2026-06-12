@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clicker · ตอบคำถาม</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&family=IBM+Plex+Mono:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{--page:#f3f7ff;--ink:#14213d;--muted:#51607d;--blue:#1d4fd0;--blue2:#2563eb;--band:#e6eefc;--line:#d6e0f5;--surface:#fff;--ok:#0f6e56;--accent:#d9480f;}
+  *{box-sizing:border-box}
+  body{font-family:'Sarabun',sans-serif;background:var(--page);color:var(--ink);margin:0;padding:1rem;line-height:1.5;max-width:520px;margin:0 auto}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  .head{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-bottom:1rem}
+  .brand{font-weight:700;color:var(--blue)}
+  .brand small{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+  .qno{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:#fff;background:var(--blue);border-radius:8px;padding:.2rem .55rem;font-weight:600}
+  .stem{font-size:1.18rem;font-weight:600;margin:.4rem 0 1.1rem;min-height:2.5rem}
+  .opts{display:flex;flex-direction:column;gap:.7rem}
+  .opt{display:flex;align-items:center;gap:.8rem;width:100%;text-align:left;border:1.5px solid var(--line);background:var(--surface);border-radius:12px;padding:.85rem .9rem;font-size:1.02rem;font-family:'Sarabun',sans-serif;color:var(--ink);cursor:pointer}
+  .opt:hover{background:var(--band)}
+  .opt .k{flex:none;width:2rem;height:2rem;border-radius:8px;background:var(--band);color:var(--blue);font-family:'IBM Plex Mono',monospace;font-weight:600;display:grid;place-items:center}
+  .opt.chosen{border-color:var(--blue);background:var(--band)}
+  .opt.chosen .k{background:var(--blue);color:#fff}
+  .opt.chosen .pick{margin-left:auto;font-size:.8rem;color:var(--blue);flex:none}
+  .opt:disabled{opacity:.6;cursor:default}
+  .status{margin-top:1.1rem;border-radius:10px;padding:.7rem .9rem;font-size:.95rem;display:flex;align-items:center;gap:.5rem}
+  .status.sent{background:#e1f5ee;color:var(--ok)}
+  .status.closed{background:#faece7;color:var(--accent)}
+  .status.wait{background:var(--band);color:var(--muted)}
+  .wait-screen{text-align:center;color:var(--muted);padding:3rem 1rem}
+  .wait-screen .dot{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;background:var(--blue);margin:0 .15rem;animation:b 1.2s infinite}
+  .wait-screen .dot:nth-child(2){animation-delay:.2s}.wait-screen .dot:nth-child(3){animation-delay:.4s}
+  @keyframes b{0%,100%{opacity:.3}50%{opacity:1}}
+  @media (prefers-reduced-motion:reduce){.dot{animation:none}.opt{transition:none}}
+</style>
+</head>
+<body>
+  <div class="head">
+    <div class="brand">ตอบคำถาม<small id="metaLabel">—</small></div>
+    <span class="qno" id="qno" hidden>ข้อ —</span>
+  </div>
+  <div id="app">
+    <div class="wait-screen" id="wait">รออาจารย์เปิดคำถาม<br><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <div id="live" hidden>
+      <div class="stem" id="stem">—</div>
+      <div class="opts" id="opts"></div>
+      <div class="status" id="status" hidden></div>
+    </div>
+  </div>
+
+<script src="questions.js"></script>
+<script>
+(function(){
+  const Q = window.CLICKER_QUESTIONS, META = window.CLICKER_META;
+  const ch = new BroadcastChannel(META.channel);
+  const KEYS = ["A","B","C","D","E"];
+  const clientId = (function(){ let id=localStorage.getItem("clicker-cid"); if(!id){id=Math.random().toString(36).slice(2,9);localStorage.setItem("clicker-cid",id);} return id; })();
+  let state = null;          // { sessionId, qIndex, pollOpen }
+  const myChoice = {};       // myChoice[sessionId+"#"+qIndex] = "A"
+  const keyOf = () => state ? state.sessionId+"#"+state.qIndex : "";
+
+  document.getElementById("metaLabel").textContent = META.course + " · " + META.lab;
+
+  function render(){
+    const wait=document.getElementById("wait"), live=document.getElementById("live"), qno=document.getElementById("qno");
+    if(!state){ wait.hidden=false; live.hidden=true; qno.hidden=true; return; }
+    wait.hidden=true; live.hidden=false; qno.hidden=false;
+    const q = Q[state.qIndex];
+    qno.textContent = "ข้อ " + (state.qIndex+1) + " / " + Q.length;
+    document.getElementById("stem").textContent = q.stem;
+    const mine = myChoice[keyOf()];
+    document.getElementById("opts").innerHTML = q.options.map((opt,i)=>{
+      const k=KEYS[i], chosen = mine===k;
+      return `<button class="opt${chosen?" chosen":""}" data-k="${k}" ${state.pollOpen?"":"disabled"}><span class="k">${k}</span><span>${opt}</span>${chosen?'<span class="pick">เลือกไว้</span>':''}</button>`;
+    }).join("");
+    document.querySelectorAll(".opt").forEach(b=> b.onclick = ()=>vote(b.dataset.k));
+    const st = document.getElementById("status");
+    if(!state.pollOpen){ st.hidden=false; st.className="status closed"; st.textContent="✕ ปิดรับคำตอบแล้ว"; }
+    else if(mine){ st.hidden=false; st.className="status sent"; st.textContent="✓ ส่งคำตอบแล้ว — เปลี่ยนได้จนกว่าจะปิดรับ (ระบบไม่เฉลย)"; }
+    else { st.hidden=true; }
+  }
+
+  function vote(k){
+    if(!state || !state.pollOpen) return;
+    myChoice[keyOf()] = k;
+    ch.postMessage({ type:"vote", sessionId:state.sessionId, qIndex:state.qIndex, choice:k, clientId });
+    render();
+  }
+
+  ch.onmessage = (e)=>{ const m=e.data; if(m && m.type==="state"){ state={sessionId:m.sessionId,qIndex:m.qIndex,pollOpen:m.pollOpen}; render(); } };
+  ch.postMessage({ type:"hello" });   // ขอสถานะปัจจุบันจากจอครู
+  render();
+})();
+</script>
+</body>
+</html>

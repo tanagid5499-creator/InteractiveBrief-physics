@@ -1,0 +1,40 @@
+/* ============================================================================
+   Lab 01 · การวัด — per-lab style overrides
+   Design system: ../../shared/drafting-sheet.css  (incl. shared quiz / worksheet
+   components). This file = ONLY Lab 01's scale-reading simulators + the
+   multi-trial table's long row-label column.
+   ========================================================================== */
+
+/* ── scale-reading simulators ─────────────────────────────────────────── */
+.simulator-grid { display: grid; grid-template-columns: 1fr; gap: clamp(1rem, 2.2vw, 1.6rem); margin-top: 1.4rem; }
+.simulator-panel {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow-sm);
+  padding: clamp(1rem, 2vw, 1.5rem);
+}
+.sim-header { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: .7rem; }
+.sim-header h3 { margin: 0; font-size: 1.12rem; color: var(--navy); }
+.sim-readout {
+  font-family: var(--font-mono); font-weight: 600; font-size: 1.15rem;
+  color: var(--blue-600); background: var(--blue-50);
+  border: 1px solid var(--blue-200); border-radius: var(--radius-sm); padding: .2rem .6rem;
+}
+.simulator-panel canvas {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff;
+}
+.demo-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem .9rem; margin: .9rem 0; }
+.demo-controls label { display: flex; align-items: center; gap: .55rem; font-size: .92rem; color: var(--muted); flex: 1 1 240px; }
+.demo-controls input[type="range"] { flex: 1; accent-color: var(--blue-500); cursor: pointer; }
+
+/* ── multi-trial worksheet tables: long row-label column ──────────────── */
+#data .data-table th[scope="row"] {
+  text-align: left; white-space: normal; min-width: 11rem;
+  color: var(--ink); font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .sim-header { flex-direction: column; align-items: flex-start; gap: .3rem; }
+  .demo-controls label { flex-basis: 100%; }
+}
+

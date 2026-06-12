@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 04 · การสะท้อนและการหักเหของแสง · Lab Brief</title>
+  <meta name="description" content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261111 บทที่ 4 การสะท้อนและการหักเหของแสง">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E04%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <script defer src="../../shared/brief-core.js?v=7"></script>
+  <script defer src="js/app.js?v=3"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+
+  <header class="topbar" id="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#hero" aria-label="กลับสู่ด้านบน"><span class="brand-badge">04</span><span class="brand-text"><strong>สะท้อน–หักเหแสง</strong><small>261111 · ปฏิบัติการฟิสิกส์</small></span></a>
+      <nav class="phase-nav" id="chipNav" aria-label="สารบัญบทปฏิบัติการ">
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">เริ่มต้น</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#hero">บทนำ</a><a class="chip" role="menuitem" href="#hook">ชวนคิด</a><a class="chip" role="menuitem" href="#objectives">จุดประสงค์</a></div></div>
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">หลักการ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#concept">แนวคิดหลัก</a><a class="chip" role="menuitem" href="#theory">ทฤษฎี</a><a class="chip" role="menuitem" href="#equipment">อุปกรณ์</a><a class="chip" role="menuitem" href="#formula">สูตร</a></div></div>
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">ลงมือทำ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#procedure">ขั้นตอน</a><a class="chip" role="menuitem" href="#data">ตารางข้อมูล</a><a class="chip" role="menuitem" href="#example">ตัวอย่าง</a><a class="chip" role="menuitem" href="#checkpoint">ตรวจสอบ</a></div></div>
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">สรุปผล</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#analysis">วิเคราะห์</a><a class="chip" role="menuitem" href="#discussion">อภิปราย</a><a class="chip" role="menuitem" href="#conclusion">สรุป</a></div></div>
+      </nav>
+      <div class="topbar-meta">
+        <span class="sec-counter" aria-hidden="true"><b id="secNow">01</b><span>/14</span></span>
+        <div class="ratio-seg" role="group" aria-label="อัตราส่วนการแสดงผล"><span class="ratio-seg-ico" aria-hidden="true">▭</span><button type="button" data-ratio="full" aria-pressed="true">จอเต็ม</button><button type="button" data-ratio="43" aria-pressed="false">4:3</button><button type="button" data-ratio="169" aria-pressed="false">16:9</button></div>
+        <button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
+      </div>
+    </div>
+    <div class="read-progress" role="progressbar" aria-label="ความคืบหน้าการอ่าน" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="readBar"></span></div>
+  </header>
+
+  <main id="main">
+    <section class="section hero" id="hero" data-title="บทนำ">
+      <div class="hero-top"><p class="hero-eyebrow">261111 · ปฏิบัติการฟิสิกส์ · บทที่ 04</p><h1 class="hero-title">การสะท้อนและการหักเหของแสง</h1></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <figure class="hero-question"><figcaption class="hq-tag">คำถามชวนคิด</figcaption><blockquote class="hq-text">ทำไมหลอดในแก้วน้ำจึงดู <strong>หักงอ</strong>? และเราจะใช้การหักเหของแสง <strong>วัดดัชนีหักเห</strong> ของอะคริลิกได้สองวิธีอย่างไร</blockquote></figure>
+          <ul class="hero-meta"><li><span class="hm-num">n<sub>ref</sub></span><span class="hm-label">≈ 1.49 (อะคริลิก · ใช้เทียบผล)</span></li></ul>
+          <div class="hero-actions"><a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a><a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a></div>
+        </div>
+        <figure class="hero-visual">
+          <span class="fig-tag">FIG.1 · การหักเหที่ผิวรอยต่อ</span>
+          <svg viewBox="0 0 460 280" role="img" aria-label="แผนภาพการหักเหของแสง">
+            <rect x="30" y="140" width="400" height="110" fill="rgba(37,99,235,.08)"/>
+            <line x1="30" y1="140" x2="430" y2="140" stroke="#9fb4d6"/>
+            <line x1="230" y1="40" x2="230" y2="250" stroke="#9fb4d6" stroke-dasharray="5 5"/>
+            <line x1="120" y1="56" x2="230" y2="140" stroke="#2563eb" stroke-width="3"/>
+            <line x1="230" y1="140" x2="300" y2="240" stroke="#2563eb" stroke-width="3"/>
+            <line x1="230" y1="140" x2="340" y2="56" stroke="#2563eb" stroke-width="2" opacity=".4"/>
+            <path d="M230 100 A40 40 0 0 0 205 124" fill="none" stroke="#d9480f" stroke-width="1.5"/>
+            <path d="M230 180 A40 40 0 0 0 248 198" fill="none" stroke="#d9480f" stroke-width="1.5"/>
+            <text x="196" y="110" class="d-label">θ₁</text><text x="246" y="196" class="d-label">θ₂</text>
+            <text x="70" y="130" class="d-label">อากาศ</text><text x="70" y="166" class="d-label">อะคริลิก</text>
+          </svg>
+          <figcaption>แสงเข้าตัวกลางที่หนาแน่นกว่าจะหักเห <strong>เข้าหาเส้นปกติ</strong> (θ₂ &lt; θ₁)</figcaption>
+        </figure>
+      </div>
+      <p class="scroll-hint" aria-hidden="true">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
+    </section>
+
+    <section class="section" id="hook" data-title="ชวนคิด">
+      <header class="section-head"><div><p class="kicker">ชวนคิดก่อนเริ่ม</p><h2>แสงเปลี่ยนทิศเพราะอะไร?</h2></div></header>
+      <div class="split">
+        <div class="prose"><p>เมื่อแสงข้ามจากตัวกลางหนึ่งไปอีกตัวกลาง อัตราเร็วของมันเปลี่ยน ทำให้ทิศทางหักเห ดัชนีหักเห \(n=c/v\) บอกว่าแสงช้าลงเท่าใด</p><p>แล็บนี้หาดัชนีหักเหของอะคริลิก <strong>สองวิธี</strong> — จากกฎของสเนลล์ (กราฟ) และจาก <strong>มุมวิกฤต</strong> แล้วเทียบกัน</p></div>
+                <aside class="prompt-card bloom-quiz-panel">
+          <p class="prompt-tag">ตรวจความเข้าใจ</p>
+          <div class="quick-quiz" data-qid="rr-remember" data-bloom="remember" data-answer="C">
+            <p class="quiz-label">คำถามสั้น</p>
+            <h3 class="prompt-q">มุมตกกระทบ มุมสะท้อน และมุมหักเหต้องวัดเทียบกับแนวใด?</h3>
+            <div class="quiz-options">
+              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> ผิวรอยต่อ</button>
+              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> แนวนอน</button>
+              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> เส้นปกติ</button>
+              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> แนวลำแสงสะท้อน</button>
+              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ขอบแผ่นอะคริลิก</button>
+            </div>
+            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="objectives" data-title="จุดประสงค์">
+      <header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
+      <ol class="objective-list">
+        <li><span class="obj-no">1</span><div><h3>ศึกษากฎการสะท้อนของแสง</h3><p>ยืนยันว่ามุมตกกระทบเท่ากับมุมสะท้อน \(\theta_1=\theta_2\)</p></div></li>
+        <li><span class="obj-no">2</span><div><h3>ศึกษากฎการหักเหของแสง</h3><p>ตรวจสอบกฎของสเนลล์และหาดัชนีหักเหจากความชันกราฟ \(\sin\theta_1\)–\(\sin\theta_2\)</p></div></li>
+        <li><span class="obj-no">3</span><div><h3>หาดัชนีหักเหจากมุมวิกฤต</h3><p>หา \(n\) จากมุมวิกฤต \(n=1/\sin\theta_c\) แล้วเทียบกับวิธีกราฟ</p></div></li>
+      </ol>
+      <div class="note note-info"><span class="note-icon" aria-hidden="true">◆</span><p><strong>สิ่งที่จะได้ลงมือทำ:</strong> ยิงเลเซอร์เข้าผิวอะคริลิกครึ่งวงกลมหลายมุม · วัดมุมสะท้อน/มุมหักเห/มุมวิกฤต · หา \(\sin\theta\) · เขียนกราฟ · คำนวณ \(n\) สองวิธี</p></div>
+    </section>
+
+    <section class="section band" id="concept" data-title="แนวคิดหลัก">
+      <header class="section-head"><div><p class="kicker">ภาพรวมแนวคิด</p><h2>สะท้อน หักเห และมุมวิกฤต</h2></div></header>
+      <p class="lead">เมื่อแสงกระทบผิวรอยต่อ ส่วนหนึ่งสะท้อนกลับ ส่วนหนึ่งหักเหเข้าตัวกลางใหม่ ถ้าออกจากตัวกลางหนาแน่นด้วยมุมโตพอ จะเกิดการสะท้อนกลับหมด</p>
+      <div class="card-grid cols-3">
+        <article class="info-card"><span class="ic-step">A</span><h3>กฎการสะท้อน</h3><p>มุมตกกระทบเท่ากับมุมสะท้อน \(\theta_1=\theta_2\) วัดจากเส้นปกติเสมอ</p></article>
+        <article class="info-card"><span class="ic-step">B</span><h3>กฎของสเนลล์</h3><p>\(n_1\sin\theta_1=n_2\sin\theta_2\) เชื่อมมุมในสองตัวกลางผ่านดัชนีหักเห</p></article>
+        <article class="info-card"><span class="ic-step">C</span><h3>มุมวิกฤต</h3><p>เมื่อแสงออกสู่อากาศด้วยมุม \(\theta_c\) ที่ทำให้มุมหักเห \(=90^\circ\) จะได้ \(n=1/\sin\theta_c\)</p></article>
+      </div>
+    </section>
+
+    <section class="section spotlight" id="theory" data-title="ทฤษฎี">
+      <header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>หา n สองทาง</h2></div></header>
+      <div class="theory-grid">
+        <div class="prose">
+          <p><strong>วิธีที่ 1 (กราฟ):</strong> เมื่ออากาศเป็นตัวกลางแรก (\(n_1=1\)): \(\sin\theta_1=n\sin\theta_2\) ดังนั้นกราฟ \(\sin\theta_1\)–\(\sin\theta_2\) เป็นเส้นตรงผ่านจุดกำเนิด ความชัน \(=n\)</p>
+          <p><strong>วิธีที่ 2 (มุมวิกฤต):</strong> เมื่อแสงในอะคริลิกตกกระทบผิวด้วยมุมวิกฤต \(\theta_c\) มุมหักเหในอากาศ \(=90^\circ\) จาก \(n\sin\theta_c=1\cdot\sin90^\circ\) จึง \(n=1/\sin\theta_c\)</p>
+          <ul class="tick-list"><li>วัดมุมจาก <b>เส้นปกติ</b> ไม่ใช่จากผิว</li><li>วิธีกราฟใช้หลายมุมเพื่อเฉลี่ยความคลาดเคลื่อน</li><li>เลยมุมวิกฤต = สะท้อนกลับหมด (total internal reflection)</li></ul>
+        </div>
+                <aside class="prompt-card bloom-quiz-panel">
+          <p class="prompt-tag">ตรวจความเข้าใจ</p>
+          <div class="quick-quiz" data-qid="rr-understand" data-bloom="understand" data-answer="B">
+            <p class="quiz-label">คำถามสั้น</p>
+            <h3 class="prompt-q">เมื่อแสงเดินทางจากอากาศเข้าสู่อะคริลิก แนวลำแสงโดยทั่วไปจะเปลี่ยนอย่างไร?</h3>
+            <div class="quiz-options">
+              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> หักออกจากเส้นปกติ</button>
+              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> หักเข้าหาเส้นปกติ</button>
+              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> สะท้อนกลับทั้งหมด</button>
+              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ไม่เปลี่ยนทิศทุกกรณี</button>
+              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> หยุดที่ผิวรอยต่อ</button>
+            </div>
+            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+          </div>
+          <div class="quick-quiz" data-qid="rr-apply" data-bloom="apply" data-answer="D">
+            <p class="quiz-label">คำถามสั้น</p>
+            <h3 class="prompt-q">ถ้ามุมวิกฤตของอะคริลิกเท่ากับ \(42^\circ\) ค่า \(n=1/\sin\theta_c\) ใกล้เคียงข้อใด?</h3>
+            <div class="quiz-options">
+              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> 0.67</button>
+              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> 1.00</button>
+              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> 1.19</button>
+              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> 1.49</button>
+              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> 2.38</button>
+            </div>
+            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="equipment" data-title="อุปกรณ์">
+      <header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
+      <div class="card-grid cols-3 equip-grid">
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: เลเซอร์เส้น"><img src="assets/equip/equip-1.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>แหล่งกำเนิดแสงเลเซอร์ (เส้น)</h3><p>ให้ลำแสงตรงคมชัด ใช้ยิงเข้าผิวอะคริลิกที่จุดศูนย์กลางของแผ่นวงกลมองศา อ่านมุมได้ง่าย</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: แผ่นวงกลมลอกองศา"><img src="assets/equip/equip-2.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>แผ่นวงกลมลอกองศา</h3><p>จานหมุนพร้อมสเกลองศารอบจุดศูนย์กลาง หมุนเพื่อเปลี่ยนมุมตกกระทบทีละ 10° และอ่านมุมสะท้อน/หักเห/วิกฤต</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: อะคริลิกครึ่งวงกลม"><img src="assets/equip/equip-3.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>อะคริลิกใสครึ่งวงกลม</h3><p>ตัวกลางที่ต้องการหาดัชนีหักเห รูปครึ่งวงกลมทำให้แสงเข้า/ออกตั้งฉากกับผิวโค้ง จึงหักเหเฉพาะที่ผิวแบนตรงกลาง</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: แผ่นฉาก/จอรับแสง"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="30" y="16" width="36" height="36" rx="2"/><path d="M48 16v36"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>แผ่นฉาก / จอรับแสง</h3><p>ช่วยให้เห็นแนวลำแสงสะท้อนและหักเหชัดเจนเพื่ออ่านมุมบนสเกลองศา</p></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section" id="formula" data-title="สูตร">
+      <header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
+      <div class="card-grid cols-3">
+        <article class="formula-card"><h3>กฎการสะท้อน</h3><p class="formula">\[\theta_1=\theta_2\]</p><p class="formula-note">มุมตกกระทบ = มุมสะท้อน</p></article>
+        <article class="formula-card formula-accent"><h3>กฎของสเนลล์</h3><p class="formula">\[n_1\sin\theta_1=n_2\sin\theta_2\]</p><p class="formula-note">อากาศ \(n_1\approx1\)</p></article>
+        <article class="formula-card"><h3>ดัชนีจากการหักเห</h3><p class="formula">\[n=\dfrac{\sin\theta_1}{\sin\theta_2}\]</p><p class="formula-note">= ความชันกราฟ \(\sin\theta_1\)–\(\sin\theta_2\)</p></article>
+        <article class="formula-card"><h3>ดัชนีกับอัตราเร็ว</h3><p class="formula">\[n=\dfrac{c}{v}=\dfrac{v_1}{v_2}=\dfrac{\lambda_1}{\lambda_2}\]</p><p class="formula-note">แสงช้าลงในตัวกลางหนาแน่น</p></article>
+        <article class="formula-card"><h3>ดัชนีจากมุมวิกฤต</h3><p class="formula">\[n=\dfrac{1}{\sin\theta_c}\]</p><p class="formula-note">เมื่อมุมหักเห \(=90^\circ\)</p></article>
+        <article class="formula-card"><h3>ร้อยละความแตกต่าง</h3><p class="formula">\[\%\,\mathrm{diff}=\dfrac{|n_1-n_2|}{(n_1+n_2)/2}\times100\]</p><p class="formula-note">เทียบ \(n\) วิธีกราฟกับมุมวิกฤต</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="procedure" data-title="ขั้นตอน">
+      <header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
+      <ol class="steps">
+        <li><span class="step-n">1</span><div><h3>ตอนที่ 1 · การสะท้อน</h3><p>ยิงเลเซอร์เข้ากระจก/ผิวสะท้อนที่จุดศูนย์กลางแผ่นองศา หมุนเปลี่ยนมุมตกกระทบทีละ 10° (0–80°) บันทึกมุมสะท้อน</p></div></li>
+        <li><span class="step-n">2</span><div><h3>ตอนที่ 2 · การหักเห</h3><p>วางอะคริลิกครึ่งวงกลมให้ผิวแบนผ่านจุดศูนย์กลาง ยิงเข้าผิวโค้ง หมุนมุมตกกระทบทีละ 10° (0–80°) บันทึกมุมหักเห</p></div></li>
+        <li><span class="step-n">3</span><div><h3>คำนวณและเขียนกราฟ</h3><p>หา \(\sin\theta_1\), \(\sin\theta_2\) ของตอนที่ 2 แล้วเขียนกราฟ \(\sin\theta_1\)–\(\sin\theta_2\) หาความชัน = \(n\)</p></div></li>
+        <li><span class="step-n">4</span><div><h3>ตอนที่ 3 · มุมวิกฤต</h3><p>ยิงแสงจากด้านอะคริลิกออกสู่อากาศ ค่อย ๆ เพิ่มมุมจนแสงหักเหเลียบผิว (มุมหักเห 90°) อ่านมุมวิกฤต \(\theta_c\) ทำซ้ำ 3 ครั้ง</p></div></li>
+        <li><span class="step-n">5</span><div><h3>เปรียบเทียบ</h3><p>หา \(n=1/\sin\theta_c\) เฉลี่ย แล้วเทียบกับ \(n\) จากกราฟด้วยร้อยละความแตกต่าง</p></div></li>
+      </ol>
+      <div class="note note-warn"><span class="note-icon" aria-hidden="true">!</span><div><strong>ระวังระหว่างวัด</strong><ul><li>วัดมุมจากเส้นปกติเสมอ ไม่ใช่จากผิว</li><li>จัดให้ลำแสงผ่านจุดศูนย์กลางของแผ่นองศาและผิวแบนของอะคริลิก</li><li>อย่ามองลำเลเซอร์เข้าตาโดยตรง</li></ul></div></div>
+    </section>
+
+    <section class="section band" id="data" data-title="ตารางข้อมูล">
+      <header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>ตารางผลการทดลอง</h2></div></header>
+      <p class="lead">กรอกมุมที่อ่านได้ในแต่ละตอน ระบบคำนวณ \(\sin\theta\), ดัชนีหักเห และร้อยละความแตกต่างให้อัตโนมัติ พร้อมกราฟ \(\sin\theta_1\)–\(\sin\theta_2\) (อากาศ \(n_1\approx1.00\))</p>
+
+      <div class="worksheet-block">
+        <h3>ตอนที่ 1 · การสะท้อนของแสง</h3>
+        <div class="note note-warn compact"><span class="note-icon" aria-hidden="true">!</span><div>กฎการสะท้อน: มุมสะท้อนควรเท่ากับมุมตกกระทบ — คอลัมน์ \(|\theta_1-\theta_2|\) ควรเข้าใกล้ 0</div></div>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th scope="col">มุมตกกระทบ \(\theta_1\) (°)</th><th scope="col">มุมสะท้อน \(\theta_2\) (°)</th><th scope="col">\(|\theta_1-\theta_2|\) (°)</th></tr></thead>
+          <tbody id="reflBody">
+            <tr data-a1="0"><th scope="row">0</th><td><input data-r2 data-store="r2_0" type="number" step="1" inputmode="decimal"></td><td data-rdiff>—</td></tr>
+            <tr data-a1="10"><th scope="row">10</th><td><input data-r2 data-store="r2_10" type="number" step="1" inputmode="decimal"></td><td data-rdiff>—</td></tr>
+            <tr data-a1="20"><th scope="row">20</th><td><input data-r2 data-store="r2_20" type="number" step="1" inputmode="decimal"></td><td data-rdiff>—</td></tr>
+            <tr data-a1="30"><th scope="row">30</th><td><input data-r2 data-store="r2_30" type="number" step="1" inputmode="decimal"></td><td data-rdiff>—</td></tr>
+            <tr data-a1="40"><th scope="row">40</th><td><input data-r2 data-store="r2_40" type="number" step="1" inputmode="decimal"></td><td data-rdiff>—</td></tr>
+            <tr data-a1="50"><th scope="row">50</th><td><input data-r2 data-store="r2_50" type="number" step="1" inputmode="decimal"></td><td data-rdiff>—</td></tr>
+            <tr data-a1="60"><th scope="row">60</th><td><input data-r2 data-store="r2_60" type="number" step="1" inputmode="decimal"></td><td data-rdiff>—</td></tr>
+            <tr data-a1="70"><th scope="row">70</th><td><input data-r2 data-store="r2_70" type="number" step="1" inputmode="decimal"></td><td data-rdiff>—</td></tr>
+            <tr data-a1="80"><th scope="row">80</th><td><input data-r2 data-store="r2_80" type="number" step="1" inputmode="decimal"></td><td data-rdiff>—</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="worksheet-block">
+        <h3>ตอนที่ 2 · การหักเหของแสง</h3>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th scope="col">มุมตกกระทบ \(\theta_1\) (°)</th><th scope="col">มุมหักเห \(\theta_2\) (°)</th><th scope="col">\(\sin\theta_1\)</th><th scope="col">\(\sin\theta_2\)</th><th scope="col">\(n=\sin\theta_1/\sin\theta_2\)</th></tr></thead>
+          <tbody id="refrBody">
+            <tr data-a1="0"><th scope="row">0</th><td><input data-x2 data-store="x2_0" type="number" step="1" inputmode="decimal"></td><td data-sin1>—</td><td data-sin2>—</td><td data-n>—</td></tr>
+            <tr data-a1="10"><th scope="row">10</th><td><input data-x2 data-store="x2_10" type="number" step="1" inputmode="decimal"></td><td data-sin1>—</td><td data-sin2>—</td><td data-n>—</td></tr>
+            <tr data-a1="20"><th scope="row">20</th><td><input data-x2 data-store="x2_20" type="number" step="1" inputmode="decimal"></td><td data-sin1>—</td><td data-sin2>—</td><td data-n>—</td></tr>
+            <tr data-a1="30"><th scope="row">30</th><td><input data-x2 data-store="x2_30" type="number" step="1" inputmode="decimal"></td><td data-sin1>—</td><td data-sin2>—</td><td data-n>—</td></tr>
+            <tr data-a1="40"><th scope="row">40</th><td><input data-x2 data-store="x2_40" type="number" step="1" inputmode="decimal"></td><td data-sin1>—</td><td data-sin2>—</td><td data-n>—</td></tr>
+            <tr data-a1="50"><th scope="row">50</th><td><input data-x2 data-store="x2_50" type="number" step="1" inputmode="decimal"></td><td data-sin1>—</td><td data-sin2>—</td><td data-n>—</td></tr>
+            <tr data-a1="60"><th scope="row">60</th><td><input data-x2 data-store="x2_60" type="number" step="1" inputmode="decimal"></td><td data-sin1>—</td><td data-sin2>—</td><td data-n>—</td></tr>
+            <tr data-a1="70"><th scope="row">70</th><td><input data-x2 data-store="x2_70" type="number" step="1" inputmode="decimal"></td><td data-sin1>—</td><td data-sin2>—</td><td data-n>—</td></tr>
+            <tr data-a1="80"><th scope="row">80</th><td><input data-x2 data-store="x2_80" type="number" step="1" inputmode="decimal"></td><td data-sin1>—</td><td data-sin2>—</td><td data-n>—</td></tr>
+          </tbody>
+        </table></div>
+        <figure class="chart-card" style="margin-top:1rem"><svg id="optGraph" viewBox="0 0 520 320" role="img" aria-label="กราฟ sinθ1 กับ sinθ2"></svg><figcaption>กราฟ \(\sin\theta_1\)–\(\sin\theta_2\) ความชัน = ดัชนีหักเหของอะคริลิก</figcaption></figure>
+      </div>
+
+      <div class="worksheet-block">
+        <h3>ตอนที่ 3 · มุมวิกฤตและการสะท้อนกลับหมด</h3>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th scope="col">ครั้งที่</th><th scope="col">มุมวิกฤต \(\theta_c\) (°)</th><th scope="col">\(\sin\theta_c\)</th><th scope="col">\(n=1/\sin\theta_c\)</th></tr></thead>
+          <tbody id="critBody">
+            <tr data-row="0"><th scope="row">1</th><td><input data-thc data-store="thc_0" type="number" step="0.1" inputmode="decimal"></td><td data-sinc>—</td><td data-ncrit>—</td></tr>
+            <tr data-row="1"><th scope="row">2</th><td><input data-thc data-store="thc_1" type="number" step="0.1" inputmode="decimal"></td><td data-sinc>—</td><td data-ncrit>—</td></tr>
+            <tr data-row="2"><th scope="row">3</th><td><input data-thc data-store="thc_2" type="number" step="0.1" inputmode="decimal"></td><td data-sinc>—</td><td data-ncrit>—</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="result-summary">
+        <h3>ผลวิเคราะห์สด</h3>
+        <dl>
+          <div><dt>ดัชนีจากความชันกราฟ (ตอนที่ 2)</dt><dd id="ngraphOutput">—</dd></div>
+          <div><dt>ดัชนีเฉลี่ยจากมุมวิกฤต (ตอนที่ 3)</dt><dd id="ncritOutput">—</dd></div>
+          <div class="rs-em"><dt>ร้อยละความแตกต่างระหว่างสองวิธี</dt><dd id="pdiffOutput">—</dd></div>
+        </dl>
+      </div>
+      <div class="actions-row"><button type="button" class="btn btn-soft" id="resetTable">ล้างข้อมูลตาราง</button><span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span></div>
+    </section>
+
+    <section class="section" id="example" data-title="ตัวอย่าง">
+      <header class="section-head"><div><p class="kicker">ทำตามทีละบรรทัด</p><h2>ตัวอย่างการคำนวณ</h2></div></header>
+      <p class="lead">ตัวอย่างค่าสมมติเพื่อแสดงวิธีแทนค่า (ไม่ใช่ค่าจากการทดลองจริง)</p>
+      <div class="reveal-controls"><button type="button" class="btn btn-primary" id="exampleShow">แสดงตัวอย่างการคำนวณ</button><button type="button" class="btn btn-ghost" id="exampleHide" hidden>ซ่อนตัวอย่าง</button></div>
+      <div class="example-body" id="exampleBody" hidden></div>
+    </section>
+
+    <section class="section" id="checkpoint" data-title="ตรวจสอบ">
+      <header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
+      <div class="prompt-card prompt-wide">
+        <p class="prompt-tag">คำถามท้าทาย</p>
+        <p class="prompt-q">ถ้าวัดมุมหักเห \(\theta_2\) ผิดให้ <strong>ใหญ่กว่าความจริง</strong> ดัชนีหักเห \(n\) ที่คำนวณจากกราฟจะคลาดเคลื่อนไปทางใด?</p>
+        <div class="reveal-controls"><button type="button" class="btn btn-primary" id="answerShow">แสดงคำตอบ</button><button type="button" class="btn btn-ghost" id="answerHide" hidden>ซ่อนคำตอบ</button></div>
+        <div class="answer-body" id="answerBody" hidden>
+          <p>เพราะ \(n=\sin\theta_1/\sin\theta_2\) ถ้า \(\theta_2\) ใหญ่เกินจริง → \(\sin\theta_2\) ใหญ่ขึ้น → \(n\) <strong>ต่ำกว่าความจริง</strong></p>
+          <ul class="tick-list"><li>ความคลาดเคลื่อนของมุมส่งผลตรงต่อ \(n\)</li><li>ใช้หลายมุม + ความชันกราฟช่วยลดผลของจุดที่ผิด</li><li>มุมวิกฤตเป็นวิธีตรวจสอบอิสระอีกทาง</li></ul>
+          <p class="muted">บทเรียน: อ่านมุมจากเส้นปกติอย่างระวัง และยืนยันด้วยสองวิธี</p>
+        </div>
+      </div>
+      <div class="quick-quiz" data-qid="rr-analyze" data-bloom="analyze" data-answer="A">
+        <p class="quiz-label">คำถามสั้น</p>
+        <h3 class="prompt-q">ถ้าอ่านมุมหักเห \(\theta_2\) ใหญ่กว่าความจริง ค่า \(n=\sin\theta_1/\sin\theta_2\) จะเป็นอย่างไร?</h3>
+        <div class="quiz-options">
+          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> ต่ำกว่าความจริง</button>
+          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> สูงกว่าความจริง</button>
+          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> ไม่เปลี่ยน</button>
+          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> เป็นศูนย์</button>
+          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> เป็นลบ</button>
+        </div>
+        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="section" id="analysis" data-title="วิเคราะห์">
+      <header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
+      <div class="split">
+        <ol class="analysis-steps">
+          <li>ตรวจตอนที่ 1 ว่า \(|\theta_1-\theta_2|\) เข้าใกล้ 0 ทุกมุม (กฎการสะท้อน)</li>
+          <li>เขียนกราฟ \(\sin\theta_1\)–\(\sin\theta_2\) (ตอนที่ 2) หาความชัน = \(n\)</li>
+          <li>หา \(n=1/\sin\theta_c\) เฉลี่ยจากตอนที่ 3</li>
+          <li>เทียบ \(n\) สองวิธีด้วยร้อยละความแตกต่าง และอภิปรายว่าวิธีใดน่าเชื่อถือกว่า</li>
+        </ol>
+        <aside class="note note-info note-block"><span class="note-icon" aria-hidden="true">◆</span><div><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>การอ่านมุมจากแผ่นองศา</li><li>ความกว้างของลำแสง</li><li>การจัดผิวแบนของอะคริลิกให้ผ่านจุดศูนย์กลาง</li></ul></div></aside>
+      </div>
+      <div class="quick-quiz" data-qid="rr-evaluate" data-bloom="evaluate" data-answer="C">
+        <p class="quiz-label">คำถามสั้น</p>
+        <h3 class="prompt-q">ข้อสรุปใดเหมาะสมที่สุดเมื่อค่า \(n\) จากกราฟและจากมุมวิกฤตใกล้กันภายในความไม่แน่นอน?</h3>
+        <div class="quiz-options">
+          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> ทั้งสองวิธีผิดเหมือนกันแน่นอน</button>
+          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> ควรเลือกเฉพาะค่าที่มากกว่า</button>
+          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> ผลสองวิธีสอดคล้องและช่วยยืนยันกัน</button>
+          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ดัชนีหักเหไม่ขึ้นกับตัวกลาง</button>
+          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ไม่จำเป็นต้องรายงานความไม่แน่นอน</button>
+        </div>
+        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="section band" id="discussion" data-title="อภิปราย">
+      <header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
+      <div class="q-grid">
+        <article class="q-card"><span class="q-no">Q1</span><p>เหตุใดต้องวัดมุมจากเส้นปกติ ไม่ใช่จากผิวรอยต่อ?</p></article>
+        <article class="q-card"><span class="q-no">Q2</span><p>ทำไมอะคริลิกรูปครึ่งวงกลมจึงทำให้แสงหักเหเฉพาะที่ผิวแบนตรงกลาง?</p></article>
+        <article class="q-card"><span class="q-no">Q3</span><p>การสะท้อนกลับหมดเกิดเมื่อใด และนำไปใช้ในเส้นใยนำแสงอย่างไร?</p></article>
+        <article class="q-card"><span class="q-no">Q4</span><p>ดัชนีหักเหจากวิธีกราฟกับวิธีมุมวิกฤตต่างกันเพราะอะไรได้บ้าง?</p></article>
+        <article class="q-card"><span class="q-no">Q5</span><p>ข้อมูลของกลุ่มสนับสนุนกฎของสเนลล์เพียงใด อ้างความชันและการกระจายของจุด</p></article>
+      </div>
+      <div class="quick-quiz" data-qid="rr-create" data-bloom="create" data-answer="D">
+        <p class="quiz-label">คำถามสั้น</p>
+        <h3 class="prompt-q">แนวทางใดช่วยเพิ่มความแม่นยำของการหาดัชนีหักเหได้รอบด้านที่สุด?</h3>
+        <div class="quiz-options">
+          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> ใช้มุมตกกระทบเพียงมุมเดียว</button>
+          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> อ่านมุมจากขอบผิวแทนเส้นปกติ</button>
+          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> เพิ่มความกว้างลำเลเซอร์</button>
+          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> จัดศูนย์ให้ตรง ใช้ลำแสงแคบ วัดหลายมุม และตรวจด้วยมุมวิกฤต</button>
+          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ตัดขั้นตอนการสะท้อนออกทั้งหมด</button>
+        </div>
+        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="section spotlight" id="conclusion" data-title="สรุป">
+      <header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
+      <div class="conclusion-grid">
+        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong> จากข้อมูลของคุณเอง</p>
+        <ul class="conclusion-points">
+          <li><span class="cp-ico">1</span><div><h3>ยืนยันกฎการสะท้อน</h3><p>รายงานว่า \(\theta_1=\theta_2\) ภายในความคลาดเคลื่อนหรือไม่</p></div></li>
+          <li><span class="cp-ico">2</span><div><h3>รายงานดัชนีหักเห</h3><p>ระบุ \(n\) จากความชันกราฟ และ \(n\) เฉลี่ยจากมุมวิกฤต พร้อมหน่วย (ไม่มีหน่วย)</p></div></li>
+          <li><span class="cp-ico">3</span><div><h3>เทียบสองวิธี</h3><p>รายงานร้อยละความแตกต่างระหว่างวิธีกราฟกับมุมวิกฤต และตัดสินความน่าเชื่อถือ</p></div></li>
+          <li><span class="cp-ico">4</span><div><h3>อภิปรายแหล่งคลาดเคลื่อน</h3><p>ระบุสาเหตุหลัก เช่น การอ่านมุม ความกว้างลำแสง และการจัดวางอะคริลิก</p></div></li>
+        </ul>
+      </div>
+      <p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
+    </section>
+  </main>
+
+  <nav class="stepper" aria-label="นำทางทีละส่วน"><button type="button" id="prevSec" aria-label="ส่วนก่อนหน้า">‹</button><span id="stepLabel">บทนำ</span><button type="button" id="nextSec" aria-label="ส่วนถัดไป">›</button></nav>
+  <div class="present-bar" id="presentBar" hidden><span class="present-label">▶ โหมดนำเสนอ</span><button type="button" id="presentPrev" aria-label="สไลด์ก่อนหน้า">‹</button><span id="presentCounter">1 / 14</span><button type="button" id="presentNext" aria-label="สไลด์ถัดไป">›</button><button type="button" id="presentExit" class="present-exit">✕ ออก (Esc)</button></div>
+  <div class="present-progress" id="presentProgress" aria-hidden="true"><span></span></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden><span id="toastMsg"></span><button type="button" id="toastUndo">เลิกทำ</button></div>
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="ภาพขยายอุปกรณ์"><div class="lightbox-inner"><button class="lightbox-close" id="lightboxClose" type="button" aria-label="ปิดภาพขยาย">✕</button><div class="lightbox-body" id="lightboxBody"></div></div></div>
+  <noscript><p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่การคำนวณ กราฟ และปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p></noscript>
+</body>
+</html>

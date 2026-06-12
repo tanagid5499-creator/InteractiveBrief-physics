@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clicker · เดโม (บทการวัด 261111)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--page:#f3f7ff;--ink:#14213d;--muted:#51607d;--blue:#1d4fd0;--blue2:#2563eb;--band:#e6eefc;--line:#d6e0f5;--surface:#fff}
+  body{font-family:'Sarabun',sans-serif;background:var(--page);color:var(--ink);margin:0;padding:2rem 1rem;line-height:1.6;max-width:640px;margin:0 auto}
+  h1{font-size:1.5rem;color:var(--blue);margin:0 0 .3rem}
+  .sub{color:var(--muted);margin:0 0 1.6rem}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:520px){.grid{grid-template-columns:1fr}}
+  a.card{display:block;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.3rem;text-decoration:none;color:inherit}
+  a.card:hover{border-color:var(--blue2);background:var(--band)}
+  a.card h2{margin:.2rem 0 .3rem;font-size:1.15rem;color:var(--blue)}
+  a.card p{margin:0;font-size:.9rem;color:var(--muted)}
+  .ico{font-size:1.6rem}
+  .how{margin-top:1.6rem;background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:1rem 1.2rem;font-size:.9rem;color:var(--muted)}
+  .how b{color:var(--ink)} .how ol{margin:.4rem 0 0;padding-left:1.2rem} .how li{margin:.25rem 0}
+  .warn{margin-top:1rem;font-size:.84rem;color:#854f0b;background:#faeeda;border:1px solid #fac775;border-radius:10px;padding:.7rem .9rem}
+</style>
+</head>
+<body>
+  <h1>Clicker — เดโม</h1>
+  <p class="sub">โพลล์เช็คความเข้าใจสด · คำถาม Bloom 8 ข้อ จากบทการวัด (261111) · ไม่เฉลย แสดงจำนวนผู้เลือก</p>
+  <div class="grid">
+    <a class="card" href="host.html"><div class="ico">🖥️</div><h2>เปิดจอครู</h2><p>แสดงคำถาม + แท่งนับสด + ปุ่มคุม (ถัดไป/เปิด-ปิด/ล้าง) — เปิดบนจอโปรเจกเตอร์</p></a>
+    <a class="card" href="respond.html"><div class="ico">📱</div><h2>เปิดจอนิสิต</h2><p>กดเลือก A/B/C ส่งคำตอบ — เปิดอีกแท็บ/หน้าต่าง (จำลองมือถือนิสิต)</p></a>
+  </div>
+  <div class="how">
+    <b>วิธีลอง (เดโม):</b>
+    <ol>
+      <li>เปิด <b>จอครู</b> หนึ่งแท็บ และ <b>จอนิสิต</b> อีกแท็บ (เบราว์เซอร์เดียวกัน)</li>
+      <li>กดตอบในจอนิสิต → เห็นแท่งนับขยับในจอครูทันที</li>
+      <li>ครูกด "ถัดไป" เพื่อเปลี่ยนข้อ · "ปิดรับคำตอบ" เพื่อหยุด · "ล้างเซสชันใหม่" สำหรับคลาสถัดไป</li>
+    </ol>
+  </div>
+  <div class="warn"><b>ข้อจำกัดของเดโม:</b> ใช้ BroadcastChannel = สื่อสารได้เฉพาะ <b>เบราว์เซอร์เดียวกันในเครื่องเดียว</b> (ลองกลไก/ดีไซน์) · เวอร์ชันใช้จริงในคลาส (มือถือนิสิตหลายเครื่อง) จะต่อ <b>Supabase + QR + deploy</b> — โครงข้อความเหมือนเดิม สลับแค่ตัวส่ง-รับ</div>
+</body>
+</html>

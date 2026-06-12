@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 02 · โมดูลัสของยัง · Lab Brief</title>
+  <meta name="description" content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261111 บทที่ 2 โมดูลัสของยังของลวดโลหะ">
+
+  <!--
+    ───────────────────────────────────────────────────────────────────────────
+    PROJECT 4 · INTERACTIVE LAB BRIEF — TEMPLATE
+    หน้านี้ออกแบบให้ใช้ซ้ำเป็น "แม่แบบ" สำหรับแล็บบทอื่นได้
+    แพตเทิร์นที่นำกลับมาใช้ใหม่ได้: .section-head, .formula-card, .equip-card,
+    .data-table, .prompt-card, .result-summary, .note, .objective-list
+    เปลี่ยนเนื้อหาในแต่ละ <section> และปรับค่าคงที่ใน js/app.js (LAB object)
+    ───────────────────────────────────────────────────────────────────────────
+  -->
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EY%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- KaTeX (math typesetting) — CDN, pinned. Renders the symbolic math; computed numbers stay IBM Plex Mono. -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <!-- design system (shared across all 261111 labs) + per-lab overrides -->
+  <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=63">
+  <script defer src="../../shared/brief-core.js?v=7"></script>
+  <script defer src="js/app.js?v=63"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+
+  <!-- drawing-sheet corner crop marks -->
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+
+  <!-- ══════════════ TOP BAR + NAVIGATION + PROGRESS ══════════════ -->
+  <header class="topbar" id="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#hero" aria-label="กลับสู่ด้านบน">
+        <span class="brand-badge">02</span>
+        <span class="brand-text">
+          <strong>โมดูลัสของยัง</strong>
+          <small>261111 · ปฏิบัติการฟิสิกส์</small>
+        </span>
+      </a>
+
+      <nav class="phase-nav" id="chipNav" aria-label="สารบัญบทปฏิบัติการ">
+        <div class="phase">
+          <button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">เริ่มต้น</button>
+          <div class="phase-menu" role="menu">
+            <a class="chip" role="menuitem" href="#hero">บทนำ</a>
+            <a class="chip" role="menuitem" href="#hook">ชวนคิด</a>
+            <a class="chip" role="menuitem" href="#objectives">จุดประสงค์</a>
+          </div>
+        </div>
+        <div class="phase">
+          <button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">หลักการ</button>
+          <div class="phase-menu" role="menu">
+            <a class="chip" role="menuitem" href="#concept">แนวคิดหลัก</a>
+            <a class="chip" role="menuitem" href="#equipment">อุปกรณ์</a>
+            <a class="chip" role="menuitem" href="#theory">ทฤษฎี</a>
+            <a class="chip" role="menuitem" href="#formula">สูตร</a>
+          </div>
+        </div>
+        <div class="phase">
+          <button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">ลงมือทำ</button>
+          <div class="phase-menu" role="menu">
+            <a class="chip" role="menuitem" href="#procedure">ขั้นตอน</a>
+            <a class="chip" role="menuitem" href="#data">ตารางข้อมูล</a>
+            <a class="chip" role="menuitem" href="#example">ตัวอย่าง</a>
+            <a class="chip" role="menuitem" href="#checkpoint">ตรวจสอบ</a>
+          </div>
+        </div>
+        <div class="phase">
+          <button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">สรุปผล</button>
+          <div class="phase-menu" role="menu">
+            <a class="chip" role="menuitem" href="#analysis">วิเคราะห์</a>
+            <a class="chip" role="menuitem" href="#discussion">อภิปราย</a>
+            <a class="chip" role="menuitem" href="#conclusion">สรุป</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="topbar-meta">
+        <span class="sec-counter" aria-hidden="true"><b id="secNow">01</b><span>/14</span></span>
+        <div class="ratio-seg" role="group" aria-label="อัตราส่วนการแสดงผล (จอเต็ม / 4:3 โปรเจกเตอร์ / 16:9 ทีวี)">
+          <span class="ratio-seg-ico" aria-hidden="true">▭</span>
+          <button type="button" data-ratio="full" aria-pressed="true" title="แสดงเต็มความกว้างจอ">จอเต็ม</button>
+          <button type="button" data-ratio="43" aria-pressed="false" title="อัตราส่วน 4:3 · โปรเจกเตอร์">4:3</button>
+          <button type="button" data-ratio="169" aria-pressed="false" title="อัตราส่วน 16:9 · ทีวี">16:9</button>
+        </div>
+        <button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
+      </div>
+    </div>
+    <div class="read-progress" role="progressbar" aria-label="ความคืบหน้าการอ่าน" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <span id="readBar"></span>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ══════════════ 1 · HERO / OPENING LAB BRIEF ══════════════ -->
+    <section class="section hero" id="hero" data-title="บทนำ">
+      <div class="hero-top">
+        <p class="hero-eyebrow">261111 · ปฏิบัติการฟิสิกส์ · บทที่ 02</p>
+        <h1 class="hero-title">โมดูลัสของยัง</h1>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <figure class="hero-question">
+            <figcaption class="hq-tag">คำถามชวนคิด</figcaption>
+            <blockquote class="hq-text">
+              ทำไมสะพานแขวน เครน และลิฟต์ ถึงรับน้ำหนักมหาศาลได้โดยไม่ขาด?
+              คำตอบคือค่า <strong>“ความแข็งตึง” ของวัสดุ</strong> ที่วันนี้เราจะวัดจากลวดจริงด้วยมือของเราเอง
+            </blockquote>
+          </figure>
+
+          <ul class="hero-meta" aria-label="ค่าอ้างอิงของแล็บ">
+            <li><span class="hm-num">Y<sub>ref</sub></span><span class="hm-label"><span class="eq" data-tex="1.90\times10^{11}">1.90×10<sup>11</sup></span> N/m²</span></li>
+          </ul>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a>
+            <a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a>
+          </div>
+        </div>
+
+        <figure class="hero-visual">
+          <span class="fig-tag">FIG.1 · Apparatus</span>
+          <!-- แผนภาพชุดทดลอง: โครงยึด · ลวด · มวลแขวน · ไดอัลเกจ -->
+          <svg viewBox="0 0 460 380" role="img" aria-label="แผนภาพชุดทดลองโมดูลัสของยัง">
+            <defs>
+              <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#cdd9ee"/>
+                <stop offset="1" stop-color="#9fb4d6"/>
+              </linearGradient>
+            </defs>
+            <!-- โครงยึด -->
+            <rect x="70" y="44" width="250" height="18" rx="6" fill="url(#metalGrad)"/>
+            <rect x="84" y="62" width="16" height="250" rx="5" fill="url(#metalGrad)"/>
+            <rect x="290" y="62" width="16" height="250" rx="5" fill="url(#metalGrad)"/>
+            <rect x="70" y="312" width="250" height="14" rx="5" fill="url(#metalGrad)"/>
+            <!-- ลวด -->
+            <line x1="195" y1="62" x2="195" y2="248" class="d-wire"/>
+            <circle cx="195" cy="62" r="4" class="d-anchor"/>
+            <!-- มวลแขวน (load group — settles once on load) -->
+            <g class="d-load">
+              <rect x="172" y="248" width="46" height="22" rx="6" class="d-hanger"/>
+              <rect x="166" y="270" width="58" height="20" rx="4" class="d-mass"/>
+              <rect x="170" y="290" width="50" height="16" rx="4" class="d-mass d-mass-2"/>
+            </g>
+            <!-- ไดอัลเกจ -->
+            <circle cx="362" cy="186" r="40" class="d-gauge"/>
+            <circle cx="362" cy="186" r="31" class="d-gauge-inner"/>
+            <line x1="362" y1="186" x2="384" y2="166" class="d-needle"/>
+            <circle cx="362" cy="186" r="3.5" class="d-anchor"/>
+            <line x1="322" y1="200" x2="207" y2="200" class="d-probe"/>
+            <!-- ป้ายกำกับ -->
+            <text x="150" y="34" class="d-label">โครงยึด</text>
+            <text x="206" y="150" class="d-label">ลวดโลหะ</text>
+            <text x="232" y="298" class="d-label">มวลแขวน</text>
+            <text x="330" y="142" class="d-label">ไดอัลเกจ</text>
+            <!-- drafting-red dimension lines (engineering markup) -->
+            <line class="dim" x1="140" y1="62" x2="140" y2="248"/>
+            <line class="dim" x1="136" y1="62" x2="144" y2="62"/>
+            <line class="dim" x1="136" y1="248" x2="144" y2="248"/>
+            <text class="dim-txt" x="122" y="158" transform="rotate(-90 122 158)">L₀ = 1.200 m</text>
+            <!-- ΔL is the dial-gauge reading, not a frame dimension: a leader, not a false dim line -->
+            <line class="dim" x1="296" y1="236" x2="334" y2="206"/>
+            <text class="dim-txt" x="272" y="250">ΔL</text>
+          </svg>
+          <figcaption>ชุดทดลอง: เพิ่มมวลทีละขั้น แล้วอ่านระยะยืด ΔL จากไดอัลเกจ</figcaption>
+        </figure>
+      </div>
+      <p class="scroll-hint" aria-hidden="true">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
+    </section>
+
+    <!-- ══════════════ 2 · HOOK / REAL-WORLD PROBLEM ══════════════ -->
+    <section class="section" id="hook" data-title="ชวนคิด">
+      <header class="section-head">
+        <div>
+          <p class="kicker">ชวนคิดก่อนเริ่ม</p>
+          <h2>ทำไมต้องรู้ว่าวัสดุ “ยืดแค่ไหน”?</h2>
+        </div>
+      </header>
+
+      <div class="split">
+        <div class="prose">
+          <p>
+            สายเคเบิลลิฟต์ สะพานแขวน สายกีตาร์ หรือโครงเหล็กในอาคาร
+            ล้วนต้องรับแรงดึงตลอดเวลา วิศวกรจำเป็นต้องรู้ว่าวัสดุจะ
+            <strong>ยืดออกเท่าใดเมื่อรับน้ำหนัก</strong> และจะกลับคืนรูปเดิมได้หรือไม่
+          </p>
+          <p>
+            ค่าที่บอกเรื่องนี้คือ <strong>โมดูลัสของยัง (Young's modulus, <i>Y</i>)</strong>
+            ยิ่งค่ามาก วัสดุยิ่งแข็งตึง คือยืดน้อยเมื่อรับแรงเท่ากัน
+            แล็บนี้ให้เราวัดค่านั้นจากลวดจริงในห้องเรียน
+          </p>
+        </div>
+
+        <!-- prompt-card (reusable): คำถาม/ทำนายแบบโต้ตอบ -->
+                <aside class="prompt-card bloom-quiz-panel">
+          <p class="prompt-tag">ตรวจความเข้าใจ</p>
+          <div class="quick-quiz" data-qid="y-remember" data-bloom="remember" data-answer="B">
+            <p class="quiz-label">คำถามสั้น</p>
+            <h3 class="prompt-q">ปริมาณใดนิยามจากอัตราส่วนระหว่างความเค้นกับความเครียดในช่วงยืดหยุ่น?</h3>
+            <div class="quiz-options">
+              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> แรงดึง</button>
+              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> โมดูลัสของยัง</button>
+              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> พื้นที่หน้าตัด</button>
+              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ระยะยืด</button>
+              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> มวลแขวน</button>
+            </div>
+            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ══════════════ 3 · LEARNING OBJECTIVES ══════════════ -->
+    <section class="section" id="objectives" data-title="จุดประสงค์">
+      <header class="section-head">
+        <div>
+          <h2>จุดประสงค์การทดลอง</h2>
+        </div>
+      </header>
+
+      <ol class="objective-list">
+        <li>
+          <span class="obj-no">1</span>
+          <div>
+            <h3>ศึกษากฎของฮุก</h3>
+            <p>ตรวจสอบว่าความเค้นและความเครียดของลวดโลหะแปรผันตรงกันในช่วงยืดหยุ่นหรือไม่</p>
+          </div>
+        </li>
+        <li>
+          <span class="obj-no">2</span>
+          <div>
+            <h3>หาค่าโมดูลัสของยังของลวดโลหะ</h3>
+            <p>คำนวณค่า <i>Y</i> สองทาง คือจากสูตร <span class="eq" data-tex="\sigma/\varepsilon">σ/ε</span> รายจุด และจากความชันของกราฟความเค้น–ความเครียด</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="note note-info">
+        <span class="note-icon" aria-hidden="true">◆</span>
+        <p><strong>สิ่งที่จะได้ลงมือทำ:</strong> วัด L<sub>0</sub> และเส้นผ่านศูนย์กลางลวด · เพิ่มมวล 5 ระดับ · อ่านระยะยืด · คำนวณความเค้น ความเครียด และ <i>Y</i> · เขียนกราฟและเทียบกับค่ามาตรฐาน</p>
+      </div>
+    </section>
+
+    <!-- ══════════════ 4 · KEY CONCEPT OVERVIEW ══════════════ -->
+    <section class="section band" id="concept" data-title="แนวคิดหลัก">
+      <header class="section-head">
+        <div>
+          <p class="kicker">ภาพรวมแนวคิด</p>
+          <h2>จากแรงดึง สู่ความแข็งตึงของวัสดุ</h2>
+        </div>
+      </header>
+      <p class="lead">
+        เมื่อออกแรงดึงวัตถุไม่เกิน <strong>ขีดจำกัดความยืดหยุ่น</strong> วัตถุจะกลับคืนรูปเดิมได้เมื่อปล่อยแรง
+        ในช่วงนี้ความเค้นและความเครียดสัมพันธ์กันเป็นเส้นตรงตามกฎของฮุก
+      </p>
+
+      <div class="card-grid cols-3">
+        <article class="info-card">
+          <span class="ic-step">A</span>
+          <h3>ความยืดหยุ่น</h3>
+          <p>วัสดุที่ยืดหยุ่นจะคืนรูปเดิมเมื่อปล่อยแรง หากเลยขีดจำกัด จะเสียรูปถาวรหรือขาด</p>
+        </article>
+        <article class="info-card">
+          <span class="ic-step">B</span>
+          <h3>ความเค้นและความเครียด</h3>
+          <p>ความเค้นคือแรงต่อพื้นที่หน้าตัด ส่วนความเครียดคือสัดส่วนการยืดเทียบกับความยาวเดิม</p>
+        </article>
+        <article class="info-card">
+          <span class="ic-step">C</span>
+          <h3>กฎของฮุก</h3>
+          <p>ในช่วงยืดหยุ่น ความเค้นแปรผันตรงกับความเครียด อัตราส่วนคงที่นั้นคือโมดูลัสของยัง</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════════ 5 · EQUIPMENT ══════════════ -->
+    <section class="section" id="equipment" data-title="อุปกรณ์">
+      <header class="section-head">
+        <div>
+          <h2>อุปกรณ์การทดลอง</h2>
+        </div>
+      </header>
+
+      <div class="card-grid cols-3 equip-grid">
+        <figure class="equip-card">
+          <button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: โครงเหล็กพร้อมลวดโลหะ">
+            <img src="assets/equip/equip-1.webp" alt="" width="1200" height="675" loading="lazy" decoding="async">
+            <span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span>
+          </button>
+          <figcaption>
+            <h3>โครงเหล็กพร้อมลวดโลหะ</h3>
+            <p>โครงโลหะแข็งแรงสำหรับยึดปลายบนของลวดให้นิ่งและตั้งฉาก เป็นระบบรับแรงดึงหลักของการทดลอง ปลายล่างของลวดต่อกับชุดแขวนมวล ทำให้แรงกระทำตามแนวแกนของลวดล้วน ๆ โดยไม่มีแรงด้านข้างมารบกวนการอ่านระยะยืด</p>
+          </figcaption>
+        </figure>
+
+        <figure class="equip-card">
+          <button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: มวล 1.00 kg จำนวน 5 อัน">
+            <img src="assets/equip/equip-2.webp" alt="" width="1200" height="675" loading="lazy" decoding="async">
+            <span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span>
+          </button>
+          <figcaption>
+            <h3>มวล 1.00 kg จำนวน 5 อัน</h3>
+            <p>ตุ้มน้ำหนักมาตรฐานสำหรับเพิ่มแรงดึงทีละขั้น ขั้นละ 1.00 kg จนครบ 5 ระดับ คิดเป็นแรงดึงสูงสุดราว 49 N ควรวางมวลอย่างนุ่มนวลและรอให้ระบบนิ่งก่อนอ่านค่าทุกครั้ง เพื่อให้ได้จุดข้อมูลห้าจุดบนกราฟความเค้น–ความเครียด</p>
+          </figcaption>
+        </figure>
+
+        <figure class="equip-card">
+          <button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ไดอัลเกจ">
+            <img src="assets/equip/equip-3.webp" alt="" width="1200" height="675" loading="lazy" decoding="async">
+            <span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span>
+          </button>
+          <figcaption>
+            <h3>ไดอัลเกจ</h3>
+            <p>เกจวัดระยะเชิงกลความละเอียดสูง ใช้อ่านระยะยืด ΔL ของลวด เข็มหมุนครบ 1 รอบ (100 ช่อง) เท่ากับ 1 mm จึงอ่านได้ละเอียดถึง 0.01 mm ต้องปรับให้อ่านค่าศูนย์ก่อนเริ่ม และอ่านขณะระบบหยุดนิ่งสนิท</p>
+          </figcaption>
+        </figure>
+
+        <figure class="equip-card">
+          <button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ไมโครมิเตอร์">
+            <img src="assets/equip/equip-4.webp" alt="" width="1200" height="675" loading="lazy" decoding="async">
+            <span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span>
+          </button>
+          <figcaption>
+            <h3>ไมโครมิเตอร์</h3>
+            <p>ใช้วัดเส้นผ่านศูนย์กลางลวด <i>d</i> ได้ละเอียดถึง 0.01 mm ค่านี้สำคัญมากเพราะพื้นที่หน้าตัดแปรผันตามกำลังสองของรัศมี (<span class="eq" data-tex="A = \pi r^{2}">A = πr²</span>) ความคลาดเคลื่อนของ <i>d</i> จึงถูกขยายเข้าไปในค่า <i>Y</i> ควรวัดหลายตำแหน่งรอบเส้นลวดแล้วเฉลี่ย</p>
+          </figcaption>
+        </figure>
+
+        <figure class="equip-card">
+          <button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ตลับเมตร">
+            <img src="assets/equip/equip-5.webp" alt="" width="1200" height="675" loading="lazy" decoding="async">
+            <span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span>
+          </button>
+          <figcaption>
+            <h3>ตลับเมตร</h3>
+            <p>ใช้วัดความยาวเดิม L<sub>0</sub> ของลวด จากจุดยึดด้านบนถึงจุดที่ลวดต่อกับห่วงแขวนมวล ความยาวนี้เป็นฐานของการคำนวณความเครียด (<span class="eq" data-tex="\varepsilon = \Delta L / L_{0}">ε = ΔL/L₀</span>) จึงควรวัดให้ตรงแนวลวดและอ่านค่าในระดับสายตาเพื่อลดความคลาดเคลื่อน</p>
+          </figcaption>
+        </figure>
+
+        <figure class="equip-card">
+          <button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ฐานวางมวลแบบขอเกี่ยว">
+            <img src="assets/equip/equip-6.webp" alt="" width="1200" height="675" loading="lazy" decoding="async">
+            <span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span>
+          </button>
+          <figcaption>
+            <h3>ฐานวางมวลแบบขอเกี่ยว</h3>
+            <p>ชุดขอเกี่ยวสำหรับแขวนมวลที่ปลายล่างของลวด ช่วยดึงลวดให้ตึงพอดีก่อนเริ่มทดลองเพื่อกำจัดความหย่อน และเป็นตำแหน่งสำหรับเพิ่มมวลทีละขั้น โดยทั่วไปจะตั้งค่าศูนย์ของไดอัลเกจหลังจากแขวนฐานนี้แล้ว</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ══════════════ 6 · THEORY ══════════════ -->
+    <section class="section spotlight" id="theory" data-title="ทฤษฎี">
+      <header class="section-head">
+        <div>
+          <p class="kicker">ทฤษฎีพื้นฐาน</p>
+          <h2>กราฟความเค้น–ความเครียด</h2>
+        </div>
+      </header>
+
+      <div class="theory-grid">
+        <div class="prose">
+          <p>
+            เมื่อค่อย ๆ เพิ่มแรงดึงและบันทึกความเค้นกับความเครียด จะได้กราฟที่บอกพฤติกรรมของวัสดุ
+            ช่วง <strong>OA</strong> เป็นเส้นตรงและเป็นไปตามกฎของฮุก
+            <strong>ความชันของช่วงนี้คือค่า <i>Y</i></strong>
+          </p>
+          <ul class="tick-list">
+            <li><b>A</b>: ขีดจำกัดสัดส่วน/ความยืดหยุ่น (elastic limit)</li>
+            <li><b>B</b>: จุดคราก (yield point) เริ่มเสียรูปถาวร</li>
+            <li><b>U</b>: ความเค้นสูงสุด (ultimate strength)</li>
+            <li><b>R</b>: จุดขาด (fracture point)</li>
+          </ul>
+        </div>
+
+        <figure class="chart-card">
+          <svg viewBox="0 0 620 360" role="img" aria-label="กราฟความเค้น–ความเครียด">
+            <line x1="78" y1="304" x2="568" y2="304" class="axis"/>
+            <line x1="78" y1="304" x2="78" y2="44" class="axis"/>
+            <line x1="78" y1="304" x2="246" y2="160" class="hooke-line" pathLength="1"/>
+            <path d="M246 160 C300 124 344 112 392 100 C449 86 486 70 520 96 C548 117 560 162 566 206" class="stress-curve" pathLength="1"/>
+            <circle cx="78"  cy="304" r="5" class="pt"/>
+            <circle cx="246" cy="160" r="5" class="pt pt-key"/>
+            <circle cx="392" cy="100" r="5" class="pt"/>
+            <circle cx="520" cy="96"  r="5" class="pt"/>
+            <circle cx="566" cy="206" r="5" class="pt pt-end"/>
+            <text x="64"  y="324" class="c-label">O</text>
+            <text x="238" y="148" class="c-label">A</text>
+            <text x="384" y="88"  class="c-label">B</text>
+            <text x="512" y="84"  class="c-label">U</text>
+            <text x="556" y="226" class="c-label">R</text>
+            <text x="300" y="340" class="c-axis">ความเครียด ε</text>
+            <text x="26" y="180" transform="rotate(-90 26 180)" class="c-axis">ความเค้น σ</text>
+          </svg>
+          <figcaption>ช่วงเส้นตรง OA ใช้หาความชัน = โมดูลัสของยัง</figcaption>
+        </figure>
+      </div>
+
+      <!-- material comparison: log scale ladder -->
+      <div class="material-block">
+        <div class="material-head">
+          <h3>ค่าประมาณของ <i>Y</i> ในวัสดุต่าง ๆ</h3>
+          <span class="badge">สเกลลอการิทึม</span>
+        </div>
+        <div class="material-list">
+          <div class="material-row" style="--w:100%">
+            <span class="m-name">เหล็ก</span><span class="m-bar"><i></i></span><span class="m-val eq" data-tex="2.0\times10^{11}">2.0×10<sup>11</sup></span>
+          </div>
+          <div class="material-row" style="--w:94%">
+            <span class="m-name">ทองแดง</span><span class="m-bar"><i></i></span><span class="m-val eq" data-tex="1.2\times10^{11}">1.2×10<sup>11</sup></span>
+          </div>
+          <div class="material-row" style="--w:86%">
+            <span class="m-name">อะลูมิเนียม</span><span class="m-bar"><i></i></span><span class="m-val eq" data-tex="7.0\times10^{10}">7.0×10<sup>10</sup></span>
+          </div>
+          <div class="material-row" style="--w:24%">
+            <span class="m-name">ยาง</span><span class="m-bar"><i></i></span><span class="m-val eq" data-tex="2.0\times10^{7}">2.0×10<sup>7</sup></span>
+          </div>
+        </div>
+        <p class="muted">ค่ามากแปลว่าวัสดุแข็งตึงกว่า คือยืดน้อยกว่าเมื่อรับความเค้นเท่ากัน</p>
+      </div>
+        <aside class="prompt-card bloom-quiz-panel">
+          <p class="prompt-tag">ตรวจความเข้าใจ</p>
+          <div class="quick-quiz" data-qid="y-understand" data-bloom="understand" data-answer="B">
+            <p class="quiz-label">คำถามสั้น</p>
+            <h3 class="prompt-q">ถ้าวัสดุสองชนิดรับความเค้นเท่ากัน วัสดุที่มีค่า \(Y\) มากกว่าจะมีพฤติกรรมอย่างไร?</h3>
+            <div class="quiz-options">
+              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> ยืดมากกว่า</button>
+              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> ยืดน้อยกว่า</button>
+              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> มีมวลมากกว่า</button>
+              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ขาดทันที</button>
+              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> มีพื้นที่หน้าตัดเล็กกว่าเสมอ</button>
+            </div>
+            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+          </div>
+          <div class="quick-quiz" data-qid="y-apply" data-bloom="apply" data-answer="B">
+            <p class="quiz-label">คำถามสั้น</p>
+            <h3 class="prompt-q">ถ้าลวดยังอยู่ในช่วงกฎของฮุก และเพิ่มมวลแขวนจาก 1.00 kg เป็น 2.00 kg ระยะยืดควรเปลี่ยนอย่างไร?</h3>
+            <div class="quiz-options">
+              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> ลดลงครึ่งหนึ่ง</button>
+              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> เพิ่มประมาณ 2 เท่า</button>
+              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> เพิ่มประมาณ 4 เท่า</button>
+              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> เท่าเดิม</button>
+              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> สรุปไม่ได้แม้ทราบว่าอยู่ในช่วงกฎของฮุก</button>
+            </div>
+            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+          </div>
+        </aside>
+    </section>
+
+    <!-- ══════════════ 7 · FORMULAS ══════════════ -->
+    <section class="section" id="formula" data-title="สูตร">
+      <header class="section-head">
+        <div>
+          <h2>สูตรหลักของแล็บ</h2>
+        </div>
+      </header>
+
+      <div class="card-grid cols-3">
+        <article class="formula-card">
+          <h3>ความเค้นดึง</h3>
+          <p class="formula" data-tex="\sigma=\dfrac{F}{A}=\dfrac{mg}{\pi r^{2}}" data-display>σ = F/A = mg/πr²</p>
+          <p class="formula-note">หน่วย: N/m²</p>
+        </article>
+        <article class="formula-card">
+          <h3>ความเครียดดึง</h3>
+          <p class="formula" data-tex="\varepsilon=\dfrac{\Delta L}{L_{0}}" data-display>ε = ΔL/L₀</p>
+          <p class="formula-note">ไม่มีหน่วย · ΔL และ L<sub>0</sub> ต้องหน่วยเดียวกัน</p>
+        </article>
+        <article class="formula-card formula-accent">
+          <h3>โมดูลัสของยัง</h3>
+          <p class="formula" data-tex="Y=\dfrac{\sigma}{\varepsilon}" data-display>Y = σ/ε</p>
+          <p class="formula-note">หน่วยเดียวกับความเค้น: N/m²</p>
+        </article>
+        <article class="formula-card">
+          <h3>พื้นที่หน้าตัด</h3>
+          <p class="formula" data-tex="A=\pi r^{2},\quad r=\dfrac{d}{2}" data-display>A = πr², r = d/2</p>
+          <p class="formula-note">วัด <i>d</i> เป็น mm แล้วแปลงเป็น m</p>
+        </article>
+        <article class="formula-card">
+          <h3><i>Y</i> จากความชันกราฟ</h3>
+          <p class="formula" data-tex="Y_{\text{graph}}=\dfrac{\Delta\sigma}{\Delta\varepsilon}" data-display>Y_graph = Δσ/Δε</p>
+          <p class="formula-note">ความชันของช่วงเส้นตรง OA</p>
+        </article>
+        <article class="formula-card">
+          <h3>ร้อยละความคลาดเคลื่อน</h3>
+          <p class="formula" data-tex="\%\,\text{err}=\dfrac{\lvert Y_{\text{graph}}-Y_{\text{ref}}\rvert}{Y_{\text{ref}}}\times100" data-display>%err = |Y_graph − Y_ref| / Y_ref × 100</p>
+          <p class="formula-note">เทียบกับ <span class="eq" data-tex="Y_{\text{ref}} = 1.90\times10^{11}">Y<sub>ref</sub> = 1.90×10<sup>11</sup></span> N/m²</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════════ 8 · PROCEDURE ══════════════ -->
+    <section class="section" id="procedure" data-title="ขั้นตอน">
+      <header class="section-head">
+        <div>
+          <p class="kicker">ลำดับการทดลอง</p>
+          <h2>ขั้นตอนการทดลอง</h2>
+        </div>
+      </header>
+
+      <ol class="steps">
+        <li><span class="step-n">1</span><div><h3>เตรียมระบบให้พร้อม</h3><p>แขวนฐานขอเกี่ยวก่อน แล้วปรับไดอัลเกจให้อ่านค่าเป็นศูนย์</p></div></li>
+        <li><span class="step-n">2</span><div><h3>วัดความยาวเดิม</h3><p>วัด L<sub>0</sub> ของลวดด้วยตลับเมตร จากจุดยึดบนถึงจุดต่อกับห่วงแขวน</p></div></li>
+        <li><span class="step-n">3</span><div><h3>วัดเส้นผ่านศูนย์กลาง</h3><p>วัด <span class="eq" data-tex="d = 2r"><i>d</i> = 2<i>r</i></span> ด้วยไมโครมิเตอร์หลายตำแหน่งแล้วเฉลี่ย</p></div></li>
+        <li><span class="step-n">4</span><div><h3>เพิ่มมวลทีละขั้น</h3><p>แขวนมวลทีละ 1.00 kg จาก 1.00 kg จนถึง 5.00 kg</p></div></li>
+        <li><span class="step-n">5</span><div><h3>อ่านระยะยืด</h3><p>รอให้ระบบนิ่ง แล้วอ่านค่า ΔL จากไดอัลเกจของแต่ละมวล</p></div></li>
+        <li><span class="step-n">6</span><div><h3>คำนวณและเขียนกราฟ</h3><p>คำนวณความเค้น ความเครียด และ <i>Y</i> แล้วเขียนกราฟ σ (แกน Y) กับ ε (แกน X)</p></div></li>
+        <li><span class="step-n">7</span><div><h3>เปรียบเทียบผล</h3><p>หาความชันของช่วงเส้นตรง เทียบกับค่ามาตรฐาน และคำนวณร้อยละความคลาดเคลื่อน</p></div></li>
+      </ol>
+
+      <div class="note note-warn">
+        <span class="note-icon" aria-hidden="true">!</span>
+        <div>
+          <strong>ก่อนเริ่มวัด</strong>
+          <ul>
+            <li>รอให้ระบบนิ่งก่อนอ่านค่า อย่าอ่านขณะมวลแกว่ง</li>
+            <li>วัดเส้นผ่านศูนย์กลางหลายตำแหน่ง เพราะ <span class="eq" data-tex="A = \pi r^{2}">A = πr²</span> ทำให้ความผิดพลาดของ <i>r</i> ส่งผลต่อ <i>Y</i> มาก</li>
+            <li>อย่าเพิ่มแรงเกินช่วงยืดหยุ่นของลวด</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ 9 · MEASUREMENT TABLE ══════════════ -->
+    <section class="section band" id="data" data-title="ตารางข้อมูล">
+      <header class="section-head">
+        <div>
+          <p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p>
+          <h2>ตารางผลการทดลอง</h2>
+        </div>
+      </header>
+      <p class="lead">
+        กรอกค่าตั้งต้นของลวดและระยะยืดของแต่ละมวล ตารางจะคำนวณแรง ความเค้น ความเครียด และ <i>Y</i> รายจุดให้อัตโนมัติ
+        พร้อมสรุปความชันกราฟและร้อยละความคลาดเคลื่อน
+      </p>
+
+      <div class="setup-inputs">
+        <label>ความยาวเดิม <span class="u"><span class="eq" data-tex="L_{0}">L₀</span> (m)</span>
+          <input id="wireLength" data-store="wireLength" type="number" min="0" step="0.001" value="1.200" inputmode="decimal">
+        </label>
+        <label>เส้นผ่านศูนย์กลาง <span class="u"><span class="eq" data-tex="d = 2r">d = 2r</span> (mm)</span>
+          <input id="wireDiameter" data-store="wireDiameter" type="number" min="0" step="0.001" value="0.500" inputmode="decimal">
+        </label>
+        <label>ค่าอ้างอิง <span class="u"><span class="eq" data-tex="Y">Y</span> (N/m²)</span>
+          <input id="referenceYoung" data-store="referenceYoung" type="number" min="0" step="1000000000" value="190000000000" inputmode="decimal">
+        </label>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th scope="col">มวล (kg)</th>
+              <th scope="col">แรง <span class="eq" data-tex="F = mg"><i>F</i> = <i>mg</i></span> (N)</th>
+              <th scope="col"><span class="eq" data-tex="\Delta L">ΔL</span> (mm)</th>
+              <th scope="col"><span class="eq" data-tex="\sigma">σ</span> (N/m²)</th>
+              <th scope="col"><span class="eq" data-tex="\varepsilon">ε</span></th>
+              <th scope="col"><span class="eq" data-tex="Y = \sigma/\varepsilon"><i>Y</i> = σ/ε</span> (N/m²)</th>
+            </tr>
+          </thead>
+          <tbody id="dataBody">
+            <tr data-mass="1"><th scope="row"><span class="eq" data-tex="1.00">1.00</span></th><td data-force></td><td><input data-extension data-store="ext-1" type="number" min="0" step="0.001" inputmode="decimal" aria-label="ระยะยืดของมวล 1 kg"></td><td data-stress></td><td data-strain></td><td data-young></td></tr>
+            <tr data-mass="2"><th scope="row"><span class="eq" data-tex="2.00">2.00</span></th><td data-force></td><td><input data-extension data-store="ext-2" type="number" min="0" step="0.001" inputmode="decimal" aria-label="ระยะยืดของมวล 2 kg"></td><td data-stress></td><td data-strain></td><td data-young></td></tr>
+            <tr data-mass="3"><th scope="row"><span class="eq" data-tex="3.00">3.00</span></th><td data-force></td><td><input data-extension data-store="ext-3" type="number" min="0" step="0.001" inputmode="decimal" aria-label="ระยะยืดของมวล 3 kg"></td><td data-stress></td><td data-strain></td><td data-young></td></tr>
+            <tr data-mass="4"><th scope="row"><span class="eq" data-tex="4.00">4.00</span></th><td data-force></td><td><input data-extension data-store="ext-4" type="number" min="0" step="0.001" inputmode="decimal" aria-label="ระยะยืดของมวล 4 kg"></td><td data-stress></td><td data-strain></td><td data-young></td></tr>
+            <tr data-mass="5"><th scope="row"><span class="eq" data-tex="5.00">5.00</span></th><td data-force></td><td><input data-extension data-store="ext-5" type="number" min="0" step="0.001" inputmode="decimal" aria-label="ระยะยืดของมวล 5 kg"></td><td data-stress></td><td data-strain></td><td data-young></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="data-foot">
+        <!-- result-summary (reusable) -->
+        <div class="result-summary">
+          <h3>ผลวิเคราะห์สด</h3>
+          <!-- live dial gauge — the needle sweeps to the largest ΔL entered (instrument feedback) -->
+          <div class="live-dial">
+            <svg viewBox="0 0 120 120" role="img" aria-label="ไดอัลเกจแสดงระยะยืดสูงสุดที่กรอก">
+              <circle cx="60" cy="60" r="54" class="ld-face"/>
+              <circle cx="60" cy="60" r="46" class="ld-inner"/>
+              <g class="ld-ticks" aria-hidden="true">
+                <line x1="60" y1="13" x2="60" y2="22"/>
+                <line x1="60" y1="13" x2="60" y2="22" transform="rotate(45 60 60)"/>
+                <line x1="60" y1="13" x2="60" y2="22" transform="rotate(-45 60 60)"/>
+                <line x1="60" y1="13" x2="60" y2="22" transform="rotate(90 60 60)"/>
+                <line x1="60" y1="13" x2="60" y2="22" transform="rotate(-90 60 60)"/>
+                <line x1="60" y1="13" x2="60" y2="22" transform="rotate(135 60 60)"/>
+                <line x1="60" y1="13" x2="60" y2="22" transform="rotate(-135 60 60)"/>
+              </g>
+              <line x1="60" y1="60" x2="60" y2="25" id="dialNeedle" class="ld-needle"/>
+              <circle cx="60" cy="60" r="6" class="ld-hub"/>
+            </svg>
+            <span class="ld-reading"><b id="dialReading">— mm</b><small>ΔL สูงสุดที่อ่านได้</small></span>
+          </div>
+          <dl>
+            <div><dt>พื้นที่หน้าตัด <i>A</i></dt><dd id="areaOutput">—</dd></div>
+            <div><dt>ค่าเฉลี่ย <i>Y</i> รายจุด</dt><dd id="avgYoungOutput">—</dd></div>
+            <div><dt><i>Y</i> จากความชันกราฟ</dt><dd id="slopeYoungOutput">—</dd></div>
+            <div class="rs-em"><dt>ร้อยละความคลาดเคลื่อน</dt><dd id="percentErrorOutput">—</dd></div>
+          </dl>
+        </div>
+
+        <figure class="chart-card">
+          <svg id="dataGraph" viewBox="0 0 520 320" role="img" aria-label="กราฟความเค้น–ความเครียดจากข้อมูลในตาราง"></svg>
+          <figcaption>กราฟ σ–ε จากข้อมูลที่กรอก พร้อมเส้นแนวโน้มผ่านจุดกำเนิด</figcaption>
+        </figure>
+      </div>
+
+      <div class="actions-row">
+        <button type="button" class="btn btn-soft" id="resetTable">ล้างข้อมูลตาราง</button>
+        <span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span>
+      </div>
+    </section>
+
+    <!-- ══════════════ 10 · EXAMPLE CALCULATION ══════════════ -->
+    <section class="section" id="example" data-title="ตัวอย่าง">
+      <header class="section-head">
+        <div>
+          <p class="kicker">ทำตามทีละบรรทัด</p>
+          <h2>ตัวอย่างการคำนวณ</h2>
+        </div>
+      </header>
+      <p class="lead">
+        ตัวอย่างนี้ใช้ค่ามวล 1.00 kg, L<sub>0</sub> = 1.200 m, <i>d</i> = 0.500 mm และ ΔL = 0.320 mm
+        เพื่อแสดงการแทนค่าในสูตรอย่างละเอียด
+      </p>
+
+      <div class="reveal-controls">
+        <button type="button" class="btn btn-primary" id="exampleShow">แสดงตัวอย่างการคำนวณ</button>
+        <button type="button" class="btn btn-ghost" id="exampleHide" hidden>ซ่อนตัวอย่าง</button>
+      </div>
+
+      <div class="example-body" id="exampleBody" hidden></div>
+    </section>
+
+    <!-- ══════════════ 12 · SHOW / HIDE ANSWER AREA ══════════════ -->
+    <section class="section" id="checkpoint" data-title="ตรวจสอบ">
+      <header class="section-head">
+        <div>
+          <p class="kicker">ตรวจความเข้าใจ</p>
+          <h2>ลองคิดก่อนดูเฉลย</h2>
+        </div>
+      </header>
+
+      <div class="prompt-card prompt-wide">
+        <p class="prompt-tag">คำถามท้าทาย</p>
+        <p class="prompt-q">
+          ถ้าวัดเส้นผ่านศูนย์กลางลวด <strong>น้อยกว่าความจริง 10%</strong>
+          ค่าพื้นที่หน้าตัด <i>A</i> และค่า <i>Y</i> ที่คำนวณได้จะคลาดเคลื่อนไปทางใด และมากแค่ไหน?
+        </p>
+
+        <div class="reveal-controls">
+          <button type="button" class="btn btn-primary" id="answerShow">แสดงคำตอบ</button>
+          <button type="button" class="btn btn-ghost" id="answerHide" hidden>ซ่อนคำตอบ</button>
+        </div>
+
+        <div class="answer-body" id="answerBody" hidden>
+          <p>
+            เพราะ <span class="eq" data-tex="A = \pi r^{2}"><i>A</i> = π<i>r</i><sup>2</sup></span> พื้นที่ขึ้นกับ <i>d</i> <strong>ยกกำลังสอง</strong>
+            ความผิดพลาดของ <i>d</i> จึงถูกขยายเป็นประมาณสองเท่า
+          </p>
+          <ul class="tick-list">
+            <li>เมื่อ <i>d</i> ต่ำไป 10% → <i>r</i> ต่ำไป 10% → <i>A</i> เหลือ ≈ 0.81 เท่า (ต่ำไป ~19%)</li>
+            <li>σ = F/A จึง <strong>สูงเกินจริง ~23%</strong></li>
+            <li>ดังนั้น <i>Y</i> = σ/ε ก็ <strong>สูงเกินจริง ~23%</strong> ตามไปด้วย</li>
+          </ul>
+          <p class="muted">บทเรียน: วัดเส้นผ่านศูนย์กลางให้แม่นและเฉลี่ยหลายตำแหน่งเสมอ</p>
+        </div>
+      </div>
+      <div class="quick-quiz" data-qid="y-analyze" data-bloom="analyze" data-answer="D">
+        <p class="quiz-label">คำถามสั้น</p>
+        <h3 class="prompt-q">ถ้าวัดเส้นผ่านศูนย์กลางลวดต่ำกว่าความจริง 10% ค่า \(Y\) ที่คำนวณได้จะเป็นอย่างไร?</h3>
+        <div class="quiz-options">
+          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> ต่ำไปประมาณ 19%</button>
+          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> ต่ำไปประมาณ 23%</button>
+          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> ไม่เปลี่ยน</button>
+          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> สูงไปประมาณ 23%</button>
+          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> สูงไปประมาณ 10%</button>
+        </div>
+        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ══════════════ 13 · ANALYSIS GUIDELINE ══════════════ -->
+    <section class="section" id="analysis" data-title="วิเคราะห์">
+      <header class="section-head">
+        <div>
+          <p class="kicker">แปลผลให้เป็นข้อสรุป</p>
+          <h2>แนวทางการวิเคราะห์ผล</h2>
+        </div>
+      </header>
+
+      <div class="split">
+        <ol class="analysis-steps">
+          <li>หาความชันจาก <strong>ช่วงเส้นตรง (OA)</strong> ของกราฟ ค่าความชันนี้คือ <i>Y</i> จากกราฟ</li>
+          <li>เปรียบเทียบ <i>Y</i> รายจุดและ <i>Y</i> จากกราฟ กับค่ามาตรฐาน <span class="eq" data-tex="1.90\times10^{11}">1.90×10<sup>11</sup></span> N/m²</li>
+          <li>คำนวณร้อยละความคลาดเคลื่อนเพื่อบอกความแม่นยำ</li>
+          <li>พิจารณาว่ากราฟเป็นเส้นตรงผ่านจุดกำเนิดหรือไม่ เพื่อสรุปว่าข้อมูลสนับสนุนกฎของฮุกเพียงใด</li>
+        </ol>
+
+        <!-- analysis-note (reusable callout) -->
+        <aside class="note note-info note-block">
+          <span class="note-icon" aria-hidden="true">◆</span>
+          <div>
+            <strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong>
+            <ul>
+              <li>การตั้งศูนย์ของไดอัลเกจ</li>
+              <li>การอ่านค่าขณะมวลยังแกว่ง</li>
+              <li>ความไม่แน่นอนของการวัดเส้นผ่านศูนย์กลาง</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+      <div class="quick-quiz" data-qid="y-evaluate" data-bloom="evaluate" data-answer="C">
+        <p class="quiz-label">คำถามสั้น</p>
+        <h3 class="prompt-q">หลักฐานชุดใดสนับสนุนว่าลวดยังอยู่ในช่วงกฎของฮุกได้ดีที่สุด?</h3>
+        <div class="quiz-options">
+          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> ระยะยืดทุกค่ามากกว่าศูนย์</button>
+          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> มวลแขวนเพิ่มขึ้นทุกครั้ง</button>
+          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> กราฟความเค้น–ความเครียดเป็นเส้นตรงใกล้จุดกำเนิด</button>
+          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ลวดไม่ขาดระหว่างทดลอง</button>
+          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ค่าเส้นผ่านศูนย์กลางแต่ละจุดไม่เท่ากัน</button>
+        </div>
+        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ══════════════ 14 · DISCUSSION QUESTIONS ══════════════ -->
+    <section class="section band" id="discussion" data-title="อภิปราย">
+      <header class="section-head">
+        <div>
+          <p class="kicker">ชวนอภิปรายในชั้นเรียน</p>
+          <h2>คำถามอภิปราย</h2>
+        </div>
+      </header>
+
+      <div class="q-grid">
+        <article class="q-card"><span class="q-no">Q1</span><p>ขีดจำกัดความยืดหยุ่น (elastic limit), จุดคราก (yield point), ความเค้นสูงสุด (ultimate strength) และจุดขาด (fracture point) แตกต่างกันอย่างไร?</p></article>
+        <article class="q-card"><span class="q-no">Q2</span><p>ทำไมวัสดุที่มีความแข็งตึง (stiffness) สูง จึงไม่จำเป็นต้องมีความเหนียว (toughness) สูงเสมอไป?</p></article>
+        <article class="q-card"><span class="q-no">Q3</span><p>การเลือกวัสดุในงานวิศวกรรมใช้ค่า <i>Y</i>, ความแข็งแรง (strength) และความเหนียว (toughness) ร่วมกันอย่างไร?</p></article>
+        <article class="q-card"><span class="q-no">Q4</span><p>ความไม่แน่นอนของเส้นผ่านศูนย์กลางส่งผลต่อ <i>Y</i> ผ่าน <span class="eq" data-tex="A = \pi r^{2}">A = πr²</span> อย่างไร?</p></article>
+        <article class="q-card"><span class="q-no">Q5</span><p>ข้อมูลที่ได้สนับสนุนกฎของฮุกหรือไม่? ให้อ้างรูปร่างของกราฟประกอบ</p></article>
+      </div>
+      <div class="quick-quiz" data-qid="y-create" data-bloom="create" data-answer="B">
+        <p class="quiz-label">คำถามสั้น</p>
+        <h3 class="prompt-q">ถ้าต้องออกแบบการวัดเพื่อลดผลของความไม่สม่ำเสมอของเส้นผ่านศูนย์กลางลวด แนวทางใดเหมาะสมที่สุด?</h3>
+        <div class="quiz-options">
+          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> วัดครั้งเดียวตรงกลางลวด</button>
+          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> วัดหลายตำแหน่งและหลายแนว แล้วใช้ค่าเฉลี่ย</button>
+          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> ใช้ค่าที่มากที่สุดเพียงค่าเดียว</button>
+          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> เพิ่มมวลแขวนให้มากที่สุด</button>
+          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> เปลี่ยนจากไมโครมิเตอร์เป็นไม้บรรทัด</button>
+        </div>
+        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ══════════════ 14 · CONCLUSION ══════════════ -->
+    <section class="section spotlight" id="conclusion" data-title="สรุป">
+      <header class="section-head">
+        <div>
+          <p class="kicker">แนวทางวิเคราะห์และสรุปผล</p>
+          <h2>สรุปผลการทดลอง</h2>
+        </div>
+      </header>
+
+      <div class="conclusion-grid">
+        <p class="lead conclusion-lead">
+          บทสรุปที่ดีไม่ใช่การเล่าซ้ำขั้นตอน แต่คือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong>
+          จากข้อมูลของคุณเอง ลองวิเคราะห์และสรุปให้ครอบคลุมสี่ประเด็นนี้
+        </p>
+        <ul class="conclusion-points">
+          <li>
+            <span class="cp-ico">1</span>
+            <div>
+              <h3>รายงานค่าที่หาได้</h3>
+              <p>ระบุค่าโมดูลัสของยังทั้งจากสูตร <span class="eq" data-tex="Y = \sigma/\varepsilon">Y = σ/ε</span> รายจุด และจากความชันกราฟ พร้อมหน่วย N/m²</p>
+            </div>
+          </li>
+          <li>
+            <span class="cp-ico">2</span>
+            <div>
+              <h3>เทียบกับค่ามาตรฐาน</h3>
+              <p>เปรียบเทียบกับค่าอ้างอิง <span class="eq" data-tex="1.90\times10^{11}">1.90×10<sup>11</sup></span> N/m² แล้วรายงาน <strong>ร้อยละความคลาดเคลื่อน</strong> เพื่อบอกความแม่นยำ</p>
+            </div>
+          </li>
+          <li>
+            <span class="cp-ico">3</span>
+            <div>
+              <h3>ตีความกราฟและกฎของฮุก</h3>
+              <p>ระบุว่ากราฟ <span class="eq" data-tex="\sigma">σ</span>–<span class="eq" data-tex="\varepsilon">ε</span> เป็นเส้นตรงผ่านจุดกำเนิดหรือไม่ เพื่อสรุปว่าข้อมูลสนับสนุนกฎของฮุกเพียงใด</p>
+            </div>
+          </li>
+          <li>
+            <span class="cp-ico">4</span>
+            <div>
+              <h3>อภิปรายแหล่งคลาดเคลื่อน</h3>
+              <p>ระบุสาเหตุหลัก เช่น การวัดเส้นผ่านศูนย์กลาง <i>d</i> (ขยายผ่าน <span class="eq" data-tex="A = \pi r^{2}">A = πr²</span>) การตั้งศูนย์เกจ และการอ่านค่าขณะมวลแกว่ง</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
+    </section>
+
+  </main>
+
+  <!-- ══════════════ FLOATING SECTION STEPPER ══════════════ -->
+  <nav class="stepper" aria-label="นำทางทีละส่วน">
+    <button type="button" id="prevSec" aria-label="ส่วนก่อนหน้า">‹</button>
+    <span id="stepLabel">บทนำ</span>
+    <button type="button" id="nextSec" aria-label="ส่วนถัดไป">›</button>
+  </nav>
+
+  <!-- ══════════════ PRESENT MODE (deck) CONTROLS ══════════════ -->
+  <div class="present-bar" id="presentBar" hidden>
+    <span class="present-label">▶ โหมดนำเสนอ</span>
+    <button type="button" id="presentPrev" aria-label="สไลด์ก่อนหน้า">‹</button>
+    <span id="presentCounter">1 / 14</span>
+    <button type="button" id="presentNext" aria-label="สไลด์ถัดไป">›</button>
+    <button type="button" id="presentExit" class="present-exit">✕ ออก (Esc)</button>
+  </div>
+  <div class="present-progress" id="presentProgress" aria-hidden="true"><span></span></div>
+
+  <!-- ══════════════ UNDO TOAST ══════════════ -->
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden>
+    <span id="toastMsg"></span>
+    <button type="button" id="toastUndo">เลิกทำ</button>
+  </div>
+
+  <!-- ══════════════ EQUIPMENT LIGHTBOX (enlarged schematic / photo) ══════════════ -->
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="ภาพขยายอุปกรณ์">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="ปิดภาพขยาย">✕</button>
+      <div class="lightbox-body" id="lightboxBody"></div>
+    </div>
+  </div>
+
+  <noscript>
+    <p style="padding:1rem;text-align:center;background:#fff3cd">
+      หน้านี้ยังอ่านเนื้อหาได้ครบ แต่การคำนวณอัตโนมัติ กราฟ และปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript
+    </p>
+  </noscript>
+</body>
+</html>

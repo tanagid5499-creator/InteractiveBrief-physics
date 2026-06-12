@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Test and tool artifacts
+.playwright-cli/
+*.log
+
+# Local secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+~$*

@@ -1,0 +1,1095 @@
+/* ============================================================================
+   PROJECT 4 · INTERACTIVE LAB BRIEF
+   Lab 02 — Young's Modulus · light mode · blue & white
+   Reusable template stylesheet
+   ----------------------------------------------------------------------------
+   Sections:
+   1. Design tokens          5. Layout & topbar
+   2. Base & typography      6. Section components (reusable patterns)
+   3. Buttons & inputs       7. Lab-specific blocks
+   4. Math / formula type    8. Animation & responsive (4:3 / laptop / mobile)
+   ========================================================================== */
+
+/* ── 1. DESIGN TOKENS ─────────────────────────────────────────────────── */
+:root {
+  /* palette — blue & white */
+  --blue-50:  #f3f7fe;
+  --blue-100: #e6eefc;
+  --blue-200: #cddffb;
+  --blue-300: #a8c6f6;
+  --blue-400: #6e9cee;
+  --blue-500: #2563eb;
+  --blue-600: #1d4fd0;
+  --blue-700: #173fa6;
+  --navy:     #122a4f;   /* headings */
+  --ink:      #2b3a55;   /* body text */
+  --muted:    #515e78;   /* secondary text — AA ≥5.3:1 on white, ≥5:1 on the plate/band tints */
+  --faint:    #97a4bd;
+
+  --page:     #f3f7ff;
+  --surface:  #ffffff;
+  --surface-2:#fbfcff;
+  --tint:     #f0f5fe;
+  --band:     #eef3fc;   /* section-rhythm tint band — a touch deeper than --tint */
+  --line:     #e4ebf6;
+  --line-2:   #d6e1f1;
+
+  /* soft, blue-tinted shadows */
+  --shadow-xs: 0 1px 2px rgba(18,42,79,.05);
+  --shadow-sm: 0 1px 2px rgba(18,42,79,.04), 0 6px 18px rgba(18,42,79,.06);
+  --shadow-md: 0 6px 20px rgba(18,42,79,.08), 0 18px 40px rgba(18,42,79,.07);
+  --shadow-lg: 0 24px 60px rgba(18,42,79,.13);
+
+  --radius-sm: 9px;
+  --radius:    13px;
+  --radius-lg: 16px;
+
+  /* semantic state colors — reserved for warnings / success / errors, never decoration */
+  --caution:      #e08a17;   --caution-bg: #fff7ed;   --caution-line: #fbd9a8;
+  --success:      #16a34a;
+  --danger:       #dc2626;   --danger-ink: #b42318;   --danger-bg: #fef2f2;   --danger-line: #f7c7c7;
+
+  /* Light Blueprint — engineering accents */
+  --dim:      #d9480f;   /* drafting-red: dimension lines / measurement markup ONLY */
+
+  /* fonts — TH Sarabun PSK is desktop-only (not on Google Fonts); "Sarabun" is its web-hosted
+     sibling and loads everywhere. Real TH Sarabun New/PSK kept as fallbacks if installed locally.
+     Numbers / instrument readouts stay IBM Plex Mono; symbolic math is KaTeX (its own fonts). */
+  --font-head: "Sarabun", "TH Sarabun New", "TH Sarabun PSK", "Leelawadee UI", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Sarabun", "TH Sarabun New", "TH Sarabun PSK", "Leelawadee UI", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "Cascadia Code", Consolas, monospace;
+  /* KaTeX renders larger than Sarabun at equal em — tune these two to balance the two fonts */
+  --math-scale: 0.94;          /* inline math glyph size relative to surrounding Thai text (bumped up to read larger) */
+  --math-shift: -0.07em;       /* baseline nudge so math sits on the Thai vowel line (− = down) */
+
+  /* rhythm */
+  --maxw: 1080px;
+  --gap: clamp(1.1rem, 2.4vw, 1.9rem);
+  --section-pad: clamp(2.8rem, 5.5vw, 5rem);
+  --topbar-h: 64px;
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+/* ── 2. BASE & TYPOGRAPHY ─────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+* { margin: 0; }
+[hidden] { display: none !important; }   /* author display rules must not defeat the hidden attribute */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--topbar-h) + 18px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.1vw + 11px, 18px);
+  line-height: 1.7;          /* Thai (Sarabun) stacks vowels + tone marks — give prose extra leading */
+  color: var(--ink);
+  background: var(--page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;   /* harden: a long unbreakable token (URL, code, ID) wraps instead of forcing h-scroll */
+}
+
+/* Thai (Sarabun) needs normal tracking (negative collides marks) + looser heading leading than a Latin
+   face — 1.3 keeps a wrapped heading's upper vowels off the line above's lower vowels/tone marks. */
+h1, h2, h3 { font-family: var(--font-head); color: var(--navy); line-height: 1.3; font-weight: 600; letter-spacing: normal; }
+h2 { font-size: clamp(1.5rem, 2.6vw, 2.15rem); }
+h3 { font-size: clamp(1.05rem, 1.4vw, 1.25rem); font-weight: 600; }
+p  { color: var(--ink); }
+i  { font-style: italic; }
+b, strong { font-weight: 600; color: var(--navy); }
+a  { color: var(--blue-600); text-decoration: none; }
+sub, sup { line-height: 0; font-size: .72em; }
+code {
+  font-family: var(--font-mono); font-size: .86em;
+  background: var(--tint); color: var(--blue-700);
+  padding: .08em .4em; border-radius: 6px; border: 1px solid var(--line);
+}
+
+.kicker {
+  font-family: var(--font-head);
+  font-size: .8rem; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--blue-500);
+}
+.lead { font-size: 1.06rem; color: var(--muted); max-width: 62ch; }
+.muted { color: var(--muted); }
+.hint  { color: var(--muted); font-size: .85rem; }
+
+.skip-link {
+  position: absolute; left: 12px; top: -48px; z-index: 200;
+  background: var(--blue-600); color: #fff; padding: .55rem 1rem;
+  border-radius: 10px; transition: top .2s var(--ease);
+}
+.skip-link:focus { top: 12px; }
+
+:focus-visible { outline: 3px solid var(--blue-300); outline-offset: 2px; border-radius: 6px; }
+
+/* ── 3. BUTTONS & INPUTS ──────────────────────────────────────────────── */
+button, input, textarea { font: inherit; color: inherit; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  font-family: var(--font-head); font-weight: 500; font-size: .98rem;
+  padding: .72rem 1.35rem; border-radius: 12px; border: 1px solid transparent;
+  cursor: pointer; white-space: nowrap;
+  transition: transform .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
+}
+.btn:active { transform: translateY(1px); }
+
+.btn-primary { background: var(--blue-500); color: #fff; box-shadow: 0 6px 16px rgba(37,99,235,.28); }
+.btn-primary:hover { background: var(--blue-600); transform: translateY(-2px); box-shadow: 0 10px 22px rgba(37,99,235,.32); }
+
+.btn-ghost { background: var(--surface); color: var(--blue-700); border-color: var(--line-2); box-shadow: var(--shadow-xs); }
+.btn-ghost:hover { border-color: var(--blue-300); background: var(--blue-50); transform: translateY(-2px); }
+
+.btn-soft { background: var(--tint); color: var(--blue-700); border-color: var(--line); }
+.btn-soft:hover { background: var(--blue-100); border-color: var(--blue-200); }
+
+input[type="number"] {
+  width: 100%; background: var(--surface); border: 1.5px solid var(--line-2);
+  border-radius: 10px; padding: .6rem .7rem; font-family: var(--font-mono);
+  font-size: .95rem; color: var(--navy);
+  transition: border-color .16s var(--ease), box-shadow .16s var(--ease);
+}
+input[type="number"]:hover { border-color: var(--blue-300); }
+input[type="number"]:focus { outline: none; border-color: var(--blue-500); box-shadow: 0 0 0 4px rgba(37,99,235,.12); }
+
+/* ── 4. MATH (KaTeX) ──────────────────────────────────────────────────── */
+/* KaTeX renders the SYMBOLIC math: the 6 formula cards (display), inline equations,
+   variables, and the substituted calc-step formulas. Computed numeric readouts
+   (data-table cells, result-summary, the Y result banner, .cs-res) deliberately STAY
+   in IBM Plex Mono for the tabular / instrument feel. KaTeX inherits `color` from its
+   context, so math picks up --navy / --ink / the accent; every data-tex element carries
+   a plain-text fallback that shows if the KaTeX CDN fails to load. */
+.eq { white-space: nowrap; }
+/* Sarabun reads ~15-20% smaller than KaTeX at equal em, so inline math looked oversized and
+   floated above the Thai baseline. Scale it to --math-scale and nudge it onto the vowel line. */
+.katex { font-size: calc(var(--math-scale) * 1em); vertical-align: var(--math-shift); }
+/* the live data table is dense; render its KaTeX at full 1em (skip the global shrink) so the values stay legible */
+.data-table .katex { font-size: 1em; }
+/* the fillable number inputs can't be true KaTeX (they're editable), so give them KaTeX's own font so the typed
+   values visually match the rendered KaTeX cells around them. Falls back to mono if the KaTeX font isn't loaded. */
+#data input[type="number"] { font-family: "KaTeX_Main", var(--font-mono); }
+.formula .katex-display { margin: 0; }                              /* drop KaTeX's default block margin */
+.formula .katex-display > .katex { font-size: 1.55rem; text-align: left; vertical-align: baseline; }
+@media (max-width: 600px) { .formula .katex-display > .katex { font-size: 1.32rem; } }
+
+/* ── 5. LAYOUT & TOPBAR ───────────────────────────────────────────────── */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: #ffffff;                /* solid: no backdrop-filter repaint = no scroll jank */
+  border-bottom: 1px solid var(--line);
+}
+.topbar-inner {
+  max-width: 1280px; margin: 0 auto; height: var(--topbar-h);
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0 clamp(.9rem, 2.5vw, 1.6rem);
+}
+
+.brand { display: flex; align-items: center; gap: .6rem; flex: 0 0 auto; }
+.brand-badge {
+  display: grid; place-items: center; width: 38px; height: 38px;
+  background: var(--blue-500); color: #fff; border-radius: 11px;
+  font-family: var(--font-head); font-weight: 700; font-size: 1.05rem;
+  box-shadow: 0 4px 12px rgba(37,99,235,.3);
+}
+.brand-text { display: flex; flex-direction: column; line-height: 1.28; gap: 2px; }
+.brand-text strong { font-family: var(--font-head); font-size: 1rem; color: var(--navy); }
+.brand-text small { color: var(--muted); font-size: .72rem; }
+
+/* phase nav — 4 phase buttons, each a dropdown of its sections (replaces the old 15-chip rail) */
+.phase-nav { flex: 1 1 auto; min-width: 0; display: flex; gap: .3rem; align-items: center; }
+.phase { position: relative; }
+.phase-btn {
+  font-family: var(--font-head); font-size: .88rem; font-weight: 500; color: var(--muted);
+  background: transparent; border: 1px solid transparent; border-radius: 999px;
+  padding: .45rem .9rem; cursor: pointer; white-space: nowrap;
+  transition: color .16s var(--ease), background .16s var(--ease), box-shadow .16s var(--ease);
+}
+.phase-btn:hover, .phase-btn[aria-expanded="true"] { color: var(--blue-700); background: var(--blue-50); }
+.phase-btn.is-active { color: #fff; background: var(--blue-500); box-shadow: 0 3px 10px rgba(37,99,235,.3); }
+.phase-btn.is-active[aria-expanded="true"] { background: var(--blue-600); }
+
+/* dropdown panel of section links */
+.phase-menu {
+  position: absolute; top: calc(100% + 8px); left: 0; z-index: 110;
+  display: none; flex-direction: column; gap: .12rem; min-width: 172px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: var(--shadow-md); padding: .4rem;
+}
+.phase.open .phase-menu { display: flex; }
+.chip {
+  display: block; font-family: var(--font-head); font-size: .9rem; font-weight: 500; color: var(--ink);
+  padding: .5rem .7rem; border-radius: 8px; white-space: nowrap;
+  transition: color .16s var(--ease), background .16s var(--ease);
+}
+.chip:hover { color: var(--blue-700); background: var(--blue-50); }
+.chip.is-active { color: #fff; background: var(--blue-500); }
+/* larger tap targets on touch devices (AAA 44px) */
+@media (pointer: coarse) {
+  .phase-btn { min-height: 44px; }
+  .chip { min-height: 44px; display: flex; align-items: center; }
+  .stepper button { width: 44px; height: 44px; }
+}
+
+.topbar-meta { flex: 0 0 auto; }
+.sec-counter { font-family: var(--font-mono); font-size: .85rem; color: var(--muted); white-space: nowrap; }
+.sec-counter b { color: var(--blue-600); font-weight: 600; }
+.sec-counter span { opacity: .7; }
+
+.read-progress { height: 3px; background: var(--blue-100); }
+.read-progress #readBar {
+  display: block; height: 100%; width: 100%;
+  background: linear-gradient(90deg, var(--blue-400), var(--blue-600));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .1s linear;
+}
+
+main { display: block; }
+
+/* generic section frame */
+.section {
+  max-width: var(--maxw); margin: 0 auto;
+  padding: var(--section-pad) clamp(1.1rem, 4vw, 2rem);
+  /* NOTE: offset for the sticky topbar is handled ONCE by html{scroll-padding-top}.
+     A scroll-margin-top here too would STACK with it (82+80=162px), pushing snapped
+     sections below NAV_LINE(100) so the scroll-spy highlighted the previous section. */
+}
+.section + .section { border-top: 1px solid var(--line); }
+
+/* ── 6. SECTION COMPONENTS (reusable) ─────────────────────────────────── */
+/* section header */
+.section-head { margin-bottom: 1.6rem; }
+.section-head .kicker { margin-bottom: .2rem; }
+
+/* notes / callouts */
+.note {
+  display: flex; gap: .85rem; align-items: flex-start;
+  border-radius: var(--radius); padding: 1.1rem 1.25rem;
+  border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow-xs);
+}
+.note p, .note ul { color: var(--ink); }
+.note ul { margin: .35rem 0 0; padding-left: 1.1rem; }
+.note ul li { margin: .15rem 0; }
+.note-icon {
+  flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px;
+  display: grid; place-items: center; font-size: .85rem; font-weight: 700;
+  color: #fff;
+}
+.note-info { background: var(--blue-50); border-color: var(--blue-200); }
+.note-info .note-icon { background: var(--blue-500); }
+.note-warn { background: var(--caution-bg); border-color: var(--caution-line); }
+.note-warn .note-icon { background: var(--caution); }
+.note-block { align-items: flex-start; }
+
+/* card grids */
+.card-grid { display: grid; gap: var(--gap); }
+.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+.info-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.4rem 1.3rem; box-shadow: var(--shadow-sm);
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.info-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.info-card .ic-step {
+  display: inline-grid; place-items: center; width: 34px; height: 34px;
+  border-radius: 10px; background: var(--blue-100); color: var(--blue-700);
+  font-family: var(--font-head); font-weight: 700; margin-bottom: .7rem;
+}
+.info-card h3 { margin-bottom: .35rem; }
+.info-card p { color: var(--muted); font-size: 1rem; }
+
+/* split layout (text + aside) */
+.split { display: grid; grid-template-columns: 1.15fr 1fr; gap: var(--gap); align-items: start; }
+.prose p + p { margin-top: .9rem; }
+.prose { max-width: 60ch; }
+
+/* prompt-card (question / prediction) */
+.prompt-card {
+  background: linear-gradient(180deg, var(--blue-50), var(--surface));
+  border: 1px solid var(--blue-200); border-radius: var(--radius-lg);
+  padding: 1.5rem; box-shadow: var(--shadow-sm);
+}
+.prompt-wide { max-width: 760px; }
+.prompt-tag {
+  font-family: var(--font-head); font-weight: 600; font-size: .78rem;
+  letter-spacing: .06em; text-transform: uppercase; color: var(--blue-500);
+  margin-bottom: .5rem;
+}
+.prompt-q { font-size: 1.05rem; color: var(--navy); margin-bottom: 1rem; }
+.choice-row { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: .9rem; }
+.choice {
+  font-family: var(--font-head); font-size: .92rem; color: var(--ink);
+  background: var(--surface); border: 1.5px solid var(--line-2); border-radius: 999px;
+  padding: .55rem 1.1rem; cursor: pointer; transition: all .16s var(--ease);
+}
+.choice:hover { border-color: var(--blue-300); background: var(--blue-50); transform: translateY(-1px); }
+.choice.is-selected { border-color: var(--blue-500); background: var(--blue-500); color: #fff; }
+.choice.is-correct  { border-color: var(--success); background: var(--success); color: #fff; }
+.prompt-feedback { font-size: .94rem; color: var(--muted); min-height: 1.4em; }
+
+/* reveal controls (show/hide) */
+.reveal-controls { display: flex; flex-wrap: wrap; gap: .7rem; margin-bottom: 1.2rem; }
+
+/* ── 7. LAB-SPECIFIC BLOCKS ───────────────────────────────────────────── */
+
+/* HERO */
+.hero { padding-top: clamp(2rem, 4vw, 3rem); }
+.hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
+.hero-title { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 700; letter-spacing: -.025em; }
+.hero-sub { font-family: var(--font-head); font-weight: 500; color: var(--blue-500); font-size: clamp(1rem, 1.6vw, 1.25rem); margin-top: .1rem; }
+.hero-lede { margin-top: 1.1rem; font-size: 1.1rem; color: var(--ink); max-width: 46ch; }
+
+.hero-meta { list-style: none; display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.6rem; }
+.hero-meta li {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  padding: .65rem .95rem; min-width: 92px; box-shadow: var(--shadow-xs);
+}
+.hm-num { display: block; font-family: var(--font-head); font-weight: 700; font-size: 1.35rem; color: var(--blue-600); line-height: 1.1; }
+.hm-label { display: block; font-size: .76rem; color: var(--muted); margin-top: .15rem; }
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
+
+.hero-visual {
+  background: linear-gradient(160deg, var(--surface), var(--blue-50));
+  border: 1px solid var(--blue-100); border-radius: var(--radius-lg);
+  padding: 1.4rem; box-shadow: var(--shadow-md);
+}
+.hero-visual svg { width: 100%; height: auto; display: block; }
+.hero-visual figcaption { margin-top: .6rem; font-size: .86rem; color: var(--muted); text-align: center; }
+
+/* apparatus diagram strokes */
+.d-wire   { stroke: var(--blue-600); stroke-width: 2.4; }
+.d-anchor { fill: var(--blue-700); }
+.d-hanger { fill: var(--blue-200); }
+.d-mass   { fill: var(--blue-500); }
+.d-mass-2 { fill: var(--blue-400); }
+.d-gauge  { fill: #fff; stroke: var(--blue-300); stroke-width: 2; }
+.d-gauge-inner { fill: var(--blue-50); stroke: var(--blue-200); stroke-width: 1.4; }
+.d-needle { stroke: var(--blue-600); stroke-width: 2.4; stroke-linecap: round; }
+.d-probe  { stroke: var(--blue-300); stroke-width: 1.6; stroke-dasharray: 4 4; }
+.d-label  { font-family: var(--font-body); font-size: 13px; fill: var(--muted); }
+
+/* signature hero beat — the apparatus "takes a measurement" once on load:
+   the load settles and the dial needle sweeps to its reading. Calm, single, on-theme. */
+.d-load { animation: load-settle 1s var(--ease) .3s both; }
+@keyframes load-settle { from { transform: translateY(-9px); opacity: .35; } to { transform: translateY(0); opacity: 1; } }
+.d-needle { transform-box: view-box; transform-origin: 362px 186px; animation: needle-sweep 1.15s var(--ease) .35s both; }
+@keyframes needle-sweep { from { transform: rotate(-34deg); } to { transform: rotate(0); } }
+@media (prefers-reduced-motion: reduce) { .d-load, .d-needle { animation: none; } }
+
+.scroll-hint { display: flex; align-items: center; gap: .5rem; justify-content: center; margin-top: 2.4rem; color: var(--faint); font-size: .85rem; }
+.scroll-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue-400); animation: bob 1.6s var(--ease) infinite; }
+@keyframes bob { 0%,100%{ transform: translateY(0); opacity:.5 } 50%{ transform: translateY(5px); opacity:1 } }
+
+/* list-style:none lists otherwise keep the browser's default ~40px ul/ol indent, pushing their content off the
+   column's left edge (this was the hero Y_ref "ไม่ซ้ายไม่กลาง"). Reset so they align with their headings. */
+.hero-meta, .objective-list, .steps, .tick-list, .analysis-steps, .conclusion-points { padding: 0; }
+
+/* OBJECTIVES */
+.objective-list { list-style: none; display: grid; gap: 1rem; }
+.objective-list li { display: flex; gap: 1rem; align-items: flex-start; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.3rem 1.4rem; box-shadow: var(--shadow-sm); }
+.obj-no { flex: 0 0 auto; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; background: var(--blue-500); color: #fff; font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; }
+.objective-list h3 { margin-bottom: .25rem; }
+.objective-list p { color: var(--muted); }
+#objectives .note { margin-top: 1.2rem; }
+
+/* THEORY */
+.theory-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: var(--gap); align-items: center; }
+.tick-list { list-style: none; margin-top: .9rem; display: grid; gap: .45rem; }
+.tick-list li { padding-left: 1.6rem; position: relative; color: var(--ink); }
+.tick-list li::before { content: ""; position: absolute; left: 0; top: .55em; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-400); }
+.tick-list li b { display: inline-grid; place-items: center; min-width: 1.4em; }
+
+.chart-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem; box-shadow: var(--shadow-sm); }
+.chart-card svg { width: 100%; height: auto; display: block; }
+.chart-card figcaption { margin-top: .6rem; font-size: .85rem; color: var(--muted); text-align: center; }
+.axis { stroke: var(--line-2); stroke-width: 2; }
+.hooke-line { stroke: var(--blue-500); stroke-width: 3; stroke-linecap: round; }
+.stress-curve { fill: none; stroke: var(--blue-300); stroke-width: 3; stroke-linecap: round; }
+.pt { fill: var(--blue-500); }
+.pt-key { fill: var(--blue-700); }
+.pt-end { fill: #c0432f; }
+.c-label { font-family: var(--font-head); font-size: 15px; font-weight: 600; fill: var(--navy); }
+.c-axis { font-size: 13px; fill: var(--muted); }
+
+/* material comparison ladder */
+.material-block { margin-top: 1.8rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.45rem, 2.4vw, 1.9rem); box-shadow: var(--shadow-sm); }
+.material-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.badge { font-family: var(--font-head); font-size: .72rem; font-weight: 600; letter-spacing: .04em; color: var(--blue-700); background: var(--blue-100); border: 1px solid var(--blue-200); padding: .25rem .6rem; border-radius: 999px; }
+.material-list { display: grid; gap: .7rem; margin-bottom: .9rem; }
+.material-row { display: grid; grid-template-columns: 88px 1fr auto; align-items: center; gap: .9rem; }
+.m-name { font-weight: 500; color: var(--navy); }
+.m-bar { height: 12px; background: var(--blue-50); border-radius: 999px; overflow: hidden; }
+.m-bar i { display: block; height: 100%; width: var(--w); background: linear-gradient(90deg, var(--blue-400), var(--blue-600)); border-radius: 999px; transform-origin: left; }
+@keyframes grow-bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.m-val { font-family: var(--font-mono); font-size: 1.05rem; color: var(--ink); white-space: nowrap; }
+/* these values are KaTeX now — skip the global --math-scale shrink so they match the Thai material name */
+.m-val .katex { font-size: 1em; }
+
+/* FORMULA CARDS */
+.formula-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.3rem 1.4rem; box-shadow: var(--shadow-sm); transition: transform .2s var(--ease), box-shadow .2s var(--ease); }
+.formula-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.formula-card h3 { color: var(--muted); font-weight: 500; font-size: .92rem; margin-bottom: .8rem; }
+.formula-card .formula { font-size: 1.5rem; color: var(--navy); display: flex; align-items: center; flex-wrap: wrap; gap: .1rem; min-height: 56px; }
+.formula-card .formula-note { margin-top: .8rem; font-size: .82rem; color: var(--muted); }
+.formula-accent { border-color: var(--blue-300); background: linear-gradient(180deg, var(--blue-50), var(--surface)); }
+.formula-accent .formula { color: var(--blue-700); }
+/* formula sheet: wider 2-column boxes so long formulas (σ=F/A=mg/πr², %error) sit on one line */
+#formula .card-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 600px) {
+  #formula .card-grid { grid-template-columns: 1fr; }
+  #formula .formula-card .formula { font-size: 1.3rem; }   /* id-specific so it beats the base clamp on phones */
+}
+
+/* PROCEDURE STEPS */
+.steps { list-style: none; display: grid; gap: .7rem; position: relative; }
+.steps li { display: flex; gap: 1rem; align-items: flex-start; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.05rem 1.3rem; box-shadow: var(--shadow-xs); transition: border-color .18s var(--ease), transform .18s var(--ease); }
+.steps li:hover { border-color: var(--blue-200); transform: translateX(3px); }
+.step-n { flex: 0 0 auto; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--blue-100); color: var(--blue-700); font-family: var(--font-head); font-weight: 700; font-size: .95rem; }
+.steps h3 { margin-bottom: .15rem; }
+.steps p { color: var(--muted); font-size: 1rem; }
+#procedure .note { margin-top: 1.3rem; }
+
+/* EQUIPMENT */
+.equip-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .2s var(--ease), box-shadow .2s var(--ease); }
+.equip-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.equip-photo { width: 100%; aspect-ratio: 16 / 9; background: var(--surface-2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .4rem; color: var(--blue-500); border: 0; border-bottom: 1px solid var(--line); position: relative; font: inherit; cursor: pointer; transition: background .16s var(--ease); }
+.equip-photo:hover, .equip-photo:focus-visible { background: var(--blue-50); outline: none; }
+.equip-photo:focus-visible { box-shadow: inset 0 0 0 2px var(--blue-300); }
+/* .equip-photo .equip-zoom (2 classes) must out-specify `.equip-photo span` (the mono "schematic" caption) */
+.equip-photo .equip-zoom { position: absolute; top: .5rem; right: .5rem; font-family: var(--font-head); font-weight: 600; font-size: .72rem; letter-spacing: normal; text-transform: none; color: var(--blue-700); background: var(--surface); border: 1px solid var(--blue-200); border-radius: 999px; padding: .16rem .55rem; opacity: 0; transform: translateY(-3px); transition: opacity .16s var(--ease), transform .16s var(--ease); }
+.equip-photo:hover .equip-zoom, .equip-photo:focus-visible .equip-zoom { opacity: 1; transform: none; }
+@media (pointer: coarse) { .equip-zoom { opacity: 1; transform: none; } }
+.equip-photo .equip-ico { width: 88px; height: auto; }
+.equip-photo svg { width: 30px; height: 30px; }
+.equip-photo span:not(.equip-zoom) { font-family: var(--font-mono); font-size: .56rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.equip-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; border-bottom: 1px solid var(--line); }
+.equip-photo img {
+  width: 100%; height: 100%; aspect-ratio: auto; object-fit: contain;
+  padding: clamp(.35rem, 1vw, .7rem); border: 0;
+  background:
+    linear-gradient(135deg, rgba(37,99,235,.035), transparent 45%),
+    var(--surface-2);
+}
+.equip-card figcaption { padding: .95rem 1.15rem 1.05rem; }
+.equip-card h3 { margin-bottom: .25rem; font-size: 1.02rem; }
+/* full blurb shown in the card (no clamp); a richer view is in the fullscreen lightbox */
+.equip-card p { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+#equipment .card-grid { gap: clamp(.9rem, 1.8vw, 1.3rem); }
+/* present mode keeps equipment compact so all 6 still fit one slide: shorter frame + 2-line blurb clamp */
+body.present-mode .equip-photo { aspect-ratio: auto; height: clamp(54px, 7vh, 86px); }
+body.present-mode .equip-photo .equip-ico { width: 58px; }
+body.present-mode .equip-card figcaption { padding: .7rem .9rem .8rem; }
+body.present-mode .equip-card p { display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* EQUIPMENT LIGHTBOX — click a schematic (or future photo) to view it enlarged */
+/* near-fullscreen: the figure dominates, the full (un-clamped) description sits beside/below it */
+.lightbox { position: fixed; inset: 0; z-index: 300; display: grid; place-items: center; padding: clamp(.6rem, 2.5vw, 1.6rem); background: rgba(10,18,35,.72); }
+.lightbox-inner { position: relative; width: 100%; max-width: min(1040px, 96vw); max-height: 94vh; overflow: auto; background: var(--surface); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: clamp(1.4rem, 3.5vw, 2.6rem); }
+.lightbox-close { position: absolute; top: .8rem; right: .8rem; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font-size: 1.15rem; cursor: pointer; display: grid; place-items: center; transition: background .16s var(--ease), border-color .16s var(--ease); z-index: 1; }
+.lightbox-close:hover { background: var(--blue-50); border-color: var(--blue-300); }
+.lightbox-body { display: grid; gap: 1.3rem; }
+.lightbox-body .lb-figure { display: grid; place-items: center; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.8rem, 7vh, 4rem) clamp(1.5rem, 5vw, 3rem); color: var(--blue-500); }
+.lightbox-body .lb-figure .equip-ico { width: min(70vw, 52vh, 540px); height: auto; }
+.lightbox-body .lb-figure img { width: 100%; max-height: 62vh; object-fit: contain; border-radius: var(--radius-sm); }
+.lightbox-body figcaption { max-width: 72ch; }
+.lightbox-body h3 { margin-bottom: .5rem; font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
+.lightbox-body p { color: var(--muted); font-size: 1.04rem; }
+body.lb-open { overflow: hidden; }
+@media (prefers-reduced-motion: no-preference) {
+  .lightbox { animation: lb-fade .2s var(--ease); }
+  .lightbox-inner { animation: lb-pop .24s var(--ease); }
+}
+@keyframes lb-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes lb-pop { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
+
+/* SETUP INPUTS + DATA TABLE */
+.setup-inputs { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); margin-bottom: 1.4rem; }
+.setup-inputs label { display: flex; flex-direction: column; gap: .4rem; font-size: .88rem; line-height: 1.4; color: var(--muted); font-weight: 500; }
+.setup-inputs label .u { white-space: nowrap; }
+
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); background: var(--surface); }
+.data-table { width: 100%; border-collapse: collapse; min-width: 640px; }
+.data-table thead th { background: transparent; color: var(--navy); font-family: var(--font-head); font-weight: 600; font-size: .92rem; text-align: right; padding: .85rem 1rem; border-bottom: 2px solid var(--blue-200); white-space: nowrap; }
+.data-table thead th:first-child { text-align: left; }
+.data-table tbody th { text-align: left; font-family: var(--font-mono); font-weight: 600; color: var(--blue-700); padding: .7rem 1rem; }
+.data-table tbody td { text-align: right; padding: .55rem 1rem; font-family: var(--font-mono); font-size: .9rem; color: var(--ink); border-top: 1px solid var(--line); }
+.data-table tbody tr:nth-child(even) { background: var(--surface-2); }
+.data-table tbody tr:hover { background: var(--blue-50); }
+.data-table input { max-width: 120px; margin-left: auto; text-align: right; }
+.data-table td[data-young] { color: var(--blue-700); font-weight: 600; }
+
+/* result-summary + data foot */
+.data-foot { display: grid; grid-template-columns: 1fr 1.1fr; gap: var(--gap); margin-top: 1.4rem; align-items: stretch; }
+.result-summary { background: linear-gradient(180deg, var(--blue-50), var(--surface)); border: 1px solid var(--blue-200); border-radius: var(--radius); padding: 1.3rem 1.4rem; box-shadow: var(--shadow-sm); }
+.result-summary h3 { margin-bottom: .9rem; }
+.result-summary dl { display: grid; gap: .2rem; }
+.result-summary dl > div { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: .55rem 0; border-bottom: 1px dashed var(--line-2); }
+.result-summary dl > div:last-child { border-bottom: none; }
+.result-summary dt { color: var(--muted); font-size: .92rem; }
+.result-summary dd { font-family: var(--font-mono); font-weight: 600; color: var(--navy); text-align: right; }
+.result-summary .rs-em dd { color: var(--blue-600); font-size: 1.05rem; }
+
+/* live dial gauge inside the summary — the needle animates to the largest ΔL entered (instrument feedback) */
+.live-dial { display: flex; align-items: center; gap: .9rem; margin-bottom: 1.1rem; padding-bottom: 1rem; border-bottom: 1px dashed var(--line-2); }
+.live-dial svg { width: 84px; height: 84px; flex: 0 0 auto; }
+.ld-face { fill: var(--surface); stroke: var(--blue-300); stroke-width: 2; }
+.ld-inner { fill: var(--blue-50); stroke: var(--blue-200); stroke-width: 1.4; }
+.ld-ticks line { stroke: var(--blue-300); stroke-width: 2; stroke-linecap: round; }
+.ld-needle { stroke: var(--blue-600); stroke-width: 3; stroke-linecap: round; transform-box: view-box; transform-origin: 60px 60px; transform: rotate(-135deg); transition: transform .55s var(--ease); }
+.ld-hub { fill: var(--blue-700); }
+.ld-reading b { font-family: var(--font-mono); font-weight: 600; font-size: 1.3rem; color: var(--blue-700); display: block; line-height: 1.05; }
+.ld-reading small { color: var(--muted); font-size: .74rem; }
+
+.trend { stroke: var(--blue-500); stroke-width: 2.5; stroke-dasharray: 6 5; stroke-linecap: round; }
+#dataGraph .axis { stroke: var(--line-2); }
+#dataGraph circle { fill: var(--blue-600); }
+#dataGraph text { font-size: 13px; fill: var(--muted); font-family: var(--font-body); }
+/* OVERDRIVE: live oscilloscope plot — points spring + trend re-fits as data changes.
+   Geometry transitions only when motion is allowed; unsupported browsers simply snap (graceful). */
+#dataGraph .g-pt { filter: drop-shadow(0 1px 2px rgba(37,99,235,.3)); }
+@media (prefers-reduced-motion: no-preference) {
+  #dataGraph .g-pt { transition: cx .55s var(--ease), cy .55s var(--ease), opacity .35s var(--ease); }
+  #dataGraph .trend { transition: x2 .6s var(--ease), y2 .6s var(--ease), opacity .35s var(--ease); }
+}
+
+.actions-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.3rem; }
+
+/* WORKED-EXAMPLE STEP CARDS (substituted formula → result; used by #example) */
+.calc-steps { display: grid; gap: .55rem; }
+.calc-step { background: var(--tint); border: 1px solid var(--line); border-radius: 12px; padding: .75rem 1rem; display: flex; flex-wrap: wrap; align-items: center; gap: .15rem; font-size: 1.05rem; color: var(--navy); }
+.calc-step .cs-label { font-family: var(--font-head); font-size: .82rem; color: var(--muted); flex: 0 0 auto; margin-right: .6rem; min-width: 132px; }
+.calc-step .cs-sub { color: var(--muted); }
+.calc-step .cs-res { font-family: var(--font-mono); font-weight: 600; color: var(--blue-700); margin-left: auto; padding-left: 1rem; }
+.calc-result { margin-top: 1rem; background: linear-gradient(135deg, var(--blue-500), var(--blue-700)); color: #fff; border-radius: var(--radius); padding: 1.2rem 1.4rem; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: .6rem; box-shadow: 0 10px 26px rgba(37,99,235,.32); }
+.calc-result .cr-label { font-family: var(--font-head); font-weight: 500; opacity: .92; }
+.calc-result .cr-value { font-family: var(--font-mono); font-weight: 600; font-size: clamp(1.3rem, 3vw, 1.8rem); }
+.calc-result .cr-value sup { font-size: .62em; }
+
+/* EXAMPLE + ANSWER reveal bodies */
+.example-body, .answer-body { animation: reveal .35s var(--ease) both; }
+@keyframes reveal { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+.example-body { display: grid; gap: .55rem; }
+.answer-body { margin-top: 1rem; padding-top: 1.1rem; border-top: 1px dashed var(--line-2); display: grid; gap: .6rem; }
+.answer-body .tick-list li::before { background: var(--success); }
+
+/* ANALYSIS */
+.analysis-steps { display: grid; gap: .7rem; counter-reset: a; list-style: none; }
+.analysis-steps li { position: relative; padding: .95rem 1.1rem .95rem 3rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-xs); color: var(--ink); }
+.analysis-steps li::before { counter-increment: a; content: counter(a); position: absolute; left: .9rem; top: 50%; transform: translateY(-50%); width: 26px; height: 26px; display: grid; place-items: center; background: var(--blue-100); color: var(--blue-700); border-radius: 8px; font-family: var(--font-head); font-weight: 700; font-size: .85rem; }
+
+/* DISCUSSION — single column, Q1 → Q5 in order. The grid CONTAINER stays the normal centered content
+   column (via `.section.band > *`); a single max-760px track keeps the cards left-aligned WITH the header
+   (not flush to the viewport edge) and at a readable width. */
+.q-grid { display: grid; grid-template-columns: minmax(0, 760px); gap: 1rem; }
+.q-card { display: flex; gap: 1rem; align-items: flex-start; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem 1.4rem; box-shadow: var(--shadow-xs); transition: transform .18s var(--ease), box-shadow .18s var(--ease); }
+.q-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); border-color: var(--blue-200); }
+.q-no { flex: 0 0 auto; font-family: var(--font-head); font-weight: 700; color: var(--blue-500); background: var(--blue-50); border: 1px solid var(--blue-200); border-radius: 9px; padding: .25rem .55rem; font-size: .82rem; }
+/* Sarabun stacks tall vowels/tone marks — give wrapped question lines extra leading so they don't crowd */
+.q-card p { color: var(--ink); line-height: 1.72; }
+
+/* CONCLUSION — actual experiment summary: a lead line + 4 result points in a compact 2×2 grid (fits one screen). */
+.conclusion-grid { display: grid; gap: clamp(1rem, 2.5vw, 1.5rem); }
+.conclusion-lead { max-width: 78ch; }
+.conclusion-points { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(.8rem, 1.8vw, 1.2rem); }
+.conclusion-points li { display: flex; gap: .9rem; align-items: flex-start; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.05rem 1.2rem; box-shadow: var(--shadow-xs); transition: transform .2s var(--ease), box-shadow .2s var(--ease), border-color .2s var(--ease); }
+.conclusion-points li:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--blue-200); }
+.cp-ico { flex: 0 0 auto; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 10px; background: var(--blue-100); color: var(--blue-700); font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; }
+.conclusion-points h3 { margin-bottom: .15rem; font-size: 1rem; }
+.conclusion-points p { color: var(--muted); font-size: .92rem; line-height: 1.55; }
+.end-note { margin-top: 1.6rem; text-align: center; color: var(--muted); font-size: .9rem; }
+@media (max-width: 720px) { .conclusion-points { grid-template-columns: 1fr; } }
+
+/* ── FLOATING STEPPER ─────────────────────────────────────────────────── */
+.stepper {
+  position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+  z-index: 90; display: flex; align-items: center; gap: .3rem;
+  background: #ffffff;
+  border: 1px solid var(--line-2); border-radius: 999px;
+  padding: .35rem .4rem; box-shadow: var(--shadow-lg);
+}
+.stepper button {
+  width: 38px; height: 38px; border-radius: 50%; border: none; cursor: pointer;
+  background: transparent; color: var(--blue-600); font-size: 1.5rem; line-height: 1;
+  display: grid; place-items: center; transition: background .16s var(--ease);
+}
+.stepper button:hover { background: var(--blue-100); }
+.stepper button:disabled { color: var(--faint); cursor: default; background: transparent; }
+.stepper #stepLabel { font-family: var(--font-head); font-size: .88rem; font-weight: 500; color: var(--navy); min-width: 92px; text-align: center; padding: 0 .3rem; }
+
+/* invalid input state (hardening: name & mark the offending field) */
+input.is-invalid { border-color: var(--danger); box-shadow: 0 0 0 4px color-mix(in srgb, var(--danger) 12%, transparent); }
+input.is-invalid:focus { border-color: var(--danger); box-shadow: 0 0 0 4px color-mix(in srgb, var(--danger) 18%, transparent); }
+
+/* undo toast */
+.toast {
+  position: fixed; left: 50%; bottom: 84px; transform: translate(-50%, 8px); z-index: 95;
+  display: flex; align-items: center; gap: .9rem;
+  background: var(--navy); color: #fff; border-radius: 12px;
+  padding: .65rem .7rem .65rem 1.1rem; box-shadow: var(--shadow-lg);
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s var(--ease), transform .25s var(--ease);
+}
+.toast.in { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+.toast #toastMsg { font-size: .92rem; }
+.toast button {
+  background: rgba(255,255,255,.16); color: #fff; border: none; border-radius: 8px;
+  padding: .42rem .85rem; font-family: var(--font-head); font-weight: 500; font-size: .9rem;
+  cursor: pointer; transition: background .16s var(--ease);
+}
+.toast button:hover { background: rgba(255,255,255,.3); }
+@media (max-width: 600px) {
+  .toast { left: 12px; right: 12px; bottom: 64px; transform: translateY(8px); }
+  .toast.in { transform: translateY(0); }
+}
+
+/* ── 8. ANIMATION & RESPONSIVE ────────────────────────────────────────── */
+/* content is always visible — no animation ever gates visibility (Impeccable rule) */
+.section { opacity: 1; }
+
+/* 4:3 projector emphasis — keep content centered & comfortable on ~1024px */
+@media (min-aspect-ratio: 11/10) and (min-width: 900px) {
+  :root { --maxw: 1040px; }
+  body { font-size: 18px; }
+}
+
+/* laptop / tablet */
+@media (max-width: 920px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { order: -1; max-width: 460px; }
+  .split, .theory-grid, .data-foot { grid-template-columns: 1fr; }
+  .cols-3 { grid-template-columns: repeat(2, 1fr); }
+  .brand-text small { display: none; }
+}
+
+/* mobile */
+@media (max-width: 600px) {
+  :root { --section-pad: 2.2rem; }
+  .cols-3, .setup-inputs { grid-template-columns: 1fr; }
+  .hero-meta li { min-width: 0; }
+  .material-row { grid-template-columns: 72px 1fr; }
+  .material-row .m-val { grid-column: 2; text-align: right; }
+  .calc-step .cs-res { margin-left: 0; flex-basis: 100%; padding-left: 0; }
+  .calc-step .cs-label { min-width: 0; flex-basis: 100%; }
+  .topbar-meta { display: none; }
+  /* fit the 4 phase buttons next to the brand: drop the brand name to just the "02" badge + shrink the buttons */
+  .brand-text strong { display: none; }
+  .phase-btn { font-size: .8rem; padding: .42rem .5rem; }
+  .phase-nav { gap: .18rem; }
+  /* the right-side phases' dropdowns would clip off-screen right with left:0 — anchor them to the right edge */
+  .phase:nth-last-child(-n+2) .phase-menu { left: auto; right: 0; }
+  .stepper { bottom: 12px; }
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  .reveal-up { opacity: 1; transform: none; }
+}
+
+/* ── delight layer (motion only when the user allows it) ──────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  /* hero: one orchestrated entrance on load, gently staggered */
+  .hero-copy > * { animation: hero-in .7s var(--ease) both; }
+  .hero-copy > :nth-child(2) { animation-delay: .06s; }
+  .hero-copy > :nth-child(3) { animation-delay: .12s; }
+  .hero-copy > :nth-child(4) { animation-delay: .18s; }
+  .hero-copy > :nth-child(5) { animation-delay: .24s; }
+  .hero-copy > :nth-child(6) { animation-delay: .30s; }
+  /* result banner eases in when the worked example is revealed */
+  .example-body:not([hidden]) .calc-result { animation: result-pop .5s var(--ease) both; }
+  /* result number gets a touch of weight as it lands */
+  .calc-result .cr-value { display: inline-block; }
+}
+@keyframes hero-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes result-pop { from { opacity: 0; transform: translateY(10px) scale(.985); } to { opacity: 1; transform: none; } }
+
+/* scroll-reveal — SAFE: content is visible by default. The gate turns on only when JS adds
+   body.js-reveal, and a 1.5s JS failsafe forces every item visible, so the page can never ship blank. */
+@media (prefers-reduced-motion: no-preference) {
+  body.js-reveal .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s var(--ease), transform .55s var(--ease); }
+  body.js-reveal .reveal.in-view { opacity: 1; transform: none; }
+}
+
+/* SIGNATURE delight: the stress–strain plot draws itself when the Theory chart scrolls in.
+   Lines use pathLength="1" so the dash math is resolution-independent. Reduced-motion → fully drawn. */
+@media (prefers-reduced-motion: no-preference) {
+  .theory-grid .chart-card .hooke-line,
+  .theory-grid .chart-card .stress-curve { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  .theory-grid .chart-card.drawn .hooke-line  { transition: stroke-dashoffset .9s var(--ease) .15s; stroke-dashoffset: 0; }
+  .theory-grid .chart-card.drawn .stress-curve { transition: stroke-dashoffset 1.2s var(--ease) .55s; stroke-dashoffset: 0; }
+  .theory-grid .chart-card .pt,
+  .theory-grid .chart-card .c-label { opacity: 0; }
+  /* points reveal in sequence, timed to the drawing line reaching each mark (O → A → B → U → R) */
+  .theory-grid .chart-card.drawn .pt,
+  .theory-grid .chart-card.drawn .c-label { animation: plot-in .45s var(--ease) forwards; }
+  .theory-grid .chart-card.drawn .pt:nth-of-type(1), .theory-grid .chart-card.drawn .c-label:nth-of-type(1) { animation-delay: .25s; }
+  .theory-grid .chart-card.drawn .pt:nth-of-type(2), .theory-grid .chart-card.drawn .c-label:nth-of-type(2) { animation-delay: .95s; }
+  .theory-grid .chart-card.drawn .pt:nth-of-type(3), .theory-grid .chart-card.drawn .c-label:nth-of-type(3) { animation-delay: 1.20s; }
+  .theory-grid .chart-card.drawn .pt:nth-of-type(4), .theory-grid .chart-card.drawn .c-label:nth-of-type(4) { animation-delay: 1.45s; }
+  .theory-grid .chart-card.drawn .pt:nth-of-type(5), .theory-grid .chart-card.drawn .c-label:nth-of-type(5) { animation-delay: 1.70s; }
+
+  /* material ladder: bars stay collapsed until the block scrolls in, then grow from the left, staggered.
+     (Was an on-load animation that finished off-screen before the reader ever reached the section.) */
+  body.js-reveal .material-block .m-bar i { transform: scaleX(0); }
+  body.js-reveal .material-block.in-view .m-bar i { animation: grow-bar .8s var(--ease) both; }
+  body.js-reveal .material-block.in-view .material-list .material-row:nth-child(1) .m-bar i { animation-delay: .08s; }
+  body.js-reveal .material-block.in-view .material-list .material-row:nth-child(2) .m-bar i { animation-delay: .20s; }
+  body.js-reveal .material-block.in-view .material-list .material-row:nth-child(3) .m-bar i { animation-delay: .32s; }
+  body.js-reveal .material-block.in-view .material-list .material-row:nth-child(4) .m-bar i { animation-delay: .44s; }
+}
+@keyframes plot-in { to { opacity: 1; } }
+
+/* richer but calm hover: the card lifts AND its edge picks up the accent */
+.info-card, .formula-card, .equip-card { transition: transform .2s var(--ease), box-shadow .2s var(--ease), border-color .2s var(--ease); }
+.info-card:hover, .formula-card:hover, .equip-card:hover { border-color: var(--blue-300); }
+
+/* unified gentle hover-lift on content boxes (matches the formula cards) */
+.note, .prompt-card, .result-summary, .objective-list li, .analysis-steps li {
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease), border-color .2s var(--ease);
+}
+.note:hover, .prompt-card:hover, .result-summary:hover, .objective-list li:hover, .analysis-steps li:hover {
+  transform: translateY(-3px); box-shadow: var(--shadow-md);
+}
+
+/* ── REDESIGN v3 — soft-modern (milerdev) + deep-blue spotlight hero ──── */
+/* confident display type */
+.hero-title { font-size: clamp(2.9rem, 6.5vw, 5rem); letter-spacing: -.03em; line-height: 1.05; color: var(--navy); }
+.hero-sub   { font-size: clamp(1.05rem, 1.8vw, 1.35rem); }
+.section-head h2 { font-size: clamp(1.7rem, 3vw, 2.45rem); }
+/* signature accent tick on kickers (adapts to its section's colour) */
+.kicker { display: inline-flex; align-items: center; gap: .55rem; }
+.kicker::before { content: ""; inline-size: 24px; block-size: 2px; background: currentColor; opacity: .5; border-radius: 2px; flex: 0 0 auto; }
+
+/* full-bleed LIGHT blueprint hero — content centered on a faint drafting grid,
+   with a subtle cobalt glow that follows the cursor (set via --mx/--my in app.js) */
+.hero {
+  max-width: none; padding-left: 0; padding-right: 0;
+  position: relative; isolation: isolate; overflow: hidden; color: var(--ink);
+  background:
+    radial-gradient(40% 52% at var(--mx, 75%) var(--my, 12%), rgba(37,99,235,.09), transparent 62%),
+    var(--surface);
+  border-bottom: 1px solid var(--line);
+  transition: background-position .12s ease-out;
+}
+.hero-grid { max-width: var(--maxw); margin: 0 auto; padding-inline: clamp(1.1rem, 4vw, 2rem); }
+.hero .kicker { color: var(--blue-600); }
+.hero-sub { color: var(--blue-600); }
+.hero-lede { color: var(--ink); }
+.hero-lede strong { color: var(--navy); }
+.hm-num { color: var(--blue-700); }
+.scroll-hint { color: var(--faint); }
+.scroll-dot { background: var(--blue-400); }
+/* apparatus on a clean white plate — the hero already carries the faint grid behind it */
+.hero-visual {
+  background: var(--surface);
+  border: 1px solid var(--line); box-shadow: var(--shadow-md);
+}
+.hero-visual figcaption { color: var(--muted); }
+
+/* LIGHT "drawing plate" rhythm sections (was the deep-blue spotlight) — a full-bleed
+   pale-blue band under a faint drafting grid; dark-on-light so it stays projector-legible.
+   The token remap is gone: components render in their normal light styling. */
+.section.spotlight {
+  max-width: none; padding-left: 0; padding-right: 0; border-top: 1px solid var(--line);
+  color: var(--ink);
+  background: var(--blue-100);
+}
+.section.spotlight > * { max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(1.1rem, 4vw, 2rem); }
+
+/* ── PRESENT MODE (hybrid deck) ──────────────────────────────────────── */
+.present-toggle {
+  font-family: var(--font-head); font-weight: 500; font-size: .85rem; color: #fff;
+  background: var(--blue-500); border: none; border-radius: 999px; padding: .42rem .95rem;
+  cursor: pointer; white-space: nowrap; box-shadow: 0 4px 12px rgba(37,99,235,.28);
+  transition: background .16s var(--ease), transform .16s var(--ease);
+}
+.present-toggle:hover { background: var(--blue-600); transform: translateY(-1px); }
+
+body.present-mode { overflow: hidden; }
+body.present-mode .topbar, body.present-mode .stepper, body.present-mode .toast { display: none !important; }
+/* each section becomes a full-screen slide; only the current one shows */
+body.present-mode .section {
+  position: fixed; inset: 0; max-width: none; margin: 0; border: 0; z-index: 200;
+  padding: clamp(3.4rem, 6vh, 4.8rem) clamp(1.6rem, 6vw, 5.5rem) clamp(2rem, 5vh, 3.5rem);
+  overflow-y: auto; display: none; font-size: 1.1rem;
+}
+/* PPT-like: vertically center the slide content when it fits; `safe` centering falls back to
+   top-aligned + scrollable when a slide (e.g. the data table) is taller than the screen, so nothing clips. */
+body.present-mode .section.is-present { display: grid; align-content: safe center; }
+body.present-mode .section > *,
+body.present-mode .hero-grid { max-width: min(1100px, 100%); margin-inline: auto; }
+body.present-mode .lead { font-size: 1.2rem; }
+/* slide-deck transitions: a directional slide on the incoming slide (works everywhere), upgraded to a
+   true both-slides View-Transition where supported. Controls stay put; reduced-motion stays instant. */
+@media (prefers-reduced-motion: no-preference) {
+  body.present-mode .section.is-present { animation: deck-in-next .42s var(--ease); }
+  body.present-mode.present-back .section.is-present { animation: deck-in-prev .42s var(--ease); }
+  body.vt-active .section.is-present { animation: none; }     /* the View-Transition drives motion instead */
+  body.present-mode .present-bar { view-transition-name: deck-bar; }
+  body.present-mode .present-progress { view-transition-name: deck-progress; }
+  ::view-transition-old(root) { animation: deck-out-left .42s var(--ease) both; }
+  ::view-transition-new(root) { animation: deck-in-right .42s var(--ease) both; }
+  body.present-back::view-transition-old(root) { animation: deck-out-right .42s var(--ease) both; }
+  body.present-back::view-transition-new(root) { animation: deck-in-left .42s var(--ease) both; }
+}
+@keyframes deck-in-next  { from { opacity: 0; transform: translateX(6%); }  to { opacity: 1; transform: none; } }
+@keyframes deck-in-prev  { from { opacity: 0; transform: translateX(-6%); } to { opacity: 1; transform: none; } }
+@keyframes deck-out-left  { to   { transform: translateX(-7%); opacity: 0; } }
+@keyframes deck-in-right  { from { transform: translateX(9%);  opacity: 0; } }
+@keyframes deck-out-right { to   { transform: translateX(7%);  opacity: 0; } }
+@keyframes deck-in-left   { from { transform: translateX(-9%); opacity: 0; } }
+
+.present-bar {
+  position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 250;
+  display: none; align-items: center; gap: .35rem;
+  background: var(--navy); color: #fff; border-radius: 999px; padding: .3rem .4rem .3rem 1.05rem;
+  box-shadow: var(--shadow-lg);
+}
+.present-bar .present-label { font-family: var(--font-head); font-weight: 500; font-size: .82rem; opacity: .82; margin-right: .4rem; white-space: nowrap; }
+.present-exit { width: auto !important; padding: 0 1rem !important; font-size: .82rem !important; font-family: var(--font-head); background: var(--blue-500) !important; }
+.present-exit:hover { background: var(--blue-600) !important; }
+body.present-mode .present-bar { display: flex; }
+.present-bar button {
+  background: rgba(255,255,255,.12); color: #fff; border: none; border-radius: 999px;
+  width: 40px; height: 40px; font-size: 1.4rem; line-height: 1; cursor: pointer;
+  display: grid; place-items: center; transition: background .16s var(--ease);
+}
+.present-bar button:hover { background: rgba(255,255,255,.26); }
+.present-bar button:disabled { opacity: .35; cursor: default; }
+.present-bar #presentExit { width: auto; padding: 0 1rem; font-size: .85rem; font-family: var(--font-head); }
+.present-bar #presentCounter { font-family: var(--font-mono); font-size: .85rem; padding: 0 .6rem; min-width: 62px; text-align: center; }
+@media (prefers-reduced-motion: reduce) { body.present-mode .section.is-present { animation: none; } }
+
+.present-progress { position: fixed; left: 0; right: 0; bottom: 0; height: 4px; background: var(--blue-100); z-index: 250; display: none; }
+body.present-mode .present-progress { display: block; }
+.present-progress span { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--blue-400), var(--blue-600)); transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease); }
+
+/* ── REDESIGN v4 — bolder (bounded): blueprint / instrument character ──────
+   Focal point is the class-opening hero. Elsewhere: stronger hierarchy and
+   section rhythm (light tint bands between the deep-blue spotlights), without
+   tipping past calm/academic. Recurring motif: a faint engineering graph-paper
+   grid that ties the hero to the computed-result banner. */
+
+/* nicer ragging on prose + leads */
+.prose p, .lead { text-wrap: pretty; }
+
+/* more confident section headers (weight + scale contrast) */
+.section-head { margin-bottom: 1.9rem; }
+.section-head h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); font-weight: 700; letter-spacing: normal; text-wrap: balance; }
+.kicker { font-weight: 700; font-size: .82rem; }
+/* a lead is sustained reading: off the muted-gray, onto ink for presence + contrast
+   (hierarchy vs body comes from size, not a lighter colour) */
+.lead { color: var(--ink); }
+
+/* section rhythm — light full-bleed tint bands (same mechanic as .spotlight) */
+.section.band {
+  max-width: none; padding-left: 0; padding-right: 0; border-top: none;
+  background: var(--band);
+}
+.section.band + .section { border-top: none; }
+.section.band > * { max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(1.1rem, 4vw, 2rem); }
+
+/* ── HERO (focal): commanding type + blueprint grid + instrument readouts ── */
+.hero-title { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: normal; line-height: 1.15; text-wrap: balance; }
+.hero-sub { display: inline-flex; align-items: center; gap: .6rem; letter-spacing: .01em; }
+.hero-sub::before { content: ""; inline-size: 28px; block-size: 2px; background: currentColor; opacity: .55; border-radius: 2px; flex: 0 0 auto; }
+
+/* hero graph-paper grid removed per request (the cursor glow on .hero stays) */
+.hero::before { content: none; }
+
+/* the stat row reads like a strip of instrument readouts; Y_ref is the headline reading */
+.hero-meta { gap: .7rem; margin-top: 1.85rem; }
+.hero-meta li { position: relative; overflow: hidden; background: var(--surface); border-color: var(--line); padding: .8rem 1rem .72rem; box-shadow: var(--shadow-xs); }
+.hero-meta li::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 2px; background: linear-gradient(90deg, var(--blue-400), transparent); }
+.hero-meta li:last-child { background: linear-gradient(180deg, var(--blue-50), var(--surface)); border-color: var(--blue-200); }
+.hero-meta li:last-child::before { background: linear-gradient(90deg, var(--blue-500), transparent); }
+.hm-num { font-size: 1.45rem; }
+
+/* FORMULA cards: let the formula dominate, quiet the chrome; accent card commits harder */
+.formula-card h3 { text-transform: uppercase; letter-spacing: .04em; font-size: .78rem; }
+.formula-card .formula { font-size: clamp(1.5rem, 2.2vw, 1.95rem); min-height: 64px; }
+.formula-accent { border-width: 1.5px; box-shadow: var(--shadow-md); }
+
+/* PAYOFF: the Y result banner picks up the blueprint motif + a larger value */
+.calc-result { position: relative; overflow: hidden; padding: 1.4rem 1.6rem; }
+/* result-banner grid overlay removed per request */
+.calc-result::before { content: none; }
+.calc-result > * { position: relative; z-index: 1; }
+.calc-result .cr-value { font-size: clamp(1.5rem, 3.4vw, 2.2rem); }
+
+/* hero readout labels on the light sheet */
+.hm-label { color: var(--muted); }
+/* polish: in present/deck mode, full-bleed sections must not double-pad their children
+   (the slide already has its own padding; the full-bleed re-contain padding is redundant there) */
+body.present-mode .section.band > *,
+body.present-mode .section.spotlight > * { padding-inline: 0; }
+
+/* ── REDESIGN v5 — LIGHT BLUEPRINT (merge: original light base + concept-01 engineering) ──
+   Projector-legible dark-on-light, with drafting vocabulary used as restrained accents:
+   corner crop marks, drafting-red dimension lines, mono FIG/SHEET labels, a title-block. */
+
+/* a clean full-width rule under the full-bleed hero (no doubled inset line) */
+.hero + .section { border-top: none; }
+
+/* corner crop / registration marks on the sheet */
+.crop { position: fixed; width: 18px; height: 18px; border: 1.4px solid var(--line-2); z-index: 60; pointer-events: none; }
+.crop.tl { top: 13px; left: 13px; border-right: 0; border-bottom: 0; }
+.crop.tr { top: 13px; right: 13px; border-left: 0; border-bottom: 0; }
+.crop.bl { bottom: 13px; left: 13px; border-right: 0; border-top: 0; }
+.crop.br { bottom: 13px; right: 13px; border-left: 0; border-top: 0; }
+body.present-mode .crop { display: none; }
+
+/* mono engineering label on the apparatus sheet (Latin only — Thai stays in Prompt) */
+.hero-visual { position: relative; }
+.fig-tag { position: absolute; top: .7rem; left: 1rem; z-index: 1;
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+/* drafting-red dimension lines on the apparatus drawing */
+.dim     { stroke: var(--dim); stroke-width: 1; }
+.dim-txt { fill: var(--dim); font-family: var(--font-mono); font-size: 11px; font-weight: 500; }
+
+/* ── HERO v6 — reference-image layout ─────────────────────────────────────
+   Top row = [course meta │ big title]; left column = a focal "คำถามชวนคิด" question;
+   right = the apparatus figure (unchanged). Replaces the old stacked kicker+title+lede. */
+/* center-divider masthead: [course-meta blocks] │ [title]; the rule sits at the page CENTRE, the meta hugging
+   it from the left half and the title from the right half (equal halves via 1fr auto 1fr). */
+/* centered STACKED masthead — always balanced. A long course-meta beside a short title made any side-by-side
+   vertical divider look off-centre no matter what; stacking + centring sidesteps that entirely. The course meta is
+   a tick-flanked eyebrow (the ticks are symmetric, so they're always centred), the title is the hero below. */
+.hero-top { display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(.55rem, 1.3vw, 1rem); max-width: var(--maxw); margin: 0 auto clamp(1.8rem, 3.8vw, 2.8rem); padding-inline: clamp(1.1rem, 4vw, 2rem); }
+.hero-eyebrow { margin: 0; display: flex; align-items: center; justify-content: center; gap: clamp(.5rem, 1.4vw, .9rem); font-family: var(--font-head); font-weight: 600; font-size: clamp(1rem, 1.5vw, 1.4rem); letter-spacing: .02em; color: var(--blue-600); }
+.hero-eyebrow::before, .hero-eyebrow::after { content: ""; flex: 0 0 auto; width: clamp(20px, 3.5vw, 48px); height: 2px; background: var(--blue-300); border-radius: 2px; }
+.hero-top .hero-title { margin: 0; }
+
+/* focal hero question — type carries it; no side-stripe (that's a banned accent border).
+   The tag picks up the brand's drafting accent-tick instead. */
+.hero-question { margin-top: clamp(1.1rem, 2.4vw, 1.6rem); }
+.hq-tag { display: inline-flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--blue-600); margin-bottom: .6rem; }
+.hq-tag::before { content: ""; inline-size: 22px; block-size: 2px; background: currentColor; opacity: .55; border-radius: 2px; flex: 0 0 auto; }
+.hq-text { font-family: var(--font-head); font-weight: 600; font-size: clamp(1.05rem, 1.7vw, 1.4rem); line-height: 1.6; color: var(--navy); max-width: 30ch; text-wrap: pretty; }
+.hq-text strong { color: var(--blue-600); }
+@media (prefers-reduced-motion: no-preference) { .hero-top { animation: hero-in .7s var(--ease) both; } }
+@media (max-width: 600px) {
+  .hero-eyebrow { font-size: clamp(.92rem, 3.4vw, 1.1rem); }
+  .hero-eyebrow::before, .hero-eyebrow::after { width: 16px; }
+}
+
+/* ── DISPLAY RATIO — stage frame (4:3 / 16:9) + present-mode letterbox ──────
+   #ratioToggle cycles จอเต็ม → 4:3 (โปรเจกเตอร์) → 16:9 (ทีวี). While scrolling the document is
+   boxed into a centered "stage" of that ratio; in present mode each slide becomes a letterboxed
+   4:3 / 16:9 frame so nothing is cut off on the target display. */
+/* segmented switcher — all three options visible at once so the choice is obvious (not a guess-and-cycle) */
+.ratio-seg { display: inline-flex; align-items: center; gap: 1px; background: var(--tint); border: 1px solid var(--line-2); border-radius: 999px; padding: 2px; }
+.ratio-seg-ico { color: var(--faint); font-size: .8rem; padding: 0 .25rem 0 .4rem; }
+.ratio-seg button {
+  font-family: var(--font-head); font-weight: 500; font-size: .76rem; color: var(--muted);
+  background: transparent; border: 0; border-radius: 999px; padding: .34rem .62rem; cursor: pointer;
+  white-space: nowrap; transition: background .16s var(--ease), color .16s var(--ease);
+}
+.ratio-seg button:hover { color: var(--blue-700); }
+.ratio-seg button.is-active { background: var(--surface); color: var(--blue-700); font-weight: 600; box-shadow: var(--shadow-xs); }
+/* the ratio switcher is a large-display feature (4:3 projector ≥1024, 16:9 TV); below tablet it would
+   crowd the 4 phase buttons off the bar, so hide it there (the topbar fits cleanly without it). */
+@media (max-width: 860px) { .ratio-seg { display: none; } }
+
+/* global stage: constrain the document to a centered frame; the page bg becomes the letterbox */
+body.ratio-43  { --stage: 1024px; }
+body.ratio-169 { --stage: 1366px; }
+body.ratio-43, body.ratio-169 { background: #dbe4f2; }
+body.ratio-43 .topbar-inner, body.ratio-169 .topbar-inner { max-width: var(--stage); }
+body.ratio-43 main, body.ratio-169 main {
+  max-width: var(--stage); margin-inline: auto; min-height: 100vh; background: var(--page);
+  box-shadow: 0 0 0 1px var(--line-2), 0 12px 50px rgba(18,42,79,.14);
+}
+body.ratio-43 .crop, body.ratio-169 .crop { display: none; }   /* the stage frame replaces the crop marks */
+
+/* present mode: each slide is a centered, letterboxed box of the chosen ratio */
+body.present-mode.ratio-43  { --slide-w: min(100vw, calc(100vh * 4 / 3));  --slide-h: min(100vh, calc(100vw * 3 / 4)); }
+body.present-mode.ratio-169 { --slide-w: min(100vw, calc(100vh * 16 / 9)); --slide-h: min(100vh, calc(100vw * 9 / 16)); }
+body.present-mode.ratio-43, body.present-mode.ratio-169 { background: #0b1220; }   /* dark letterbox bars */
+body.present-mode.ratio-43 .section.is-present,
+body.present-mode.ratio-169 .section.is-present {
+  inset: 0; margin: auto; width: var(--slide-w); height: var(--slide-h);
+  background: var(--page); border-radius: 8px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.12), var(--shadow-lg);
+}
+
+/* print */
+@media print {
+  .topbar, .stepper, .reveal-controls, .actions-row, .scroll-hint { display: none !important; }
+  .section { max-width: none; page-break-inside: avoid; }
+  body { background: #fff; }
+}
+
+/* ============================================================================
+   REUSABLE LAB COMPONENTS (shared by labs 01 + 03–10)
+   inline quizzes · worksheet blocks · live calc outputs
+   ========================================================================== */
+.quick-quiz {
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+  background: var(--tint);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.quick-quiz .quiz-label, .prompt-card .quiz-label {
+  font-family: var(--font-mono);
+  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--blue-700); margin: 0 0 .4rem;
+}
+.quick-quiz h3, .quick-quiz h4 { margin: 0 0 .8rem; font-size: 1.02rem; line-height: 1.5; color: var(--ink); }
+.quiz-options { display: flex; flex-wrap: wrap; gap: .55rem; }
+.quiz-options button {
+  font: inherit; cursor: pointer;
+  padding: .5rem .95rem; border-radius: 999px;
+  border: 1.5px solid var(--line-2); background: var(--surface); color: var(--ink);
+  transition: border-color .15s, background .15s, color .15s;
+}
+.quiz-options button:hover { border-color: var(--blue-400); }
+.quiz-options button.is-correct {
+  border-color: var(--success); background: color-mix(in srgb, var(--success) 12%, transparent);
+  color: #0f7a37; font-weight: 600;
+}
+.quiz-options button.is-incorrect {
+  border-color: var(--danger); background: var(--danger-bg); color: var(--danger-ink);
+}
+.quiz-feedback { margin: .75rem 0 0; min-height: 1.2em; font-size: .94rem; color: var(--muted); }
+.quick-quiz.is-answered.is-correct .quiz-feedback { color: #0f7a37; }
+
+.worksheet-block {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow-xs);
+  padding: clamp(1rem, 2.2vw, 1.6rem); margin-top: 1.3rem;
+}
+.worksheet-block > h3 { margin: 0 0 .9rem; font-size: 1.1rem; color: var(--navy); }
+
+.note.compact { margin: .2rem 0 1rem; padding: .7rem .9rem; font-size: .9rem; }
+.note.compact ul { margin: .3rem 0 0; padding-left: 1.1rem; }
+
+.calc-line { margin: 1rem 0 0; font-size: .96rem; color: var(--ink); line-height: 1.9; }
+.calc-line output {
+  font-family: var(--font-mono); font-weight: 600; color: var(--blue-700);
+  background: var(--blue-50); border-radius: 6px; padding: .05rem .45rem; margin: 0 .15rem;
+}
+.data-table td[data-average] {
+  font-family: var(--font-mono); font-weight: 600; color: var(--blue-700); background: var(--blue-50);
+}
+
+
+/* Bloom clicker-ready quizzes: A-E keys; Bloom level stays in data-bloom. */
+.quiz-options button { text-align: left; }
+.qo-key {
+  display: inline-block; min-width: 1.5em; margin-right: .5em; padding: .04em .35em;
+  border-radius: 5px; background: var(--blue-50); color: var(--blue-700);
+  border: 1px solid var(--blue-200); font-family: var(--font-mono); font-weight: 700;
+  font-size: .82em; text-align: center;
+}
+.bloom-quiz-panel { margin-top: 1.2rem; }

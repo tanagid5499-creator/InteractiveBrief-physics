@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 10 · ลูกตุ้มนาฬิกาและลูกตุ้มฟิสิกัล · Lab Brief</title>
+  <meta name="description" content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261111 บทที่ 10 การเคลื่อนที่ของลูกตุ้มนาฬิกาและลูกตุ้มฟิสิกัล">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='13' font-weight='700' fill='white' text-anchor='middle'%3E10%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <script defer src="../../shared/brief-core.js?v=7"></script>
+  <script defer src="js/app.js?v=1"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+
+  <header class="topbar" id="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#hero" aria-label="กลับสู่ด้านบน"><span class="brand-badge">10</span><span class="brand-text"><strong>ลูกตุ้ม</strong><small>261111 · ปฏิบัติการฟิสิกส์</small></span></a>
+      <nav class="phase-nav" id="chipNav" aria-label="สารบัญบทปฏิบัติการ">
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">เริ่มต้น</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#hero">บทนำ</a><a class="chip" role="menuitem" href="#hook">ชวนคิด</a><a class="chip" role="menuitem" href="#objectives">จุดประสงค์</a></div></div>
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">หลักการ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#concept">แนวคิดหลัก</a><a class="chip" role="menuitem" href="#theory">ทฤษฎี</a><a class="chip" role="menuitem" href="#equipment">อุปกรณ์</a><a class="chip" role="menuitem" href="#formula">สูตร</a></div></div>
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">ลงมือทำ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#procedure">ขั้นตอน</a><a class="chip" role="menuitem" href="#data">ตารางข้อมูล</a><a class="chip" role="menuitem" href="#example">ตัวอย่าง</a><a class="chip" role="menuitem" href="#checkpoint">ตรวจสอบ</a></div></div>
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">สรุปผล</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#analysis">วิเคราะห์</a><a class="chip" role="menuitem" href="#discussion">อภิปราย</a><a class="chip" role="menuitem" href="#conclusion">สรุป</a></div></div>
+      </nav>
+      <div class="topbar-meta">
+        <span class="sec-counter" aria-hidden="true"><b id="secNow">01</b><span>/14</span></span>
+        <div class="ratio-seg" role="group" aria-label="อัตราส่วนการแสดงผล"><span class="ratio-seg-ico" aria-hidden="true">▭</span><button type="button" data-ratio="full" aria-pressed="true">จอเต็ม</button><button type="button" data-ratio="43" aria-pressed="false">4:3</button><button type="button" data-ratio="169" aria-pressed="false">16:9</button></div>
+        <button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
+      </div>
+    </div>
+    <div class="read-progress" role="progressbar" aria-label="ความคืบหน้าการอ่าน" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="readBar"></span></div>
+  </header>
+
+  <main id="main">
+    <section class="section hero" id="hero" data-title="บทนำ">
+      <div class="hero-top"><p class="hero-eyebrow">261111 · ปฏิบัติการฟิสิกส์ · บทที่ 10</p><h1 class="hero-title">การเคลื่อนที่ของลูกตุ้มนาฬิกาและลูกตุ้มฟิสิกัล</h1></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <figure class="hero-question"><figcaption class="hq-tag">คำถามชวนคิด</figcaption><blockquote class="hq-text">ทำไมลูกตุ้มนาฬิกาจึงแกว่งเป็นจังหวะสม่ำเสมอ? และเราจะใช้คาบการแกว่ง <strong>วัดค่า g</strong> ของโลกได้อย่างไร แค่จับเวลากับวัดความยาว</blockquote></figure>
+          <ul class="hero-meta"><li><span class="hm-num">g<sub>ref</sub></span><span class="hm-label">= 9.80 m/s² (ค่าอ้างอิง)</span></li></ul>
+          <div class="hero-actions"><a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a><a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a></div>
+        </div>
+        <figure class="hero-visual">
+          <span class="fig-tag">FIG.1 · ลูกตุ้มอย่างง่าย</span>
+          <svg viewBox="0 0 300 280" role="img" aria-label="แผนภาพลูกตุ้มอย่างง่าย">
+            <rect x="60" y="36" width="180" height="8" rx="2" fill="#9fb4d6"/>
+            <line x1="150" y1="44" x2="210" y2="200" stroke="#2563eb" stroke-width="2"/>
+            <line x1="150" y1="44" x2="150" y2="210" stroke="#9fb4d6" stroke-dasharray="4 4"/>
+            <circle cx="210" cy="206" r="16" fill="#2563eb"/>
+            <path d="M150 90 A50 50 0 0 1 168 76" fill="none" stroke="#122a4f"/>
+            <text x="170" y="84" class="d-label">θ</text>
+            <line class="dim" x1="120" y1="44" x2="180" y2="200"/>
+            <text class="dim-txt" x="120" y="130" transform="rotate(69 120 130)">L</text>
+          </svg>
+          <figcaption>คาบ \(T=2\pi\sqrt{L/g}\) — ความชันของกราฟ \(T^2\)–\(L\) = \(4\pi^2/g\)</figcaption>
+        </figure>
+      </div>
+      <p class="scroll-hint" aria-hidden="true">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
+    </section>
+
+    <section class="section" id="hook" data-title="ชวนคิด">
+      <header class="section-head"><div><p class="kicker">ชวนคิดก่อนเริ่ม</p><h2>อะไรกำหนดคาบของลูกตุ้ม?</h2></div></header>
+      <div class="split">
+        <div class="prose"><p>ที่มุมแกว่งเล็ก ๆ คาบของลูกตุ้ม <strong>ขึ้นกับความยาวและ g เท่านั้น</strong> ไม่ขึ้นกับมวลหรือแอมพลิจูด — นี่คือเหตุผลที่นาฬิกาลูกตุ้มเดินเที่ยงตรง</p><p>โดยวัดคาบที่ความยาวต่าง ๆ แล้วเขียนกราฟ \(T^2\)–\(L\) เราหา \(g\) ได้จากความชัน</p></div>
+                <aside class="prompt-card bloom-quiz-panel">
+          <p class="prompt-tag">ตรวจความเข้าใจ</p>
+          <div class="quick-quiz" data-qid="pend-remember" data-bloom="remember" data-answer="D">
+            <p class="quiz-label">คำถามสั้น</p>
+            <h3 class="prompt-q">ความยาว \(L\) ของลูกตุ้มอย่างง่ายต้องวัดจากจุดแขวนถึงตำแหน่งใด?</h3>
+            <div class="quiz-options">
+              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> ขอบบนของลูกตุ้ม</button>
+              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> ปลายเชือกที่ผูก</button>
+              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> พื้นด้านล่าง</button>
+              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> จุดศูนย์กลางมวลของลูกตุ้ม</button>
+              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ตำแหน่งไกลสุดของการแกว่ง</button>
+            </div>
+            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="objectives" data-title="จุดประสงค์">
+      <header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
+      <ol class="objective-list">
+        <li><span class="obj-no">1</span><div><h3>หาค่า g จากลูกตุ้มอย่างง่าย</h3><p>วัดคาบที่ความยาวต่าง ๆ แล้วหา \(g\) จากความชันกราฟ \(T^2\)–\(L\)</p></div></li>
+        <li><span class="obj-no">2</span><div><h3>ศึกษาลูกตุ้มฟิสิกัล</h3><p>ศึกษาการแกว่งของวัตถุแข็งเกร็งรอบจุดหมุน \(T=2\pi\sqrt{I_0/mgd}\) และจุดที่คาบน้อยที่สุด</p></div></li>
+      </ol>
+      <div class="note note-info"><span class="note-icon" aria-hidden="true">◆</span><p><strong>สิ่งที่จะได้ลงมือทำ:</strong> แกว่งลูกตุ้มมุมเล็ก จับเวลา 5 รอบ ที่ \(L=40\text{–}120\,cm\) · เขียนกราฟ \(T^2\)–\(L\) · หา \(g\) · ศึกษาลูกตุ้มฟิสิกัล</p></div>
+    </section>
+
+    <section class="section band" id="concept" data-title="แนวคิดหลัก">
+      <header class="section-head"><div><p class="kicker">ภาพรวมแนวคิด</p><h2>คาบ การวัดซ้ำ และกราฟเชิงเส้น</h2></div></header>
+      <p class="lead">การแกว่งมุมเล็กเป็นการเคลื่อนที่แบบฮาร์มอนิกอย่างง่าย (SHM) คาบสัมพันธ์กับรากที่สองของความยาว การยกกำลังสองทำให้ความสัมพันธ์เป็นเส้นตรงที่หาความชันได้</p>
+      <div class="card-grid cols-3">
+        <article class="info-card"><span class="ic-step">A</span><h3>คาบลูกตุ้ม</h3><p>\(T=2\pi\sqrt{L/g}\) ไม่ขึ้นกับมวลและแอมพลิจูด (มุมเล็ก)</p></article>
+        <article class="info-card"><span class="ic-step">B</span><h3>กราฟเชิงเส้น</h3><p>ยกกำลังสอง: \(T^2=\dfrac{4\pi^2}{g}L\) เป็นเส้นตรงผ่านจุดกำเนิด ความชัน \(=4\pi^2/g\)</p></article>
+        <article class="info-card"><span class="ic-step">C</span><h3>การวัดซ้ำ</h3><p>จับเวลา 5 รอบแล้วหาร 5 ลดความคลาดเคลื่อนของเวลาตอบสนอง</p></article>
+      </div>
+    </section>
+
+    <section class="section spotlight" id="theory" data-title="ทฤษฎี">
+      <header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>ลูกตุ้มอย่างง่ายและลูกตุ้มฟิสิกัล</h2></div></header>
+      <div class="theory-grid">
+        <div class="prose">
+          <p><strong>ลูกตุ้มอย่างง่าย:</strong> \(T=2\pi\sqrt{\dfrac{L}{g}}\) ยกกำลังสองได้ \(T^2=\dfrac{4\pi^2}{g}L\) กราฟ \(T^2\) (แกนตั้ง) กับ \(L\) (แกนนอน) เป็นเส้นตรงผ่านจุดกำเนิด ความชัน \(=\dfrac{4\pi^2}{g}\) จึง \(g=\dfrac{4\pi^2}{\text{slope}}\)</p>
+          <p><strong>ลูกตุ้มฟิสิกัล:</strong> วัตถุแข็งเกร็งแกว่งรอบจุดหมุน \(T=2\pi\sqrt{\dfrac{I_0}{mgd}}\) เมื่อ \(I_0\) คือโมเมนต์ความเฉื่อยรอบจุดหมุน และ \(d\) คือระยะจากจุดหมุนถึงจุดศูนย์กลางมวล</p>
+          <ul class="tick-list"><li>ใช้มุมแกว่งเล็ก (น้อยกว่า ~5°)</li><li>จับเวลาหลายรอบแล้วเฉลี่ย</li><li>วัดความยาวถึงกึ่งกลางของลูกตุ้ม</li></ul>
+        </div>
+                <aside class="prompt-card bloom-quiz-panel">
+          <p class="prompt-tag">ตรวจความเข้าใจ</p>
+          <div class="quick-quiz" data-qid="pend-understand" data-bloom="understand" data-answer="B">
+            <p class="quiz-label">คำถามสั้น</p>
+            <h3 class="prompt-q">ถ้าเพิ่มความยาวลูกตุ้มเป็น 4 เท่า โดย \(g\) คงที่ คาบจะเปลี่ยนอย่างไร?</h3>
+            <div class="quiz-options">
+              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> เพิ่ม 4 เท่า</button>
+              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> เพิ่ม 2 เท่า</button>
+              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> เท่าเดิม</button>
+              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ลดลงครึ่งหนึ่ง</button>
+              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ลดลงเหลือหนึ่งในสี่</button>
+            </div>
+            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+          </div>
+          <div class="quick-quiz" data-qid="pend-apply" data-bloom="apply" data-answer="E">
+            <p class="quiz-label">คำถามสั้น</p>
+            <h3 class="prompt-q">ถ้าความชันกราฟ \(T^2\)–\(L\) เท่ากับ \(4.03\,\mathrm{s^2/m}\) ค่า \(g=4\pi^2/\text{slope}\) ใกล้เคียงข้อใด?</h3>
+            <div class="quiz-options">
+              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> 2.45 m/s²</button>
+              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> 4.03 m/s²</button>
+              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> 6.28 m/s²</button>
+              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> 8.05 m/s²</button>
+              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> 9.80 m/s²</button>
+            </div>
+            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="equipment" data-title="อุปกรณ์">
+      <header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
+      <div class="card-grid cols-3 equip-grid">
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ลูกตุ้ม"><img src="assets/equip/equip-1.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ลูกตุ้ม (ลูกกลม)</h3><p>มวลหนาแน่นที่ปลายเชือก ใช้เป็นลูกตุ้มอย่างง่าย วัดความยาวถึงจุดศูนย์กลางมวล</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: เชือกและจุดแขวน"><img src="assets/equip/equip-2.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>เชือกและจุดแขวน</h3><p>ปรับความยาวเชือกได้ จุดแขวนต้องมั่นคงและให้ลูกตุ้มแกว่งในระนาบเดียว</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ขาตั้ง"><img src="assets/equip/equip-3.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ขาตั้ง</h3><p>ยึดจุดแขวนให้สูงพอและมั่นคง ไม่สั่นไหวขณะลูกตุ้มแกว่ง</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: นาฬิกาจับเวลา"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="48" cy="38" r="18"/><path d="M48 38V26M48 20v-6M42 14h12"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>นาฬิกาจับเวลา</h3><p>จับเวลาการแกว่งครบ 5 รอบ ทำซ้ำแล้วเฉลี่ยเพื่อลดความคลาดเคลื่อนของเวลาตอบสนอง</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ไม้เมตร"><img src="assets/equip/equip-5.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ไม้เมตร / สเกล</h3><p>วัดความยาวลูกตุ้ม \(L\) จากจุดแขวนถึงกึ่งกลางลูกตุ้ม (40–120 cm)</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ลูกตุ้มฟิสิกัล"><img src="assets/equip/equip-6.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ลูกตุ้มฟิสิกัล</h3><p>แท่ง/แผ่นแข็งที่มีรูแขวนหลายตำแหน่ง ใช้ศึกษาการแกว่งรอบจุดหมุนและหาจุดที่คาบน้อยที่สุด</p></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section" id="formula" data-title="สูตร">
+      <header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
+      <div class="card-grid cols-3">
+        <article class="formula-card formula-accent"><h3>คาบลูกตุ้มอย่างง่าย</h3><p class="formula">\[T=2\pi\sqrt{\dfrac{L}{g}}\]</p><p class="formula-note">มุมแกว่งเล็ก</p></article>
+        <article class="formula-card"><h3>ความสัมพันธ์เชิงเส้น</h3><p class="formula">\[T^2=\dfrac{4\pi^2}{g}\,L\]</p><p class="formula-note">กราฟ \(T^2\)–\(L\) ผ่านจุดกำเนิด</p></article>
+        <article class="formula-card"><h3>g จากความชัน</h3><p class="formula">\[g=\dfrac{4\pi^2}{\text{slope}}\]</p><p class="formula-note">slope ของ \(T^2\)–\(L\)</p></article>
+        <article class="formula-card"><h3>คาบจากการวัด</h3><p class="formula">\[T=\dfrac{t_{5\,รอบ}}{5}\]</p><p class="formula-note">เฉลี่ยจากหลายครั้ง</p></article>
+        <article class="formula-card"><h3>ลูกตุ้มฟิสิกัล</h3><p class="formula">\[T=2\pi\sqrt{\dfrac{I_0}{mgd}}\]</p><p class="formula-note">\(d\) = จุดหมุนถึง CM</p></article>
+        <article class="formula-card"><h3>ร้อยละความคลาดเคลื่อน</h3><p class="formula">\[\%\,\mathrm{err}=\dfrac{|g-9.80|}{9.80}\times100\]</p><p class="formula-note">เทียบ \(g=9.80\,\mathrm{m/s^2}\)</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="procedure" data-title="ขั้นตอน">
+      <header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
+      <ol class="steps">
+        <li><span class="step-n">1</span><div><h3>ตั้งลูกตุ้มที่ L = 40 cm</h3><p>แขวนลูกตุ้ม ปรับความยาวเชือก (ถึงกึ่งกลางลูกตุ้ม) เป็น 40 cm</p></div></li>
+        <li><span class="step-n">2</span><div><h3>แกว่งมุมเล็กและจับเวลา</h3><p>ปล่อยที่มุมน้อยกว่า 5° จับเวลาการแกว่งครบ 5 รอบ ทำซ้ำ 3 ครั้งแล้วเฉลี่ย</p></div></li>
+        <li><span class="step-n">3</span><div><h3>หาคาบ</h3><p>คำนวณคาบ \(T=t_{5รอบ}/5\) บันทึกลงตาราง</p></div></li>
+        <li><span class="step-n">4</span><div><h3>เปลี่ยนความยาว</h3><p>ทำซ้ำที่ \(L=60,80,100,120\) cm</p></div></li>
+        <li><span class="step-n">5</span><div><h3>เขียนกราฟหา g</h3><p>เขียนกราฟ \(T^2\) (แกนตั้ง) กับ \(L\) (แกนนอน) หาความชัน แล้ว \(g=4\pi^2/\text{slope}\)</p></div></li>
+        <li><span class="step-n">6</span><div><h3>ลูกตุ้มฟิสิกัล</h3><p>แขวนลูกตุ้มฟิสิกัลที่รูต่าง ๆ หาจุดที่คาบน้อยที่สุด และคำนวณ \(g\) เปรียบเทียบ</p></div></li>
+      </ol>
+      <div class="note note-warn"><span class="note-icon" aria-hidden="true">!</span><div><strong>ระวังระหว่างวัด</strong><ul><li>ใช้มุมแกว่งเล็ก ไม่เกิน ~5° เพื่อให้สูตร SHM ใช้ได้</li><li>วัดความยาวถึงกึ่งกลางลูกตุ้มเสมอ</li><li>จับเวลาหลายรอบ (5 รอบ) แล้วเฉลี่ยเพื่อลดความคลาดเคลื่อน</li></ul></div></div>
+    </section>
+
+    <section class="section band" id="data" data-title="ตารางข้อมูล">
+      <header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>ตารางผลการทดลอง (ลูกตุ้มอย่างง่าย)</h2></div></header>
+      <p class="lead">กรอกเวลาการแกว่งครบ 5 รอบ ที่แต่ละความยาว ระบบคำนวณคาบ \(T\), \(T^2\) เขียนกราฟ \(T^2\)–\(L\) และหา \(g\) จากความชันให้อัตโนมัติ</p>
+      <div class="data-foot">
+        <div class="table-wrap" style="flex:1"><table class="data-table">
+          <thead><tr><th scope="col">\(L\) (cm)</th><th scope="col">เวลา 5 รอบ \(t\) (s)</th><th scope="col">คาบ \(T=t/5\) (s)</th><th scope="col">\(T^2\) (s²)</th></tr></thead>
+          <tbody id="penBody">
+            <tr data-row="0" data-l="0.40"><th scope="row">40</th><td><input data-t data-store="pen_t0" type="number" step="0.01" inputmode="decimal"></td><td data-tp>—</td><td data-t2>—</td></tr>
+            <tr data-row="1" data-l="0.60"><th scope="row">60</th><td><input data-t data-store="pen_t1" type="number" step="0.01" inputmode="decimal"></td><td data-tp>—</td><td data-t2>—</td></tr>
+            <tr data-row="2" data-l="0.80"><th scope="row">80</th><td><input data-t data-store="pen_t2" type="number" step="0.01" inputmode="decimal"></td><td data-tp>—</td><td data-t2>—</td></tr>
+            <tr data-row="3" data-l="1.00"><th scope="row">100</th><td><input data-t data-store="pen_t3" type="number" step="0.01" inputmode="decimal"></td><td data-tp>—</td><td data-t2>—</td></tr>
+            <tr data-row="4" data-l="1.20"><th scope="row">120</th><td><input data-t data-store="pen_t4" type="number" step="0.01" inputmode="decimal"></td><td data-tp>—</td><td data-t2>—</td></tr>
+          </tbody>
+        </table></div>
+        <figure class="chart-card"><svg id="penGraph" viewBox="0 0 520 320" role="img" aria-label="กราฟ T² กับ L"></svg><figcaption>กราฟ \(T^2\)–\(L\) ความชัน = \(4\pi^2/g\)</figcaption></figure>
+      </div>
+      <div class="result-summary" style="margin-top:1rem">
+        <h3>ผลวิเคราะห์สด</h3>
+        <dl>
+          <div><dt>ความชันกราฟ \(T^2\)–\(L\)</dt><dd id="slopeOutput">—</dd></div>
+          <div><dt>ค่า \(g\) จากความชัน</dt><dd id="gOutput">—</dd></div>
+          <div class="rs-em"><dt>ร้อยละความคลาดเคลื่อน (เทียบ 9.80)</dt><dd id="errOutput">—</dd></div>
+        </dl>
+      </div>
+      <div class="actions-row"><button type="button" class="btn btn-soft" id="resetTable">ล้างข้อมูลตาราง</button><span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span></div>
+    </section>
+
+    <section class="section" id="example" data-title="ตัวอย่าง">
+      <header class="section-head"><div><p class="kicker">ทำตามทีละบรรทัด</p><h2>ตัวอย่างการคำนวณ</h2></div></header>
+      <p class="lead">ตัวอย่างค่าสมมติเพื่อแสดงวิธีแทนค่า (ไม่ใช่ค่าจากการทดลองจริง)</p>
+      <div class="reveal-controls"><button type="button" class="btn btn-primary" id="exampleShow">แสดงตัวอย่างการคำนวณ</button><button type="button" class="btn btn-ghost" id="exampleHide" hidden>ซ่อนตัวอย่าง</button></div>
+      <div class="example-body" id="exampleBody" hidden></div>
+    </section>
+
+    <section class="section" id="checkpoint" data-title="ตรวจสอบ">
+      <header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
+      <div class="prompt-card prompt-wide">
+        <p class="prompt-tag">คำถามท้าทาย</p>
+        <p class="prompt-q">นักศึกษาสองคนวัดลูกตุ้มเดียวกัน คนหนึ่งจับเวลา <strong>1 รอบ</strong> อีกคนจับ <strong>5 รอบแล้วหาร 5</strong> วิธีใดให้คาบที่น่าเชื่อถือกว่า เพราะอะไร?</p>
+        <div class="reveal-controls"><button type="button" class="btn btn-primary" id="answerShow">แสดงคำตอบ</button><button type="button" class="btn btn-ghost" id="answerHide" hidden>ซ่อนคำตอบ</button></div>
+        <div class="answer-body" id="answerBody" hidden>
+          <p>การจับ <strong>5 รอบแล้วหาร 5</strong> น่าเชื่อถือกว่า เพราะความคลาดเคลื่อนจากเวลาตอบสนอง (เริ่ม/หยุดนาฬิกา) ถูก <strong>เฉลี่ยให้เล็กลง 5 เท่า</strong></p>
+          <ul class="tick-list"><li>เวลาตอบสนอง ~0.2 s กระจายไปทั้ง 5 รอบ</li><li>คาบต่อรอบจึงแม่นยำขึ้น</li></ul>
+          <p class="muted">บทเรียน: นับหลายรอบช่วยลดผลของความคลาดเคลื่อนคงที่ในการจับเวลา</p>
+        </div>
+      </div>
+      <div class="quick-quiz" data-qid="pend-analyze" data-bloom="analyze" data-answer="C">
+        <p class="quiz-label">คำถามสั้น</p>
+        <h3 class="prompt-q">เหตุใดการจับเวลา 5 รอบแล้วหาร 5 จึงน่าเชื่อถือกว่าการจับเวลาเพียงรอบเดียว?</h3>
+        <div class="quiz-options">
+          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> ทำให้ลูกตุ้มหนักขึ้น</button>
+          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> ทำให้ค่า \(g\) คงที่</button>
+          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> ลดสัดส่วนผลของความคลาดเคลื่อนจากการเริ่มและหยุดเวลา</button>
+          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ทำให้ความยาวเชือกเพิ่ม</button>
+          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> กำจัดแรงต้านอากาศทั้งหมด</button>
+        </div>
+        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="section" id="analysis" data-title="วิเคราะห์">
+      <header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
+      <div class="split">
+        <ol class="analysis-steps">
+          <li>คำนวณ \(T=t/5\) และ \(T^2\) ทุกความยาว</li>
+          <li>เขียนกราฟ \(T^2\)–\(L\) หาความชัน (ควรเป็นเส้นตรงผ่านจุดกำเนิด)</li>
+          <li>คำนวณ \(g=4\pi^2/\text{slope}\) เทียบกับ 9.80 m/s²</li>
+          <li>เปรียบเทียบกับผลของลูกตุ้มฟิสิกัล และอภิปรายความสอดคล้อง</li>
+        </ol>
+        <aside class="note note-info note-block"><span class="note-icon" aria-hidden="true">◆</span><div><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>เวลาตอบสนองในการจับเวลา</li><li>มุมแกว่งใหญ่เกินไป (สูตร SHM คลาด)</li><li>การวัดความยาวถึงกึ่งกลางลูกตุ้ม</li></ul></div></aside>
+      </div>
+      <div class="quick-quiz" data-qid="pend-evaluate" data-bloom="evaluate" data-answer="A">
+        <p class="quiz-label">คำถามสั้น</p>
+        <h3 class="prompt-q">ผลแบบใดสนับสนุนแบบจำลองลูกตุ้มมุมเล็กได้ดีที่สุด?</h3>
+        <div class="quiz-options">
+          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> กราฟ \(T^2\)–\(L\) เป็นเส้นตรงใกล้จุดกำเนิดและให้ \(g\) ใกล้ค่ามาตรฐาน</button>
+          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> คาบเพิ่มตามมวลลูกตุ้ม</button>
+          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> ใช้มุมแกว่งมากกว่า 45°</button>
+          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> เวลาทุกรอบต่างกันมาก</button>
+          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> วัดความยาวถึงขอบบนของลูกตุ้ม</button>
+        </div>
+        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="section band" id="discussion" data-title="อภิปราย">
+      <header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
+      <div class="q-grid">
+        <article class="q-card"><span class="q-no">Q1</span><p>เหตุใดคาบลูกตุ้มจึงไม่ขึ้นกับมวลและแอมพลิจูด (ที่มุมเล็ก)?</p></article>
+        <article class="q-card"><span class="q-no">Q2</span><p>ทำไมต้องใช้มุมแกว่งเล็ก สูตร \(T=2\pi\sqrt{L/g}\) จึงใช้ได้?</p></article>
+        <article class="q-card"><span class="q-no">Q3</span><p>กราฟ \(T^2\)–\(L\) ควรผ่านจุดกำเนิดหรือไม่ จุดตัดแกนบอกอะไร?</p></article>
+        <article class="q-card"><span class="q-no">Q4</span><p>ลูกตุ้มฟิสิกัลต่างจากลูกตุ้มอย่างง่ายอย่างไร และคาบน้อยที่สุดเกิดที่ใด?</p></article>
+        <article class="q-card"><span class="q-no">Q5</span><p>\(g\) ที่ได้สอดคล้องกับค่ามาตรฐานเพียงใด อะไรทำให้ต่าง?</p></article>
+      </div>
+      <div class="quick-quiz" data-qid="pend-create" data-bloom="create" data-answer="D">
+        <p class="quiz-label">คำถามสั้น</p>
+        <h3 class="prompt-q">ถ้าต้องศึกษาผลของแอมพลิจูดต่อคาบ ควรออกแบบการทดลองอย่างไร?</h3>
+        <div class="quiz-options">
+          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> เปลี่ยนทั้งความยาวและมวลพร้อมกัน</button>
+          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> ใช้มุมเดียวแต่จับเวลาหลายคน</button>
+          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> เปลี่ยนจุดแขวนทุกครั้ง</button>
+          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ตรึงความยาวและมวล ทดสอบหลายมุม และจับเวลาหลายรอบซ้ำในแต่ละมุม</button>
+          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> คำนวณจากสูตรโดยไม่แกว่งจริง</button>
+        </div>
+        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="section spotlight" id="conclusion" data-title="สรุป">
+      <header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
+      <div class="conclusion-grid">
+        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong> จากข้อมูลของคุณเอง</p>
+        <ul class="conclusion-points">
+          <li><span class="cp-ico">1</span><div><h3>รายงานค่า g</h3><p>ระบุ \(g\) จากความชันกราฟ \(T^2\)–\(L\) พร้อมหน่วย m/s²</p></div></li>
+          <li><span class="cp-ico">2</span><div><h3>เทียบกับค่ามาตรฐาน</h3><p>รายงานร้อยละความคลาดเคลื่อนเทียบ \(g=9.80\,\mathrm{m/s^2}\)</p></div></li>
+          <li><span class="cp-ico">3</span><div><h3>ตีความกราฟ</h3><p>ระบุว่ากราฟเป็นเส้นตรงผ่านจุดกำเนิดหรือไม่ เพื่อยืนยัน \(T^2\propto L\)</p></div></li>
+          <li><span class="cp-ico">4</span><div><h3>อภิปรายแหล่งคลาดเคลื่อน</h3><p>ระบุสาเหตุหลัก เช่น การจับเวลา มุมแกว่ง และการวัดความยาว</p></div></li>
+        </ul>
+      </div>
+      <p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
+    </section>
+  </main>
+
+  <nav class="stepper" aria-label="นำทางทีละส่วน"><button type="button" id="prevSec" aria-label="ส่วนก่อนหน้า">‹</button><span id="stepLabel">บทนำ</span><button type="button" id="nextSec" aria-label="ส่วนถัดไป">›</button></nav>
+  <div class="present-bar" id="presentBar" hidden><span class="present-label">▶ โหมดนำเสนอ</span><button type="button" id="presentPrev" aria-label="สไลด์ก่อนหน้า">‹</button><span id="presentCounter">1 / 14</span><button type="button" id="presentNext" aria-label="สไลด์ถัดไป">›</button><button type="button" id="presentExit" class="present-exit">✕ ออก (Esc)</button></div>
+  <div class="present-progress" id="presentProgress" aria-hidden="true"><span></span></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden><span id="toastMsg"></span><button type="button" id="toastUndo">เลิกทำ</button></div>
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="ภาพขยายอุปกรณ์"><div class="lightbox-inner"><button class="lightbox-close" id="lightboxClose" type="button" aria-label="ปิดภาพขยาย">✕</button><div class="lightbox-body" id="lightboxBody"></div></div></div>
+  <noscript><p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่การคำนวณ กราฟ และปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p></noscript>
+</body>
+</html>

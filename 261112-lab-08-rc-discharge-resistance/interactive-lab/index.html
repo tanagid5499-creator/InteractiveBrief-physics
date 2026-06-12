@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>261112 · Lab 08 · การประจุ–คายประจุของตัวเก็บประจุ (RC) · Lab Brief</title>
+  <meta name="description" content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261112 บทที่ 8 การหาความจุไฟฟ้าและการประจุ–คายประจุของตัวเก็บประจุในวงจร RC">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231d4fd0'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E08%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <script defer src="../../shared/brief-core.js?v=7"></script>
+  <script defer src="js/app.js?v=2"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+
+  <header class="topbar" id="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#hero" aria-label="กลับสู่ด้านบน"><span class="brand-badge">08</span><span class="brand-text"><strong>วงจร RC</strong><small>261112 · ปฏิบัติการฟิสิกส์ 2</small></span></a>
+      <nav class="phase-nav" id="chipNav" aria-label="สารบัญบทปฏิบัติการ">
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">เริ่มต้น</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#hero">บทนำ</a><a class="chip" role="menuitem" href="#hook">ชวนคิด</a><a class="chip" role="menuitem" href="#objectives">จุดประสงค์</a></div></div>
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">หลักการ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#concept">แนวคิดหลัก</a><a class="chip" role="menuitem" href="#theory">ทฤษฎี</a><a class="chip" role="menuitem" href="#equipment">อุปกรณ์</a><a class="chip" role="menuitem" href="#formula">สูตร</a></div></div>
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">ลงมือทำ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#procedure">ขั้นตอน</a><a class="chip" role="menuitem" href="#data">ตารางข้อมูล</a><a class="chip" role="menuitem" href="#example">ตัวอย่าง</a><a class="chip" role="menuitem" href="#checkpoint">ตรวจสอบ</a></div></div>
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">สรุปผล</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#analysis">วิเคราะห์</a><a class="chip" role="menuitem" href="#discussion">อภิปราย</a><a class="chip" role="menuitem" href="#conclusion">สรุป</a></div></div>
+      </nav>
+      <div class="topbar-meta">
+        <span class="sec-counter" aria-hidden="true"><b id="secNow">01</b><span>/14</span></span>
+        <div class="ratio-seg" role="group" aria-label="อัตราส่วนการแสดงผล"><span class="ratio-seg-ico" aria-hidden="true">▭</span><button type="button" data-ratio="full" aria-pressed="true">จอเต็ม</button><button type="button" data-ratio="43" aria-pressed="false">4:3</button><button type="button" data-ratio="169" aria-pressed="false">16:9</button></div>
+        <button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
+      </div>
+    </div>
+    <div class="read-progress" role="progressbar" aria-label="ความคืบหน้าการอ่าน" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="readBar"></span></div>
+  </header>
+
+  <main id="main">
+    <section class="section hero" id="hero" data-title="บทนำ">
+      <div class="hero-top"><p class="hero-eyebrow">261112 · ปฏิบัติการฟิสิกส์ 2 · บทที่ 08</p><h1 class="hero-title">การหาความจุไฟฟ้าและการประจุ–คายประจุของตัวเก็บประจุ</h1></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <figure class="hero-question"><figcaption class="hq-tag">คำถามชวนคิด</figcaption><blockquote class="hq-text">ตัวเก็บประจุคายประจุออก <strong>เร็วแค่ไหน</strong> และอะไรเป็นตัวกำหนดอัตรานั้น เราหาความจุ \(C\) จากการจับเวลาได้อย่างไร</blockquote></figure>
+          <ul class="hero-meta"><li><span class="hm-num">τ</span><span class="hm-label">\(V_C=V_0e^{-t/\tau}\) · ค่าคงที่เวลา \(\tau=RC\)</span></li></ul>
+          <div class="hero-actions"><a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a><a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a></div>
+        </div>
+        <figure class="hero-visual">
+          <span class="fig-tag">FIG.1 · การประจุ–คายประจุ</span>
+          <svg viewBox="0 0 320 280" role="img" aria-label="กราฟแรงดันตัวเก็บประจุขณะประจุและคายประจุ">
+            <g stroke="#90a4cf" stroke-width="1.5" fill="none">
+              <line x1="44" y1="30" x2="44" y2="230"/><line x1="44" y1="230" x2="300" y2="230"/>
+              <line x1="44" y1="60" x2="300" y2="60" stroke-dasharray="4 4"/>
+            </g>
+            <path d="M44 60 C 90 130, 140 170, 200 195 S 280 220, 300 224" stroke="#2563eb" stroke-width="2.5" fill="none"/>
+            <path d="M44 224 C 90 154, 140 110, 200 88 S 280 64, 300 62" stroke="#d9480f" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+            <text x="30" y="64" text-anchor="end" class="d-label">V₀</text>
+            <text x="300" y="246" text-anchor="end" class="d-label">เวลา t</text>
+            <text x="250" y="210" text-anchor="middle" class="d-label" fill="#2563eb">คายประจุ</text>
+            <text x="240" y="80" text-anchor="middle" class="d-label" fill="#d9480f">ประจุ</text>
+          </svg>
+          <figcaption>ขณะคายประจุ \(V_C\) ลดแบบเลขชี้กำลัง ความชันของ \(\ln(V_0/V_C)\)–\(t\) ให้ \(1/\tau\)</figcaption>
+        </figure>
+      </div>
+      <p class="scroll-hint" aria-hidden="true">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
+    </section>
+
+    <section class="section" id="hook" data-title="ชวนคิด">
+      <header class="section-head"><div><p class="kicker">ชวนคิดก่อนเริ่ม</p><h2>อะไรกำหนดความเร็วในการคายประจุ?</h2></div></header>
+      <div class="split">
+        <div class="prose"><p>ตัวเก็บประจุที่ต่อกับตัวต้านทานจะคายประจุผ่านตัวต้านทานนั้น ยิ่ง \(R\) หรือ \(C\) มาก กระแสยิ่งไหลช้า ทำให้แรงดันลดช้าลง</p><p>เวลาที่ใช้จึงสรุปได้ด้วยค่าเดียวคือ <strong>ค่าคงที่เวลา</strong> \(\tau=RC\) เมื่อรู้ \(\tau\) และ \(R\) ก็หา \(C\) ได้</p></div>
+        <aside class="prompt-card"><p class="prompt-tag">ลองตอบเร็ว</p>
+          <div class="quick-quiz" data-answer="ช้าลง">
+            <h3 class="prompt-q">ถ้าเพิ่มความต้านทาน \(R\) ในวงจร RC การคายประจุของตัวเก็บประจุจะ?</h3>
+            <div class="quiz-options"><button type="button" data-quiz-option="ช้าลง">ช้าลง</button><button type="button" data-quiz-option="เร็วขึ้น">เร็วขึ้น</button><button type="button" data-quiz-option="เท่าเดิม">เท่าเดิม</button></div>
+            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="objectives" data-title="จุดประสงค์">
+      <header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
+      <ol class="objective-list">
+        <li><span class="obj-no">1</span><div><h3>ศึกษาการประจุและคายประจุ</h3><p>สังเกตการเปลี่ยนแปลงของแรงดันคร่อมตัวเก็บประจุ \(V_C\) เทียบกับเวลาในวงจร RC</p></div></li>
+        <li><span class="obj-no">2</span><div><h3>หาค่าคงที่เวลาและความจุ</h3><p>หาค่าคงที่เวลา \(\tau=RC\) จากกราฟการคายประจุ แล้วคำนวณความจุ \(C=\tau/R\)</p></div></li>
+      </ol>
+      <div class="note note-info"><span class="note-icon" aria-hidden="true">◆</span><p><strong>สิ่งที่จะได้ลงมือทำ:</strong> ต่อวงจร \(R\)-\(C\) กับแหล่งจ่าย · ประจุจน \(V_C\to V_0\) · คายประจุพร้อมจับเวลาอ่าน \(V_C\) · เขียนกราฟ \(\ln(V_0/V_C)\)–\(t\) หา \(\tau\) และ \(C\)</p></div>
+    </section>
+
+    <section class="section band" id="concept" data-title="แนวคิดหลัก">
+      <header class="section-head"><div><p class="kicker">ภาพรวมแนวคิด</p><h2>ตัวเก็บประจุ การประจุ และการคายประจุ</h2></div></header>
+      <p class="lead">ตัวเก็บประจุสะสมประจุตามแรงดันที่คร่อม เมื่อต่อผ่านตัวต้านทาน การถ่ายเทประจุจะเป็นไปแบบเลขชี้กำลังด้วยอัตราที่กำหนดโดย \(\tau=RC\)</p>
+      <div class="card-grid cols-3">
+        <article class="info-card"><span class="ic-step">A</span><h3>ความจุไฟฟ้า</h3><p>\(C=\dfrac{Q}{V}\) ปริมาณประจุที่เก็บได้ต่อหนึ่งหน่วยแรงดัน หน่วยฟารัด (F)</p></article>
+        <article class="info-card"><span class="ic-step">B</span><h3>การประจุ</h3><p>\(V_C=V_0\left(1-e^{-t/\tau}\right)\) แรงดันค่อย ๆ เพิ่มเข้าหา \(V_0\)</p></article>
+        <article class="info-card"><span class="ic-step">C</span><h3>การคายประจุ</h3><p>\(V_C=V_0e^{-t/\tau}\) แรงดันลดลงแบบเลขชี้กำลังเข้าหาศูนย์</p></article>
+      </div>
+    </section>
+
+    <section class="section spotlight" id="theory" data-title="ทฤษฎี">
+      <header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>ค่าคงที่เวลา และการหาความจุ</h2></div></header>
+      <div class="theory-grid">
+        <div class="prose">
+          <p>ขณะคายประจุ ประจุที่เหลือทำให้แรงดันลดลงตาม \(V_C=V_0e^{-t/\tau}\) โดย \(\tau=RC\) คือ <strong>ค่าคงที่เวลา</strong></p>
+          <p>ที่ \(t=\tau\) แรงดันเหลือ \(e^{-1}\approx0.368\) เท่าของ \(V_0\) และครึ่งหนึ่งที่ \(t_{1/2}=0.693\,RC=0.693\,\tau\)</p>
+          <p>จัดรูปได้ \(\ln\dfrac{V_0}{V_C}=\dfrac{t}{\tau}\) เป็นเส้นตรงผ่านจุดกำเนิด ความชัน = \(1/\tau\) จากนั้น \(C=\tau/R\)</p>
+          <ul class="tick-list"><li>โวลต์มิเตอร์ต่อ <b>คร่อม</b> ตัวเก็บประจุ เพื่ออ่าน \(V_C\)</li><li>เริ่มจับเวลาเมื่อสับสวิตช์ให้เริ่มคายประจุ</li></ul>
+        </div>
+        <aside class="prompt-card"><p class="prompt-tag">ลองตอบเร็ว</p>
+          <div class="quick-quiz" data-answer="ประมาณ 37% ของ V₀">
+            <h3 class="prompt-q">ขณะคายประจุ ที่เวลา \(t=\tau\) (= RC) แรงดัน \(V_C\) จะเหลือประมาณเท่าใด?</h3>
+            <div class="quiz-options"><button type="button" data-quiz-option="ประมาณ 37% ของ V₀">ประมาณ 37% ของ V₀</button><button type="button" data-quiz-option="50% ของ V₀">50% ของ V₀</button><button type="button" data-quiz-option="0 โวลต์">0 โวลต์</button></div>
+            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="equipment" data-title="อุปกรณ์">
+      <header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
+      <div class="card-grid cols-3 equip-grid">
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: แหล่งจ่ายไฟกระแสตรง"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="26" y="20" width="44" height="28" rx="3"/><path d="M36 34h8M40 30v8M54 34h8"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>แหล่งจ่ายไฟกระแสตรง \(V_0\)</h3><p>จ่ายแรงดันที่ปรับได้ (เช่น 6 V) สำหรับประจุตัวเก็บประจุก่อนเริ่มคายประจุ</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ตัวเก็บประจุ"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 34h26M52 34h26"/><path d="M44 20v28M52 20v28"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ตัวเก็บประจุ \(C_0\)</h3><p>ตัวเก็บประจุค่าความจุสูง (เช่น 1000 µF) ที่ต้องการหาค่าความจุจากการทดลอง</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ตัวต้านทาน"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 34h12l4-8 8 16 8-16 8 16 4-8h12"/><path d="M70 34h12"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ตัวต้านทาน \(R_x\)</h3><p>กำหนดอัตราการคายประจุร่วมกับ \(C\) (เช่น 100 kΩ) ทราบค่าเพื่อใช้คำนวณ \(C=\tau/R\)</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: โวลต์มิเตอร์"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2"><circle cx="48" cy="34" r="18"/><path d="M42 27l6 14 6-14" stroke-linecap="round" stroke-linejoin="round"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>โวลต์มิเตอร์ / มัลติมิเตอร์</h3><p>ต่อคร่อมตัวเก็บประจุเพื่ออ่านแรงดัน \(V_C\) ควรมีความต้านทานภายในสูงเพื่อรบกวนวงจรน้อย</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: นาฬิกาจับเวลา"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="48" cy="38" r="18"/><path d="M48 38V26M48 38l9 5M44 16h8M48 16v4"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>นาฬิกาจับเวลา</h3><p>จับเวลาขณะคายประจุ อ่าน \(V_C\) ที่ช่วงเวลาเท่า ๆ กัน (เช่นทุก 10 วินาที)</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: สวิตช์และแผงต่อวงจร"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 40h18l16-12"/><circle cx="20" cy="40" r="2.5" fill="currentColor" stroke="none"/><circle cx="38" cy="40" r="2.5" fill="currentColor" stroke="none"/><path d="M58 40h18"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>สวิตช์ + แผงต่อวงจร</h3><p>ใช้สับเปลี่ยนระหว่างประจุและคายประจุ พร้อมสายไฟต่อวงจรให้แน่นและถูกขั้ว</p></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section" id="formula" data-title="สูตร">
+      <header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
+      <div class="card-grid cols-3">
+        <article class="formula-card formula-accent"><h3>ความจุไฟฟ้า</h3><p class="formula">\[C=\dfrac{Q}{V}\]</p><p class="formula-note">ประจุต่อหนึ่งหน่วยแรงดัน (F)</p></article>
+        <article class="formula-card"><h3>ค่าคงที่เวลา</h3><p class="formula">\[\tau=RC\]</p><p class="formula-note">กำหนดอัตราการประจุ/คายประจุ</p></article>
+        <article class="formula-card"><h3>การคายประจุ</h3><p class="formula">\[V_C=V_0\,e^{-t/\tau}\]</p><p class="formula-note">แรงดันลดแบบเลขชี้กำลัง</p></article>
+        <article class="formula-card"><h3>การประจุ</h3><p class="formula">\[V_C=V_0\left(1-e^{-t/\tau}\right)\]</p><p class="formula-note">แรงดันเพิ่มเข้าหา \(V_0\)</p></article>
+        <article class="formula-card"><h3>ครึ่งชีวิต</h3><p class="formula">\[t_{1/2}=0.693\,RC\]</p><p class="formula-note">เวลาให้ \(V_C\) เหลือครึ่งหนึ่ง</p></article>
+        <article class="formula-card"><h3>เส้นตรงหา \(\tau\) แล้วได้ \(C\)</h3><p class="formula">\[\ln\!\dfrac{V_0}{V_C}=\dfrac{t}{\tau},\ \ C=\dfrac{\tau}{R}\]</p><p class="formula-note">ความชัน = \(1/\tau\) (ผ่านจุดกำเนิด)</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="procedure" data-title="ขั้นตอน">
+      <header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
+      <ol class="steps">
+        <li><span class="step-n">1</span><div><h3>ต่อวงจร RC</h3><p>ต่อ \(R_x\) อนุกรมกับ \(C_0\) ผ่านสวิตช์ไปยังแหล่งจ่าย \(V_0\) โวลต์มิเตอร์ต่อคร่อม \(C\)</p></div></li>
+        <li><span class="step-n">2</span><div><h3>ประจุตัวเก็บประจุ</h3><p>ตั้ง \(V_0=6\) V สับสวิตช์ด้านประจุจนกระทั่ง \(V_C\) เพิ่มเข้าหา \(V_0\) (อิ่มตัว)</p></div></li>
+        <li><span class="step-n">3</span><div><h3>เริ่มคายประจุและจับเวลา</h3><p>สับสวิตช์มาด้านคายประจุพร้อมเริ่มจับเวลา บันทึก \(V_C\) ที่เวลา \(t=0\) (= \(V_0\))</p></div></li>
+        <li><span class="step-n">4</span><div><h3>อ่าน \(V_C\) เป็นช่วง</h3><p>อ่านและบันทึก \(V_C\) ทุกช่วงเวลาเท่า ๆ กัน (เช่นทุก 10 วินาที) จน \(V_C\) ลดลงมาก</p></div></li>
+        <li><span class="step-n">5</span><div><h3>คำนวณและเขียนกราฟ</h3><p>หา \(\ln(V_0/V_C)\) ของแต่ละจุด เขียนกราฟกับ \(t\) แล้วหาความชัน \(=1/\tau\)</p></div></li>
+      </ol>
+      <div class="note note-warn"><span class="note-icon" aria-hidden="true">!</span><div><strong>ก่อนต่อวงจร</strong><ul><li>ตรวจขั้วของตัวเก็บประจุชนิดมีขั้ว (อิเล็กโทรไลต์) ให้ถูกต้อง</li><li>เริ่มจับเวลาให้พร้อมกับจังหวะสับสวิตช์คายประจุ</li><li>คายประจุตัวเก็บประจุให้หมดก่อนถอด/ต่อใหม่</li></ul></div></div>
+    </section>
+
+    <section class="section band" id="data" data-title="ตารางข้อมูล">
+      <header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>ตารางผลการทดลอง (การคายประจุ)</h2></div></header>
+      <p class="lead">กรอกค่า \(V_0\), \(R\) และแรงดัน \(V_C\) ที่อ่านได้ในแต่ละช่วงเวลา ระบบคำนวณ \(\ln(V_0/V_C)\) เขียนกราฟ \(\ln(V_0/V_C)\)–\(t\) หาความชัน \(=1/\tau\) แล้วได้ \(\tau\) และ \(C=\tau/R\) ให้อัตโนมัติ</p>
+
+      <div class="worksheet-block">
+        <h3>ค่าตั้งต้นของวงจร</h3>
+        <div class="setup-inputs">
+          <label>แรงดันเริ่มต้น <span class="u">\(V_0\) (V)</span><input id="V0" data-store="V0" type="number" step="0.01" inputmode="decimal" value="6"></label>
+          <label>ความต้านทาน <span class="u">\(R\) (kΩ)</span><input id="Rk" data-store="Rk" type="number" step="0.1" inputmode="decimal" value="100"></label>
+        </div>
+        <div class="data-foot">
+          <div class="table-wrap" style="flex:1"><table class="data-table">
+            <thead><tr><th scope="col">\(t\) (s)</th><th scope="col">\(V_C\) (V)</th><th scope="col">\(\ln(V_0/V_C)\)</th></tr></thead>
+            <tbody id="rcBody">
+              <tr data-row data-t="0"><th scope="row">0</th><td><input id="v0" data-vc data-store="v0" type="number" step="0.01" inputmode="decimal" value="6.00"></td><td data-ln>—</td></tr>
+              <tr data-row data-t="10"><th scope="row">10</th><td><input id="v10" data-vc data-store="v10" type="number" step="0.01" inputmode="decimal" value="5.43"></td><td data-ln>—</td></tr>
+              <tr data-row data-t="20"><th scope="row">20</th><td><input id="v20" data-vc data-store="v20" type="number" step="0.01" inputmode="decimal" value="4.91"></td><td data-ln>—</td></tr>
+              <tr data-row data-t="30"><th scope="row">30</th><td><input id="v30" data-vc data-store="v30" type="number" step="0.01" inputmode="decimal" value="4.44"></td><td data-ln>—</td></tr>
+              <tr data-row data-t="40"><th scope="row">40</th><td><input id="v40" data-vc data-store="v40" type="number" step="0.01" inputmode="decimal" value="4.02"></td><td data-ln>—</td></tr>
+              <tr data-row data-t="50"><th scope="row">50</th><td><input id="v50" data-vc data-store="v50" type="number" step="0.01" inputmode="decimal" value="3.64"></td><td data-ln>—</td></tr>
+              <tr data-row data-t="60"><th scope="row">60</th><td><input id="v60" data-vc data-store="v60" type="number" step="0.01" inputmode="decimal" value="3.29"></td><td data-ln>—</td></tr>
+              <tr data-row data-t="70"><th scope="row">70</th><td><input id="v70" data-vc data-store="v70" type="number" step="0.01" inputmode="decimal" value="2.98"></td><td data-ln>—</td></tr>
+              <tr data-row data-t="80"><th scope="row">80</th><td><input id="v80" data-vc data-store="v80" type="number" step="0.01" inputmode="decimal" value="2.70"></td><td data-ln>—</td></tr>
+              <tr data-row data-t="90"><th scope="row">90</th><td><input id="v90" data-vc data-store="v90" type="number" step="0.01" inputmode="decimal" value="2.44"></td><td data-ln>—</td></tr>
+            </tbody>
+          </table></div>
+          <figure class="chart-card"><svg id="rcGraph" viewBox="0 0 520 320" role="img" aria-label="กราฟ ln(V₀/V_C) กับ t"></svg><figcaption>กราฟ \(\ln(V_0/V_C)\)–\(t\) ความชัน = \(1/\tau\)</figcaption></figure>
+        </div>
+        <div class="result-summary" style="margin-top:1rem">
+          <h3>ผลวิเคราะห์สด</h3>
+          <dl>
+            <div><dt>ความชันกราฟ (\(=1/\tau\))</dt><dd id="slopeOutput">—</dd></div>
+            <div><dt>ค่าคงที่เวลา \(\tau=RC\)</dt><dd id="tauOutput">—</dd></div>
+            <div><dt>ความจุ \(C=\tau/R\)</dt><dd id="capOutput">—</dd></div>
+            <div class="rs-em"><dt>ร้อยละความคลาดเคลื่อน (เทียบ 1000 µF)</dt><dd id="capErrOutput">—</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="actions-row"><button type="button" class="btn btn-soft" id="resetTable">ล้างข้อมูลตาราง</button><span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span></div>
+    </section>
+
+    <section class="section" id="example" data-title="ตัวอย่าง">
+      <header class="section-head"><div><p class="kicker">ทำตามทีละบรรทัด</p><h2>ตัวอย่างการคำนวณ</h2></div></header>
+      <p class="lead">ตัวอย่างค่าสมมติเพื่อแสดงวิธีหาค่าคงที่เวลาและความจุ (ไม่ใช่ค่าจากการทดลองจริง)</p>
+      <div class="reveal-controls"><button type="button" class="btn btn-primary" id="exampleShow">แสดงตัวอย่างการคำนวณ</button><button type="button" class="btn btn-ghost" id="exampleHide" hidden>ซ่อนตัวอย่าง</button></div>
+      <div class="example-body" id="exampleBody" hidden></div>
+    </section>
+
+    <section class="section" id="checkpoint" data-title="ตรวจสอบ">
+      <header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
+      <div class="prompt-card prompt-wide">
+        <p class="prompt-tag">คำถามท้าทาย</p>
+        <p class="prompt-q">วงจร RC มี \(R=100\,\text{k}\Omega\) และ \(C=470\,\mu\text{F}\) ค่าคงที่เวลา \(\tau\) เป็นเท่าใด และต้องใช้เวลานานเท่าใดให้ \(V_C\) เหลือครึ่งหนึ่ง?</p>
+        <div class="reveal-controls"><button type="button" class="btn btn-primary" id="answerShow">แสดงคำตอบ</button><button type="button" class="btn btn-ghost" id="answerHide" hidden>ซ่อนคำตอบ</button></div>
+        <div class="answer-body" id="answerBody" hidden>
+          <p>\(\tau=RC=(100\times10^3)(470\times10^{-6})=\) <strong>47 s</strong></p>
+          <p>\(t_{1/2}=0.693\,\tau=0.693\times47\approx\) <strong>32.6 s</strong></p>
+          <ul class="tick-list"><li>\(\tau\) ใหญ่ขึ้นเมื่อ \(R\) หรือ \(C\) มากขึ้น → คายประจุช้าลง</li><li>ครึ่งชีวิตเป็นสัดส่วนคงที่ของ \(\tau\) เสมอ (\(0.693\,\tau\))</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="analysis" data-title="วิเคราะห์">
+      <header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
+      <div class="split">
+        <ol class="analysis-steps">
+          <li>คำนวณ \(\ln(V_0/V_C)\) ของแต่ละช่วงเวลา</li>
+          <li>เขียนกราฟ \(\ln(V_0/V_C)\)–\(t\) ลากเส้นตรงผ่านจุดกำเนิด ความชัน = \(1/\tau\)</li>
+          <li>หาค่าคงที่เวลา \(\tau=1/\text{ความชัน}\) แล้วคำนวณ \(C=\tau/R\)</li>
+          <li>เทียบ \(C\) ที่ได้กับค่าระบุของตัวเก็บประจุด้วยร้อยละความคลาดเคลื่อน</li>
+        </ol>
+        <aside class="note note-info note-block"><span class="note-icon" aria-hidden="true">◆</span><div><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>ความต้านทานภายในของโวลต์มิเตอร์ทำให้คายประจุเพิ่มขึ้น</li><li>ความคลาดเคลื่อนของการจับเวลาและการอ่านค่า</li><li>ค่าจริงของ \(R\), \(C\) ต่างจากค่าระบุ (tolerance)</li></ul></div></aside>
+      </div>
+    </section>
+
+    <section class="section band" id="discussion" data-title="อภิปราย">
+      <header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
+      <div class="q-grid">
+        <article class="q-card"><span class="q-no">Q1</span><p>เหตุใดแรงดันคร่อมตัวเก็บประจุจึงลดลงแบบเลขชี้กำลัง ไม่ใช่เส้นตรง?</p></article>
+        <article class="q-card"><span class="q-no">Q2</span><p>ค่าคงที่เวลา \(\tau\) มีความหมายทางกายภาพอย่างไร และสัมพันธ์กับ \(R, C\) อย่างไร?</p></article>
+        <article class="q-card"><span class="q-no">Q3</span><p>เหตุใดการเขียนกราฟ \(\ln(V_0/V_C)\)–\(t\) จึงสะดวกกว่าการใช้กราฟ \(V_C\)–\(t\) โดยตรง?</p></article>
+        <article class="q-card"><span class="q-no">Q4</span><p>ความต้านทานภายในของโวลต์มิเตอร์ส่งผลต่อค่าคงที่เวลาที่วัดได้อย่างไร?</p></article>
+        <article class="q-card"><span class="q-no">Q5</span><p>ค่า \(C\) ที่คำนวณได้ใกล้เคียงค่าระบุของตัวเก็บประจุเพียงใด เพราะเหตุใด?</p></article>
+      </div>
+    </section>
+
+    <section class="section spotlight" id="conclusion" data-title="สรุป">
+      <header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
+      <div class="conclusion-grid">
+        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong> จากข้อมูลของคุณเอง</p>
+        <ul class="conclusion-points">
+          <li><span class="cp-ico">1</span><div><h3>รายงานค่าคงที่เวลา</h3><p>ระบุ \(\tau\) ที่หาได้จากความชันของกราฟ พร้อมหน่วยวินาที</p></div></li>
+          <li><span class="cp-ico">2</span><div><h3>รายงานความจุ</h3><p>คำนวณ \(C=\tau/R\) พร้อมหน่วย (µF) จากค่า \(R\) ที่ทราบ</p></div></li>
+          <li><span class="cp-ico">3</span><div><h3>เทียบกับค่าระบุ</h3><p>เปรียบเทียบ \(C\) ที่ได้กับค่าระบุของตัวเก็บประจุด้วยร้อยละความคลาดเคลื่อน</p></div></li>
+          <li><span class="cp-ico">4</span><div><h3>อภิปรายแหล่งคลาดเคลื่อน</h3><p>ระบุสาเหตุหลัก เช่น ความต้านทานมิเตอร์ การจับเวลา และ tolerance ของอุปกรณ์</p></div></li>
+        </ul>
+      </div>
+      <p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
+    </section>
+  </main>
+
+  <nav class="stepper" aria-label="นำทางทีละส่วน"><button type="button" id="prevSec" aria-label="ส่วนก่อนหน้า">‹</button><span id="stepLabel">บทนำ</span><button type="button" id="nextSec" aria-label="ส่วนถัดไป">›</button></nav>
+  <div class="present-bar" id="presentBar" hidden><span class="present-label">▶ โหมดนำเสนอ</span><button type="button" id="presentPrev" aria-label="สไลด์ก่อนหน้า">‹</button><span id="presentCounter">1 / 14</span><button type="button" id="presentNext" aria-label="สไลด์ถัดไป">›</button><button type="button" id="presentExit" class="present-exit">✕ ออก (Esc)</button></div>
+  <div class="present-progress" id="presentProgress" aria-hidden="true"><span></span></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden><span id="toastMsg"></span><button type="button" id="toastUndo">เลิกทำ</button></div>
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="ภาพขยายอุปกรณ์"><div class="lightbox-inner"><button class="lightbox-close" id="lightboxClose" type="button" aria-label="ปิดภาพขยาย">✕</button><div class="lightbox-body" id="lightboxBody"></div></div></div>
+  <noscript><p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่การคำนวณและปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p></noscript>
+</body>
+</html>

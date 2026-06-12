@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>261112 · Lab 04 · การวัดรังสีและการสลายตัว · Lab Brief</title>
+  <meta name="description" content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261112 บทที่ 4 การวัดรังสีและการสลายตัวของสารกัมมันตรังสี">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231d4fd0'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E04%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <script defer src="../../shared/brief-core.js?v=7"></script>
+  <script defer src="js/app.js?v=2"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+
+  <header class="topbar" id="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#hero" aria-label="กลับสู่ด้านบน"><span class="brand-badge">04</span><span class="brand-text"><strong>การวัดรังสี</strong><small>261112 · ปฏิบัติการฟิสิกส์ 2</small></span></a>
+      <nav class="phase-nav" id="chipNav" aria-label="สารบัญบทปฏิบัติการ">
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">เริ่มต้น</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#hero">บทนำ</a><a class="chip" role="menuitem" href="#hook">ชวนคิด</a><a class="chip" role="menuitem" href="#objectives">จุดประสงค์</a></div></div>
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">หลักการ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#concept">แนวคิดหลัก</a><a class="chip" role="menuitem" href="#theory">ทฤษฎี</a><a class="chip" role="menuitem" href="#equipment">อุปกรณ์</a><a class="chip" role="menuitem" href="#formula">สูตร</a></div></div>
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">ลงมือทำ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#procedure">ขั้นตอน</a><a class="chip" role="menuitem" href="#data">ตารางข้อมูล</a><a class="chip" role="menuitem" href="#example">ตัวอย่าง</a><a class="chip" role="menuitem" href="#checkpoint">ตรวจสอบ</a></div></div>
+        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">สรุปผล</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#analysis">วิเคราะห์</a><a class="chip" role="menuitem" href="#discussion">อภิปราย</a><a class="chip" role="menuitem" href="#conclusion">สรุป</a></div></div>
+      </nav>
+      <div class="topbar-meta">
+        <span class="sec-counter" aria-hidden="true"><b id="secNow">01</b><span>/14</span></span>
+        <div class="ratio-seg" role="group" aria-label="อัตราส่วนการแสดงผล"><span class="ratio-seg-ico" aria-hidden="true">▭</span><button type="button" data-ratio="full" aria-pressed="true">จอเต็ม</button><button type="button" data-ratio="43" aria-pressed="false">4:3</button><button type="button" data-ratio="169" aria-pressed="false">16:9</button></div>
+        <button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
+      </div>
+    </div>
+    <div class="read-progress" role="progressbar" aria-label="ความคืบหน้าการอ่าน" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="readBar"></span></div>
+  </header>
+
+  <main id="main">
+    <section class="section hero" id="hero" data-title="บทนำ">
+      <div class="hero-top"><p class="hero-eyebrow">261112 · ปฏิบัติการฟิสิกส์ 2 · บทที่ 04</p><h1 class="hero-title">การวัดรังสีและการสลายตัวของสารกัมมันตรังสี</h1></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <figure class="hero-question"><figcaption class="hq-tag">คำถามชวนคิด</figcaption><blockquote class="hq-text">ทำไมสารกัมมันตรังสีจึงสลายตัวแบบ <strong>เลขชี้กำลัง</strong> และเราจำลอง "ครึ่งชีวิต" ได้ด้วย <strong>ลูกเต๋า</strong> อย่างไร</blockquote></figure>
+          <ul class="hero-meta"><li><span class="hm-num">N</span><span class="hm-label">\(N=N_0e^{-\lambda t}\) · ครึ่งชีวิต \(T_{1/2}=0.693/\lambda\)</span></li></ul>
+          <div class="hero-actions"><a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a><a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a></div>
+        </div>
+        <figure class="hero-visual">
+          <span class="fig-tag">FIG.1 · กราฟการสลายตัว</span>
+          <svg viewBox="0 0 320 280" role="img" aria-label="กราฟการสลายตัวแบบเลขชี้กำลังและครึ่งชีวิต">
+            <g stroke="#90a4cf" stroke-width="1.5" fill="none">
+              <line x1="44" y1="30" x2="44" y2="230"/><line x1="44" y1="230" x2="300" y2="230"/>
+              <line x1="44" y1="80" x2="300" y2="80" stroke-dasharray="4 4"/>
+              <line x1="44" y1="155" x2="170" y2="155" stroke-dasharray="4 4"/>
+              <line x1="110" y1="155" x2="110" y2="230" stroke-dasharray="4 4"/>
+            </g>
+            <path d="M44 50 C 90 120, 140 170, 200 195 S 280 218, 300 222" stroke="#2563eb" stroke-width="2.5" fill="none"/>
+            <g fill="#1d4fd0">
+              <circle cx="44" cy="50" r="4"/><circle cx="110" cy="118" r="4"/><circle cx="176" cy="165" r="4"/><circle cx="242" cy="200" r="4"/>
+            </g>
+            <text x="30" y="54" text-anchor="end" class="d-label">N₀</text>
+            <text x="30" y="159" text-anchor="end" class="d-label">N₀/2</text>
+            <text x="110" y="246" text-anchor="middle" class="d-label">T½</text>
+            <text x="300" y="246" text-anchor="end" class="d-label">เวลา t</text>
+          </svg>
+          <figcaption>จำนวนนิวเคลียสที่เหลือลดลงครึ่งหนึ่งทุกช่วง \(T_{1/2}\) — รูปแบบเดียวกับการคัดลูกเต๋าออกทีละส่วน</figcaption>
+        </figure>
+      </div>
+      <p class="scroll-hint" aria-hidden="true">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
+    </section>
+
+    <section class="section" id="hook" data-title="ชวนคิด">
+      <header class="section-head"><div><p class="kicker">ชวนคิดก่อนเริ่ม</p><h2>การสลายตัวเป็นเรื่องของ "โอกาส"</h2></div></header>
+      <div class="split">
+        <div class="prose"><p>เราไม่รู้ว่านิวเคลียส <strong>ตัวไหน</strong> จะสลายเมื่อใด แต่รู้ว่าในแต่ละช่วงเวลามี <strong>โอกาสคงที่</strong> ที่แต่ละตัวจะสลาย เมื่อมีนิวเคลียสจำนวนมาก พฤติกรรมรวมจึงเป็นเส้นโค้งเลขชี้กำลังที่ทำนายได้</p><p>ลองนึกถึงการเขย่าลูกเต๋าหลายลูกแล้วคัดลูกที่ขึ้นแต้มที่กำหนดออกทุกครั้ง — จำนวนที่เหลือก็ลดลงในรูปแบบเดียวกัน</p></div>
+        <aside class="prompt-card"><p class="prompt-tag">ลองตอบเร็ว</p>
+          <div class="quick-quiz" data-answer="เหลือครึ่งหนึ่ง">
+            <h3 class="prompt-q">เมื่อเวลาผ่านไป 1 ครึ่งชีวิต จำนวนนิวเคลียสที่ยังไม่สลายจะเป็นอย่างไร?</h3>
+            <div class="quiz-options"><button type="button" data-quiz-option="เหลือครึ่งหนึ่ง">เหลือครึ่งหนึ่ง</button><button type="button" data-quiz-option="สลายหมด">สลายหมด</button><button type="button" data-quiz-option="เท่าเดิม">เท่าเดิม</button></div>
+            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="objectives" data-title="จุดประสงค์">
+      <header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
+      <ol class="objective-list">
+        <li><span class="obj-no">1</span><div><h3>ศึกษาการวัดรังสีและกัมมันตภาพรังสี</h3><p>รู้จักปริมาณและหน่วยการวัดรังสี และวัดอัตรานับรังสีพื้นหลังด้วยเครื่องไกเกอร์–มูลเลอร์</p></div></li>
+        <li><span class="obj-no">2</span><div><h3>ศึกษากฎการสลายตัวและครึ่งชีวิต</h3><p>จำลองการสลายตัวด้วยลูกเต๋า หาค่าคงที่การสลายตัว \(\lambda\) และครึ่งชีวิต \(T_{1/2}\) จากกราฟ</p></div></li>
+      </ol>
+      <div class="note note-info"><span class="note-icon" aria-hidden="true">◆</span><p><strong>สิ่งที่จะได้ลงมือทำ:</strong> วัดรังสีพื้นหลัง 4 ครั้ง หาค่าเฉลี่ย · เขย่าลูกเต๋า \(N_0=50\) คัดแต้มที่กำหนดออกทุกครั้ง · บันทึกจำนวนที่เหลือ · เขียนกราฟ \(\ln(N_0/N)\)–\(n\) แล้วหา \(\lambda\) และ \(T_{1/2}\)</p></div>
+    </section>
+
+    <section class="section band" id="concept" data-title="แนวคิดหลัก">
+      <header class="section-head"><div><p class="kicker">ภาพรวมแนวคิด</p><h2>กัมมันตภาพรังสี การสลายตัว และครึ่งชีวิต</h2></div></header>
+      <p class="lead">นิวเคลียสไม่เสถียรปลดปล่อยรังสีและเปลี่ยนเป็นนิวเคลียสอื่น อัตราการสลายตัวขึ้นกับจำนวนที่เหลืออยู่ จึงให้เส้นโค้งเลขชี้กำลัง</p>
+      <div class="card-grid cols-3">
+        <article class="info-card"><span class="ic-step">A</span><h3>กัมมันตภาพรังสี</h3><p>นิวเคลียสไม่เสถียรปล่อยรังสี \(\alpha,\beta,\gamma\) กัมมันตภาพ \(A=\lambda N\) วัดเป็นเบ็กเคอเรล (Bq)</p></article>
+        <article class="info-card"><span class="ic-step">B</span><h3>กระบวนการสุ่ม</h3><p>แต่ละตัวมีโอกาสสลายคงที่ต่อหน่วยเวลา \(\Delta N=-\lambda N\,\Delta t\) จำนวนมากจึงทำนายได้</p></article>
+        <article class="info-card"><span class="ic-step">C</span><h3>ครึ่งชีวิต</h3><p>เวลาที่จำนวนลดเหลือครึ่งหนึ่ง \(T_{1/2}=\dfrac{0.693}{\lambda}\) ไม่ขึ้นกับจำนวนเริ่มต้น</p></article>
+      </div>
+    </section>
+
+    <section class="section spotlight" id="theory" data-title="ทฤษฎี">
+      <header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>กฎการสลายตัว และการจำลองด้วยลูกเต๋า</h2></div></header>
+      <div class="theory-grid">
+        <div class="prose">
+          <p>อัตราการสลายตัวแปรผันกับจำนวนที่เหลือ \(\dfrac{dN}{dt}=-\lambda N\) อินทิเกรตได้ \(N=N_0e^{-\lambda t}\)</p>
+          <p>ที่ \(N=N_0/2\) จะได้ครึ่งชีวิต \(T_{1/2}=\dfrac{\ln 2}{\lambda}=\dfrac{0.693}{\lambda}\) และเขียนได้เป็น \(N=N_0\left(\tfrac12\right)^{t/T_{1/2}}\)</p>
+          <p><strong>ลูกเต๋า:</strong> คัดแต้มที่กำหนดออก โอกาสต่อครั้ง \(p=\tfrac16\) เหลือสัดส่วน \(\tfrac56\) ทุกครั้ง ดังนั้น \(N=N_0\left(\tfrac56\right)^{n}\) เทียบได้กับ \(\lambda=\ln\tfrac65\approx0.182\) ต่อครั้ง</p>
+          <ul class="tick-list"><li>เขียน \(\ln(N_0/N)=\lambda n\) ได้เส้นตรงผ่านจุดกำเนิด ความชัน = \(\lambda\)</li><li>ครึ่งชีวิตเชิงทฤษฎี \(T_{1/2}=0.693/\lambda\approx3.80\) ครั้ง</li></ul>
+        </div>
+        <aside class="prompt-card"><p class="prompt-tag">ลองตอบเร็ว</p>
+          <div class="quick-quiz" data-answer="ลดลงแบบเลขชี้กำลัง">
+            <h3 class="prompt-q">ถ้าโอกาสสลายต่อช่วงเวลาคงที่ จำนวนที่เหลือเทียบกับเวลาจะเป็นอย่างไร?</h3>
+            <div class="quiz-options"><button type="button" data-quiz-option="ลดลงแบบเลขชี้กำลัง">ลดลงแบบเลขชี้กำลัง</button><button type="button" data-quiz-option="ลดลงเป็นเส้นตรง">ลดลงเป็นเส้นตรง</button><button type="button" data-quiz-option="คงที่">คงที่</button></div>
+            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="equipment" data-title="อุปกรณ์">
+      <header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
+      <div class="card-grid cols-3 equip-grid">
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: เครื่องนับรังสีไกเกอร์–มูลเลอร์"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2"><rect x="20" y="22" width="40" height="28" rx="3"/><circle cx="34" cy="36" r="6"/><path d="M44 30h10M44 36h10M44 42h6"/><rect x="66" y="30" width="6" height="14" rx="2"/><path d="M72 37h6"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>เครื่องนับรังสีไกเกอร์–มูลเลอร์</h3><p>ตรวจนับรังสีและแสดงอัตรานับ (count/s หรือ mSv/h) ใช้วัดรังสีพื้นหลังในห้องปฏิบัติการ</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ต้นกำเนิดรังสี"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2"><circle cx="48" cy="34" r="6" fill="currentColor" stroke="none"/><path d="M48 34 L48 14 A20 20 0 0 1 65 44 Z" opacity=".5"/><path d="M48 34 L31 44 A20 20 0 0 1 48 14" opacity=".5"/><path d="M48 34 L65 44 A20 20 0 0 1 31 44" opacity=".5"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ต้นกำเนิดรังสี</h3><p>แหล่งกำเนิดรังสีความเข้มต่ำสำหรับการสาธิต เก็บในภาชนะกำบังและจัดการตามระเบียบความปลอดภัย</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ลูกเต๋า 50 ลูก"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2"><rect x="26" y="18" width="32" height="32" rx="5"/><circle cx="36" cy="28" r="2.4" fill="currentColor" stroke="none"/><circle cx="48" cy="34" r="2.4" fill="currentColor" stroke="none"/><circle cx="60" cy="40" r="2.4" fill="currentColor" stroke="none"/><circle cx="60" cy="28" r="2.4" fill="currentColor" stroke="none"/><circle cx="36" cy="40" r="2.4" fill="currentColor" stroke="none"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ลูกเต๋า (50 ลูก)</h3><p>ใช้แทนนิวเคลียส แต่ละลูกมีโอกาส \(1/6\) ที่จะ "สลาย" ต่อการทอดหนึ่งครั้ง</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ถาดเขย่า"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 30 h52 l-6 18 h-40 z"/><path d="M22 30 q26 -8 52 0"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ถาด/กล่องสำหรับเขย่า</h3><p>เขย่าลูกเต๋าให้ทั่วแล้วเทออก คัดลูกที่ขึ้นแต้มที่กำหนดออกในแต่ละรอบ</p></figcaption></figure>
+        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: นาฬิกาจับเวลา"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="48" cy="38" r="18"/><path d="M48 38V26M48 38l9 5M48 16h0M44 16h8M48 16v4"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>นาฬิกาจับเวลา</h3><p>กำหนดช่วงเวลาในการวัดรังสีพื้นหลังให้เท่ากันทุกครั้ง เพื่อเปรียบเทียบอัตรานับได้</p></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section" id="formula" data-title="สูตร">
+      <header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
+      <div class="card-grid cols-3">
+        <article class="formula-card formula-accent"><h3>กฎการสลายตัว</h3><p class="formula">\[N=N_0e^{-\lambda t}\]</p><p class="formula-note">จำนวนเหลือ ลดแบบเลขชี้กำลัง</p></article>
+        <article class="formula-card"><h3>ครึ่งชีวิต</h3><p class="formula">\[T_{1/2}=\dfrac{\ln 2}{\lambda}=\dfrac{0.693}{\lambda}\]</p><p class="formula-note">เวลาให้เหลือครึ่งหนึ่ง</p></article>
+        <article class="formula-card"><h3>รูปครึ่งชีวิต</h3><p class="formula">\[N=N_0\left(\tfrac12\right)^{t/T_{1/2}}\]</p><p class="formula-note">นับเป็นจำนวนครึ่งชีวิต</p></article>
+        <article class="formula-card"><h3>กัมมันตภาพ</h3><p class="formula">\[A=\lambda N=A_0e^{-\lambda t}\]</p><p class="formula-note">อัตราการสลายตัว (Bq)</p></article>
+        <article class="formula-card"><h3>จำลองด้วยลูกเต๋า</h3><p class="formula">\[N=N_0\left(\tfrac56\right)^{n}\]</p><p class="formula-note">โอกาสคัดออก \(p=1/6\) ต่อครั้ง</p></article>
+        <article class="formula-card"><h3>เส้นตรงหา \(\lambda\)</h3><p class="formula">\[\ln\!\dfrac{N_0}{N}=\lambda\,n\]</p><p class="formula-note">ความชัน = \(\lambda\) (ผ่านจุดกำเนิด)</p></article>
+      </div>
+      <div class="note note-info"><span class="note-icon" aria-hidden="true">◆</span><p><strong>ปริมาณรังสีสมมูล:</strong> \(H=\mathrm{QF}\times D\) (ซีเวิร์ต, Sv) โดย \(D\) คือปริมาณรังสีดูดกลืน (เกรย์, Gy = J/kg) และ QF คือค่าถ่วงน้ำหนักของชนิดรังสี (\(\beta,\gamma,\mathrm{X}=1\); \(\alpha=20\))</p></div>
+    </section>
+
+    <section class="section" id="procedure" data-title="ขั้นตอน">
+      <header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
+      <ol class="steps">
+        <li><span class="step-n">1</span><div><h3>เปิดเครื่องวัดรังสี</h3><p>เปิดเครื่องไกเกอร์ ตั้งย่านวัดและตรวจแบตเตอรี่ (BAT/TEST) ก่อนใช้งาน</p></div></li>
+        <li><span class="step-n">2</span><div><h3>วัดรังสีพื้นหลัง</h3><p>วัดอัตรานับรังสีพื้นหลัง (ยังไม่นำต้นกำเนิดรังสีเข้าใกล้) เป็นเวลาคงที่ ทำซ้ำ 4 ครั้งแล้วหาค่าเฉลี่ย</p></div></li>
+        <li><span class="step-n">3</span><div><h3>เตรียมลูกเต๋า</h3><p>นับลูกเต๋าตั้งต้น \(N_0=50\) ลูก ใส่ในถาด/กล่อง บันทึกที่ครั้งที่ทอด \(n=0\)</p></div></li>
+        <li><span class="step-n">4</span><div><h3>เขย่าและคัดออก</h3><p>เขย่าให้ทั่วแล้วเทออก คัดลูกที่ขึ้น <strong>แต้มที่กำหนด</strong> (เช่นแต้ม 6) ออกทุกครั้ง</p></div></li>
+        <li><span class="step-n">5</span><div><h3>บันทึกจำนวนที่เหลือ</h3><p>นับและบันทึกจำนวนที่เหลือเทียบกับครั้งที่ทอด \(n=1,2,3,\dots\) จนเหลือน้อย</p></div></li>
+      </ol>
+      <div class="note note-warn"><span class="note-icon" aria-hidden="true">!</span><div><strong>ข้อควรระวัง</strong><ul><li>เก็บต้นกำเนิดรังสีในที่กำบัง อยู่ห่างและใช้เวลาให้สั้นที่สุด (ระยะทาง–เวลา–กำบัง)</li><li>วัดรังสีพื้นหลังโดยใช้ช่วงเวลาเท่ากันทุกครั้ง</li><li>เขย่าลูกเต๋าให้ทั่วและเทบนพื้นเรียบ เพื่อให้แต่ละลูกมีโอกาสเท่ากัน</li></ul></div></div>
+    </section>
+
+    <section class="section band" id="data" data-title="ตารางข้อมูล">
+      <header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>ตารางผลการทดลอง</h2></div></header>
+      <p class="lead">ตอนที่ 1 หาค่าเฉลี่ยรังสีพื้นหลัง · ตอนที่ 2 กรอกจำนวนลูกเต๋าที่เหลือในแต่ละครั้ง ระบบคำนวณ \(\ln(N_0/N)\) เขียนกราฟ \(\ln(N_0/N)\)–\(n\) และหา \(\lambda\) กับ \(T_{1/2}\) ให้อัตโนมัติ</p>
+
+      <div class="worksheet-block">
+        <h3>ตอนที่ 1 · อัตรานับรังสีพื้นหลัง</h3>
+        <div class="setup-inputs">
+          <label>ครั้งที่ 1 <span class="u">(mSv/h)</span><input id="bg1" data-store="bg1" type="number" step="0.0001" inputmode="decimal"></label>
+          <label>ครั้งที่ 2 <span class="u">(mSv/h)</span><input id="bg2" data-store="bg2" type="number" step="0.0001" inputmode="decimal"></label>
+          <label>ครั้งที่ 3 <span class="u">(mSv/h)</span><input id="bg3" data-store="bg3" type="number" step="0.0001" inputmode="decimal"></label>
+          <label>ครั้งที่ 4 <span class="u">(mSv/h)</span><input id="bg4" data-store="bg4" type="number" step="0.0001" inputmode="decimal"></label>
+        </div>
+        <p class="calc-line">ค่าเฉลี่ยรังสีพื้นหลัง: <output id="bgAvgOutput">—</output> · ประมาณการสะสมต่อปี: <output id="bgYearOutput">—</output></p>
+      </div>
+
+      <div class="worksheet-block">
+        <h3>ตอนที่ 2 · จำลองการสลายตัวด้วยลูกเต๋า</h3>
+        <div class="data-foot">
+          <div class="table-wrap" style="flex:1"><table class="data-table">
+            <thead><tr><th scope="col">\(n\) (ครั้งที่ทอด)</th><th scope="col">\(N\) ที่เหลือ (ลูก)</th><th scope="col">\(\ln(N_0/N)\)</th></tr></thead>
+            <tbody id="diceBody">
+              <tr data-row data-n="0"><th scope="row">0</th><td><input id="d0" data-dice data-store="d0" type="number" step="1" inputmode="numeric" value="50"></td><td data-ln>—</td></tr>
+              <tr data-row data-n="1"><th scope="row">1</th><td><input id="d1" data-dice data-store="d1" type="number" step="1" inputmode="numeric" value="42"></td><td data-ln>—</td></tr>
+              <tr data-row data-n="2"><th scope="row">2</th><td><input id="d2" data-dice data-store="d2" type="number" step="1" inputmode="numeric" value="35"></td><td data-ln>—</td></tr>
+              <tr data-row data-n="3"><th scope="row">3</th><td><input id="d3" data-dice data-store="d3" type="number" step="1" inputmode="numeric" value="29"></td><td data-ln>—</td></tr>
+              <tr data-row data-n="4"><th scope="row">4</th><td><input id="d4" data-dice data-store="d4" type="number" step="1" inputmode="numeric" value="24"></td><td data-ln>—</td></tr>
+              <tr data-row data-n="5"><th scope="row">5</th><td><input id="d5" data-dice data-store="d5" type="number" step="1" inputmode="numeric" value="20"></td><td data-ln>—</td></tr>
+              <tr data-row data-n="6"><th scope="row">6</th><td><input id="d6" data-dice data-store="d6" type="number" step="1" inputmode="numeric" value="17"></td><td data-ln>—</td></tr>
+              <tr data-row data-n="7"><th scope="row">7</th><td><input id="d7" data-dice data-store="d7" type="number" step="1" inputmode="numeric" value="14"></td><td data-ln>—</td></tr>
+              <tr data-row data-n="8"><th scope="row">8</th><td><input id="d8" data-dice data-store="d8" type="number" step="1" inputmode="numeric" value="12"></td><td data-ln>—</td></tr>
+              <tr data-row data-n="9"><th scope="row">9</th><td><input id="d9" data-dice data-store="d9" type="number" step="1" inputmode="numeric" value="10"></td><td data-ln>—</td></tr>
+              <tr data-row data-n="10"><th scope="row">10</th><td><input id="d10" data-dice data-store="d10" type="number" step="1" inputmode="numeric" value="8"></td><td data-ln>—</td></tr>
+            </tbody>
+          </table></div>
+          <figure class="chart-card"><svg id="decayGraph" viewBox="0 0 520 320" role="img" aria-label="กราฟ ln(N₀/N) กับ n"></svg><figcaption>กราฟ \(\ln(N_0/N)\)–\(n\) ความชัน = \(\lambda\)</figcaption></figure>
+        </div>
+        <div class="result-summary" style="margin-top:1rem">
+          <h3>ผลวิเคราะห์สด</h3>
+          <dl>
+            <div><dt>ค่าคงที่การสลายตัว \(\lambda\) (ความชัน)</dt><dd id="lambdaOutput">—</dd></div>
+            <div><dt>ครึ่งชีวิต \(T_{1/2}=0.693/\lambda\)</dt><dd id="tHalfOutput">—</dd></div>
+            <div class="rs-em"><dt>ร้อยละความคลาดเคลื่อน (เทียบ 3.80 ครั้ง)</dt><dd id="tHalfErrOutput">—</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="actions-row"><button type="button" class="btn btn-soft" id="resetTable">ล้างข้อมูลตาราง</button><span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span></div>
+    </section>
+
+    <section class="section" id="example" data-title="ตัวอย่าง">
+      <header class="section-head"><div><p class="kicker">ทำตามทีละบรรทัด</p><h2>ตัวอย่างการคำนวณ</h2></div></header>
+      <p class="lead">ตัวอย่างค่าสมมติเพื่อแสดงวิธีหาค่าคงที่การสลายตัวและครึ่งชีวิต (ไม่ใช่ค่าจากการทดลองจริง)</p>
+      <div class="reveal-controls"><button type="button" class="btn btn-primary" id="exampleShow">แสดงตัวอย่างการคำนวณ</button><button type="button" class="btn btn-ghost" id="exampleHide" hidden>ซ่อนตัวอย่าง</button></div>
+      <div class="example-body" id="exampleBody" hidden></div>
+    </section>
+
+    <section class="section" id="checkpoint" data-title="ตรวจสอบ">
+      <header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
+      <div class="prompt-card prompt-wide">
+        <p class="prompt-tag">คำถามท้าทาย</p>
+        <p class="prompt-q">เริ่มด้วยลูกเต๋า \(N_0=50\) ลูก หลังผ่านไป <strong>2 ครึ่งชีวิต</strong> ควรเหลือประมาณกี่ลูก?</p>
+        <div class="reveal-controls"><button type="button" class="btn btn-primary" id="answerShow">แสดงคำตอบ</button><button type="button" class="btn btn-ghost" id="answerHide" hidden>ซ่อนคำตอบ</button></div>
+        <div class="answer-body" id="answerBody" hidden>
+          <p>หลัง 1 ครึ่งชีวิตเหลือ \(50\times\tfrac12=25\) หลัง 2 ครึ่งชีวิตเหลือ \(25\times\tfrac12=\) <strong>≈ 12–13 ลูก</strong></p>
+          <ul class="tick-list"><li>ทุกครึ่งชีวิตจำนวนลดลงครึ่งหนึ่ง ไม่ขึ้นกับจำนวนเริ่มต้น</li><li>\(N=N_0\left(\tfrac12\right)^{2}=N_0/4\)</li></ul>
+          <p class="muted">บทเรียน: ครึ่งชีวิตเป็นสมบัติเฉพาะของสาร อธิบายได้ด้วยโอกาสคงที่ของการสลาย</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="analysis" data-title="วิเคราะห์">
+      <header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
+      <div class="split">
+        <ol class="analysis-steps">
+          <li>คำนวณ \(\ln(N_0/N)\) ของแต่ละครั้งที่ทอด</li>
+          <li>เขียนกราฟ \(\ln(N_0/N)\)–\(n\) ลากเส้นตรงผ่านจุดกำเนิด ความชัน = \(\lambda\)</li>
+          <li>หาครึ่งชีวิต \(T_{1/2}=0.693/\lambda\) (หน่วยเป็น "ครั้ง")</li>
+          <li>เทียบกับค่าทฤษฎี \(\lambda=\ln(6/5)\), \(T_{1/2}\approx3.80\) ครั้ง ด้วยร้อยละความคลาดเคลื่อน</li>
+        </ol>
+        <aside class="note note-info note-block"><span class="note-icon" aria-hidden="true">◆</span><div><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>จำนวนลูกเต๋าน้อย ทำให้ความผันผวนเชิงสถิติสูง</li><li>การเขย่าไม่ทั่ว ทำให้โอกาสแต่ละลูกไม่เท่ากัน</li><li>การอ่าน/คัดแต้มผิดพลาดในบางรอบ</li></ul></div></aside>
+      </div>
+    </section>
+
+    <section class="section band" id="discussion" data-title="อภิปราย">
+      <header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
+      <div class="q-grid">
+        <article class="q-card"><span class="q-no">Q1</span><p>เหตุใดการสลายตัวของสารกัมมันตรังสีจึงเป็นเส้นโค้งเลขชี้กำลัง?</p></article>
+        <article class="q-card"><span class="q-no">Q2</span><p>การทอดลูกเต๋าเทียบได้กับการสลายตัวของนิวเคลียสอย่างไร และต่างกันตรงไหน?</p></article>
+        <article class="q-card"><span class="q-no">Q3</span><p>ถ้าเริ่มด้วยลูกเต๋ามากขึ้น ครึ่งชีวิต (เป็นจำนวนครั้ง) จะเปลี่ยนหรือไม่?</p></article>
+        <article class="q-card"><span class="q-no">Q4</span><p>รังสีพื้นหลังมาจากแหล่งใดบ้าง และเหตุใดต้องวัดหลายครั้งแล้วเฉลี่ย?</p></article>
+        <article class="q-card"><span class="q-no">Q5</span><p>ค่า \(\lambda\) และ \(T_{1/2}\) ที่วัดได้ใกล้เคียงค่าทฤษฎีเพียงใด เพราะเหตุใด?</p></article>
+      </div>
+    </section>
+
+    <section class="section spotlight" id="conclusion" data-title="สรุป">
+      <header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
+      <div class="conclusion-grid">
+        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong> จากข้อมูลของคุณเอง</p>
+        <ul class="conclusion-points">
+          <li><span class="cp-ico">1</span><div><h3>รายงานรังสีพื้นหลัง</h3><p>ระบุค่าเฉลี่ยอัตรานับรังสีพื้นหลังพร้อมหน่วย และจำนวนครั้งที่วัด</p></div></li>
+          <li><span class="cp-ico">2</span><div><h3>รายงาน \(\lambda\) และ \(T_{1/2}\)</h3><p>ระบุค่าคงที่การสลายตัวจากความชันกราฟ และครึ่งชีวิต (เป็นจำนวนครั้ง)</p></div></li>
+          <li><span class="cp-ico">3</span><div><h3>เทียบกับทฤษฎี</h3><p>เปรียบเทียบกับ \(T_{1/2}\approx3.80\) ครั้ง ด้วยร้อยละความคลาดเคลื่อน</p></div></li>
+          <li><span class="cp-ico">4</span><div><h3>อภิปรายแหล่งคลาดเคลื่อน</h3><p>ระบุสาเหตุหลัก เช่น ความผันผวนเชิงสถิติจากจำนวนน้อย และการเขย่าไม่ทั่ว</p></div></li>
+        </ul>
+      </div>
+      <p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
+    </section>
+  </main>
+
+  <nav class="stepper" aria-label="นำทางทีละส่วน"><button type="button" id="prevSec" aria-label="ส่วนก่อนหน้า">‹</button><span id="stepLabel">บทนำ</span><button type="button" id="nextSec" aria-label="ส่วนถัดไป">›</button></nav>
+  <div class="present-bar" id="presentBar" hidden><span class="present-label">▶ โหมดนำเสนอ</span><button type="button" id="presentPrev" aria-label="สไลด์ก่อนหน้า">‹</button><span id="presentCounter">1 / 14</span><button type="button" id="presentNext" aria-label="สไลด์ถัดไป">›</button><button type="button" id="presentExit" class="present-exit">✕ ออก (Esc)</button></div>
+  <div class="present-progress" id="presentProgress" aria-hidden="true"><span></span></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden><span id="toastMsg"></span><button type="button" id="toastUndo">เลิกทำ</button></div>
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="ภาพขยายอุปกรณ์"><div class="lightbox-inner"><button class="lightbox-close" id="lightboxClose" type="button" aria-label="ปิดภาพขยาย">✕</button><div class="lightbox-body" id="lightboxBody"></div></div></div>
+  <noscript><p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่การคำนวณและปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p></noscript>
+</body>
+</html>
