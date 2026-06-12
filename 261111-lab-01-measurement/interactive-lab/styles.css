@@ -219,3 +219,23 @@
   font-family: var(--font-mono); font-weight: 700; font-size: 1rem;
 }
 
+/* ════════════════════════════════════════════════════════════════════════
+   GESTALT REDESIGN — Chunk 2c: spacing rhythm (Proximity)
+   De-boxing removed the box edges that used to separate groups, so some now
+   touch (measured: lead↔columns and columns↔note were both 0px). The fix is
+   NOT to add boxes back — it's deliberate whitespace: generous BETWEEN groups,
+   tight WITHIN a group. Airy + intentional, not empty and not cramped.
+   ════════════════════════════════════════════════════════════════════════ */
+/* an intro line breathes before the content it introduces */
+.lead { margin-bottom: clamp(1.45rem, 2.6vw, 2.1rem); }
+/* a callout that follows a de-boxed group needs its own separation (this is the
+   "ภาพรวมแนวคิด ↔ ความคลาดเคลื่อนสองแบบ ติดกัน" gap) */
+.card-grid + .note,
+.info-card + .note { margin-top: clamp(1.7rem, 3.2vw, 2.6rem); }
+/* the kicker + its heading are ONE unit — keep them tight (proximity), and give
+   the whole section-head a touch more air below before the body */
+.section-head { margin-bottom: clamp(1.6rem, 2.8vw, 2.2rem); }
+.section-head .kicker { margin-bottom: .35rem; }
+/* the de-boxed column lists want a hair more row separation so dividers read calmly */
+.objective-list li, .steps li, .q-card { padding-block: clamp(.9rem, 1.6vw, 1.15rem); }
+
