@@ -164,12 +164,58 @@
 /* keyboard focus stays visible, but as a clean outline (not an inset frame) */
 .equip-photo:focus-visible { box-shadow: none; outline: 3px solid var(--blue-300); outline-offset: -3px; }
 
-/* ── de-box the small letter badges everywhere (same fix as the quiz markers) ─ */
-/* the concept cards' A/B/C step badges were small filled squares = a box inside the
-   card's box. Make them a clean bold letter so nothing reads as box-in-box. */
+/* ════════════════════════════════════════════════════════════════════════
+   GESTALT REDESIGN — Chunk 2a: de-box the informational card grids
+   Prägnanz: a box around every group is decorative noise. Grouping comes from
+   equal columns + a top rule + the letter anchor (similarity · symmetry ·
+   continuity), not an enclosing frame. Boxes are kept ONLY for functional
+   containers (callouts, simulators, worksheet, data table).
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* concept "แนวคิดหลัก": 3 borderless columns, each opened by a top rule + big letter */
+.info-card {
+  background: none; border: 0; box-shadow: none; border-radius: 0;
+  padding: 1.05rem 0 0; border-top: 2px solid var(--blue-300);
+}
+.info-card:hover { transform: none; box-shadow: none; }
 .info-card .ic-step {
-  width: auto; height: auto; margin-bottom: .4rem; padding: 0;
+  width: auto; height: auto; margin-bottom: .35rem; padding: 0;
   background: none; border-radius: 0; box-shadow: none;
-  color: var(--blue-600); font-size: 1.6rem; line-height: 1; font-weight: 700;
+  color: var(--blue-600); font-size: 1.55rem; line-height: 1; font-weight: 700;
+}
+.info-card h3 { margin-bottom: .4rem; }
+.info-card p { color: var(--ink); }   /* on the pale band, ink reads better than muted-gray */
+
+/* formula sheet: drop the per-card frame; a quiet tinted ground lets the math be
+   the figure (figure–ground). The accent card commits one shade deeper. */
+.formula-card {
+  background: var(--blue-50); border: 0; box-shadow: none;
+  border-radius: var(--radius); padding: 1.3rem 1.4rem;
+}
+.formula-card:hover { transform: none; box-shadow: none; }
+.formula-accent { background: var(--blue-100); }
+
+/* ── Chunk 2b: de-box the remaining informational lists (same principle) ──── */
+/* objectives + procedure steps → clean lists with hairline dividers + a round
+   marker, not a stack of cards. Grouping = alignment + proximity (continuity). */
+.objective-list li, .steps li {
+  background: none; border: 0; box-shadow: none; border-radius: 0;
+  padding: .9rem 0; border-bottom: 1px solid var(--line-2);
+}
+.objective-list li:last-child, .steps li:last-child { border-bottom: 0; }
+.objective-list li:hover, .steps li:hover { transform: none; box-shadow: none; }
+.obj-no { border-radius: 50%; }   /* round marker (was a rounded square) */
+
+/* discussion Q1–Q5 → borderless rows with a divider; the Q-number is a plain
+   bold marker, not a filled chip (no box-in-box). */
+.q-card {
+  background: none; border: 0; box-shadow: none; border-radius: 0;
+  padding: .9rem 0; border-bottom: 1px solid var(--line-2);
+}
+.q-card:last-child { border-bottom: 0; }
+.q-card:hover { transform: none; box-shadow: none; border-color: transparent; }
+.q-no {
+  background: none; border: 0; padding: 0; color: var(--blue-600);
+  font-family: var(--font-mono); font-weight: 700; font-size: 1rem;
 }
 
