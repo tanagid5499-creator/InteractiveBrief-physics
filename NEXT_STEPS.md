@@ -2,9 +2,24 @@
 
 Ordered work queue for the next developer.
 
-## 1. Clicker Phase 2A - Complete Local Question Registry
+## 1. Clicker Phase 2A - Complete Local Question Registry — ✅ DONE (2026-06-12)
 
-This is the recommended next task because it is fully actionable without
+Implemented. The registry now holds all 62 `261111` Bloom questions and the
+host can select any lab and question. Details:
+
+- `clicker/questions.js` → `window.CLICKER_COURSES` (registry, **no answers**) — loaded by host + respond.
+- `clicker/answers.js` → `window.CLICKER_ANSWERS` (teacher-only key) — loaded by **host only**.
+- `clicker/build-registry.mjs` → one-time extractor that regenerates both files from the
+  lab pages' `.quick-quiz` blocks. Re-run `node build-registry.mjs` from `clicker/` after editing quiz content.
+- `host.html`: course/lab/question selectors; state broadcast carries `{courseId, labId, qIndex, pollOpen}`;
+  KaTeX (0.16.9) renders `\( … \)` in stems/options; tally is keyed per course/lab/question.
+- `respond.html`: reads course/lab from state, renders the matching question; never loads `answers.js`.
+- Channel renamed to `labclicker-v2` (both pages). Verified: select lab/q, open/close, re-vote,
+  late-vote rejection, reset, mobile + desktop no-overflow, 0 console errors, answers absent on student page.
+
+> Original task description retained below for reference.
+
+This was the recommended next task because it is fully actionable without
 external credentials.
 
 ### Scope

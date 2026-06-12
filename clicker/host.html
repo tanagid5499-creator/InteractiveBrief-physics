@@ -6,19 +6,28 @@
 <title>Clicker · จอครู (โปรเจกเตอร์)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<!-- KaTeX (math typesetting) — CDN, pinned 0.16.9, matches the lab pages. Auto-render handles \( … \) / \[ … \] -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
 <style>
   :root{--page:#f3f7ff;--ink:#14213d;--muted:#51607d;--blue:#1d4fd0;--blue2:#2563eb;--band:#e6eefc;--line:#d6e0f5;--surface:#fff;--accent:#d9480f;}
   *{box-sizing:border-box}
   body{font-family:'Sarabun',sans-serif;background:var(--page);color:var(--ink);margin:0;padding:clamp(1rem,3vw,2rem);line-height:1.5}
   .mono{font-family:'IBM Plex Mono',monospace}
   .wrap{max-width:980px;margin:0 auto}
-  .topbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6rem 1rem;margin-bottom:1.2rem}
+  .topbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6rem 1rem;margin-bottom:1rem}
   .brand{font-weight:700;font-size:1.05rem;color:var(--blue)}
   .brand small{display:block;font-weight:400;font-size:.8rem;color:var(--muted)}
   .session{font-size:.82rem;color:var(--muted)}
   .session b{color:var(--ink)}
+  .picker{display:flex;flex-wrap:wrap;gap:.6rem;align-items:flex-end;margin-bottom:1.1rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem}
+  .picker .field{display:flex;flex-direction:column;gap:.2rem}
+  .picker label{font-size:.72rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+  .picker select{font-family:'Sarabun',sans-serif;font-size:.95rem;color:var(--ink);background:var(--page);border:1px solid var(--line);border-radius:9px;padding:.45rem .7rem;min-width:11rem;cursor:pointer}
+  .picker .grow{flex:1}
   .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:clamp(1.1rem,3vw,1.8rem);box-shadow:0 1px 3px rgba(20,33,61,.05)}
-  .qmeta{display:flex;align-items:center;gap:.7rem;margin-bottom:.5rem}
+  .qmeta{display:flex;align-items:center;gap:.7rem;margin-bottom:.5rem;flex-wrap:wrap}
   .qno{font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:#fff;background:var(--blue);border-radius:8px;padding:.2rem .6rem;font-weight:600}
   .bloom{font-size:.72rem;color:var(--blue);background:var(--band);border:1px solid var(--line);border-radius:999px;padding:.1rem .55rem}
   .stem{font-size:clamp(1.2rem,2.6vw,1.7rem);font-weight:600;margin:.2rem 0 1.2rem}
@@ -44,6 +53,7 @@
   .join{margin-top:1rem;font-size:.85rem;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:10px;padding:.7rem .9rem}
   .join b{color:var(--ink)}
   .note{font-size:.78rem;color:var(--muted);margin-top:.6rem}
+  @media (prefers-reduced-motion:reduce){.fill{transition:none}}
 </style>
 </head>
 <body>
@@ -51,6 +61,12 @@
   <div class="topbar">
     <div class="brand">Clicker · จอครู<small id="metaLabel">—</small></div>
     <div class="session">เซสชัน <b id="sid" class="mono">—</b> · <span id="pollState" class="pollstate"></span></div>
+  </div>
+
+  <div class="picker">
+    <div class="field"><label for="courseSel">คอร์ส</label><select id="courseSel"></select></div>
+    <div class="field grow"><label for="labSel">บทปฏิบัติการ</label><select id="labSel"></select></div>
+    <div class="field"><label for="qSel">ข้อ</label><select id="qSel"></select></div>
   </div>
 
   <div class="card">
@@ -75,56 +91,103 @@
   </div>
 </div>
 
+<!-- registry (no answers) + teacher-only answer key. respond.html loads ONLY questions.js. -->
 <script src="questions.js"></script>
+<script src="answers.js"></script>
 <script>
-(function(){
-  const Q = window.CLICKER_QUESTIONS, META = window.CLICKER_META;
-  const ch = new BroadcastChannel(META.channel);
+// init on DOMContentLoaded so the deferred KaTeX scripts have loaded before the first render
+document.addEventListener("DOMContentLoaded", function(){
+  const REG = window.CLICKER_COURSES;
+  const ANSWERS = window.CLICKER_ANSWERS || {};
+  const CHANNEL = "labclicker-v2";
   const KEYS = ["A","B","C","D","E"];
+  const ch = new BroadcastChannel(CHANNEL);
+
+  let courseId = Object.keys(REG)[0];
+  let labId = Object.keys(REG[courseId].labs)[0];
   let qIndex = 0, pollOpen = true, sessionId = Date.now().toString(36);
-  const tally = {};                       // tally[qIndex] = { clientId: "A" }
-  const cur = () => Q[qIndex];
-  const votesOf = (i) => tally[i] || (tally[i] = {});
+  const tally = {};   // tally[qKey] = { clientId: "A" }  ·  qKey = course/lab#index
 
-  document.getElementById("metaLabel").textContent = META.course + " · " + META.lab;
-  document.getElementById("respUrl").textContent = location.href.replace(/host\.html.*$/, "respond.html");
+  const curCourse = () => REG[courseId];
+  const curLab = () => REG[courseId].labs[labId];
+  const curQs = () => curLab().questions;
+  const cur = () => curQs()[qIndex];
+  const qKey = () => courseId + "/" + labId + "#" + qIndex;
+  const votesOf = (k) => tally[k] || (tally[k] = {});
 
-  function broadcastState(){ ch.postMessage({ type:"state", sessionId, qIndex, pollOpen, total:Q.length }); }
+  // dev integrity check (answers stay teacher-only; never rendered) — every question has a key
+  (function(){ let miss=0; for(const c of Object.values(REG)) for(const l of Object.values(c.labs)) for(const q of l.questions) if(!ANSWERS[q.id]) miss++; if(miss) console.warn("clicker: "+miss+" question(s) missing answer key"); })();
+
+  const courseSel = document.getElementById("courseSel");
+  const labSel = document.getElementById("labSel");
+  const qSel = document.getElementById("qSel");
+
+  function fillCourses(){
+    courseSel.innerHTML = Object.entries(REG).map(([id,c])=>`<option value="${id}">${id} · ${c.title}</option>`).join("");
+    courseSel.value = courseId;
+  }
+  function fillLabs(){
+    labSel.innerHTML = Object.entries(curCourse().labs).map(([id,l],i)=>`<option value="${id}">${String(i+1).padStart(2,"0")} · ${l.title}</option>`).join("");
+    labSel.value = labId;
+  }
+  function fillQs(){
+    qSel.innerHTML = curQs().map((q,i)=>`<option value="${i}">ข้อ ${i+1}</option>`).join("");
+    qSel.value = String(qIndex);
+  }
+
+  function broadcastState(){ ch.postMessage({ type:"state", sessionId, courseId, labId, qIndex, pollOpen, total:curQs().length }); }
+
+  function renderMath(){ if(window.renderMathInElement){ try{ renderMathInElement(document.getElementById("stem"),{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false}); renderMathInElement(document.getElementById("bars"),{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false}); }catch(e){} } }
 
   function render(){
-    const q = cur(), v = votesOf(qIndex);
+    const q = cur(), v = votesOf(qKey());
     const counts = {}; KEYS.forEach(k=>counts[k]=0);
     Object.values(v).forEach(c=>{ if(counts[c]!=null) counts[c]++; });
     const totalVotes = Object.keys(v).length;
+    document.getElementById("metaLabel").textContent = courseId + " · " + curLab().title;
     document.getElementById("sid").textContent = sessionId;
-    document.getElementById("qno").textContent = "ข้อ " + (qIndex+1) + " / " + Q.length;
-    document.getElementById("bloom").textContent = "ระดับ: " + q.bloom;
-    document.getElementById("stem").textContent = q.stem;
+    document.getElementById("qno").textContent = "ข้อ " + (qIndex+1) + " / " + curQs().length;
+    document.getElementById("bloom").textContent = "ระดับ: " + bloomTH(q.bloom);
+    document.getElementById("stem").innerHTML = q.prompt;
     document.getElementById("total").textContent = totalVotes;
     const ps = document.getElementById("pollState");
     ps.textContent = pollOpen ? "เปิดรับคำตอบ" : "ปิดรับคำตอบ";
     ps.className = "pollstate " + (pollOpen ? "open" : "closed");
     document.getElementById("toggle").textContent = pollOpen ? "ปิดรับคำตอบ" : "เปิดรับคำตอบ";
     document.getElementById("prev").disabled = qIndex===0;
-    document.getElementById("next").disabled = qIndex===Q.length-1;
-    const max = Math.max(1, ...KEYS.slice(0,q.options.length).map(k=>counts[k]));
-    document.getElementById("bars").innerHTML = q.options.map((opt,i)=>{
-      const k = KEYS[i], n = counts[k], pct = totalVotes? Math.round(n/totalVotes*100):0;
+    document.getElementById("next").disabled = qIndex===curQs().length-1;
+    const keys = KEYS.filter(k=>q.options[k]!=null);
+    const max = Math.max(1, ...keys.map(k=>counts[k]));
+    document.getElementById("bars").innerHTML = keys.map(k=>{
+      const n = counts[k], pct = totalVotes? Math.round(n/totalVotes*100):0;
       const w = Math.round(n/max*100);
-      return `<div class="bar"><span class="key">${k}</span><div class="barbody"><div class="barlabel">${opt}</div><div class="track"><div class="fill" style="width:${w}%"></div></div></div><span class="count">${n} · ${pct}%</span></div>`;
+      return `<div class="bar"><span class="key">${k}</span><div class="barbody"><div class="barlabel">${q.options[k]}</div><div class="track"><div class="fill" style="width:${w}%"></div></div></div><span class="count">${n} · ${pct}%</span></div>`;
     }).join("");
+    qSel.value = String(qIndex);
+    renderMath();
   }
+
+  function bloomTH(b){ return ({remember:"จำ",understand:"เข้าใจ",apply:"ประยุกต์",analyze:"วิเคราะห์",evaluate:"ประเมิน",create:"สร้างสรรค์"})[b] || b; }
+
+  function goTo(newCourse, newLab, newIndex){
+    courseId = newCourse; labId = newLab; qIndex = newIndex; pollOpen = true;
+    fillLabs(); fillQs(); broadcastState(); render();
+  }
+
+  courseSel.onchange = ()=>{ const c=courseSel.value; goTo(c, Object.keys(REG[c].labs)[0], 0); };
+  labSel.onchange = ()=>{ goTo(courseId, labSel.value, 0); };
+  qSel.onchange = ()=>{ qIndex = +qSel.value; pollOpen = true; broadcastState(); render(); };
 
   ch.onmessage = (e)=>{
     const m = e.data; if(!m) return;
     if(m.type==="hello"){ broadcastState(); }
-    else if(m.type==="vote" && m.sessionId===sessionId && m.qIndex===qIndex && pollOpen){
-      votesOf(qIndex)[m.clientId] = m.choice; render();
+    else if(m.type==="vote" && m.sessionId===sessionId && m.courseId===courseId && m.labId===labId && m.qIndex===qIndex && pollOpen){
+      votesOf(qKey())[m.clientId] = m.choice; render();
     }
   };
 
-  document.getElementById("prev").onclick = ()=>{ if(qIndex>0){qIndex--; broadcastState(); render();} };
-  document.getElementById("next").onclick = ()=>{ if(qIndex<Q.length-1){qIndex++; broadcastState(); render();} };
+  document.getElementById("prev").onclick = ()=>{ if(qIndex>0){qIndex--; pollOpen=true; broadcastState(); render();} };
+  document.getElementById("next").onclick = ()=>{ if(qIndex<curQs().length-1){qIndex++; pollOpen=true; broadcastState(); render();} };
   document.getElementById("toggle").onclick = ()=>{ pollOpen=!pollOpen; broadcastState(); render(); };
   document.getElementById("reset").onclick = ()=>{
     if(!confirm("ล้างคำตอบทั้งหมดและเริ่มเซสชันใหม่?")) return;
@@ -133,9 +196,11 @@
     broadcastState(); render();
   };
 
+  document.getElementById("respUrl").textContent = location.href.replace(/host\.html.*$/, "respond.html");
+  fillCourses(); fillLabs(); fillQs();
   setInterval(broadcastState, 2500);   // heartbeat ให้ผู้ตอบที่เพิ่งเปิดซิงก์สถานะ
   render(); broadcastState();
-})();
+});
 </script>
 </body>
 </html>

@@ -6,6 +6,10 @@
 <title>Clicker · ตอบคำถาม</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&family=IBM+Plex+Mono:wght@600&display=swap" rel="stylesheet">
+<!-- KaTeX — CDN, pinned 0.16.9, matches the lab pages. Auto-render handles \( … \) / \[ … \] -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
 <style>
   :root{--page:#f3f7ff;--ink:#14213d;--muted:#51607d;--blue:#1d4fd0;--blue2:#2563eb;--band:#e6eefc;--line:#d6e0f5;--surface:#fff;--ok:#0f6e56;--accent:#d9480f;}
   *{box-sizing:border-box}
@@ -49,32 +53,46 @@
     </div>
   </div>
 
+<!-- Student page loads ONLY the answer-free registry. answers.js is never loaded here. -->
 <script src="questions.js"></script>
 <script>
-(function(){
-  const Q = window.CLICKER_QUESTIONS, META = window.CLICKER_META;
-  const ch = new BroadcastChannel(META.channel);
+// init on DOMContentLoaded so the deferred KaTeX scripts have loaded before the first render
+document.addEventListener("DOMContentLoaded", function(){
+  const REG = window.CLICKER_COURSES;
+  const CHANNEL = "labclicker-v2";
   const KEYS = ["A","B","C","D","E"];
   const clientId = (function(){ let id=localStorage.getItem("clicker-cid"); if(!id){id=Math.random().toString(36).slice(2,9);localStorage.setItem("clicker-cid",id);} return id; })();
-  let state = null;          // { sessionId, qIndex, pollOpen }
-  const myChoice = {};       // myChoice[sessionId+"#"+qIndex] = "A"
-  const keyOf = () => state ? state.sessionId+"#"+state.qIndex : "";
+  const ch = new BroadcastChannel(CHANNEL);
+  let state = null;          // { sessionId, courseId, labId, qIndex, pollOpen }
+  const myChoice = {};       // myChoice[sessionId+"#"+course/lab#index] = "A"
+  const keyOf = () => state ? state.sessionId+"#"+state.courseId+"/"+state.labId+"#"+state.qIndex : "";
 
-  document.getElementById("metaLabel").textContent = META.course + " · " + META.lab;
+  function lookup(){
+    if(!state) return null;
+    const lab = REG[state.courseId] && REG[state.courseId].labs[state.labId];
+    return lab ? lab.questions[state.qIndex] : null;
+  }
+
+  function renderMath(root){ if(window.renderMathInElement){ try{ renderMathInElement(root,{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false}); }catch(e){} } }
 
   function render(){
     const wait=document.getElementById("wait"), live=document.getElementById("live"), qno=document.getElementById("qno");
-    if(!state){ wait.hidden=false; live.hidden=true; qno.hidden=true; return; }
+    const q = lookup();
+    if(!state || !q){ wait.hidden=false; live.hidden=true; qno.hidden=true; return; }
     wait.hidden=true; live.hidden=false; qno.hidden=false;
-    const q = Q[state.qIndex];
-    qno.textContent = "ข้อ " + (state.qIndex+1) + " / " + Q.length;
-    document.getElementById("stem").textContent = q.stem;
+    const lab = REG[state.courseId].labs[state.labId];
+    document.getElementById("metaLabel").textContent = state.courseId + " · " + lab.title;
+    qno.textContent = "ข้อ " + (state.qIndex+1) + " / " + lab.questions.length;
+    document.getElementById("stem").innerHTML = q.prompt;
     const mine = myChoice[keyOf()];
-    document.getElementById("opts").innerHTML = q.options.map((opt,i)=>{
-      const k=KEYS[i], chosen = mine===k;
-      return `<button class="opt${chosen?" chosen":""}" data-k="${k}" ${state.pollOpen?"":"disabled"}><span class="k">${k}</span><span>${opt}</span>${chosen?'<span class="pick">เลือกไว้</span>':''}</button>`;
+    const keys = KEYS.filter(k=>q.options[k]!=null);
+    document.getElementById("opts").innerHTML = keys.map(k=>{
+      const chosen = mine===k;
+      return `<button class="opt${chosen?" chosen":""}" data-k="${k}" ${state.pollOpen?"":"disabled"}><span class="k">${k}</span><span class="otext">${q.options[k]}</span>${chosen?'<span class="pick">เลือกไว้</span>':''}</button>`;
     }).join("");
     document.querySelectorAll(".opt").forEach(b=> b.onclick = ()=>vote(b.dataset.k));
+    renderMath(document.getElementById("stem"));
+    renderMath(document.getElementById("opts"));
     const st = document.getElementById("status");
     if(!state.pollOpen){ st.hidden=false; st.className="status closed"; st.textContent="✕ ปิดรับคำตอบแล้ว"; }
     else if(mine){ st.hidden=false; st.className="status sent"; st.textContent="✓ ส่งคำตอบแล้ว — เปลี่ยนได้จนกว่าจะปิดรับ (ระบบไม่เฉลย)"; }
@@ -84,14 +102,14 @@
   function vote(k){
     if(!state || !state.pollOpen) return;
     myChoice[keyOf()] = k;
-    ch.postMessage({ type:"vote", sessionId:state.sessionId, qIndex:state.qIndex, choice:k, clientId });
+    ch.postMessage({ type:"vote", sessionId:state.sessionId, courseId:state.courseId, labId:state.labId, qIndex:state.qIndex, choice:k, clientId });
     render();
   }
 
-  ch.onmessage = (e)=>{ const m=e.data; if(m && m.type==="state"){ state={sessionId:m.sessionId,qIndex:m.qIndex,pollOpen:m.pollOpen}; render(); } };
+  ch.onmessage = (e)=>{ const m=e.data; if(m && m.type==="state"){ state={sessionId:m.sessionId,courseId:m.courseId,labId:m.labId,qIndex:m.qIndex,pollOpen:m.pollOpen}; render(); } };
   ch.postMessage({ type:"hello" });   // ขอสถานะปัจจุบันจากจอครู
   render();
-})();
+});
 </script>
 </body>
 </html>
