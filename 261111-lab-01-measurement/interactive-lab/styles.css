@@ -272,3 +272,20 @@
 .conclusion-points li.cp-extra { grid-column: 1 / -1; }
 .cp-ico { border-radius: 50%; }   /* round marker, consistent with the rest */
 
+/* ── Chunk 5: per-step cautions in the procedure (Proximity) ──────────────── */
+/* A caution sits WITH the step it applies to, not in one block at the end. Kept
+   boxless (just an amber marker + amber text) so the de-boxed step list stays clean. */
+/* `.steps p` (shared) is more specific than a bare `.step-caution`, so scope under
+   .steps to win the cascade and keep the amber colour. */
+.steps .step-caution {
+  display: flex; gap: .5rem; align-items: flex-start;
+  margin-top: .5rem; font-size: .88rem; line-height: 1.6; color: #8a4d09;
+}
+.steps .step-caution::before {
+  content: "!"; flex: 0 0 auto; margin-top: .12rem;
+  display: inline-grid; place-items: center; width: 1.15rem; height: 1.15rem;
+  border-radius: 50%; background: var(--caution); color: #fff;
+  font-family: var(--font-head); font-weight: 700; font-size: .78rem; line-height: 1;
+}
+.steps .step-caution b { color: #8a4d09; font-weight: 700; }
+
