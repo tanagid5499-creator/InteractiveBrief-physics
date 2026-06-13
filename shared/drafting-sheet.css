@@ -1093,3 +1093,117 @@ body.present-mode.ratio-169 .section.is-present {
   font-size: .82em; text-align: center;
 }
 .bloom-quiz-panel { margin-top: 1.2rem; }
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗
+   ║ GESTALT REDESIGN (v8) — promoted from lab-01 to all labs                  ║
+   ║ Prägnanz + proximity + similarity + figure–ground. Boxes are kept ONLY    ║
+   ║ for functional containers (callouts, simulators, worksheet, data table);  ║
+   ║ informational groups use alignment + dividers + markers, not frames.      ║
+   ║ FIG.1 art and the scale simulators stay per-lab in each lab's styles.css. ║
+   ╚══════════════════════════════════════════════════════════════════════════╝ */
+:root { --caution-ink: #8a4d09; }   /* AA-safe amber for caution labels/text */
+
+/* ── quiz: ONE region, borderless equal option rows, letter markers ───────── */
+.quick-quiz {
+  margin-top: 1.4rem; padding: clamp(1.15rem, 2.4vw, 1.6rem);
+  background: var(--surface); border: 1px solid var(--line-2);
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
+}
+/* strip the .prompt-card wrapper's card chrome when it only frames a quiz (no box-in-box);
+   .prompt-card.prompt-wide (no quiz inside) is untouched. */
+.prompt-card:has(> .quick-quiz) { background: none; border: 0; border-radius: 0; box-shadow: none; padding: 0; }
+.prompt-card:has(> .quick-quiz):hover { transform: none; box-shadow: none; }
+.prompt-card:has(> .quick-quiz) > .prompt-tag,
+.quick-quiz .quiz-label {
+  display: inline-flex; align-items: center; gap: .5rem; margin: 0 0 .7rem; padding: 0;
+  font-family: var(--font-head); font-weight: 700; font-size: .74rem;
+  letter-spacing: .07em; text-transform: uppercase; color: var(--blue-600);
+}
+.prompt-card:has(> .quick-quiz) > .prompt-tag::before,
+.quick-quiz .quiz-label::before {
+  content: "?"; flex: 0 0 auto; display: grid; place-items: center; width: 1.3rem; height: 1.3rem;
+  border-radius: 50%; background: var(--blue-100); color: var(--blue-700);
+  font-family: var(--font-mono); font-weight: 700; font-size: .82rem; letter-spacing: 0;
+}
+.quick-quiz > h3, .quick-quiz > h4, .quick-quiz .prompt-q {
+  margin: 0 0 1rem; font-size: clamp(1.02rem, 1.4vw, 1.16rem); font-weight: 600; line-height: 1.5; color: var(--navy);
+}
+.quick-quiz .quiz-options { display: grid; grid-template-columns: 1fr; gap: .4rem; }
+.quick-quiz .quiz-options button {
+  display: flex; align-items: center; gap: .8rem; width: 100%; min-height: 3rem; padding: .6rem .8rem;
+  text-align: left; border: 0; border-radius: 11px; background: var(--tint); color: var(--ink);
+  font-size: .98rem; line-height: 1.45;
+  transition: background .14s var(--ease), color .14s var(--ease), transform .12s var(--ease);
+}
+.quick-quiz .quiz-options button:hover { background: var(--blue-100); transform: translateX(3px); }
+.quick-quiz .quiz-options button:active { transform: translateX(0); }
+.quick-quiz .quiz-options .qo-key {
+  flex: 0 0 auto; width: auto; min-width: 1.35rem; height: auto; margin: 0; padding: 0;
+  display: inline-block; text-align: center; background: none; border: 0; border-radius: 0; box-shadow: none;
+  color: var(--blue-600); font-family: var(--font-mono); font-weight: 700; font-size: 1.05rem;
+}
+.quick-quiz .quiz-options button.is-correct { background: color-mix(in srgb, var(--success) 15%, var(--surface)); color: #0f7a37; font-weight: 600; }
+.quick-quiz .quiz-options button.is-correct .qo-key { color: #0f7a37; }
+.quick-quiz .quiz-options button.is-incorrect { background: var(--danger-bg); color: var(--danger-ink); }
+.quick-quiz .quiz-options button.is-incorrect .qo-key { color: var(--danger-ink); }
+.quick-quiz .quiz-feedback { margin: .9rem 0 0; min-height: 1.2em; font-size: .95rem; font-weight: 500; color: var(--muted); }
+.quick-quiz.is-answered.is-correct .quiz-feedback { color: #0f7a37; }
+
+/* ── equipment photo fills its frame (no white letterbox); frameless hover ── */
+.equip-photo img {
+  width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: center;
+  padding: 0; border: 0; background: var(--surface-2); transition: transform .35s var(--ease);
+}
+.equip-card { border: 0; box-shadow: var(--shadow-sm); }
+.equip-card:hover { border: 0; box-shadow: var(--shadow-md); }
+.equip-photo { overflow: hidden; border-bottom: 1px solid var(--line); }
+.equip-photo:hover img { transform: scale(1.045); }
+.equip-photo:hover, .equip-photo:focus-visible { background: var(--surface-2); }
+.equip-photo:focus-visible { box-shadow: none; outline: 3px solid var(--blue-300); outline-offset: -3px; }
+
+/* ── de-box the informational card grids (concept · formula · lists) ───────── */
+.info-card { background: none; border: 0; box-shadow: none; border-radius: 0; padding: 1.05rem 0 0; border-top: 2px solid var(--blue-300); }
+.info-card:hover { transform: none; box-shadow: none; }
+.info-card .ic-step { width: auto; height: auto; margin-bottom: .35rem; padding: 0; background: none; border-radius: 0; box-shadow: none; color: var(--blue-600); font-size: 1.55rem; line-height: 1; font-weight: 700; }
+.info-card h3 { margin-bottom: .4rem; }
+.info-card p { color: var(--ink); }
+.formula-card { background: var(--blue-50); border: 0; box-shadow: none; border-radius: var(--radius); padding: 1.3rem 1.4rem; }
+.formula-card:hover { transform: none; box-shadow: none; }
+.formula-accent { background: var(--blue-100); }
+.objective-list li, .steps li { background: none; border: 0; box-shadow: none; border-radius: 0; padding: clamp(.9rem, 1.6vw, 1.15rem) 0; border-bottom: 1px solid var(--line-2); }
+.objective-list li:last-child, .steps li:last-child { border-bottom: 0; }
+.objective-list li:hover, .steps li:hover { transform: none; box-shadow: none; }
+.obj-no { border-radius: 50%; }
+.q-card { background: none; border: 0; box-shadow: none; border-radius: 0; padding: clamp(.9rem, 1.6vw, 1.15rem) 0; border-bottom: 1px solid var(--line-2); }
+.q-card:last-child { border-bottom: 0; }
+.q-card:hover { transform: none; box-shadow: none; border-color: transparent; }
+.q-no { background: none; border: 0; padding: 0; color: var(--blue-600); font-family: var(--font-mono); font-weight: 700; font-size: 1rem; }
+
+/* ── spacing rhythm (Proximity): de-boxing removed the edges that separated groups ── */
+.lead { margin-bottom: clamp(1.45rem, 2.6vw, 2.1rem); }
+.card-grid + .note, .info-card + .note { margin-top: clamp(1.7rem, 3.2vw, 2.6rem); }
+.section-head { margin-bottom: clamp(1.6rem, 2.8vw, 2.2rem); }
+.section-head .kicker { margin-bottom: .35rem; }
+
+/* ── two distinct callouts: ข้อควรระวัง (warm) vs ควรรู้ (cool); a type eyebrow names each ── */
+.note { gap: .9rem; align-items: flex-start; box-shadow: none; padding: 1.1rem 1.3rem 1.2rem; }
+.note > div, .note > p { width: 100%; }
+.note-kind { display: block; font-family: var(--font-head); font-weight: 700; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .3rem; }
+.note strong { display: block; margin-bottom: .2rem; }
+.note ul { margin-top: .4rem; }
+.note-warn { background: var(--caution-bg); border: 1px solid var(--caution-line); }
+.note-warn .note-icon { background: var(--caution); }
+.note-warn .note-kind, .note-warn strong { color: var(--caution-ink); }
+.note-info { background: var(--blue-50); border: 1px solid var(--blue-200); }
+.note-info .note-icon { background: var(--blue-500); }
+.note-info .note-kind { color: var(--blue-600); }
+.note-info strong { color: var(--navy); }
+
+/* ── conclusion: a full-width reflective point + round markers ─────────────── */
+.conclusion-points li.cp-extra { grid-column: 1 / -1; }
+.cp-ico { border-radius: 50%; }
+
+/* ── per-step cautions in a procedure (boxless amber marker + amber text) ──── */
+.steps .step-caution { display: flex; gap: .5rem; align-items: flex-start; margin-top: .5rem; font-size: .88rem; line-height: 1.6; color: var(--caution-ink); }
+.steps .step-caution::before { content: "!"; flex: 0 0 auto; margin-top: .12rem; display: inline-grid; place-items: center; width: 1.15rem; height: 1.15rem; border-radius: 50%; background: var(--caution); color: #fff; font-family: var(--font-head); font-weight: 700; font-size: .78rem; line-height: 1; }
+.steps .step-caution b { color: var(--caution-ink); font-weight: 700; }

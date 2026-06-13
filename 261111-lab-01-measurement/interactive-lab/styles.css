@@ -1,12 +1,10 @@
 /* ============================================================================
    Lab 01 · การวัด — per-lab style overrides
-   Design system: ../../shared/drafting-sheet.css  (incl. shared quiz / worksheet
-   components). This file = ONLY Lab 01's scale-reading simulators + the
-   multi-trial table's long row-label column.
+   Design system: ../../shared/drafting-sheet.css  (incl. the shared quiz /
+   worksheet / callout components AND the shared "GESTALT REDESIGN" block).
+   This file = ONLY Lab 01's own pieces: the scale-reading simulators, the
+   multi-trial table's long row-label column, and the FIG.1 vernier-caliper art.
    ========================================================================== */
-
-/* caution-ink: the AA-safe amber used for caution labels/text (was repeated #8a4d09) */
-:root { --caution-ink: #8a4d09; }
 
 /* ── scale-reading simulators ─────────────────────────────────────────── */
 .simulator-grid { display: grid; grid-template-columns: 1fr; gap: clamp(1rem, 2.2vw, 1.6rem); margin-top: 1.4rem; }
@@ -29,6 +27,14 @@
 .demo-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem .9rem; margin: .9rem 0; }
 .demo-controls label { display: flex; align-items: center; gap: .55rem; font-size: .92rem; color: var(--muted); flex: 1 1 240px; }
 .demo-controls input[type="range"] { flex: 1; accent-color: var(--blue-500); cursor: pointer; }
+/* a quiz that belongs to an instrument lives INSIDE the simulator card: a divided
+   sub-region (shared boundary = the panel), not a second nested card. Overrides the
+   shared .quick-quiz box for this context (loads after shared). */
+.simulator-panel .quick-quiz {
+  margin-top: 1.2rem; padding: 1.1rem 0 0;
+  background: transparent; border: 0; border-top: 1px solid var(--line);
+  border-radius: 0; box-shadow: none;
+}
 
 /* ── multi-trial worksheet tables: long row-label column ──────────────── */
 #data .data-table th[scope="row"] {
@@ -40,257 +46,6 @@
   .sim-header { flex-direction: column; align-items: flex-start; gap: .3rem; }
   .demo-controls label { flex-basis: 100%; }
 }
-
-/* ════════════════════════════════════════════════════════════════════════
-   GESTALT REDESIGN — Chunk 1 (lab-01 scoped; promote to shared after review)
-   Targets: (1) box-in-box nesting · (2) unequal answer frames ·
-            (6) equipment images not filling the frame · (10) "ลองตอบเร็ว" redesign
-   Principles: common region (one boundary per group), similarity (identical
-   option frames + one consistent quiz surface), proximity (group Q with its
-   options, separate from surrounding prose), figure–ground (image fills frame).
-   ════════════════════════════════════════════════════════════════════════ */
-
-/* ── (1) FLATTEN: the quiz is ONE region, never a card inside a card ─────── */
-/* Standalone quizzes were wrapped in .prompt-card (gradient card) AND were a
-   tinted card themselves. Drop the wrapper in HTML; this makes .quick-quiz the
-   single clean white region that reads the same in every section (similarity). */
-.quick-quiz {
-  margin-top: 1.4rem;
-  padding: clamp(1.15rem, 2.4vw, 1.6rem);
-  background: var(--surface);
-  border: 1px solid var(--line-2);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-}
-/* a quiz that belongs to an instrument lives INSIDE the simulator card: make it a
-   divided sub-region (shared boundary = the panel), not a second nested card. */
-.simulator-panel .quick-quiz {
-  margin-top: 1.2rem; padding: 1.1rem 0 0;
-  background: transparent; border: 0; border-top: 1px solid var(--line);
-  border-radius: 0; box-shadow: none;
-}
-
-/* the standalone quizzes are wrapped in .prompt-card (a gradient card). When that
-   wrapper only frames a quiz, strip its card chrome so the .quick-quiz below is the
-   ONE region (no card-in-card). :has() keeps the .prompt-card.prompt-wide challenge
-   card — which has no quiz inside — untouched. */
-.prompt-card:has(> .quick-quiz) {
-  background: none; border: 0; border-radius: 0; box-shadow: none; padding: 0;
-}
-.prompt-card:has(> .quick-quiz):hover { transform: none; box-shadow: none; }
-/* the wrapper's "ลองตอบเร็ว" tag becomes the quiz's eyebrow — matched to the inner
-   .quiz-label so every quiz, standalone or in a panel, carries the same "?" marker. */
-.prompt-card:has(> .quick-quiz) > .prompt-tag {
-  display: inline-flex; align-items: center; gap: .5rem;
-  margin: 0 0 .55rem; padding: 0;
-  font-family: var(--font-head); font-weight: 700; font-size: .74rem;
-  letter-spacing: .07em; text-transform: uppercase; color: var(--blue-600);
-}
-.prompt-card:has(> .quick-quiz) > .prompt-tag::before {
-  content: "?"; flex: 0 0 auto;
-  display: grid; place-items: center; width: 1.3rem; height: 1.3rem;
-  border-radius: 50%; background: var(--blue-100); color: var(--blue-700);
-  font-family: var(--font-mono); font-weight: 700; font-size: .82rem; letter-spacing: 0;
-}
-
-/* group label — one consistent "?" marker across every quiz (similarity) */
-.quick-quiz .quiz-label {
-  display: inline-flex; align-items: center; gap: .5rem;
-  margin: 0 0 .8rem; padding: 0;
-  font-family: var(--font-head); font-weight: 700; font-size: .74rem;
-  letter-spacing: .07em; text-transform: uppercase; color: var(--blue-600);
-}
-.quick-quiz .quiz-label::before {
-  content: "?"; flex: 0 0 auto;
-  display: grid; place-items: center; width: 1.3rem; height: 1.3rem;
-  border-radius: 50%; background: var(--blue-100); color: var(--blue-700);
-  font-family: var(--font-mono); font-weight: 700; font-size: .82rem; letter-spacing: 0;
-}
-.quick-quiz > h3, .quick-quiz > h4, .quick-quiz .prompt-q {
-  margin: 0 0 1rem; font-size: clamp(1.02rem, 1.4vw, 1.16rem);
-  font-weight: 600; line-height: 1.5; color: var(--navy);
-}
-
-/* ── (2) EQUAL, BORDERLESS option rows ──────────────────────────────────── */
-/* No per-option border. Each row is a soft filled bar (similarity: identical
-   shape + height); the A–E badge is the anchor. State = fill + colour, not a frame. */
-.quick-quiz .quiz-options {
-  display: grid; grid-template-columns: 1fr; gap: .4rem; /* one column = guaranteed equal width */
-}
-.quick-quiz .quiz-options button {
-  display: flex; align-items: center; gap: .8rem;
-  width: 100%; min-height: 3rem; padding: .6rem .8rem;
-  text-align: left; border: 0; border-radius: 11px;
-  background: var(--tint); color: var(--ink);
-  font-size: .98rem; line-height: 1.45;
-  transition: background .14s var(--ease), color .14s var(--ease), transform .12s var(--ease);
-}
-.quick-quiz .quiz-options button:hover { background: var(--blue-100); transform: translateX(3px); }
-.quick-quiz .quiz-options button:active { transform: translateX(0); }
-/* A–E marker: a clean bold letter, NOT a chip/box — kills the box-in-box look
-   (the little square badge "stuck" on the row fill). Just a typographic marker. */
-.quick-quiz .quiz-options .qo-key {
-  flex: 0 0 auto; width: auto; min-width: 1.35rem; height: auto; margin: 0; padding: 0;
-  display: inline-block; text-align: center;
-  background: none; border: 0; border-radius: 0; box-shadow: none;
-  color: var(--blue-600); font-family: var(--font-mono); font-weight: 700; font-size: 1.05rem;
-}
-/* answered states: the row fill + text colour carry the meaning (no chip, no border) */
-.quick-quiz .quiz-options button.is-correct {
-  background: color-mix(in srgb, var(--success) 15%, var(--surface)); color: #0f7a37; font-weight: 600;
-}
-.quick-quiz .quiz-options button.is-correct .qo-key { color: #0f7a37; }
-.quick-quiz .quiz-options button.is-incorrect {
-  background: var(--danger-bg); color: var(--danger-ink);
-}
-.quick-quiz .quiz-options button.is-incorrect .qo-key { color: var(--danger-ink); }
-.quick-quiz .quiz-feedback { margin: .9rem 0 0; min-height: 1.2em; font-size: .95rem; font-weight: 500; color: var(--muted); }
-.quick-quiz.is-answered.is-correct .quiz-feedback { color: #0f7a37; }
-
-/* ── (6) FIGURE–GROUND: equipment photo fills its frame (no white letterbox) ─ */
-/* was object-fit:contain + padding (letterboxed → white gap on the left). Fill
-   the 16:9 frame and crop the overflow so the instrument reads edge-to-edge. */
-.equip-photo img {
-  width: 100%; height: 100%; aspect-ratio: auto;
-  object-fit: cover; object-position: center;
-  padding: 0; border: 0; background: var(--surface-2);
-  transition: transform .35s var(--ease);
-}
-/* clean hover: NO frame. The old hover turned the card border blue and the photo
-   showed a tinted plate + (on focus) an inset 2px ring — all read as "a frame".
-   Drop the border entirely; depth comes from shadow + a subtle image zoom. */
-.equip-card { border: 0; box-shadow: var(--shadow-sm); }
-.equip-card:hover { border: 0; box-shadow: var(--shadow-md); }
-.equip-photo { overflow: hidden; border-bottom: 1px solid var(--line); }
-.equip-photo:hover img { transform: scale(1.045); }
-.equip-photo:hover, .equip-photo:focus-visible { background: var(--surface-2); }
-/* keyboard focus stays visible, but as a clean outline (not an inset frame) */
-.equip-photo:focus-visible { box-shadow: none; outline: 3px solid var(--blue-300); outline-offset: -3px; }
-
-/* ════════════════════════════════════════════════════════════════════════
-   GESTALT REDESIGN — Chunk 2a: de-box the informational card grids
-   Prägnanz: a box around every group is decorative noise. Grouping comes from
-   equal columns + a top rule + the letter anchor (similarity · symmetry ·
-   continuity), not an enclosing frame. Boxes are kept ONLY for functional
-   containers (callouts, simulators, worksheet, data table).
-   ════════════════════════════════════════════════════════════════════════ */
-
-/* concept "แนวคิดหลัก": 3 borderless columns, each opened by a top rule + big letter */
-.info-card {
-  background: none; border: 0; box-shadow: none; border-radius: 0;
-  padding: 1.05rem 0 0; border-top: 2px solid var(--blue-300);
-}
-.info-card:hover { transform: none; box-shadow: none; }
-.info-card .ic-step {
-  width: auto; height: auto; margin-bottom: .35rem; padding: 0;
-  background: none; border-radius: 0; box-shadow: none;
-  color: var(--blue-600); font-size: 1.55rem; line-height: 1; font-weight: 700;
-}
-.info-card h3 { margin-bottom: .4rem; }
-.info-card p { color: var(--ink); }   /* on the pale band, ink reads better than muted-gray */
-
-/* formula sheet: drop the per-card frame; a quiet tinted ground lets the math be
-   the figure (figure–ground). The accent card commits one shade deeper. */
-.formula-card {
-  background: var(--blue-50); border: 0; box-shadow: none;
-  border-radius: var(--radius); padding: 1.3rem 1.4rem;
-}
-.formula-card:hover { transform: none; box-shadow: none; }
-.formula-accent { background: var(--blue-100); }
-
-/* ── Chunk 2b: de-box the remaining informational lists (same principle) ──── */
-/* objectives + procedure steps → clean lists with hairline dividers + a round
-   marker, not a stack of cards. Grouping = alignment + proximity (continuity). */
-.objective-list li, .steps li {
-  background: none; border: 0; box-shadow: none; border-radius: 0;
-  padding: .9rem 0; border-bottom: 1px solid var(--line-2);
-}
-.objective-list li:last-child, .steps li:last-child { border-bottom: 0; }
-.objective-list li:hover, .steps li:hover { transform: none; box-shadow: none; }
-.obj-no { border-radius: 50%; }   /* round marker (was a rounded square) */
-
-/* discussion Q1–Q5 → borderless rows with a divider; the Q-number is a plain
-   bold marker, not a filled chip (no box-in-box). */
-.q-card {
-  background: none; border: 0; box-shadow: none; border-radius: 0;
-  padding: .9rem 0; border-bottom: 1px solid var(--line-2);
-}
-.q-card:last-child { border-bottom: 0; }
-.q-card:hover { transform: none; box-shadow: none; border-color: transparent; }
-.q-no {
-  background: none; border: 0; padding: 0; color: var(--blue-600);
-  font-family: var(--font-mono); font-weight: 700; font-size: 1rem;
-}
-
-/* ════════════════════════════════════════════════════════════════════════
-   GESTALT REDESIGN — Chunk 2c: spacing rhythm (Proximity)
-   De-boxing removed the box edges that used to separate groups, so some now
-   touch (measured: lead↔columns and columns↔note were both 0px). The fix is
-   NOT to add boxes back — it's deliberate whitespace: generous BETWEEN groups,
-   tight WITHIN a group. Airy + intentional, not empty and not cramped.
-   ════════════════════════════════════════════════════════════════════════ */
-/* an intro line breathes before the content it introduces */
-.lead { margin-bottom: clamp(1.45rem, 2.6vw, 2.1rem); }
-/* a callout that follows a de-boxed group needs its own separation (this is the
-   "ภาพรวมแนวคิด ↔ ความคลาดเคลื่อนสองแบบ ติดกัน" gap) */
-.card-grid + .note,
-.info-card + .note { margin-top: clamp(1.7rem, 3.2vw, 2.6rem); }
-/* the kicker + its heading are ONE unit — keep them tight (proximity), and give
-   the whole section-head a touch more air below before the body */
-.section-head { margin-bottom: clamp(1.6rem, 2.8vw, 2.2rem); }
-.section-head .kicker { margin-bottom: .35rem; }
-/* the de-boxed column lists want a hair more row separation so dividers read calmly */
-.objective-list li, .steps li, .q-card { padding-block: clamp(.9rem, 1.6vw, 1.15rem); }
-
-/* ════════════════════════════════════════════════════════════════════════
-   GESTALT REDESIGN — Chunk 3: two distinct callouts (Figure–ground)
-   A callout SHOULD be a contained figure — this is where a box is right.
-   Two clearly different kinds so a student reads the intent instantly:
-     • ข้อควรระวัง — warm amber = stop, avoid this mistake
-     • ควรรู้      — cool blue  = helpful knowledge, no danger
-   A type eyebrow names each (Similarity within a kind; contrast between kinds).
-   ════════════════════════════════════════════════════════════════════════ */
-.note { gap: .9rem; align-items: flex-start; box-shadow: none; padding: 1.1rem 1.3rem 1.2rem; }
-.note > div, .note > p { width: 100%; }
-.note-kind {
-  display: block; font-family: var(--font-head); font-weight: 700;
-  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .3rem;
-}
-.note strong { display: block; margin-bottom: .2rem; }     /* the title sits under the kind eyebrow */
-.note ul { margin-top: .4rem; }
-
-/* ข้อควรระวัง (caution) — warm, a notch more present than 'good to know' */
-.note-warn { background: var(--caution-bg); border: 1px solid var(--caution-line); }
-.note-warn .note-icon { background: var(--caution); }
-.note-warn .note-kind { color: var(--caution-ink); }                  /* AA on the warm tint (6.3:1); #b5650f was 4.09 */
-.note-warn strong { color: var(--caution-ink); }
-
-/* ควรรู้ (good to know) — cool blue, calmer */
-.note-info { background: var(--blue-50); border: 1px solid var(--blue-200); }
-.note-info .note-icon { background: var(--blue-500); }
-.note-info .note-kind { color: var(--blue-600); }
-.note-info strong { color: var(--navy); }
-
-/* ── Chunk 4: conclusion — the reflective 5th point spans the full width ──── */
-.conclusion-points li.cp-extra { grid-column: 1 / -1; }
-.cp-ico { border-radius: 50%; }   /* round marker, consistent with the rest */
-
-/* ── Chunk 5: per-step cautions in the procedure (Proximity) ──────────────── */
-/* A caution sits WITH the step it applies to, not in one block at the end. Kept
-   boxless (just an amber marker + amber text) so the de-boxed step list stays clean. */
-/* `.steps p` (shared) is more specific than a bare `.step-caution`, so scope under
-   .steps to win the cascade and keep the amber colour. */
-.steps .step-caution {
-  display: flex; gap: .5rem; align-items: flex-start;
-  margin-top: .5rem; font-size: .88rem; line-height: 1.6; color: var(--caution-ink);
-}
-.steps .step-caution::before {
-  content: "!"; flex: 0 0 auto; margin-top: .12rem;
-  display: inline-grid; place-items: center; width: 1.15rem; height: 1.15rem;
-  border-radius: 50%; background: var(--caution); color: #fff;
-  font-family: var(--font-head); font-weight: 700; font-size: .78rem; line-height: 1;
-}
-.steps .step-caution b { color: var(--caution-ink); font-weight: 700; }
 
 /* ════════════════════════════════════════════════════════════════════════
    FIG.1 — detailed vernier caliper (blueprint line-art, annotation-ready)
@@ -317,4 +72,3 @@
 @media (prefers-reduced-motion: no-preference) {
   .fig-caliper .cal-part :is(.cal-metal, .cal-metal-2, .cal-beam) { transition: fill .18s var(--ease); }
 }
-

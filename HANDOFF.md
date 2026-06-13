@@ -68,7 +68,12 @@ B.init({ store: "labXX-...-v1", defaults: {inputId: value}, onInput: updateWorks
 
 ## 4. กฎ/ข้อตกลงสำคัญ (ห้ามพลาด)
 - **bump `?v=N`** ของ shared (ทั้ง drafting-sheet.css และ brief-core.js) ใน **ทุก** lab index.html เมื่อแก้ไฟล์ shared
-  (ปัจจุบัน **v=7**) — บัมป์หลังแก้เสร็จ (browser cache `?v=N` URL ด้วยของเดิมถ้าบัมป์ก่อนแก้)
+  (ปัจจุบัน **v=8**) — บัมป์หลังแก้เสร็จ (browser cache `?v=N` URL ด้วยของเดิมถ้าบัมป์ก่อนแก้)
+  > **v=8 (Gestalt redesign):** ลด "กล่อง" ทั่วทั้งระบบตามหลัก Gestalt — quiz ไร้กรอบ (option แถวเท่ากัน,
+  > ตัวอักษร A–E ล้วน), de-box info/formula/objective/step/q-card (เหลือเส้นคั่น+marker), callout แยก
+  > **ข้อควรระวัง**(อำพัน)/​**ควรรู้**(น้ำเงิน) มี `.note-kind` eyebrow, รูปอุปกรณ์ `object-fit:cover` เต็มกรอบ,
+  > spacing rhythm, `.step-caution`/`.cp-extra`, token `--caution-ink`. บล็อกอยู่ท้าย `shared/drafting-sheet.css`.
+  > เนื้อหาเฉพาะบท (ป้าย `.note-kind`, ข้อ 5 สรุป, per-step cautions, hero ใหม่) ต้องเติมราย index.html เอง — เริ่มที่ lab-01 (ครบแล้ว).
 - **ค่าคงที่การคำนวณต้องตรงเอกสารต้นฉบับ** (เช่น g=9.80, R_H=1.097×10⁷, ฯลฯ) — อย่าเปลี่ยน
 - **อย่าใส่ negative letter-spacing บนข้อความไทย** (ชนกับวรรณยุกต์)
 - KaTeX: เขียน `\( … \)` (inline) / `\[ … \]` (display) ในเนื้อหา (auto-render); readout สดใช้ `B.fvK(value)`
