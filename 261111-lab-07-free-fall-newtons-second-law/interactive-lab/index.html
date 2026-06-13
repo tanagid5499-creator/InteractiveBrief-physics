@@ -50,15 +50,33 @@
         </div>
         <figure class="hero-visual">
           <span class="fig-tag">FIG.1 · ตกอิสระ y = ½gt²</span>
-          <svg viewBox="0 0 320 300" role="img" aria-label="แผนภาพวัตถุตกอิสระ">
-            <line x1="60" y1="40" x2="60" y2="260" stroke="#9fb4d6" stroke-dasharray="4 4"/>
-            <circle cx="60" cy="50" r="9" fill="#9fb4d6"/>
-            <circle cx="60" cy="90" r="9" fill="#7d97c8"/>
-            <circle cx="60" cy="160" r="9" fill="#5278bf"/>
-            <circle cx="60" cy="250" r="10" fill="#2563eb"/>
-            <line class="dim" x1="90" y1="50" x2="90" y2="250"/><line class="dim" x1="86" y1="50" x2="94" y2="50"/><line class="dim" x1="86" y1="250" x2="94" y2="250"/>
-            <text class="dim-txt" x="104" y="150" transform="rotate(90 104 150)">y</text>
-            <text x="120" y="60" class="d-label">t = 0</text><text x="120" y="255" class="d-label">ระยะ ∝ t²</text>
+          <svg viewBox="0 0 340 300" role="img" aria-label="แผนภาพชุดทดลองวัตถุตกอิสระ: ตัวปล่อย ลูกเหล็ก และตัวจับเวลา">
+            <defs>
+              <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#edf2fc"/><stop offset="1" stop-color="#c1d1ed"/></linearGradient>
+            </defs>
+            <!-- ขาตั้ง: เสา + ฐาน + แขนบน -->
+            <rect x="20" y="36" width="10" height="248" rx="3" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
+            <rect x="12" y="280" width="84" height="10" rx="3" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
+            <rect x="28" y="36" width="40" height="9" rx="3" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
+            <!-- ตัวปล่อย (แม่เหล็กไฟฟ้า) -->
+            <rect x="48" y="40" width="24" height="14" rx="3" fill="#1d4fd0" stroke="#173fa6" stroke-width="1"/>
+            <!-- แนวตก + ลูกเหล็ก (สโตรบ เร่งขึ้น) -->
+            <line x1="60" y1="54" x2="60" y2="260" stroke="#9fb4d6" stroke-dasharray="4 4"/>
+            <circle cx="60" cy="58" r="8" fill="#9fb4d6"/>
+            <circle cx="60" cy="92" r="8" fill="#7d97c8"/>
+            <circle cx="60" cy="158" r="9" fill="#5278bf"/>
+            <circle cx="60" cy="246" r="10" fill="#2563eb"/>
+            <!-- ตัวจับเวลา + แป้นรับ -->
+            <rect x="38" y="262" width="44" height="12" rx="3" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
+            <rect x="88" y="256" width="36" height="20" rx="3" fill="#0b1f3f"/>
+            <text x="106" y="270" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#7ba6f0">t</text>
+            <!-- y dimension -->
+            <line class="dim" x1="148" y1="58" x2="148" y2="246"/><line class="dim" x1="144" y1="58" x2="152" y2="58"/><line class="dim" x1="144" y1="246" x2="152" y2="246"/>
+            <text class="dim-txt" x="162" y="152" transform="rotate(90 162 152)">y ∝ t²</text>
+            <!-- ป้ายกำกับ -->
+            <text x="80" y="40" class="d-label">ตัวปล่อย</text>
+            <text x="80" y="120" class="d-label">ลูกเหล็ก</text>
+            <text x="60" y="294" class="d-label" text-anchor="middle">ตัวจับเวลา</text>
           </svg>
           <figcaption>ระยะตก \(y\) แปรผันกับ \(t^2\) — ความชันของกราฟ \(y\)–\(t^2\) = \(\tfrac12 g\)</figcaption>
         </figure>
