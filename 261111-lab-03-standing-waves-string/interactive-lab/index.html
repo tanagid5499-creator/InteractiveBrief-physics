@@ -104,16 +104,41 @@
         </div>
         <figure class="hero-visual">
           <span class="fig-tag">FIG.1 · คลื่นนิ่ง n = 4 ลูป</span>
-          <svg viewBox="0 0 460 240" role="img" aria-label="แผนภาพคลื่นนิ่งบนเส้นเชือก">
-            <line x1="30" y1="120" x2="430" y2="120" stroke="#9fb4d6" stroke-dasharray="4 4"/>
-            <path d="M30 120 Q70 60 110 120 Q150 180 190 120 Q230 60 270 120 Q310 180 350 120 Q390 60 430 120" fill="none" stroke="#2563eb" stroke-width="3"/>
-            <path d="M30 120 Q70 180 110 120 Q150 60 190 120 Q230 180 270 120 Q310 60 350 120 Q390 180 430 120" fill="none" stroke="#2563eb" stroke-width="3" opacity=".35"/>
-            <g fill="#d9480f"><circle cx="30" cy="120" r="4"/><circle cx="110" cy="120" r="4"/><circle cx="190" cy="120" r="4"/><circle cx="270" cy="120" r="4"/><circle cx="350" cy="120" r="4"/><circle cx="430" cy="120" r="4"/></g>
-            <text x="110" y="206" class="d-label" text-anchor="middle">node</text>
-            <text x="70" y="44" class="d-label" text-anchor="middle">antinode</text>
-            <line class="dim" x1="110" y1="150" x2="190" y2="150"/>
-            <line class="dim" x1="110" y1="144" x2="110" y2="156"/><line class="dim" x1="190" y1="144" x2="190" y2="156"/>
-            <text class="dim-txt" x="150" y="168">½λ</text>
+          <svg viewBox="0 0 460 300" role="img" aria-label="แผนภาพชุดทดลองคลื่นนิ่ง: ตัวสั่น เชือก รอก และมวลแขวน">
+            <defs>
+              <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#edf2fc"/><stop offset="1" stop-color="#c1d1ed"/></linearGradient>
+              <linearGradient id="massGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7ba6f0"/><stop offset="1" stop-color="#1d4fd0"/></linearGradient>
+            </defs>
+            <!-- ตัวสั่น (vibrator/oscillator) -->
+            <rect x="14" y="90" width="48" height="44" rx="5" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
+            <rect x="22" y="99" width="11" height="26" rx="2" fill="#1d4fd0"/>
+            <line x1="44" y1="112" x2="64" y2="112" stroke="#173fa6" stroke-width="2.4"/>
+            <!-- รอก (pulley) + เสา -->
+            <rect x="416" y="112" width="9" height="150" rx="3" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
+            <circle cx="404" cy="112" r="14" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1.2"/>
+            <circle cx="404" cy="112" r="3.6" fill="#8ea7cf"/>
+            <!-- เชือก: แกนประ + รูปคลื่นนิ่ง 4 ลูป + node -->
+            <line x1="64" y1="112" x2="392" y2="112" stroke="#9fb4d6" stroke-dasharray="4 4"/>
+            <path d="M64,112 Q105,58 146,112 Q187,166 228,112 Q269,58 310,112 Q351,166 392,112" fill="none" stroke="#2563eb" stroke-width="3"/>
+            <path d="M64,112 Q105,166 146,112 Q187,58 228,112 Q269,166 310,112 Q351,58 392,112" fill="none" stroke="#2563eb" stroke-width="3" opacity=".35"/>
+            <path d="M392,112 Q404,112 404,126 L404,198" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+            <g fill="#d9480f"><circle cx="64" cy="112" r="4"/><circle cx="146" cy="112" r="4"/><circle cx="228" cy="112" r="4"/><circle cx="310" cy="112" r="4"/><circle cx="392" cy="112" r="4"/></g>
+            <!-- มวลแขวน: จานน้ำหนักสลอต (settles on load) -->
+            <g class="d-load">
+              <path d="M404,198 q-7,4 0,9 q7,5 0,9" fill="none" stroke="#173fa6" stroke-width="2.4"/>
+              <rect x="382" y="216" width="44" height="13" rx="4" fill="url(#massGrad)" stroke="#173fa6" stroke-width="1.2"/>
+              <rect x="386" y="230" width="36" height="11" rx="3" fill="url(#massGrad)" stroke="#173fa6" stroke-width="1.2"/>
+            </g>
+            <!-- ป้ายกำกับ -->
+            <text x="38" y="80" class="d-label" text-anchor="middle">ตัวสั่น</text>
+            <text x="105" y="44" class="d-label" text-anchor="middle">antinode</text>
+            <text x="146" y="200" class="d-label" text-anchor="middle">node</text>
+            <text x="428" y="104" class="d-label" text-anchor="middle">รอก</text>
+            <text x="404" y="262" class="d-label" text-anchor="middle">มวลแขวน</text>
+            <!-- ½λ dimension -->
+            <line class="dim" x1="146" y1="150" x2="228" y2="150"/>
+            <line class="dim" x1="146" y1="144" x2="146" y2="156"/><line class="dim" x1="228" y1="144" x2="228" y2="156"/>
+            <text class="dim-txt" x="187" y="168">½λ</text>
           </svg>
           <figcaption>คลื่นนิ่งเกิดเมื่อความถี่ขับพอดีกับโหมดของเชือก · ระยะ node-to-node = ½λ</figcaption>
         </figure>
