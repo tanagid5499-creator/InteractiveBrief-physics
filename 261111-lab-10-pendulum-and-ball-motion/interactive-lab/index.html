@@ -50,15 +50,37 @@
         </div>
         <figure class="hero-visual">
           <span class="fig-tag">FIG.1 · ลูกตุ้มอย่างง่าย</span>
-          <svg viewBox="0 0 300 280" role="img" aria-label="แผนภาพลูกตุ้มอย่างง่าย">
-            <rect x="60" y="36" width="180" height="8" rx="2" fill="#9fb4d6"/>
-            <line x1="150" y1="44" x2="210" y2="200" stroke="#2563eb" stroke-width="2"/>
-            <line x1="150" y1="44" x2="150" y2="210" stroke="#9fb4d6" stroke-dasharray="4 4"/>
-            <circle cx="210" cy="206" r="16" fill="#2563eb"/>
-            <path d="M150 90 A50 50 0 0 1 168 76" fill="none" stroke="#122a4f"/>
-            <text x="170" y="84" class="d-label">θ</text>
-            <line class="dim" x1="120" y1="44" x2="180" y2="200"/>
-            <text class="dim-txt" x="120" y="130" transform="rotate(69 120 130)">L</text>
+          <svg viewBox="0 0 320 290" role="img" aria-label="แผนภาพชุดลูกตุ้มอย่างง่าย: ขาตั้ง ที่หนีบ เชือก และลูกตุ้ม">
+            <defs>
+              <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#edf2fc"/><stop offset="1" stop-color="#c1d1ed"/></linearGradient>
+              <radialGradient id="bobGrad" cx="0.35" cy="0.3" r="0.85"><stop offset="0" stop-color="#7ba6f0"/><stop offset="1" stop-color="#1d4fd0"/></radialGradient>
+            </defs>
+            <!-- ขาตั้ง: เสา + ฐาน + แขนบน -->
+            <rect x="34" y="36" width="10" height="220" rx="3" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
+            <rect x="18" y="252" width="92" height="10" rx="3" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
+            <rect x="42" y="36" width="116" height="9" rx="3" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
+            <!-- ที่หนีบ + จุดหมุน -->
+            <rect x="142" y="40" width="16" height="14" rx="3" fill="#1d4fd0" stroke="#173fa6" stroke-width="1"/>
+            <circle cx="150" cy="52" r="3" fill="#173fa6"/>
+            <!-- แนวดิ่ง + อาร์คการแกว่ง -->
+            <line x1="150" y1="52" x2="150" y2="216" stroke="#9fb4d6" stroke-dasharray="4 4"/>
+            <path d="M92,206 Q150,232 208,206" fill="none" stroke="#9fb4d6" stroke-dasharray="4 4"/>
+            <!-- ตำแหน่งสะท้อน (จาง) -->
+            <line x1="150" y1="52" x2="92" y2="206" stroke="#2563eb" stroke-width="2" opacity=".28"/>
+            <circle cx="92" cy="206" r="14" fill="#2563eb" opacity=".2"/>
+            <!-- เชือก + ลูกตุ้ม -->
+            <line x1="150" y1="52" x2="208" y2="206" stroke="#2563eb" stroke-width="2.4"/>
+            <circle cx="208" cy="206" r="16" fill="url(#bobGrad)" stroke="#173fa6" stroke-width="1.2"/>
+            <!-- มุม θ -->
+            <path d="M150 98 A46 46 0 0 1 168 84" fill="none" stroke="#d9480f" stroke-width="1.5"/>
+            <text x="172" y="92" class="d-label">θ</text>
+            <!-- L -->
+            <line class="dim" x1="120" y1="52" x2="178" y2="206"/>
+            <text class="dim-txt" x="120" y="135" transform="rotate(69 120 135)">L</text>
+            <!-- ป้ายกำกับ -->
+            <text x="78" y="50" class="d-label">ที่หนีบ</text>
+            <text x="196" y="140" class="d-label">เชือก</text>
+            <text x="228" y="212" class="d-label">ลูกตุ้ม</text>
           </svg>
           <figcaption>คาบ \(T=2\pi\sqrt{L/g}\) — ความชันของกราฟ \(T^2\)–\(L\) = \(4\pi^2/g\)</figcaption>
         </figure>
