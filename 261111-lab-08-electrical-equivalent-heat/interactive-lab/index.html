@@ -172,12 +172,12 @@
     <section class="section" id="procedure" data-title="ขั้นตอน">
       <header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
       <ol class="steps">
-        <li><span class="step-n">1</span><div><h3>ชั่งมวล</h3><p>ชั่งแคลอรีมิเตอร์เปล่า (\(m_c\)) และน้ำที่เติม (\(m_w\))</p></div></li>
-        <li><span class="step-n">2</span><div><h3>ต่อวงจร</h3><p>ต่อขดลวดจมในน้ำ แอมมิเตอร์อนุกรม โวลต์มิเตอร์ขนานคร่อมขดลวด</p></div></li>
-        <li><span class="step-n">3</span><div><h3>เริ่มให้ความร้อน</h3><p>เปิดไฟพร้อมเริ่มจับเวลา อ่าน \(V\) และ \(I\) (ควรคงที่)</p></div></li>
-        <li><span class="step-n">4</span><div><h3>บันทึกอุณหภูมิตามเวลา</h3><p>กวนน้ำเบา ๆ บันทึก \(\Delta T\) ทุกช่วงเวลา (เช่น ทุก 60 วินาที)</p></div></li>
-        <li><span class="step-n">5</span><div><h3>เขียนกราฟ</h3><p>เขียนกราฟ \(\Delta T\) (แกนตั้ง) กับ \(t\) (แกนนอน) หาความชัน \(\Delta T/\Delta t\)</p></div></li>
-        <li><span class="step-n">6</span><div><h3>คำนวณ J</h3><p>แทนในสมการ \(J=IV/[(m_c c_c+m_w c_w)(\Delta T/\Delta t)]\) เทียบกับ 4186</p></div></li>
+        <li><span class="step-n">1</span><div><h3>ชั่งมวล</h3><p>ชั่งแคลอรีมิเตอร์เปล่า (\(m_c\)) และน้ำที่เติม (\(m_w\))</p><p class="step-caution"><b>ระวัง:</b> ชั่ง mc และ mw แยกให้แม่น เพราะเข้าสูตรความจุความร้อนโดยตรง</p></div></li>
+        <li><span class="step-n">2</span><div><h3>ต่อวงจร</h3><p>ต่อขดลวดจมในน้ำ แอมมิเตอร์อนุกรม โวลต์มิเตอร์ขนานคร่อมขดลวด</p><p class="step-caution"><b>ระวัง:</b> ขดลวดต้องจมในน้ำทั้งหมด ห้ามเปิดไฟขณะลวดโผล่พ้นน้ำเพราะลวดจะไหม้</p></div></li>
+        <li><span class="step-n">3</span><div><h3>เริ่มให้ความร้อน</h3><p>เปิดไฟพร้อมเริ่มจับเวลา อ่าน \(V\) และ \(I\) (ควรคงที่)</p><p class="step-caution"><b>ระวัง:</b> เริ่มจับเวลาพร้อมเปิดไฟ และคุม I, V ให้คงที่ตลอดการทดลอง</p></div></li>
+        <li><span class="step-n">4</span><div><h3>บันทึกอุณหภูมิตามเวลา</h3><p>กวนน้ำเบา ๆ บันทึก \(\Delta T\) ทุกช่วงเวลา (เช่น ทุก 60 วินาที)</p><p class="step-caution"><b>ระวัง:</b> กวนน้ำเบาๆ ตลอดให้ความร้อนกระจายสม่ำเสมอ และวางเทอร์โมมิเตอร์ไม่ให้แตะขดลวด</p></div></li>
+        <li><span class="step-n">5</span><div><h3>เขียนกราฟ</h3><p>เขียนกราฟ \(\Delta T\) (แกนตั้ง) กับ \(t\) (แกนนอน) หาความชัน \(\Delta T/\Delta t\)</p><p class="step-caution"><b>ระวัง:</b> ใช้ช่วงเส้นตรงของกราฟ ΔT–t (หลังอุณหภูมิเริ่มขึ้นสม่ำเสมอแล้ว)</p></div></li>
+        <li><span class="step-n">6</span><div><h3>คำนวณ J</h3><p>แทนในสมการ \(J=IV/[(m_c c_c+m_w c_w)(\Delta T/\Delta t)]\) เทียบกับ 4186</p><p class="step-caution"><b>ระวัง:</b> การสูญเสียความร้อนสู่สิ่งแวดล้อมทำให้ J คลาดเคลื่อน ควรลดเวลาทดลองหรือหุ้มฉนวน</p></div></li>
       </ol>
       <div class="note note-warn"><span class="note-icon" aria-hidden="true">!</span><div><span class="note-kind">ข้อควรระวัง</span><strong>ก่อนอ่านค่า</strong><ul><li>กวนน้ำให้อุณหภูมิสม่ำเสมอก่อนอ่านเทอร์มอมิเตอร์</li><li>เริ่มจับเวลาพร้อมเปิดไฟพอดี</li><li>ลดการสูญเสียความร้อน (ปิดฝา/หุ้มฉนวน)</li></ul></div></div>
     </section>
