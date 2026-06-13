@@ -68,34 +68,65 @@ function roundedRect(context, x, y, width, height, radius, fill, stroke) {
   if (stroke) { context.strokeStyle = stroke; context.stroke(); }
   context.restore();
 }
+function poly(context, pts, fill, stroke, lw = 2) {
+  context.save();
+  context.beginPath();
+  pts.forEach((p, i) => (i ? context.lineTo(p[0], p[1]) : context.moveTo(p[0], p[1])));
+  context.closePath();
+  if (fill) { context.fillStyle = fill; context.fill(); }
+  if (stroke) { context.strokeStyle = stroke; context.lineWidth = lw; context.lineJoin = "round"; context.stroke(); }
+  context.restore();
+}
 
 /* ── RULER simulator ──────────────────────────────────────────────────── */
 function drawRuler(canvas, valueCm = 11.28, options = {}) {
   if (!canvas) return;
   const { context, width, height } = prepareCanvas(canvas);
   clear(context, width, height, C.paper);
-  const pad = 36;
-  const y = height * 0.52;
-  const scaleWidth = width - pad * 2;
+  const pad = 42;
   const maxCm = options.maxCm || 15;
+  const scaleWidth = width - pad * 2;
   const pxPerCm = scaleWidth / maxCm;
   const valueX = pad + valueCm * pxPerCm;
+  const rEdge = Math.round(height * 0.30);         // ruler's measuring (top) edge
+  const rH = Math.round(height * 0.52);            // ruler body fills BELOW the edge
 
-  roundedRect(context, pad - 14, y - 52, scaleWidth + 28, 84, 8, C.plate, C.line);
-  line(context, pad, y, pad + scaleWidth, y, C.ink, 1.2);
+  // ── steel ruler body (below the measuring edge) ──
+  const steel = context.createLinearGradient(0, rEdge, 0, rEdge + rH);
+  steel.addColorStop(0, "#fbfcff"); steel.addColorStop(1, "#e6eef9");
+  roundedRect(context, pad - 18, rEdge, scaleWidth + 36, rH, 7, steel, C.line);
+  line(context, pad - 12, rEdge + 1.5, pad + scaleWidth + 12, rEdge + 1.5, "rgba(255,255,255,.9)", 1);
+  line(context, pad - 12, rEdge + rH - 1.5, pad + scaleWidth + 12, rEdge + rH - 1.5, "rgba(37,99,235,.12)", 1);
+
+  // ── graduations etched DOWN from the measuring edge (numbers on the face) ──
   for (let mm = 0; mm <= maxCm * 10; mm += 1) {
     const x = pad + (mm / 10) * pxPerCm;
-    const isCm = mm % 10 === 0;
-    const isHalf = mm % 5 === 0;
-    const tick = isCm ? 38 : isHalf ? 27 : 17;
-    line(context, x, y, x, y - tick, C.ink, isCm ? 1.3 : 0.8);
-    if (isCm) text(context, String(mm / 10), x, y + 18, { size: 12, color: C.muted });
+    const isCm = mm % 10 === 0, isHalf = mm % 5 === 0;
+    const len = isCm ? 26 : isHalf ? 17 : 10;
+    line(context, x, rEdge, x, rEdge + len, C.ink, isCm ? 1.2 : 0.7);
+    if (isCm) text(context, String(mm / 10), x, rEdge + len + 12, { size: 12, color: C.muted });
   }
-  roundedRect(context, pad + pxPerCm * 0.35, y - 74, Math.max(12, valueX - pad - pxPerCm * 0.35), 12, 6, C.frost, C.frostLine);
-  line(context, valueX, y - 72, valueX, y + 28, C.mark, 2.2);
-  text(context, `${valueCm.toFixed(2)} cm`, valueX, y - 94, { size: 15, weight: "800", color: C.accent });
-  text(context, `${(valueCm * 10).toFixed(1)} mm`, valueX, y + 46, { size: 12, color: C.muted });
-  text(context, "ขีดย่อยเล็กสุด = 0.1 cm · ประมาณเพิ่มอีกหนึ่งหลัก", width / 2, height - 18, { size: 12, color: C.muted });
+
+  // ── measured rod resting ON the ruler's top edge (0 → value) ──
+  const rodH = 18, rodTop = rEdge - rodH;
+  const rod = context.createLinearGradient(0, rodTop, 0, rodTop + rodH);
+  rod.addColorStop(0, "#a7c6f6"); rod.addColorStop(.5, "#2f6fe0"); rod.addColorStop(1, "#1d4fd0");
+  roundedRect(context, pad, rodTop, Math.max(rodH, valueX - pad), rodH, rodH / 2, rod, "#173fa6");
+  if (valueX - pad > 16) line(context, pad + 7, rodTop + 5, valueX - 7, rodTop + 5, "rgba(255,255,255,.5)", 2);
+
+  // ── length read off the TOP: a drafting dimension line + label above the rod ──
+  const dimY = rodTop - 16;
+  line(context, pad, dimY, valueX, dimY, C.mark, 1.5);
+  line(context, pad, dimY - 5, pad, dimY + 5, C.mark, 1.5);          // left end tick
+  line(context, valueX, dimY - 5, valueX, dimY + 5, C.mark, 1.5);    // right end tick
+  context.save(); context.setLineDash([5, 4]);                        // drop a guide through the scale (where you read)
+  line(context, valueX, dimY, valueX, rEdge + 30, C.mark, 1.4);
+  context.restore();
+  const labX = Math.min(Math.max((pad + valueX) / 2, 78), width - 78);
+  text(context, `ความยาว = ${valueCm.toFixed(2)} cm`, labX, dimY - 12, { size: 14, weight: "800", color: C.mark });
+
+  text(context, `${(valueCm * 10).toFixed(1)} mm`, Math.min(Math.max(valueX, 40), width - 40), rEdge + rH + 14, { size: 12, color: C.muted });
+  text(context, "ขีดย่อยเล็กสุด = 0.1 cm · ประมาณเพิ่มอีกหนึ่งหลัก", width / 2, height - 8, { size: 11, color: C.muted });
 }
 
 /* ── VERNIER simulator ────────────────────────────────────────────────── */
@@ -108,35 +139,60 @@ function drawVernier(canvas, valueMm = 11.65) {
   if (!canvas) return;
   const { context, width, height } = prepareCanvas(canvas);
   clear(context, width, height, C.paper);
-  const pad = 42;
-  const scaleWidth = width - pad * 2;
-  const y = height * 0.38;
-  const maxMm = 60;
-  const pxPerMm = scaleWidth / maxMm;
+  const pad = 38, W = width, H = height;
+  const scaleWidth = W - pad * 2;
+  const maxMm = 64, pxPerMm = scaleWidth / maxMm;
   const { main, vernier, fraction } = vernierParts(valueMm);
-  const zeroX = pad + valueMm * pxPerMm;
+  const valueX = pad + Math.min(valueMm, maxMm) * pxPerMm;
 
-  roundedRect(context, pad - 18, y - 45, scaleWidth + 36, 72, 8, C.plate, C.line);
-  line(context, pad, y, pad + scaleWidth, y, C.ink, 1.2);
+  const readY = Math.round(H * 0.34);              // main scale (above) meets vernier (below) here
+  const mainTop = Math.round(H * 0.15);
+  const vernBot = Math.round(H * 0.50);
+  const jawBot = Math.round(H * 0.88);
+
+  // ── fixed beam carrying the main scale (steel) ──
+  const steel = context.createLinearGradient(0, mainTop - 8, 0, readY + 8);
+  steel.addColorStop(0, "#fbfcff"); steel.addColorStop(1, "#e7eef9");
+  roundedRect(context, pad - 16, mainTop - 8, scaleWidth + 32, readY - mainTop + 18, 5, steel, C.line);
+
+  // ── fixed jaw (left, measuring face at x = pad ⇒ 0 mm) ──
+  poly(context, [[pad - 16, readY], [pad, readY], [pad, jawBot - 12], [pad - 6, jawBot], [pad - 16, jawBot]], "#dce6f5", C.frostLine);
+
+  // ── measured rod clamped between the fixed jaw (0) and the slider jaw (value) ──
+  if (valueX - pad > 6) {
+    const rod = context.createLinearGradient(0, H * 0.60, 0, H * 0.76);
+    rod.addColorStop(0, "#a7c6f6"); rod.addColorStop(1, "#1d4fd0");
+    roundedRect(context, pad, Math.round(H * 0.62), valueX - pad, Math.round(H * 0.14), Math.round(H * 0.07), rod, "#173fa6");
+  }
+
+  // ── main scale: ticks DOWN to the read line, numbers above ──
   for (let mm = 0; mm <= maxMm; mm += 1) {
     const x = pad + mm * pxPerMm;
-    const isTen = mm % 10 === 0;
-    const isFive = mm % 5 === 0;
-    line(context, x, y, x, y - (isTen ? 34 : isFive ? 24 : 15), C.ink, isTen ? 1.2 : 0.8);
-    if (isTen) text(context, String(mm), x, y + 18, { size: 12, color: C.muted });
+    if (x > W - pad + 1) break;
+    const ten = mm % 10 === 0, five = mm % 5 === 0;
+    line(context, x, readY, x, readY - (ten ? 23 : five ? 16 : 9), C.ink, ten ? 1.3 : 0.8);
+    if (ten) text(context, String(mm), x, readY - 31, { size: 12, weight: "700", color: C.text });
   }
-  const vernierY = height * 0.68;
-  roundedRect(context, zeroX - 18, vernierY - 31, 20 * pxPerMm * 0.95 + 36, 62, 8, C.frost, C.frostLine);
-  for (let tick = 0; tick <= 20; tick += 1) {
-    const x = zeroX + tick * pxPerMm * 0.95;
-    const tall = tick % 5 === 0;
-    line(context, x, vernierY, x, vernierY - (tall ? 26 : 16), tick === vernier ? C.mark : C.ink, tick === vernier ? 2 : 0.8);
-    if (tall) text(context, String(tick), x, vernierY + 17, { size: 11, color: C.muted });
+  line(context, pad - 6, readY, W - pad + 6, readY, C.ink, 1.3);
+
+  // ── slider assembly at the value: translucent block + lower jaw + vernier scale ──
+  const vEnd = valueX + 19 * pxPerMm;
+  roundedRect(context, valueX - 12, readY - 14, Math.min(W - pad + 4, vEnd + 14) - (valueX - 12), vernBot - readY + 26, 5, "rgba(37,99,235,.12)", C.frostLine);
+  poly(context, [[valueX, readY], [valueX + 18, readY], [valueX + 18, jawBot - 12], [valueX + 12, jawBot], [valueX, jawBot]], "#dce6f5", C.frostLine);
+  roundedRect(context, valueX + 22, readY - 8, 12, 12, 3, "#fff", C.frostLine);   // thumb screw
+
+  // ── vernier scale: ticks UP to the read line; the aligned tick is the reading ──
+  for (let i = 0; i <= 20; i += 1) {
+    const x = valueX + i * 0.95 * pxPerMm;
+    if (x > W - pad + 1) break;
+    const five = i % 5 === 0, hit = i === vernier;
+    line(context, x, readY, x, readY + (five ? 21 : 13), hit ? C.mark : C.accent, hit ? 2.6 : (five ? 1.3 : 0.8));
+    if (five) text(context, String(i), x, readY + 32, { size: 11, weight: hit ? "800" : "600", color: hit ? C.mark : C.accent });
   }
-  line(context, zeroX, y - 48, zeroX, vernierY + 34, C.mark, 2);
-  text(context, "0", zeroX, vernierY - 42, { size: 13, weight: "800", color: C.mark });
-  text(context, `${valueMm.toFixed(2)} mm`, width / 2, 24, { size: 16, weight: "800", color: C.accent });
-  text(context, `สเกลหลัก ${main} mm + เวอร์เนียร์ ${fraction.toFixed(2)} mm`, width / 2, height - 18, { size: 12, color: C.muted });
+
+  // ── vernier-0 reading line up through the main scale ──
+  line(context, valueX, mainTop - 4, valueX, readY + 23, C.mark, 1.6);
+  text(context, `อ่านค่า: สเกลหลัก ${main} + เวอร์เนียร์ ${fraction.toFixed(2)} = ${valueMm.toFixed(2)} mm`, W / 2, H - 9, { size: 12, weight: "700", color: C.text });
 }
 
 /* ── MICROMETER simulator ─────────────────────────────────────────────── */
@@ -150,38 +206,59 @@ function drawMicrometer(canvas, valueMm = 7.38) {
   if (!canvas) return;
   const { context, width, height } = prepareCanvas(canvas);
   clear(context, width, height, C.paper);
+  const W = width, H = height;
   const { sleeve, thimble, thimbleDivisions } = micrometerParts(valueMm);
-  const cx = width / 2;
-  const baseY = height * 0.52;
+  const axisY = Math.round(H * 0.37);
 
-  roundedRect(context, 34, baseY - 58, width - 68, 112, 12, C.plate, C.line);
-  roundedRect(context, 58, baseY - 20, width * 0.42, 42, 8, C.paper, C.muted);
-  roundedRect(context, width * 0.52, baseY - 52, width * 0.34, 104, 8, C.frost, C.frostLine);
-  line(context, 86, baseY, width * 0.52, baseY, C.ink, 1.4);
+  // ── C-frame: a thick light-steel U joining the anvil to the barrel ──
+  context.save();
+  context.strokeStyle = "#c4d6f2"; context.lineWidth = Math.max(14, Math.round(H * 0.075));
+  context.lineCap = "round"; context.lineJoin = "round";
+  context.beginPath();
+  context.moveTo(W * 0.15, axisY - 2); context.lineTo(W * 0.10, axisY - 2);
+  context.lineTo(W * 0.10, H * 0.80); context.lineTo(W * 0.46, H * 0.80);
+  context.lineTo(W * 0.46, axisY + 18);
+  context.stroke();
+  context.restore();
 
-  const sleeveStart = 90;
-  const sleeveWidth = width * 0.38;
-  const pxPerMm = sleeveWidth / 10;
-  for (let mm = 0; mm <= 10; mm += 0.5) {
-    const x = sleeveStart + mm * pxPerMm;
-    const whole = Number.isInteger(mm);
-    line(context, x, baseY, x, baseY - (whole ? 30 : 18), C.ink, whole ? 1.2 : 0.9);
-    if (whole) text(context, String(mm), x, baseY + 20, { size: 11, color: C.muted });
+  // ── anvil (fixed face) · object · spindle (moving face) ──
+  roundedRect(context, W * 0.13, axisY - 11, 16, 22, 4, "#dce6f5", C.frostLine);
+  const objX = W * 0.13 + 16, objW = W * 0.06;
+  const rod = context.createLinearGradient(0, axisY - 8, 0, axisY + 8);
+  rod.addColorStop(0, "#a7c6f6"); rod.addColorStop(1, "#1d4fd0");
+  roundedRect(context, objX, axisY - 8, objW, 16, 7, rod, "#173fa6");
+  roundedRect(context, objX + objW, axisY - 5, W * 0.40 - (objX + objW), 10, 5, "#e6eef9", C.frostLine);
+
+  // ── barrel/sleeve linear scale: datum line, mm above, half-mm below ──
+  const barX = W * 0.40, barRight = W * 0.70, barRange = 12;
+  const pxPerMmB = (barRight - barX) / barRange;
+  roundedRect(context, barX, axisY - 15, barRight - barX + 8, 30, 6, "#eef3fc", C.line);
+  line(context, barX + 4, axisY, barRight, axisY, C.ink, 1.4);
+  for (let mm = 0; mm <= barRange; mm += 0.5) {
+    const x = barX + 6 + mm * pxPerMmB;
+    if (Number.isInteger(mm)) { line(context, x, axisY, x, axisY - 11, C.ink, 1.2); text(context, String(mm), x, axisY - 19, { size: 10, color: C.muted }); }
+    else line(context, x, axisY, x, axisY + 11, C.ink, 1);
   }
-  const sleeveX = sleeveStart + sleeve * pxPerMm;
-  line(context, sleeveX, baseY - 44, sleeveX, baseY + 38, C.mark, 2);
+  const thimbleEdgeX = barX + 6 + sleeve * pxPerMmB;
 
-  const thimbleX = width * 0.52;
-  const thimbleW = width * 0.34;
-  for (let i = 0; i <= 50; i += 5) {
-    const yy = baseY - 42 + (i / 50) * 84;
-    line(context, thimbleX + thimbleW - 42, yy, thimbleX + thimbleW - (i % 10 === 0 ? 9 : 22), yy, C.ink, 1);
-    if (i % 10 === 0) text(context, String(i), thimbleX + thimbleW - 52, yy, { size: 11, align: "right", color: C.muted });
+  // ── thimble over the barrel; its circular scale reads against the datum line ──
+  const thW = W * 0.20, thX = thimbleEdgeX;
+  roundedRect(context, thX, axisY - 25, thW, 50, 9, "#dbe6f6", C.frostLine);
+  const spacing = 9;
+  for (let k = -4; k <= 4; k += 1) {
+    const d = (((thimbleDivisions + k) % 50) + 50) % 50;
+    const yy = axisY - k * spacing;                       // k = 0 ⇒ the reading sits on the datum line
+    if (yy < axisY - 23 || yy > axisY + 23) continue;
+    const hit = k === 0, five = d % 5 === 0;
+    line(context, thX + 5, yy, thX + (five ? 22 : 15), yy, hit ? C.mark : C.ink, hit ? 2.4 : 1);
+    if (five) text(context, String(d), thX + 28, yy, { size: 10, align: "left", color: hit ? C.mark : C.muted, weight: hit ? "800" : "500" });
   }
-  const markerY = baseY - 42 + ((thimbleDivisions % 50) / 50) * 84;
-  line(context, thimbleX + 12, markerY, thimbleX + thimbleW - 8, markerY, C.mark, 2);
-  text(context, `${valueMm.toFixed(3)} mm`, cx, 24, { size: 16, weight: "800", color: C.accent });
-  text(context, `สเกลหลัก ${sleeve.toFixed(1)} mm + วงกลม ${thimble.toFixed(3)} mm`, cx, height - 20, { size: 12, color: C.muted });
+  roundedRect(context, thX + thW, axisY - 9, W * 0.05, 18, 6, "#e6eef9", C.frostLine);   // ratchet
+
+  // ── datum index line pointing to the aligned thimble division (the reading) ──
+  line(context, thimbleEdgeX - 24, axisY, thimbleEdgeX + 30, axisY, C.mark, 1.6);
+
+  text(context, `อ่านค่า: ปลอก ${sleeve.toFixed(1)} + ทิมเบิล ${thimble.toFixed(3)} = ${valueMm.toFixed(3)} mm`, W / 2, H - 9, { size: 12, weight: "700", color: C.text });
 }
 
 /* ── simulator wiring ─────────────────────────────────────────────────── */
