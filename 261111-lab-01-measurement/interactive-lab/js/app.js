@@ -268,6 +268,7 @@ function initSimulators() {
   const rUpdate = (v = Number(rInput?.value || 11.28)) => {
     if (rInput) rInput.value = v.toFixed(2);
     if (rOut) rOut.textContent = `${v.toFixed(2)} cm`;
+    if (rCanvas) rCanvas.setAttribute("aria-label", `ไม้บรรทัดจำลอง อ่านความยาวได้ ${v.toFixed(2)} เซนติเมตร`);
     drawRuler(rCanvas, v);
   };
   drawRuler(rPrev, 11.28); rUpdate();
@@ -280,6 +281,7 @@ function initSimulators() {
     const r = Math.round(v / 0.05) * 0.05;
     if (vInput) vInput.value = r.toFixed(2);
     if (vOut) vOut.textContent = `${r.toFixed(2)} mm`;
+    if (vCanvas) vCanvas.setAttribute("aria-label", `เวอร์เนียร์คาลิเปอร์จำลอง อ่านค่าได้ ${r.toFixed(2)} มิลลิเมตร`);
     drawVernier(vCanvas, r);
   };
   vUpdate();
@@ -292,6 +294,7 @@ function initSimulators() {
     const r = Math.round(v * 1000) / 1000;
     if (mInput) mInput.value = r.toFixed(3);
     if (mOut) mOut.textContent = `${r.toFixed(3)} mm`;
+    if (mCanvas) mCanvas.setAttribute("aria-label", `ไมโครมิเตอร์จำลอง อ่านค่าได้ ${r.toFixed(3)} มิลลิเมตร`);
     drawMicrometer(mCanvas, r);
   };
   drawMicrometer(mPrev, 7.38); mUpdate();

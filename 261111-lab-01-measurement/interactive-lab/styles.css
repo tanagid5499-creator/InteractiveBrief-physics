@@ -259,7 +259,7 @@
 /* ข้อควรระวัง (caution) — warm, a notch more present than 'good to know' */
 .note-warn { background: var(--caution-bg); border: 1px solid var(--caution-line); }
 .note-warn .note-icon { background: var(--caution); }
-.note-warn .note-kind { color: #b5650f; }                  /* darker amber → AA on the warm tint */
+.note-warn .note-kind { color: #8a4d09; }                  /* AA on the warm tint (6.3:1); #b5650f was 4.09 */
 .note-warn strong { color: #8a4d09; }
 
 /* ควรรู้ (good to know) — cool blue, calmer */
