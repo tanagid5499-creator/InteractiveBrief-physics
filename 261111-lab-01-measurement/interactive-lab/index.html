@@ -18,7 +18,7 @@
 
   <!-- design system (shared across all 261111 labs) + per-lab overrides -->
   <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=7">
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css?v=14">
   <script defer src="../../shared/brief-core.js?v=7"></script>
   <script defer src="js/app.js?v=3"></script>
 </head>
@@ -121,45 +121,100 @@
 
         <figure class="hero-visual">
           <span class="fig-tag">FIG.1 · เวอร์เนียร์คาลิเปอร์</span>
-          <svg viewBox="0 0 460 300" role="img" aria-label="แผนภาพเวอร์เนียร์คาลิเปอร์">
-            <defs>
-              <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#cdd9ee"/><stop offset="1" stop-color="#9fb4d6"/>
-              </linearGradient>
-            </defs>
-            <!-- main beam -->
-            <rect x="40" y="120" width="360" height="22" rx="4" fill="url(#metalGrad)"/>
-            <!-- main scale ticks -->
-            <g stroke="#122a4f" stroke-width="1">
-              <line x1="70" y1="120" x2="70" y2="106"/><line x1="110" y1="120" x2="110" y2="110"/>
-              <line x1="150" y1="120" x2="150" y2="106"/><line x1="190" y1="120" x2="190" y2="110"/>
-              <line x1="230" y1="120" x2="230" y2="106"/><line x1="270" y1="120" x2="270" y2="110"/>
-              <line x1="310" y1="120" x2="310" y2="106"/><line x1="350" y1="120" x2="350" y2="110"/>
+          <svg class="fig-caliper" viewBox="0 0 520 330" role="img" aria-labelledby="figTitle figDesc">
+            <title id="figTitle">เวอร์เนียร์คาลิเปอร์</title>
+            <desc id="figDesc">แผนภาพแสดงปากวัดนอก ปากวัดใน ก้านวัดลึก สเกลหลัก และสเกลเวอร์เนียร์</desc>
+
+            <!-- depth rod (protrudes from the right end) -->
+            <g class="cal-part" data-part="depth">
+              <rect class="cal-metal" x="452" y="158" width="48" height="6" rx="2"/>
             </g>
-            <!-- fixed jaw -->
-            <path d="M40 120 L40 70 L60 70 L60 120 Z" fill="url(#metalGrad)"/>
-            <path d="M40 142 L40 188 L60 188 L60 142 Z" fill="url(#metalGrad)"/>
-            <!-- sliding jaw + vernier scale -->
-            <g>
-              <rect x="150" y="100" width="70" height="62" rx="4" fill="rgba(37,99,235,.14)" stroke="#2563eb" stroke-width="1.5"/>
-              <path d="M150 100 L150 60 L168 60 L168 100 Z" fill="url(#metalGrad)"/>
-              <path d="M150 162 L150 198 L168 198 L168 162 Z" fill="url(#metalGrad)"/>
-              <g stroke="#2563eb" stroke-width="1">
-                <line x1="158" y1="162" x2="158" y2="152"/><line x1="170" y1="162" x2="170" y2="150"/>
-                <line x1="182" y1="162" x2="182" y2="152"/><line x1="194" y1="162" x2="194" y2="150"/>
-                <line x1="206" y1="162" x2="206" y2="152"/>
+
+            <!-- main beam + main scale -->
+            <g class="cal-part" data-part="beam">
+              <rect class="cal-beam" x="76" y="150" width="378" height="18" rx="2"/>
+              <g class="cal-tick">
+                <line x1="108" y1="150" x2="108" y2="145"/><line x1="144" y1="150" x2="144" y2="145"/>
+                <line x1="180" y1="150" x2="180" y2="145"/><line x1="216" y1="150" x2="216" y2="145"/>
+                <line x1="252" y1="150" x2="252" y2="145"/><line x1="288" y1="150" x2="288" y2="145"/>
+                <line x1="324" y1="150" x2="324" y2="145"/><line x1="360" y1="150" x2="360" y2="145"/>
+                <line x1="396" y1="150" x2="396" y2="145"/><line x1="432" y1="150" x2="432" y2="145"/>
+              </g>
+              <g class="cal-tick-mj">
+                <line x1="90" y1="150" x2="90" y2="139"/><line x1="126" y1="150" x2="126" y2="139"/>
+                <line x1="162" y1="150" x2="162" y2="139"/><line x1="198" y1="150" x2="198" y2="139"/>
+                <line x1="234" y1="150" x2="234" y2="139"/><line x1="270" y1="150" x2="270" y2="139"/>
+                <line x1="306" y1="150" x2="306" y2="139"/><line x1="342" y1="150" x2="342" y2="139"/>
+                <line x1="378" y1="150" x2="378" y2="139"/><line x1="414" y1="150" x2="414" y2="139"/>
               </g>
             </g>
-            <!-- workpiece between jaws -->
-            <circle cx="105" cy="158" r="20" fill="none" stroke="#122a4f" stroke-width="2"/>
-            <!-- labels -->
-            <text x="300" y="100" class="d-label">สเกลหลัก</text>
-            <text x="150" y="222" class="d-label">สเกลเวอร์เนียร์</text>
-            <!-- drafting dimension line -->
-            <line class="dim" x1="60" y1="250" x2="150" y2="250"/>
-            <line class="dim" x1="60" y1="244" x2="60" y2="256"/>
-            <line class="dim" x1="150" y1="244" x2="150" y2="256"/>
-            <text class="dim-txt" x="105" y="268">อ่านค่า + ประมาณ 1 หลัก</text>
+
+            <!-- external (lower) jaws -->
+            <g class="cal-part" data-part="external">
+              <path class="cal-metal" d="M76,168 L98,168 L98,256 L92,264 L82,264 L76,256 Z"/>
+              <path class="cal-metal" d="M168,168 L188,168 L188,256 L182,264 L172,264 L168,256 Z"/>
+            </g>
+
+            <!-- workpiece (rod, end-on) clamped between the external jaws -->
+            <g data-part="work">
+              <circle class="cal-work" cx="133" cy="214" r="34"/>
+              <circle class="cal-work-in" cx="133" cy="214" r="15"/>
+            </g>
+
+            <!-- internal (upper) jaws -->
+            <g class="cal-part" data-part="internal">
+              <path class="cal-metal" d="M80,150 L80,124 L88,118 L96,128 L96,150 Z"/>
+              <path class="cal-metal" d="M168,150 L168,128 L176,118 L184,124 L184,150 Z"/>
+            </g>
+
+            <!-- slider block + lock screw + thumb wheel -->
+            <g class="cal-part" data-part="slider">
+              <rect class="cal-metal-2" x="164" y="144" width="80" height="30" rx="3"/>
+              <circle class="cal-screw" cx="204" cy="138" r="6"/>
+              <line class="cal-screw-slot" x1="201" y1="138" x2="207" y2="138"/>
+              <rect class="cal-metal-2" x="246" y="152" width="14" height="24" rx="3"/>
+              <g class="cal-knurl">
+                <line x1="249" y1="155" x2="249" y2="173"/><line x1="253" y1="155" x2="253" y2="173"/><line x1="257" y1="155" x2="257" y2="173"/>
+              </g>
+            </g>
+
+            <!-- vernier scale (on the slider, below the beam) -->
+            <g class="cal-part" data-part="vernier">
+              <rect class="cal-beam" x="164" y="176" width="86" height="15" rx="1"/>
+              <g class="cal-tick">
+                <line x1="170" y1="176" x2="170" y2="182"/><line x1="178" y1="176" x2="178" y2="182"/>
+                <line x1="186" y1="176" x2="186" y2="182"/><line x1="194" y1="176" x2="194" y2="182"/>
+                <line x1="202" y1="176" x2="202" y2="182"/><line x1="210" y1="176" x2="210" y2="182"/>
+                <line x1="218" y1="176" x2="218" y2="182"/><line x1="226" y1="176" x2="226" y2="182"/>
+                <line x1="234" y1="176" x2="234" y2="182"/><line x1="242" y1="176" x2="242" y2="182"/>
+              </g>
+            </g>
+
+            <!-- leader-line callouts (drafting style; structure ready for hover later) -->
+            <g class="cal-leaders">
+              <line class="cal-lead" x1="86" y1="122" x2="44" y2="100"/><circle class="cal-lead-dot" cx="86" cy="122" r="2.4"/>
+              <text class="cal-label" x="14" y="96" text-anchor="start">ปากวัดใน</text>
+
+              <line class="cal-lead" x1="340" y1="150" x2="340" y2="116"/><circle class="cal-lead-dot" cx="340" cy="150" r="2.4"/>
+              <text class="cal-label" x="340" y="108" text-anchor="middle">สเกลหลัก</text>
+
+              <line class="cal-lead" x1="474" y1="161" x2="474" y2="116"/><circle class="cal-lead-dot" cx="474" cy="161" r="2.4"/>
+              <text class="cal-label" x="474" y="108" text-anchor="middle">ก้านวัดลึก</text>
+
+              <line class="cal-lead" x1="214" y1="191" x2="300" y2="226"/><circle class="cal-lead-dot" cx="214" cy="191" r="2.4"/>
+              <text class="cal-label" x="305" y="230" text-anchor="start">สเกลเวอร์เนียร์</text>
+
+              <line class="cal-lead" x1="92" y1="240" x2="52" y2="272"/><circle class="cal-lead-dot" cx="92" cy="240" r="2.4"/>
+              <text class="cal-label" x="14" y="288" text-anchor="start">ปากวัดนอก</text>
+            </g>
+
+            <!-- drafting dimension line: the measured gap = main scale + vernier reading -->
+            <g>
+              <line class="dim" x1="99" y1="298" x2="167" y2="298"/>
+              <line class="dim" x1="99" y1="291" x2="99" y2="305"/>
+              <line class="dim" x1="167" y1="291" x2="167" y2="305"/>
+              <text class="dim-txt" x="133" y="318" text-anchor="middle">อ่านค่า + ประมาณ 1 หลัก</text>
+            </g>
           </svg>
           <figcaption>วัดความยาว/เส้นผ่านศูนย์กลาง: อ่านสเกลหลัก แล้วบวกค่าจากสเกลเวอร์เนียร์</figcaption>
         </figure>

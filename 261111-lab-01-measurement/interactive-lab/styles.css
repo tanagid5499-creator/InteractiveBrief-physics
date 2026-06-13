@@ -289,3 +289,29 @@
 }
 .steps .step-caution b { color: #8a4d09; font-weight: 700; }
 
+/* ════════════════════════════════════════════════════════════════════════
+   FIG.1 — detailed vernier caliper (blueprint line-art, annotation-ready)
+   Parts are grouped (data-part) so a future hover-callout system can target
+   them; leader lines already label the key parts in drafting style.
+   ════════════════════════════════════════════════════════════════════════ */
+.fig-caliper { width: 100%; height: auto; display: block; overflow: visible; }
+.cal-beam    { fill: #eef3fc; stroke: var(--blue-600); stroke-width: 2; stroke-linejoin: round; }
+.cal-metal   { fill: #e4ebf8; stroke: var(--blue-600); stroke-width: 2; stroke-linejoin: round; }
+.cal-metal-2 { fill: #d4e0f4; stroke: var(--blue-600); stroke-width: 2; stroke-linejoin: round; }
+.cal-tick    { stroke: var(--navy); stroke-width: 1; }
+.cal-tick-mj { stroke: var(--navy); stroke-width: 1.4; }
+.cal-work    { fill: var(--blue-200); stroke: var(--blue-700); stroke-width: 2; }
+.cal-work-in { fill: #fff; stroke: var(--blue-700); stroke-width: 1.4; }
+.cal-screw   { fill: #fff; stroke: var(--blue-600); stroke-width: 1.5; }
+.cal-screw-slot, .cal-knurl { stroke: var(--blue-600); stroke-width: 1; }
+.cal-knurl   { opacity: .65; }
+.cal-lead    { stroke: var(--blue-400); stroke-width: 1; fill: none; }
+.cal-lead-dot{ fill: var(--blue-500); }
+.cal-label   { fill: var(--navy); font-family: var(--font-head); font-size: 12px; font-weight: 600; }
+/* preview of the future per-part annotation: hovering a part tints it */
+.fig-caliper .cal-part { cursor: pointer; }
+.fig-caliper .cal-part:hover :is(.cal-metal, .cal-metal-2, .cal-beam) { fill: var(--blue-100); }
+@media (prefers-reduced-motion: no-preference) {
+  .fig-caliper .cal-part :is(.cal-metal, .cal-metal-2, .cal-beam) { transition: fill .18s var(--ease); }
+}
+
