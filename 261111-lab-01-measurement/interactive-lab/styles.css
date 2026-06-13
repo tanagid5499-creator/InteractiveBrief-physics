@@ -5,6 +5,9 @@
    multi-trial table's long row-label column.
    ========================================================================== */
 
+/* caution-ink: the AA-safe amber used for caution labels/text (was repeated #8a4d09) */
+:root { --caution-ink: #8a4d09; }
+
 /* ── scale-reading simulators ─────────────────────────────────────────── */
 .simulator-grid { display: grid; grid-template-columns: 1fr; gap: clamp(1rem, 2.2vw, 1.6rem); margin-top: 1.4rem; }
 .simulator-panel {
@@ -259,8 +262,8 @@
 /* ข้อควรระวัง (caution) — warm, a notch more present than 'good to know' */
 .note-warn { background: var(--caution-bg); border: 1px solid var(--caution-line); }
 .note-warn .note-icon { background: var(--caution); }
-.note-warn .note-kind { color: #8a4d09; }                  /* AA on the warm tint (6.3:1); #b5650f was 4.09 */
-.note-warn strong { color: #8a4d09; }
+.note-warn .note-kind { color: var(--caution-ink); }                  /* AA on the warm tint (6.3:1); #b5650f was 4.09 */
+.note-warn strong { color: var(--caution-ink); }
 
 /* ควรรู้ (good to know) — cool blue, calmer */
 .note-info { background: var(--blue-50); border: 1px solid var(--blue-200); }
@@ -279,7 +282,7 @@
    .steps to win the cascade and keep the amber colour. */
 .steps .step-caution {
   display: flex; gap: .5rem; align-items: flex-start;
-  margin-top: .5rem; font-size: .88rem; line-height: 1.6; color: #8a4d09;
+  margin-top: .5rem; font-size: .88rem; line-height: 1.6; color: var(--caution-ink);
 }
 .steps .step-caution::before {
   content: "!"; flex: 0 0 auto; margin-top: .12rem;
@@ -287,7 +290,7 @@
   border-radius: 50%; background: var(--caution); color: #fff;
   font-family: var(--font-head); font-weight: 700; font-size: .78rem; line-height: 1;
 }
-.steps .step-caution b { color: #8a4d09; font-weight: 700; }
+.steps .step-caution b { color: var(--caution-ink); font-weight: 700; }
 
 /* ════════════════════════════════════════════════════════════════════════
    FIG.1 — detailed vernier caliper (blueprint line-art, annotation-ready)
