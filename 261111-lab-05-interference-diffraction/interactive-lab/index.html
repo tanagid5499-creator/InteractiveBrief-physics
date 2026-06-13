@@ -50,14 +50,28 @@
         </div>
         <figure class="hero-visual">
           <span class="fig-tag">FIG.1 · แถบแทรกสอดจากสลิตคู่</span>
-          <svg viewBox="0 0 460 240" role="img" aria-label="แผนภาพการแทรกสอดของแสงจากสลิตคู่">
-            <rect x="40" y="40" width="10" height="160" fill="#9fb4d6"/>
-            <rect x="150" y="40" width="8" height="70" fill="#9fb4d6"/><rect x="150" y="130" width="8" height="70" fill="#9fb4d6"/>
-            <line x1="50" y1="120" x2="150" y2="104" stroke="#2563eb"/><line x1="50" y1="120" x2="150" y2="136" stroke="#2563eb"/>
-            <g stroke="#2563eb" stroke-width="1.5" fill="none"><path d="M158 104 L420 60"/><path d="M158 136 L420 180"/><path d="M158 104 L420 120"/><path d="M158 136 L420 120"/></g>
-            <rect x="420" y="36" width="10" height="168" fill="#e6eefc" stroke="#9fb4d6"/>
-            <g fill="#d9480f"><circle cx="425" cy="60" r="3"/><circle cx="425" cy="90" r="3"/><circle cx="425" cy="120" r="4"/><circle cx="425" cy="150" r="3"/><circle cx="425" cy="180" r="3"/></g>
-            <text x="44" y="32" class="d-label">เลเซอร์</text><text x="150" y="32" class="d-label">สลิตคู่ d</text><text x="392" y="28" class="d-label">ฉาก (L)</text>
+          <svg viewBox="0 0 460 240" role="img" aria-label="แผนภาพชุดทดลองการแทรกสอด: เลเซอร์ สลิตคู่ และฉากรับแถบ">
+            <defs>
+              <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#edf2fc"/><stop offset="1" stop-color="#c1d1ed"/></linearGradient>
+            </defs>
+            <line x1="18" y1="216" x2="442" y2="216" stroke="#cddffb" stroke-width="2"/>
+            <!-- เลเซอร์ -->
+            <rect x="22" y="104" width="36" height="32" rx="5" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
+            <rect x="29" y="113" width="11" height="14" rx="2" fill="#1d4fd0"/>
+            <circle cx="58" cy="120" r="2.4" fill="#d9480f"/>
+            <line x1="58" y1="120" x2="148" y2="120" stroke="#2563eb" stroke-width="2.5"/>
+            <!-- สลิตคู่ (barrier with two slits) -->
+            <g fill="#8ea7cf"><rect x="148" y="40" width="9" height="66" rx="2"/><rect x="148" y="118" width="9" height="8" rx="1"/><rect x="148" y="138" width="9" height="62" rx="2"/></g>
+            <!-- ลำแสงเลี้ยวเบนจากสองสลิตซ้อนทับกัน -->
+            <g stroke="#2563eb" stroke-width="1.4" fill="none" opacity=".8"><path d="M157,112 L418,60"/><path d="M157,112 L418,120"/><path d="M157,112 L418,180"/><path d="M157,132 L418,60"/><path d="M157,132 L418,120"/><path d="M157,132 L418,180"/></g>
+            <!-- ฉาก + เส้นความเข้ม (fringe envelope) + แถบสว่าง -->
+            <rect x="418" y="36" width="11" height="168" rx="2" fill="#e6eefc" stroke="#9fb4d6" stroke-width="1"/>
+            <path d="M409,42 Q401,51 409,60 Q400,75 409,90 Q396,105 409,120 Q400,135 409,150 Q400,165 409,180 Q401,189 409,198" fill="none" stroke="#2563eb" stroke-width="1.6" opacity=".5"/>
+            <g fill="#d9480f"><circle cx="424" cy="60" r="3"/><circle cx="424" cy="90" r="3"/><circle cx="424" cy="120" r="4"/><circle cx="424" cy="150" r="3"/><circle cx="424" cy="180" r="3"/></g>
+            <!-- ป้ายกำกับ + y -->
+            <text x="40" y="92" class="d-label" text-anchor="middle">เลเซอร์</text>
+            <text x="152" y="32" class="d-label" text-anchor="middle">สลิตคู่ d</text>
+            <text x="400" y="28" class="d-label">ฉาก (L)</text>
             <line class="dim" x1="440" y1="120" x2="440" y2="150"/><text class="dim-txt" x="452" y="138" transform="rotate(90 452 138)">y</text>
           </svg>
           <figcaption>ระยะแถบ \(y\) สัมพันธ์กับ \(\lambda\), \(L\), \(d\) ตาม \(y=m\lambda L/d\)</figcaption>
