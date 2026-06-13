@@ -133,46 +133,56 @@
         <figure class="hero-visual">
           <span class="fig-tag">FIG.1 · Apparatus</span>
           <!-- แผนภาพชุดทดลอง: โครงยึด · ลวด · มวลแขวน · ไดอัลเกจ -->
-          <svg viewBox="0 0 460 380" role="img" aria-label="แผนภาพชุดทดลองโมดูลัสของยัง">
+          <svg viewBox="0 0 460 380" role="img" aria-label="แผนภาพชุดทดลองโมดูลัสของยัง: โครงยึด ลวดโลหะ มวลแขวน และไดอัลเกจวัดระยะยืด">
             <defs>
               <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#cdd9ee"/>
-                <stop offset="1" stop-color="#9fb4d6"/>
+                <stop offset="0" stop-color="#edf2fc"/>
+                <stop offset="1" stop-color="#c1d1ed"/>
+              </linearGradient>
+              <linearGradient id="massGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#7ba6f0"/>
+                <stop offset="1" stop-color="#1d4fd0"/>
               </linearGradient>
             </defs>
-            <!-- โครงยึด -->
-            <rect x="70" y="44" width="250" height="18" rx="6" fill="url(#metalGrad)"/>
-            <rect x="84" y="62" width="16" height="250" rx="5" fill="url(#metalGrad)"/>
-            <rect x="290" y="62" width="16" height="250" rx="5" fill="url(#metalGrad)"/>
-            <rect x="70" y="312" width="250" height="14" rx="5" fill="url(#metalGrad)"/>
-            <!-- ลวด -->
-            <line x1="195" y1="62" x2="195" y2="248" class="d-wire"/>
-            <circle cx="195" cy="62" r="4" class="d-anchor"/>
-            <!-- มวลแขวน (load group — settles once on load) -->
+            <!-- โครงยึด + สลักมุม -->
+            <rect x="70" y="44" width="250" height="18" rx="6" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
+            <rect x="84" y="60" width="16" height="254" rx="5" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
+            <rect x="290" y="60" width="16" height="254" rx="5" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
+            <rect x="70" y="312" width="250" height="16" rx="5" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
+            <g fill="#8ea7cf"><circle cx="92" cy="53" r="2.3"/><circle cx="298" cy="53" r="2.3"/><circle cx="92" cy="320" r="2.3"/><circle cx="298" cy="320" r="2.3"/></g>
+            <!-- หัวจับลวด (clamp/chuck) -->
+            <rect x="184" y="56" width="22" height="14" rx="3" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
+            <!-- ลวดโลหะ -->
+            <line x1="195" y1="70" x2="195" y2="250" class="d-wire"/>
+            <circle cx="195" cy="64" r="3.4" class="d-anchor"/>
+            <!-- มวลแขวน: ตะขอ + จานน้ำหนักสลอต (settles on load) -->
             <g class="d-load">
-              <rect x="172" y="248" width="46" height="22" rx="6" class="d-hanger"/>
-              <rect x="166" y="270" width="58" height="20" rx="4" class="d-mass"/>
-              <rect x="170" y="290" width="50" height="16" rx="4" class="d-mass d-mass-2"/>
+              <path d="M195,250 q-8,5 0,10 q8,5 0,10" fill="none" stroke="#173fa6" stroke-width="2.5"/>
+              <rect x="191.5" y="270" width="7" height="42" rx="2.5" fill="#1d4fd0"/>
+              <rect x="164" y="272" width="62" height="15" rx="5" fill="url(#massGrad)" stroke="#173fa6" stroke-width="1.2"/>
+              <rect x="169" y="288" width="52" height="13" rx="4" fill="url(#massGrad)" stroke="#173fa6" stroke-width="1.2"/>
+              <rect x="174" y="302" width="42" height="11" rx="4" fill="url(#massGrad)" stroke="#173fa6" stroke-width="1.2"/>
             </g>
-            <!-- ไดอัลเกจ -->
-            <circle cx="362" cy="186" r="40" class="d-gauge"/>
-            <circle cx="362" cy="186" r="31" class="d-gauge-inner"/>
-            <line x1="362" y1="186" x2="384" y2="166" class="d-needle"/>
+            <!-- ไดอัลเกจ (มีขีดสเกลรอบหน้าปัด) -->
+            <circle cx="362" cy="186" r="41" class="d-gauge"/>
+            <circle cx="362" cy="186" r="36" fill="none" stroke="#a8c6f6" stroke-width="3.2" stroke-dasharray="1.4 5.1"/>
+            <circle cx="362" cy="186" r="30" class="d-gauge-inner"/>
+            <text x="362" y="167" class="d-label" text-anchor="middle" font-size="9">0</text>
+            <line x1="362" y1="186" x2="385" y2="165" class="d-needle"/>
             <circle cx="362" cy="186" r="3.5" class="d-anchor"/>
-            <line x1="322" y1="200" x2="207" y2="200" class="d-probe"/>
+            <line x1="321" y1="200" x2="207" y2="200" class="d-probe"/>
             <!-- ป้ายกำกับ -->
             <text x="150" y="34" class="d-label">โครงยึด</text>
             <text x="206" y="150" class="d-label">ลวดโลหะ</text>
-            <text x="232" y="298" class="d-label">มวลแขวน</text>
-            <text x="330" y="142" class="d-label">ไดอัลเกจ</text>
-            <!-- drafting-red dimension lines (engineering markup) -->
-            <line class="dim" x1="140" y1="62" x2="140" y2="248"/>
-            <line class="dim" x1="136" y1="62" x2="144" y2="62"/>
-            <line class="dim" x1="136" y1="248" x2="144" y2="248"/>
-            <text class="dim-txt" x="122" y="158" transform="rotate(-90 122 158)">L₀ = 1.200 m</text>
-            <!-- ΔL is the dial-gauge reading, not a frame dimension: a leader, not a false dim line -->
+            <text x="234" y="300" class="d-label">มวลแขวน</text>
+            <text x="330" y="138" class="d-label">ไดอัลเกจ</text>
+            <!-- drafting-red dimension lines -->
+            <line class="dim" x1="140" y1="64" x2="140" y2="250"/>
+            <line class="dim" x1="136" y1="64" x2="144" y2="64"/>
+            <line class="dim" x1="136" y1="250" x2="144" y2="250"/>
+            <text class="dim-txt" x="122" y="160" transform="rotate(-90 122 160)">L₀ = 1.200 m</text>
             <line class="dim" x1="296" y1="236" x2="334" y2="206"/>
-            <text class="dim-txt" x="272" y="250">ΔL</text>
+            <text class="dim-txt" x="270" y="250">ΔL</text>
           </svg>
           <figcaption>ชุดทดลอง: เพิ่มมวลทีละขั้น แล้วอ่านระยะยืด ΔL จากไดอัลเกจ</figcaption>
         </figure>
