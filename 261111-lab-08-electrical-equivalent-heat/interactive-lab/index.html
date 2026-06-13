@@ -50,15 +50,36 @@
         </div>
         <figure class="hero-visual">
           <span class="fig-tag">FIG.1 · แคลอรีมิเตอร์ + ขดลวดไฟฟ้า</span>
-          <svg viewBox="0 0 320 280" role="img" aria-label="แผนภาพแคลอรีมิเตอร์และขดลวดให้ความร้อน">
-            <rect x="90" y="120" width="120" height="120" rx="8" fill="rgba(37,99,235,.12)" stroke="#2563eb" stroke-width="2"/>
-            <path d="M100 150h100M100 150v80a8 8 0 0 0 8 8h84a8 8 0 0 0 8-8v-80" fill="rgba(37,99,235,.22)"/>
-            <path d="M150 120v60q0 8 8 8h4q8 0 8 8v0q0 8 8 8h4q8 0 8-8v-12" fill="none" stroke="#d9480f" stroke-width="2.5"/>
-            <rect x="138" y="60" width="10" height="64" rx="3" fill="#cdd9ee" stroke="#9fb4d6"/>
-            <circle cx="143" cy="124" r="6" fill="#d9480f"/>
-            <circle cx="150" cy="92" r="12" fill="none" stroke="#122a4f"/><text x="150" y="96" text-anchor="middle" font-size="11" fill="#122a4f">A</text>
-            <circle cx="200" cy="92" r="12" fill="none" stroke="#122a4f"/><text x="200" y="96" text-anchor="middle" font-size="11" fill="#122a4f">V</text>
-            <text x="150" y="255" text-anchor="middle" class="d-label">น้ำ + แคลอรีมิเตอร์</text>
+          <svg viewBox="0 0 340 290" role="img" aria-label="แผนภาพชุดทดลองสมมูลไฟฟ้า-ความร้อน: แหล่งจ่ายไฟ แอมมิเตอร์ โวลต์มิเตอร์ และแคลอรีมิเตอร์">
+            <defs>
+              <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#edf2fc"/><stop offset="1" stop-color="#c1d1ed"/></linearGradient>
+            </defs>
+            <!-- สายวงจรจากขดลวดขึ้นสู่มิเตอร์ -->
+            <g stroke="#173fa6" stroke-width="2" fill="none">
+              <path d="M150,130 V60 H113"/>
+              <path d="M184,130 V84 H223"/>
+              <path d="M74,60 H87"/>
+            </g>
+            <!-- แหล่งจ่ายไฟ + A + V -->
+            <rect x="30" y="46" width="44" height="28" rx="5" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
+            <text x="52" y="64" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="11" fill="#1d4fd0">DC</text>
+            <circle cx="100" cy="60" r="13" fill="#fff" stroke="#122a4f" stroke-width="1.4"/><text x="100" y="64" text-anchor="middle" font-size="11" fill="#122a4f">A</text>
+            <circle cx="236" cy="84" r="13" fill="#fff" stroke="#122a4f" stroke-width="1.4"/><text x="236" y="88" text-anchor="middle" font-size="11" fill="#122a4f">V</text>
+            <!-- แคลอรีมิเตอร์ผนัง 2 ชั้น + น้ำ -->
+            <rect x="100" y="118" width="120" height="130" rx="9" fill="rgba(37,99,235,.05)" stroke="#9fb4d6" stroke-width="1.2"/>
+            <rect x="111" y="129" width="98" height="110" rx="6" fill="rgba(37,99,235,.12)" stroke="#2563eb" stroke-width="2"/>
+            <path d="M111 162 h98 v65 a6 6 0 0 1 -6 6 h-86 a6 6 0 0 1 -6 -6 z" fill="rgba(37,99,235,.22)"/>
+            <!-- ขดลวดให้ความร้อน -->
+            <path d="M160 130 V176 q0 7 7 7 h6 q7 0 7 7 q0 7 -7 7 h-6 q-7 0 -7 7 v8" fill="none" stroke="#d9480f" stroke-width="2.5"/>
+            <!-- เทอร์โมมิเตอร์ + ที่กวน -->
+            <rect x="124" y="86" width="9" height="70" rx="3" fill="#cdd9ee" stroke="#9fb4d6" stroke-width="1"/><circle cx="128.5" cy="158" r="5.5" fill="#d9480f"/>
+            <path d="M198 96 V152 a8 8 0 0 0 16 0" fill="none" stroke="#8ea7cf" stroke-width="2.5"/>
+            <!-- ป้ายกำกับ -->
+            <text x="52" y="34" class="d-label" text-anchor="middle">แหล่งจ่ายไฟ</text>
+            <text x="84" y="104" class="d-label" text-anchor="middle">เทอร์โม</text>
+            <text x="232" y="118" class="d-label">ที่กวน</text>
+            <text x="246" y="170" class="d-label">ขดลวด</text>
+            <text x="160" y="272" text-anchor="middle" class="d-label">น้ำ + แคลอรีมิเตอร์</text>
           </svg>
           <figcaption>ขดลวดให้ความร้อน \(IVt\) ทำให้น้ำอุณหภูมิสูงขึ้น \(\Delta T\)</figcaption>
         </figure>
