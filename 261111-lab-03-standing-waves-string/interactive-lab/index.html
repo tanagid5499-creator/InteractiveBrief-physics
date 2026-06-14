@@ -15,7 +15,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=8">
+  <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=9">
   <link rel="stylesheet" href="styles.css?v=1">
   <script defer src="../../shared/brief-core.js?v=7"></script>
   <script defer src="js/app.js?v=3"></script>
@@ -198,8 +198,10 @@
       <header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>node, antinode และกราฟ T–λ²</h2></div></header>
       <div class="theory-grid">
         <div class="prose">
-          <p>รวมสามสมการเข้าด้วยกัน: \(f=\dfrac{v}{\lambda}=\dfrac{1}{\lambda}\sqrt{\dfrac{F}{\mu}}\) จัดรูปได้ \(F=\mu f^{2}\lambda^{2}\)</p>
-          <p>ดังนั้นถ้าเขียนกราฟ <strong>\(F\) (แกนตั้ง) กับ \(\lambda^{2}\) (แกนนอน)</strong> จะได้เส้นตรงผ่านจุดกำเนิด ที่มี <strong>ความชัน \(=\mu f^{2}\)</strong> จึงหา \(f=\sqrt{\text{slope}/\mu}\)</p>
+          <p>รวมสามสมการเข้าด้วยกัน \(f=\dfrac{v}{\lambda}=\dfrac{1}{\lambda}\sqrt{\dfrac{F}{\mu}}\) แล้วจัดรูปใหม่ จะได้ความสัมพันธ์เชิงเส้น</p>
+          <p class="derive">\[F=\mu f^{2}\lambda^{2}\]</p>
+          <p>ถ้าเขียนกราฟ <strong>\(F\) (แกนตั้ง) กับ \(\lambda^{2}\) (แกนนอน)</strong> จะได้เส้นตรงผ่านจุดกำเนิดที่มี <strong>ความชัน \(=\mu f^{2}\)</strong> จึงย้อนหาความถี่ได้จาก</p>
+          <p class="derive">\[f=\sqrt{\dfrac{\text{slope}}{\mu}}\]</p>
           <ul class="tick-list">
             <li><b>node</b>: จุดที่แอมพลิจูดเกือบศูนย์ (ปลายตรึงเป็น node เสมอ)</li>
             <li><b>antinode</b>: จุดที่แกว่งมากสุด อยู่กึ่งกลางระหว่าง node</li>

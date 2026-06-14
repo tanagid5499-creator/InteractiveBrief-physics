@@ -47,6 +47,7 @@
   /* semantic state colors — reserved for warnings / success / errors, never decoration */
   --caution:      #e08a17;   --caution-bg: #fff7ed;   --caution-line: #fbd9a8;
   --success:      #16a34a;
+  --success-ink:  #0f7a37;
   --danger:       #dc2626;   --danger-ink: #b42318;   --danger-bg: #fef2f2;   --danger-line: #f7c7c7;
 
   /* Light Blueprint — engineering accents */
@@ -234,6 +235,7 @@ input[type="number"]:focus { outline: none; border-color: var(--blue-500); box-s
   .phase-btn { min-height: 44px; }
   .chip { min-height: 44px; display: flex; align-items: center; }
   .stepper button { width: 44px; height: 44px; }
+  input, select, textarea { min-height: 44px; }
 }
 
 .topbar-meta { flex: 0 0 auto; }
@@ -283,7 +285,7 @@ main { display: block; }
 .note-info { background: var(--blue-50); border-color: var(--blue-200); }
 .note-info .note-icon { background: var(--blue-500); }
 .note-warn { background: var(--caution-bg); border-color: var(--caution-line); }
-.note-warn .note-icon { background: var(--caution); }
+.note-warn .note-icon { background: var(--caution-ink); }
 .note-block { align-items: flex-start; }
 
 /* card grids */
@@ -383,7 +385,7 @@ main { display: block; }
 @keyframes needle-sweep { from { transform: rotate(-34deg); } to { transform: rotate(0); } }
 @media (prefers-reduced-motion: reduce) { .d-load, .d-needle { animation: none; } }
 
-.scroll-hint { display: flex; align-items: center; gap: .5rem; justify-content: center; margin-top: 2.4rem; color: var(--faint); font-size: .85rem; }
+.scroll-hint { display: flex; align-items: center; gap: .5rem; justify-content: center; margin-top: 2.4rem; color: var(--muted); font-size: .85rem; }
 .scroll-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue-400); animation: bob 1.6s var(--ease) infinite; }
 @keyframes bob { 0%,100%{ transform: translateY(0); opacity:.5 } 50%{ transform: translateY(5px); opacity:1 } }
 
@@ -785,7 +787,7 @@ input.is-invalid:focus { border-color: var(--danger); box-shadow: 0 0 0 4px colo
 .hero-lede { color: var(--ink); }
 .hero-lede strong { color: var(--navy); }
 .hm-num { color: var(--blue-700); }
-.scroll-hint { color: var(--faint); }
+.scroll-hint { color: var(--muted); }
 .scroll-dot { background: var(--blue-400); }
 /* apparatus on a clean white plate — the hero already carries the faint grid behind it */
 .hero-visual {
@@ -1056,13 +1058,13 @@ body.present-mode.ratio-169 .section.is-present {
 .quiz-options button:hover { border-color: var(--blue-400); }
 .quiz-options button.is-correct {
   border-color: var(--success); background: color-mix(in srgb, var(--success) 12%, transparent);
-  color: #0f7a37; font-weight: 600;
+  color: var(--success-ink); font-weight: 600;
 }
 .quiz-options button.is-incorrect {
   border-color: var(--danger); background: var(--danger-bg); color: var(--danger-ink);
 }
 .quiz-feedback { margin: .75rem 0 0; min-height: 1.2em; font-size: .94rem; color: var(--muted); }
-.quick-quiz.is-answered.is-correct .quiz-feedback { color: #0f7a37; }
+.quick-quiz.is-answered.is-correct .quiz-feedback { color: var(--success-ink); }
 
 .worksheet-block {
   background: var(--surface); border: 1px solid var(--line);
@@ -1142,12 +1144,12 @@ body.present-mode.ratio-169 .section.is-present {
   display: inline-block; text-align: center; background: none; border: 0; border-radius: 0; box-shadow: none;
   color: var(--blue-600); font-family: var(--font-mono); font-weight: 700; font-size: 1.05rem;
 }
-.quick-quiz .quiz-options button.is-correct { background: color-mix(in srgb, var(--success) 15%, var(--surface)); color: #0f7a37; font-weight: 600; }
-.quick-quiz .quiz-options button.is-correct .qo-key { color: #0f7a37; }
+.quick-quiz .quiz-options button.is-correct { background: color-mix(in srgb, var(--success) 15%, var(--surface)); color: var(--success-ink); font-weight: 600; }
+.quick-quiz .quiz-options button.is-correct .qo-key { color: var(--success-ink); }
 .quick-quiz .quiz-options button.is-incorrect { background: var(--danger-bg); color: var(--danger-ink); }
 .quick-quiz .quiz-options button.is-incorrect .qo-key { color: var(--danger-ink); }
 .quick-quiz .quiz-feedback { margin: .9rem 0 0; min-height: 1.2em; font-size: .95rem; font-weight: 500; color: var(--muted); }
-.quick-quiz.is-answered.is-correct .quiz-feedback { color: #0f7a37; }
+.quick-quiz.is-answered.is-correct .quiz-feedback { color: var(--success-ink); }
 
 /* ── equipment photo fills its frame (no white letterbox); frameless hover ── */
 .equip-photo img {
@@ -1192,7 +1194,7 @@ body.present-mode.ratio-169 .section.is-present {
 .note strong { display: block; margin-bottom: .2rem; }
 .note ul { margin-top: .4rem; }
 .note-warn { background: var(--caution-bg); border: 1px solid var(--caution-line); }
-.note-warn .note-icon { background: var(--caution); }
+.note-warn .note-icon { background: var(--caution-ink); }
 .note-warn .note-kind, .note-warn strong { color: var(--caution-ink); }
 .note-info { background: var(--blue-50); border: 1px solid var(--blue-200); }
 .note-info .note-icon { background: var(--blue-500); }
@@ -1207,3 +1209,40 @@ body.present-mode.ratio-169 .section.is-present {
 .steps .step-caution { display: flex; gap: .5rem; align-items: flex-start; margin-top: .5rem; font-size: .88rem; line-height: 1.6; color: var(--caution-ink); }
 .steps .step-caution::before { content: "!"; flex: 0 0 auto; margin-top: .12rem; display: inline-grid; place-items: center; width: 1.15rem; height: 1.15rem; border-radius: 50%; background: var(--caution); color: #fff; font-family: var(--font-head); font-weight: 700; font-size: .78rem; line-height: 1; }
 .steps .step-caution b { color: var(--caution-ink); font-weight: 700; }
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗
+   ║ DESIGN FIXES (v9) — theory rhythm + in-prose derivation framing           ║
+   ║ From class-test feedback (Gestalt): two stacked quizzes read as one block ║
+   ║ · theory split feels unbalanced · in-prose formulas blend into the page.  ║
+   ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+/* 1 · consecutive quizzes — clear separation (Proximity) + numbered pills so a
+      pair of questions reads as an ordered sequence, not one glued block. */
+.quick-quiz + .quick-quiz { margin-top: clamp(1.8rem, 3.4vw, 2.7rem); }
+.bloom-quiz-panel { counter-reset: quiz; }
+.bloom-quiz-panel .quick-quiz { counter-increment: quiz; }
+.bloom-quiz-panel:has(.quick-quiz + .quick-quiz) .quick-quiz .quiz-label::before { content: counter(quiz); }
+
+/* 2 · theory/split with a quiz column — top-align the columns (Continuity) so a
+      tall quiz aside no longer floats the prose. Chart-only grids stay centered. */
+.theory-grid:has(.quick-quiz) { align-items: start; }
+.prose > .tick-list { margin-top: clamp(1.05rem, 2vw, 1.45rem); }
+
+/* 3 · in-prose derivation — lift the key formula off the page as the figure
+      (figure–ground); legible on the white page and the blue spotlight plate. */
+.prose .derive, .derive {
+  margin-block: clamp(1rem, 2.2vw, 1.45rem);
+  padding: .5rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--blue-200);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xs);
+  overflow-x: auto;
+}
+.derive .katex-display { margin: 0; text-align: left; }
+.derive .katex-display > .katex { font-size: 1.16em; }
+@media (max-width: 600px) { .derive .katex-display > .katex { font-size: 1.04em; } }
+
+/* polish (audit): kicker eyebrow on the blue spotlight plate needs --blue-600 to clear AA
+   (blue-500 measured 4.43:1 on --blue-100). hero kicker already overrides to blue-600. */
+.section.spotlight .kicker { color: var(--blue-600); }
