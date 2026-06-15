@@ -18,7 +18,7 @@
 
   <!-- design system (shared across all 261111 labs) + per-lab overrides -->
   <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=10">
-  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="styles.css?v=18">
   <script defer src="../../shared/brief-core.js?v=7"></script>
   <script defer src="js/app.js?v=10"></script>
 </head>
@@ -119,103 +119,16 @@
           </div>
         </div>
 
-        <figure class="hero-visual">
+        <figure class="hero-visual fig-photo">
           <span class="fig-tag">FIG.1 · เวอร์เนียร์คาลิเปอร์</span>
-          <svg class="fig-caliper" viewBox="0 0 520 330" role="img" aria-labelledby="figTitle figDesc">
-            <title id="figTitle">เวอร์เนียร์คาลิเปอร์</title>
-            <desc id="figDesc">แผนภาพแสดงปากวัดนอก ปากวัดใน ก้านวัดลึก สเกลหลัก และสเกลเวอร์เนียร์</desc>
-
-            <!-- depth rod (protrudes from the right end) -->
-            <g class="cal-part" data-part="depth">
-              <rect class="cal-metal" x="452" y="158" width="48" height="6" rx="2"/>
-            </g>
-
-            <!-- main beam + main scale -->
-            <g class="cal-part" data-part="beam">
-              <rect class="cal-beam" x="76" y="150" width="378" height="18" rx="2"/>
-              <g class="cal-tick">
-                <line x1="108" y1="150" x2="108" y2="145"/><line x1="144" y1="150" x2="144" y2="145"/>
-                <line x1="180" y1="150" x2="180" y2="145"/><line x1="216" y1="150" x2="216" y2="145"/>
-                <line x1="252" y1="150" x2="252" y2="145"/><line x1="288" y1="150" x2="288" y2="145"/>
-                <line x1="324" y1="150" x2="324" y2="145"/><line x1="360" y1="150" x2="360" y2="145"/>
-                <line x1="396" y1="150" x2="396" y2="145"/><line x1="432" y1="150" x2="432" y2="145"/>
-              </g>
-              <g class="cal-tick-mj">
-                <line x1="90" y1="150" x2="90" y2="139"/><line x1="126" y1="150" x2="126" y2="139"/>
-                <line x1="162" y1="150" x2="162" y2="139"/><line x1="198" y1="150" x2="198" y2="139"/>
-                <line x1="234" y1="150" x2="234" y2="139"/><line x1="270" y1="150" x2="270" y2="139"/>
-                <line x1="306" y1="150" x2="306" y2="139"/><line x1="342" y1="150" x2="342" y2="139"/>
-                <line x1="378" y1="150" x2="378" y2="139"/><line x1="414" y1="150" x2="414" y2="139"/>
-              </g>
-            </g>
-
-            <!-- external (lower) jaws -->
-            <g class="cal-part" data-part="external">
-              <path class="cal-metal" d="M76,168 L98,168 L98,256 L92,264 L82,264 L76,256 Z"/>
-              <path class="cal-metal" d="M168,168 L188,168 L188,256 L182,264 L172,264 L168,256 Z"/>
-            </g>
-
-            <!-- workpiece (rod, end-on) clamped between the external jaws -->
-            <g data-part="work">
-              <circle class="cal-work" cx="133" cy="214" r="34"/>
-              <circle class="cal-work-in" cx="133" cy="214" r="15"/>
-            </g>
-
-            <!-- internal (upper) jaws -->
-            <g class="cal-part" data-part="internal">
-              <path class="cal-metal" d="M80,150 L80,124 L88,118 L96,128 L96,150 Z"/>
-              <path class="cal-metal" d="M168,150 L168,128 L176,118 L184,124 L184,150 Z"/>
-            </g>
-
-            <!-- slider block + lock screw + thumb wheel -->
-            <g class="cal-part" data-part="slider">
-              <rect class="cal-metal-2" x="164" y="144" width="80" height="30" rx="3"/>
-              <circle class="cal-screw" cx="204" cy="138" r="6"/>
-              <line class="cal-screw-slot" x1="201" y1="138" x2="207" y2="138"/>
-              <rect class="cal-metal-2" x="246" y="152" width="14" height="24" rx="3"/>
-              <g class="cal-knurl">
-                <line x1="249" y1="155" x2="249" y2="173"/><line x1="253" y1="155" x2="253" y2="173"/><line x1="257" y1="155" x2="257" y2="173"/>
-              </g>
-            </g>
-
-            <!-- vernier scale (on the slider, below the beam) -->
-            <g class="cal-part" data-part="vernier">
-              <rect class="cal-beam" x="164" y="176" width="86" height="15" rx="1"/>
-              <g class="cal-tick">
-                <line x1="170" y1="176" x2="170" y2="182"/><line x1="178" y1="176" x2="178" y2="182"/>
-                <line x1="186" y1="176" x2="186" y2="182"/><line x1="194" y1="176" x2="194" y2="182"/>
-                <line x1="202" y1="176" x2="202" y2="182"/><line x1="210" y1="176" x2="210" y2="182"/>
-                <line x1="218" y1="176" x2="218" y2="182"/><line x1="226" y1="176" x2="226" y2="182"/>
-                <line x1="234" y1="176" x2="234" y2="182"/><line x1="242" y1="176" x2="242" y2="182"/>
-              </g>
-            </g>
-
-            <!-- leader-line callouts (drafting style; structure ready for hover later) -->
-            <g class="cal-leaders">
-              <line class="cal-lead" x1="86" y1="122" x2="44" y2="100"/><circle class="cal-lead-dot" cx="86" cy="122" r="2.4"/>
-              <text class="cal-label" x="14" y="96" text-anchor="start">ปากวัดใน</text>
-
-              <line class="cal-lead" x1="340" y1="150" x2="340" y2="116"/><circle class="cal-lead-dot" cx="340" cy="150" r="2.4"/>
-              <text class="cal-label" x="340" y="108" text-anchor="middle">สเกลหลัก</text>
-
-              <line class="cal-lead" x1="474" y1="161" x2="474" y2="116"/><circle class="cal-lead-dot" cx="474" cy="161" r="2.4"/>
-              <text class="cal-label" x="474" y="108" text-anchor="middle">ก้านวัดลึก</text>
-
-              <line class="cal-lead" x1="214" y1="191" x2="300" y2="226"/><circle class="cal-lead-dot" cx="214" cy="191" r="2.4"/>
-              <text class="cal-label" x="305" y="230" text-anchor="start">สเกลเวอร์เนียร์</text>
-
-              <line class="cal-lead" x1="92" y1="240" x2="52" y2="272"/><circle class="cal-lead-dot" cx="92" cy="240" r="2.4"/>
-              <text class="cal-label" x="14" y="288" text-anchor="start">ปากวัดนอก</text>
-            </g>
-
-            <!-- drafting dimension line: the measured gap = main scale + vernier reading -->
-            <g>
-              <line class="dim" x1="99" y1="298" x2="167" y2="298"/>
-              <line class="dim" x1="99" y1="291" x2="99" y2="305"/>
-              <line class="dim" x1="167" y1="291" x2="167" y2="305"/>
-              <text class="dim-txt" x="133" y="318" text-anchor="middle">อ่านค่า + ประมาณ 1 หลัก</text>
-            </g>
-          </svg>
+          <div class="fig-photo-wrap">
+            <img src="assets/equip/vernier.png" width="1000" height="400" decoding="async" alt="เวอร์เนียร์คาลิเปอร์ Mitutoyo 150 มม. แสดงปากวัดนอก ปากวัดใน สเกลหลัก สเกลเวอร์เนียร์ และก้านวัดลึก">
+            <span class="fig-pin" style="left:16%;top:13%">ปากวัดใน</span>
+            <span class="fig-pin" style="left:14%;top:86%">ปากวัดนอก</span>
+            <span class="fig-pin" style="left:52%;top:8%">สเกลหลัก</span>
+            <span class="fig-pin" style="left:31%;top:90%">สเกลเวอร์เนียร์</span>
+            <span class="fig-pin" style="left:90%;top:14%">ก้านวัดลึก</span>
+          </div>
           <figcaption>วัดความยาว/เส้นผ่านศูนย์กลาง: อ่านสเกลหลัก แล้วบวกค่าจากสเกลเวอร์เนียร์</figcaption>
         </figure>
       </div>
@@ -343,7 +256,7 @@
         </figure>
         <figure class="equip-card">
           <button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: เวอร์เนียร์คาลิเปอร์">
-            <img src="assets/equip/equip-2.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span>
+            <img src="assets/equip/vernier.png" alt="" width="1000" height="400" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span>
           </button>
           <figcaption><h3>เวอร์เนียร์คาลิเปอร์</h3><p>วัดความยาว ความหนา และเส้นผ่านศูนย์กลางภายใน/ภายนอกของวัตถุไม่ใหญ่มาก ความละเอียดคำนวณจาก \(r=s/n\)</p></figcaption>
         </figure>
