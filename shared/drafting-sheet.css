@@ -60,8 +60,8 @@
   --font-body: "Sarabun", "TH Sarabun New", "TH Sarabun PSK", "Leelawadee UI", "Segoe UI", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", "Cascadia Code", Consolas, monospace;
   /* KaTeX renders larger than Sarabun at equal em — tune these two to balance the two fonts */
-  --math-scale: 0.94;          /* inline math glyph size relative to surrounding Thai text (bumped up to read larger) */
-  --math-shift: -0.07em;       /* baseline nudge so math sits on the Thai vowel line (− = down) */
+  --math-scale: 1.0;           /* inline math glyph size vs Thai — at parity so math never reads smaller than Sarabun */
+  --math-shift: 0.02em;        /* baseline nudge so math sits on the Thai baseline (+ = up). re-tuned after --math-scale went 0.94→1.0: data table/calc lines land at 0, headings within ~0.7px */
 
   /* rhythm */
   --maxw: 1080px;
@@ -308,6 +308,12 @@ main { display: block; }
 
 /* split layout (text + aside) */
 .split { display: grid; grid-template-columns: 1.15fr 1fr; gap: var(--gap); align-items: start; }
+/* the hook pairs a short lead with a taller quick-quiz; vertically centre the lead so it sits beside the
+   quiz instead of anchoring to the top with a long dangling gap below (analysis keeps top-align: steps). */
+#hook .split { align-items: center; }
+/* stack a split column's contents (e.g. callout + quiz) as one cohesive group */
+.split-col { display: flex; flex-direction: column; gap: clamp(1.2rem, 2.6vw, 1.8rem); }
+.split-col > * { margin-block: 0; }
 .prose p + p { margin-top: .9rem; }
 .prose { max-width: 60ch; }
 
@@ -485,8 +491,8 @@ main { display: block; }
 .equip-card p { color: var(--muted); font-size: .9rem; line-height: 1.6; }
 #equipment .card-grid { gap: clamp(.9rem, 1.8vw, 1.3rem); }
 /* present mode keeps equipment compact so all 6 still fit one slide: shorter frame + 2-line blurb clamp */
-body.present-mode .equip-photo { aspect-ratio: auto; height: clamp(54px, 7vh, 86px); }
-body.present-mode .equip-photo .equip-ico { width: 58px; }
+body.present-mode .equip-photo { aspect-ratio: auto; height: clamp(150px, 20vh, 224px); }
+body.present-mode .equip-photo .equip-ico { width: 84px; }
 body.present-mode .equip-card figcaption { padding: .7rem .9rem .8rem; }
 body.present-mode .equip-card p { display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
@@ -884,9 +890,12 @@ body.present-mode .present-progress { display: block; }
 .prose p, .lead { text-wrap: pretty; }
 
 /* more confident section headers (weight + scale contrast) */
-.section-head { margin-bottom: 1.9rem; }
+.section-head { margin-bottom: 1.9rem; text-align: center; }
 .section-head h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); font-weight: 700; letter-spacing: normal; text-wrap: balance; }
 .kicker { font-weight: 700; font-size: .82rem; }
+/* centered section mastheads (match the hero): flank the kicker with a tick on BOTH sides */
+.section-head .kicker { justify-content: center; }
+.section-head .kicker::after { content: ""; inline-size: 24px; block-size: 2px; background: currentColor; opacity: .5; border-radius: 2px; flex: 0 0 auto; }
 /* a lead is sustained reading: off the muted-gray, onto ink for presence + contrast
    (hierarchy vs body comes from size, not a lighter colour) */
 .lead { color: var(--ink); }
@@ -929,10 +938,44 @@ body.present-mode .present-progress { display: block; }
 
 /* hero readout labels on the light sheet */
 .hm-label { color: var(--muted); }
-/* polish: in present/deck mode, full-bleed sections must not double-pad their children
-   (the slide already has its own padding; the full-bleed re-contain padding is redundant there) */
-body.present-mode .section.band > *,
-body.present-mode .section.spotlight > * { padding-inline: 0; }
+/* polish: in present/deck mode, full-bleed sections must not double-pad their BARE-PROSE children
+   (p/h2/lists/section-head already sit inside the slide's own padding, so the band re-contain gutter
+   is redundant there). FRAMED cards are the exception: their band-gutter IS their inner padding, so
+   zeroing it slams text against the frame — keep every framed box in the :is() allow-list padded. */
+body.present-mode .section.band > *:not(:is(.note, .worksheet-block, .prompt-card, .quick-quiz, .end-note, .setup-inputs, .result-summary, .data-foot, .table-wrap, .material-block)),
+body.present-mode .section.spotlight > *:not(:is(.note, .worksheet-block, .prompt-card, .quick-quiz, .end-note, .setup-inputs, .result-summary, .data-foot, .table-wrap, .material-block)) { padding-inline: 0; }
+
+/* present-mode: at the larger slide type, callouts + worksheet were too tight to their frame (review feedback) */
+body.present-mode .note { padding: clamp(1.35rem, 2.6vh, 2rem) clamp(1.7rem, 3.2vw, 2.4rem); gap: 1.1rem; }
+body.present-mode .worksheet-block { padding: clamp(1.4rem, 2.8vh, 2.1rem) clamp(1.5rem, 3vw, 2.2rem); }
+body.present-mode .worksheet-block .data-table thead th { padding-block: .7rem; }
+body.present-mode .worksheet-block .data-table tbody td,
+body.present-mode .worksheet-block .data-table tbody th { padding-block: .55rem; }
+/* dense data table outside a worksheet-block (the standalone #data slide) — same tightening so it fits */
+body.present-mode .data-table thead th { padding-block: .7rem; }
+body.present-mode .data-table tbody td, body.present-mode .data-table tbody th { padding-block: .55rem; }
+/* procedure steps: trim per-row padding so the 2-col list fits the slide */
+body.present-mode .steps li { padding-block: clamp(.5rem, 1vh, .75rem); }
+
+/* present mode — FIT DENSE SLIDES: tall single-column sequential stacks flow into 2 columns so a packed
+   slide fits one screen instead of forcing the projector to scroll. Reading order stays row-major
+   (1│2 / 3│4 …). Applies to procedure steps, the discussion Q-grid, and the theory bloom-quiz stack. */
+body.present-mode .steps { grid-template-columns: 1fr 1fr; column-gap: clamp(1.6rem, 3.5vw, 2.6rem); align-items: start; }
+body.present-mode .q-grid { grid-template-columns: 1fr 1fr; column-gap: clamp(1.4rem, 3vw, 2.2rem); row-gap: .9rem; align-items: start; }
+body.present-mode .bloom-quiz-panel { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 2.4vw, 1.7rem); align-items: start; }
+body.present-mode .bloom-quiz-panel > .prompt-tag { grid-column: 1 / -1; margin-bottom: 0; }
+
+/* present mode reading density — reclaim vertical budget on the 4:3 projector (≈768px slide) so dense
+   sections scroll far less. Stays projector-legible: text ≥1rem, Thai line-height kept ≥1.6 to avoid
+   combining-mark collision (project rule: never crush Thai LH). */
+body.present-mode .section { padding-top: clamp(2.6rem, 4.5vh, 4rem); padding-bottom: clamp(1.6rem, 3.5vh, 2.8rem); }
+body.present-mode .section :is(p, li, dd) { line-height: 1.6; }
+body.present-mode .section-head { margin-bottom: 1rem; }
+body.present-mode .lead { font-size: 1.14rem; line-height: 1.5; }
+/* the quiz option pills wrap into 3-4 ragged rows (~180px) — the biggest space hog on quiz slides.
+   In present mode lay them in a tidy 2-col grid (full-width rows = bigger, clearer projector targets). */
+body.present-mode .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem .7rem; }
+body.present-mode .quiz-options button { width: 100%; text-align: left; border-radius: var(--radius); }
 
 /* ── REDESIGN v5 — LIGHT BLUEPRINT (merge: original light base + concept-01 engineering) ──
    Projector-legible dark-on-light, with drafting vocabulary used as restrained accents:
@@ -1169,9 +1212,9 @@ body.present-mode.ratio-169 .section.is-present {
 .info-card .ic-step { width: auto; height: auto; margin-bottom: .35rem; padding: 0; background: none; border-radius: 0; box-shadow: none; color: var(--blue-600); font-size: 1.55rem; line-height: 1; font-weight: 700; }
 .info-card h3 { margin-bottom: .4rem; }
 .info-card p { color: var(--ink); }
-.formula-card { background: var(--blue-50); border: 0; box-shadow: none; border-radius: var(--radius); padding: 1.3rem 1.4rem; }
-.formula-card:hover { transform: none; box-shadow: none; }
-.formula-accent { background: var(--blue-100); }
+.formula-card { background: var(--blue-50); border: 1px solid var(--blue-200); box-shadow: var(--shadow-xs); border-radius: var(--radius); padding: 1.3rem 1.4rem; }
+.formula-card:hover { transform: none; box-shadow: var(--shadow-sm); border-color: var(--blue-300); }
+.formula-accent { background: var(--blue-100); border-color: var(--blue-300); }
 .objective-list li, .steps li { background: none; border: 0; box-shadow: none; border-radius: 0; padding: clamp(.9rem, 1.6vw, 1.15rem) 0; border-bottom: 1px solid var(--line-2); }
 .objective-list li:last-child, .steps li:last-child { border-bottom: 0; }
 .objective-list li:hover, .steps li:hover { transform: none; box-shadow: none; }
@@ -1219,6 +1262,7 @@ body.present-mode.ratio-169 .section.is-present {
 /* 1 · consecutive quizzes — clear separation (Proximity) + numbered pills so a
       pair of questions reads as an ordered sequence, not one glued block. */
 .quick-quiz + .quick-quiz { margin-top: clamp(1.8rem, 3.4vw, 2.7rem); }
+.prompt-card > .quick-quiz:first-child { margin-top: 0; }   /* quiz card aligns to the column top when no tag sits above it */
 .bloom-quiz-panel { counter-reset: quiz; }
 .bloom-quiz-panel .quick-quiz { counter-increment: quiz; }
 .bloom-quiz-panel:has(.quick-quiz + .quick-quiz) .quick-quiz .quiz-label::before { content: counter(quiz); }

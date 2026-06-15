@@ -288,18 +288,36 @@ function initSimulators() {
   vInput?.addEventListener("input", () => vUpdate(Number(vInput.value)));
   $$("[data-vernier-example]").forEach((b) => b.addEventListener("click", () => vUpdate(Number(b.dataset.vernierExample))));
 
-  // micrometer
+  // micrometer — the thimble spins to the target on an example jump so the rotation (and its
+  // direction) is visible; slider-drag stays instant (it already scrolls as you drag). reduced-motion = instant.
   const mCanvas = $("#micrometerCanvas"), mPrev = $("#micrometerPreviewCanvas"), mInput = $("#micrometerValue"), mOut = $("#micrometerReadout");
-  const mUpdate = (v = Number(mInput?.value || 7.38)) => {
-    const r = Math.round(v * 1000) / 1000;
+  const mReduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const mEase = (t) => 1 - Math.pow(1 - t, 3);   // ease-out-cubic
+  let mCurrent = 7.38, mRaf = 0;
+  const mSet = (r) => {
     if (mInput) mInput.value = r.toFixed(3);
     if (mOut) mOut.textContent = `${r.toFixed(3)} mm`;
     if (mCanvas) mCanvas.setAttribute("aria-label", `ไมโครมิเตอร์จำลอง อ่านค่าได้ ${r.toFixed(3)} มิลลิเมตร`);
     drawMicrometer(mCanvas, r);
+    mCurrent = r;
+  };
+  const mUpdate = (v = Number(mInput?.value || 7.38), animate = false) => {
+    const target = Math.round(v * 1000) / 1000;
+    cancelAnimationFrame(mRaf);
+    if (!animate || mReduce || Math.abs(target - mCurrent) < 0.0006) { mSet(target); return; }
+    const from = mCurrent, dur = 520, t0 = performance.now();
+    if (mInput) mInput.value = target.toFixed(3);
+    const step = (now) => {
+      const p = Math.min(1, (now - t0) / dur), val = from + (target - from) * mEase(p);
+      if (mOut) mOut.textContent = `${val.toFixed(3)} mm`;
+      drawMicrometer(mCanvas, val);   // continuous value ⇒ the thimble scale scrolls smoothly
+      if (p < 1) mRaf = requestAnimationFrame(step); else mSet(target);
+    };
+    mRaf = requestAnimationFrame(step);
   };
   drawMicrometer(mPrev, 7.38); mUpdate();
   mInput?.addEventListener("input", () => mUpdate(Number(mInput.value)));
-  $$("[data-micrometer-example]").forEach((b) => b.addEventListener("click", () => mUpdate(Number(b.dataset.micrometerExample))));
+  $$("[data-micrometer-example]").forEach((b) => b.addEventListener("click", () => mUpdate(Number(b.dataset.micrometerExample), true)));
 
   window.addEventListener("resize", () => {
     drawRuler(rPrev, 11.28); rUpdate(Number(rInput?.value || 11.28));
