@@ -1,2 +1,9 @@
 /* Lab 07 · วัตถุตกอิสระและกฎข้อที่สองของนิวตัน — per-lab overrides
-   Design system + shared components: ../../shared/drafting-sheet.css (no lab-specific styles needed). */
+   Design system + shared components: ../../shared/drafting-sheet.css */
+
+/* "มวลแขวน" equipment card holds two photos sharing one 16:9 frame (split from the Atwood card) */
+.equip-photo.equip-photo-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; padding: 0; }
+.equip-photo.equip-photo-duo img,
+body.present-mode .equip-photo.equip-photo-duo img {
+  width: 100%; height: 100%; aspect-ratio: auto; object-fit: contain; padding: 6px; background: #fff;
+}
