@@ -1,378 +1,351 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="th">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lab 09 · แรง · Lab Brief</title>
-  <meta name="description" content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261111 บทที่ 9 แรง (องค์ประกอบของแรงและโมเมนต์)">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E09%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=10">
-  <link rel="stylesheet" href="styles.css?v=1">
-  <script defer src="../../shared/brief-core.js?v=7"></script>
-  <script defer src="js/app.js?v=1"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Lab 09 · แรง · Lab Brief</title>
+<meta content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261111 บทที่ 9 แรง (องค์ประกอบของแรงและโมเมนต์)" name="description"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E09%3C/text%3E%3C/svg%3E" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link href="../../shared/drafting-sheet.css?v=10" rel="stylesheet"/>
+<link href="styles.css?v=1" rel="stylesheet"/>
+<script defer="" src="../../shared/brief-core.js?v=7"></script>
+<script defer="" src="js/app.js?v=1"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
-  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
-
-  <header class="topbar" id="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="#hero" aria-label="กลับสู่ด้านบน"><span class="brand-badge">09</span><span class="brand-text"><strong>แรง</strong><small>261111 · ปฏิบัติการฟิสิกส์</small></span></a>
-      <nav class="phase-nav" id="chipNav" aria-label="สารบัญบทปฏิบัติการ">
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">เริ่มต้น</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#hero">บทนำ</a><a class="chip" role="menuitem" href="#hook">ชวนคิด</a><a class="chip" role="menuitem" href="#objectives">จุดประสงค์</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">หลักการ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#concept">แนวคิดหลัก</a><a class="chip" role="menuitem" href="#theory">ทฤษฎี</a><a class="chip" role="menuitem" href="#equipment">อุปกรณ์</a><a class="chip" role="menuitem" href="#formula">สูตร</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">ลงมือทำ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#procedure">ขั้นตอน</a><a class="chip" role="menuitem" href="#data">ตารางข้อมูล</a><a class="chip" role="menuitem" href="#example">ตัวอย่าง</a><a class="chip" role="menuitem" href="#checkpoint">ตรวจสอบ</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">สรุปผล</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#analysis">วิเคราะห์</a><a class="chip" role="menuitem" href="#additional-knowledge">ความรู้เพิ่มเติม</a><a class="chip" role="menuitem" href="#conclusion">สรุป</a><a class="chip" role="menuitem" href="#discussion">อภิปราย</a></div></div>
-      </nav>
-      <div class="topbar-meta">
-        <span class="sec-counter" aria-hidden="true"><b id="secNow">01</b><span>/14</span></span>
-        <div class="ratio-seg" role="group" aria-label="อัตราส่วนการแสดงผล"><span class="ratio-seg-ico" aria-hidden="true">▭</span><button type="button" data-ratio="full" aria-pressed="true">จอเต็ม</button><button type="button" data-ratio="43" aria-pressed="false">4:3</button><button type="button" data-ratio="169" aria-pressed="false">16:9</button></div>
-        <button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
-      </div>
-    </div>
-    <div class="read-progress" role="progressbar" aria-label="ความคืบหน้าการอ่าน" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="readBar"></span></div>
-  </header>
-
-  <main id="main">
-    <section class="section hero" id="hero" data-title="บทนำ">
-      <div class="hero-top"><p class="hero-eyebrow">261111 · ปฏิบัติการฟิสิกส์ · บทที่ 09</p><h1 class="hero-title">แรง</h1></div>
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <figure class="hero-question"><figcaption class="hq-tag">คำถามชวนคิด</figcaption><blockquote class="hq-text">เมื่อแรงหลายแรงดึงวัตถุพร้อมกัน อะไรทำให้มัน <strong>นิ่งสมดุล</strong>? และเราจะแยกแรงเอียง ๆ เป็น <strong>องค์ประกอบ x, y</strong> เพื่อทำนายการสมดุลได้อย่างไร</blockquote></figure>
-          <ul class="hero-meta"><li><span class="hm-num">ΣF</span><span class="hm-label">= 0 ที่สมดุล (และ Στ = 0)</span></li></ul>
-          <div class="hero-actions"><a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a><a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a></div>
-        </div>
-        <figure class="hero-visual">
-          <span class="fig-tag">FIG.1 · องค์ประกอบของแรง</span>
-          <svg viewBox="0 0 340 300" role="img" aria-label="แผนภาพโต๊ะแรง: จานองศา วงแหวนกลาง รอกขอบโต๊ะ และมวลแขวน">
-            <defs>
-              <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#edf2fc"/><stop offset="1" stop-color="#c1d1ed"/></linearGradient>
-            </defs>
-            <!-- โต๊ะแรง (จานองศา top-down) -->
-            <circle cx="170" cy="150" r="108" fill="rgba(37,99,235,.05)" stroke="#cddffb" stroke-width="1.5"/>
-            <circle cx="170" cy="150" r="100" fill="none" stroke="#a8c6f6" stroke-width="3" stroke-dasharray="1.3 5"/>
-            <!-- สาย/แรง 3 เส้นจากวงแหวนไปรอก -->
-            <g stroke="#2563eb" stroke-width="2.6" stroke-linecap="round">
-              <line x1="170" y1="150" x2="278" y2="150"/>
-              <line x1="170" y1="150" x2="116" y2="56"/>
-              <line x1="170" y1="150" x2="116" y2="244"/>
-            </g>
-            <!-- รอกขอบโต๊ะ + สายลงมวล -->
-            <g stroke="#173fa6" stroke-width="2" fill="none">
-              <path d="M278,150 H304"/><path d="M116,56 L96,42"/><path d="M116,244 L96,258"/>
-            </g>
-            <g fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1">
-              <circle cx="278" cy="150" r="8"/><circle cx="116" cy="56" r="8"/><circle cx="116" cy="244" r="8"/>
-            </g>
-            <!-- มวลแขวน (slotted) -->
-            <g fill="#2f6fe0" stroke="#173fa6" stroke-width="1.1">
-              <rect x="300" y="142" width="22" height="15" rx="4"/><rect x="84" y="30" width="22" height="15" rx="4"/><rect x="84" y="252" width="22" height="15" rx="4"/>
-            </g>
-            <!-- วงแหวนกลาง (สมดุล) -->
-            <circle cx="170" cy="150" r="11" fill="#fff" stroke="#122a4f" stroke-width="3"/>
-            <!-- ป้ายกำกับ -->
-            <text x="232" y="34" class="d-label">โต๊ะแรง</text>
-            <text x="178" y="178" class="d-label">วงแหวน</text>
-            <text x="252" y="138" class="d-label">รอก</text>
-            <text x="96" y="286" class="d-label" text-anchor="middle">มวลแขวน</text>
-          </svg>
-          <figcaption>แรงเอียงแยกเป็น \(F_x=F\cos\theta\) และ \(F_y=F\sin\theta\)</figcaption>
-        </figure>
-      </div>
-      <p class="scroll-hint" aria-hidden="true">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
-    </section>
-
-    <section class="section" id="hook" data-title="ชวนคิด">
-      <header class="section-head"><div><p class="kicker">ชวนคิดก่อนเริ่ม</p><h2>แรงสมดุลกันอย่างไร?</h2></div></header>
-      <div class="split">
-        <div class="prose"><p>วัตถุที่อยู่นิ่งไม่ได้แปลว่าไม่มีแรง — แต่แรงทั้งหมด <strong>หักล้างกันพอดี</strong> ทั้งแนว x และ y (\(\sum F_x=0,\ \sum F_y=0\)) และโมเมนต์รวมเป็นศูนย์ (\(\sum\tau=0\))</p><p>การแยกแรงเป็นองค์ประกอบช่วยให้เราตรวจสอบสมดุลได้เป็นตัวเลข</p></div>
-                <aside class="prompt-card bloom-quiz-panel">
-          <p class="prompt-tag">ตรวจความเข้าใจ</p>
-          <div class="quick-quiz" data-qid="force-remember" data-bloom="remember" data-answer="C">
-            <p class="quiz-label">คำถามสั้น</p>
-            <h3 class="prompt-q">เงื่อนไขสมดุลเชิงเส้นในสองมิติคือข้อใด?</h3>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> \(F=ma\)</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> \(M=Fd\)</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> \(\sum F_x=0\) และ \(\sum F_y=0\)</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> \(F_x=F_y\) ทุกแรง</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> \(\sum m=0\)</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="objectives" data-title="จุดประสงค์">
-      <header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
-      <ol class="objective-list">
-        <li><span class="obj-no">1</span><div><h3>ศึกษาองค์ประกอบและการสมดุลของแรง</h3><p>แยกแรงเป็น \(F_x,F_y\) บนโต๊ะแรง และตรวจสอบเงื่อนไขสมดุล \(\sum F=0\)</p></div></li>
-        <li><span class="obj-no">2</span><div><h3>ศึกษาโมเมนต์และสมดุลของคาน</h3><p>ตรวจสอบสมดุลการหมุน \(m_1d_1=m_2d_2\) (โมเมนต์รวมเป็นศูนย์)</p></div></li>
-      </ol>
-      <div class="note note-info"><span class="note-icon" aria-hidden="true">◆</span><p><span class="note-kind">ควรรู้</span><strong>สิ่งที่จะได้ลงมือทำ:</strong> แขวนมวลที่มุมต่าง ๆ บนโต๊ะแรง · วัดองค์ประกอบที่ทำให้สมดุล · เทียบกับ \(F\cos\theta,F\sin\theta\) · ทดลองสมดุลคานด้วยมวลและระยะ</p></div>
-    </section>
-
-    <section class="section band" id="concept" data-title="แนวคิดหลัก">
-      <header class="section-head"><div><p class="kicker">ภาพรวมแนวคิด</p><h2>แรง องค์ประกอบ และโมเมนต์</h2></div></header>
-      <p class="lead">แรงเป็นปริมาณเวกเตอร์ มีทั้งขนาดและทิศ การแยกเป็นองค์ประกอบตามแกนช่วยรวม/หักล้างแรงได้ ส่วนโมเมนต์บอกผลของแรงต่อการหมุน</p>
-      <div class="card-grid cols-3">
-        <article class="info-card"><span class="ic-step">A</span><h3>แรงเป็นเวกเตอร์</h3><p>แยกได้เป็น \(F_x=F\cos\theta\) และ \(F_y=F\sin\theta\) ตามแกน</p></article>
-        <article class="info-card"><span class="ic-step">B</span><h3>สมดุลของแรง</h3><p>วัตถุสมดุลเมื่อ \(\sum F_x=0\) และ \(\sum F_y=0\) (แรงลัพธ์เป็นศูนย์)</p></article>
-        <article class="info-card"><span class="ic-step">C</span><h3>โมเมนต์</h3><p>\(M=F\times d\) ผลของแรงต่อการหมุนรอบจุดหมุน สมดุลเมื่อโมเมนต์รวม \(=0\)</p></article>
-      </div>
-    </section>
-
-    <section class="section spotlight" id="theory" data-title="ทฤษฎี">
-      <header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>สมดุลของแรงและโมเมนต์</h2></div></header>
-      <div class="theory-grid">
-        <div class="prose">
-          <p><strong>องค์ประกอบของแรง:</strong> แรง \(F\) ที่ทำมุม \(\theta\) กับแกน x แยกเป็น \(F_x=F\cos\theta\), \(F_y=F\sin\theta\) ที่โต๊ะแรง วงแหวนอยู่นิ่งกลางเมื่อ \(\sum F_x=\sum F_y=0\)</p>
-          <p><strong>โมเมนต์:</strong> \(M=F\times d\) (แรงตั้งฉาก × ระยะจากจุดหมุน) คานสมดุลเมื่อโมเมนต์ทวนเข็ม = โมเมนต์ตามเข็ม คือ \(m_1d_1=m_2d_2\)</p>
-          <ul class="tick-list"><li>วัดมุมจากแกนอ้างอิงของแผ่นองศา</li><li>วงแหวน (Force ring) ต้องอยู่กลางพอดีจึงสมดุล</li><li>โมเมนต์ใช้ระยะตั้งฉากจากจุดหมุน</li></ul>
-        </div>
-                <aside class="prompt-card bloom-quiz-panel">
-          <p class="prompt-tag">ตรวจความเข้าใจ</p>
-          <div class="quick-quiz" data-qid="force-understand" data-bloom="understand" data-answer="A">
-            <p class="quiz-label">คำถามสั้น</p>
-            <h3 class="prompt-q">เหตุใดต้องบันทึกมุมของแรง ไม่ใช่เพียงขนาดของแรง?</h3>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> เพราะแรงเป็นเวกเตอร์และต้องใช้ทิศในการหาองค์ประกอบ</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> เพราะมุมทำให้มวลเพิ่ม</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> เพื่อให้วงแหวนหนักขึ้น</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> เพราะแรงไม่มีหน่วย</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> เพื่อใช้แทนระยะจากจุดหมุนทุกกรณี</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-          <div class="quick-quiz" data-qid="force-apply" data-bloom="apply" data-answer="D">
-            <p class="quiz-label">คำถามสั้น</p>
-            <h3 class="prompt-q">แรง \(10\,N\) ทำมุม \(60^\circ\) กับแกน x มีองค์ประกอบ \(F_x\) เท่าใด?</h3>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> 0 N</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> 2.5 N</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> 4.0 N</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> 5.0 N</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> 8.66 N</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="equipment" data-title="อุปกรณ์">
-      <header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
-      <div class="card-grid cols-3 equip-grid">
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: โต๊ะแรง"><img src="assets/equip/equip-1.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>โต๊ะแรง / กระดานแรง + แผ่นองศา</h3><p>จานวงกลมมีสเกลองศา ใช้แขวนแรงหลายทิศพร้อมกัน อ่านมุมของแต่ละแรงได้</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: Force ring"><img src="assets/equip/equip-2.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>วงแหวน (Force ring)</h3><p>จุดรวมของเชือกทุกเส้น เมื่อแรงสมดุลวงแหวนจะอยู่นิ่งตรงกลางจุดหมุน — ตัวชี้วัดสมดุล</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: รอก"><img src="assets/equip/equip-3.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>รอก</h3><p>เปลี่ยนทิศของเชือกให้แรงดึงตามแนวที่ต้องการ โดยขนาดแรงยังเท่ากับน้ำหนักที่แขวน</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: มวลถ่วงและเชือก"><img src="assets/equip/equip-4.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>มวลถ่วงและเชือก</h3><p>ให้แรงดึงขนาดต่าง ๆ (\(F=mg\)) ผ่านเชือกที่คล้องวงแหวนหรือแขวนบนคาน</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: คานและจุดหมุน"><img src="assets/equip/equip-5.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>คาน + จุดหมุน</h3><p>ใช้ทดลองโมเมนต์ แขวนมวลที่ระยะต่าง ๆ จากจุดหมุน ปรับจนคานสมดุลแนวนอน</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: เครื่องชั่งดิจิทัล"><img src="assets/equip/equip-6.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>เครื่องชั่งดิจิทัล</h3><p>หามวลของก้อนถ่วงน้ำหนักเพื่อคำนวณแรง \(F=mg\) และโมเมนต์</p></figcaption></figure>
-      </div>
-    </section>
-
-    <section class="section" id="formula" data-title="สูตร">
-      <header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
-      <div class="card-grid cols-3">
-        <article class="formula-card formula-accent"><h3>องค์ประกอบแกน x</h3><p class="formula">\[F_x=F\cos\theta\]</p><p class="formula-note">วัดมุมจากแกน x</p></article>
-        <article class="formula-card"><h3>องค์ประกอบแกน y</h3><p class="formula">\[F_y=F\sin\theta\]</p><p class="formula-note">ตั้งฉากกับแกน x</p></article>
-        <article class="formula-card"><h3>สมดุลของแรง</h3><p class="formula">\[\textstyle\sum F_x=0,\ \sum F_y=0\]</p><p class="formula-note">วงแหวนนิ่งกลาง</p></article>
-        <article class="formula-card"><h3>โมเมนต์</h3><p class="formula">\[M=F\times d\]</p><p class="formula-note">หน่วย N·m</p></article>
-        <article class="formula-card"><h3>สมดุลของคาน</h3><p class="formula">\[m_1d_1=m_2d_2\]</p><p class="formula-note">โมเมนต์รวม \(=0\)</p></article>
-        <article class="formula-card"><h3>ร้อยละความแตกต่าง</h3><p class="formula">\[\%\,\mathrm{diff}=\dfrac{|M_1-M_2|}{(M_1+M_2)/2}\times100\]</p><p class="formula-note">ตรวจสมดุลโมเมนต์</p></article>
-      </div>
-    </section>
-
-    <section class="section" id="procedure" data-title="ขั้นตอน">
-      <header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
-      <ol class="steps">
-        <li><span class="step-n">1</span><div><h3>ตอนที่ 1 · ตั้งโต๊ะแรง</h3><p>ปรับให้วงแหวน (Force ring) อยู่กลางจุดหมุนเป็นศูนย์ (TARE)</p><p class="step-caution"><b>ระวัง:</b> ปรับให้วงแหวนอยู่กึ่งกลางพอดี (สมดุล) ก่อนอ่านค่าแรง</p></div></li>
-        <li><span class="step-n">2</span><div><h3>แขวนแรงและองค์ประกอบ</h3><p>แขวนแรง \(F\) ที่มุม \(\theta\) แล้วปรับมวลในแนว x และ y จนวงแหวนสมดุลกลาง บันทึกมวลองค์ประกอบ</p><p class="step-caution"><b>ระวัง:</b> รวมมวลของที่แขวน (hanger) เข้าไปในแรงด้วย</p></div></li>
-        <li><span class="step-n">3</span><div><h3>คำนวณและเทียบ</h3><p>คำนวณ \(F_x=F\cos\theta,\ F_y=F\sin\theta\) เทียบกับองค์ประกอบที่วัดได้ ทำซ้ำหลายมุม</p><p class="step-caution"><b>ระวัง:</b> ใช้มุมที่วัดจากแกนอ้างอิงเดียวกันสำหรับทุกแรง</p></div></li>
-        <li><span class="step-n">4</span><div><h3>ตอนที่ 2 · สมดุลคาน</h3><p>แขวนมวล \(m_1\) ที่ระยะ \(d_1\) และ \(m_2\) ที่ระยะ \(d_2\) ปรับจนคานสมดุลแนวนอน</p><p class="step-caution"><b>ระวัง:</b> วัดระยะจากจุดหมุน (pivot) ให้ตรง โมเมนต์คือแรงคูณระยะตั้งฉาก</p></div></li>
-        <li><span class="step-n">5</span><div><h3>ตรวจโมเมนต์</h3><p>คำนวณ \(M_1=m_1d_1,\ M_2=m_2d_2\) แล้วหาร้อยละความแตกต่าง — ควรเข้าใกล้ 0</p><p class="step-caution"><b>ระวัง:</b> ถ้าจุดหมุนไม่อยู่กึ่งกลาง ต้องคิดโมเมนต์จากมวลคานเองด้วย</p></div></li>
-      </ol>
-      <div class="note note-warn"><span class="note-icon" aria-hidden="true">!</span><div><span class="note-kind">ข้อควรระวัง</span><strong>ระวังระหว่างวัด</strong><ul><li>ตั้งวงแหวนให้อยู่กลางจุดหมุนพอดีจึงถือว่าสมดุล</li><li>อ่านมุมจากแกนอ้างอิงของแผ่นองศา</li><li>โมเมนต์ใช้ระยะตั้งฉากจากจุดหมุน</li></ul></div></div>
-    </section>
-
-    <section class="section band" id="data" data-title="ตารางข้อมูล">
-      <header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>ตารางผลการทดลอง</h2></div></header>
-      <p class="lead">กรอกแรง/มุม และองค์ประกอบที่วัดได้ (ตอน 1) และมวล/ระยะของคาน (ตอน 2) ระบบคำนวณองค์ประกอบ โมเมนต์ และร้อยละความคลาดเคลื่อน/แตกต่างให้อัตโนมัติ (ทำงานในหน่วยแรงเชิงมวล gram-force)</p>
-
-      <div class="worksheet-block">
-        <h3>ตอนที่ 1 · องค์ประกอบของแรง</h3>
-        <aside class="note note-warn note-block" style="margin-bottom:1rem;">
-          <span class="note-icon" aria-hidden="true">!</span>
-          <div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
-          <p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
-        </aside>
-        <div class="table-wrap">
-          <table class="data-table">
-          <thead><tr><th scope="col">\(F\) (g)</th><th scope="col">\(\theta\) (°)</th><th scope="col">\(F_x=F\cos\theta\) (g)</th><th scope="col">\(F_x\) วัด (g)</th><th scope="col">\(F_y=F\sin\theta\) (g)</th><th scope="col">\(F_y\) วัด (g)</th></tr></thead>
-          <tbody id="fcBody">
-            <tr data-row="0"><td><input data-F data-store="fc_F0" type="number" step="1" inputmode="decimal"></td><td><input data-th data-store="fc_th0" type="number" step="1" inputmode="decimal"></td><td data-fxc>—</td><td><input data-fxm data-store="fc_fxm0" type="number" step="1" inputmode="decimal"></td><td data-fyc>—</td><td><input data-fym data-store="fc_fym0" type="number" step="1" inputmode="decimal"></td></tr>
-            <tr data-row="1"><td><input data-F data-store="fc_F1" type="number" step="1" inputmode="decimal"></td><td><input data-th data-store="fc_th1" type="number" step="1" inputmode="decimal"></td><td data-fxc>—</td><td><input data-fxm data-store="fc_fxm1" type="number" step="1" inputmode="decimal"></td><td data-fyc>—</td><td><input data-fym data-store="fc_fym1" type="number" step="1" inputmode="decimal"></td></tr>
-            <tr data-row="2"><td><input data-F data-store="fc_F2" type="number" step="1" inputmode="decimal"></td><td><input data-th data-store="fc_th2" type="number" step="1" inputmode="decimal"></td><td data-fxc>—</td><td><input data-fxm data-store="fc_fxm2" type="number" step="1" inputmode="decimal"></td><td data-fyc>—</td><td><input data-fym data-store="fc_fym2" type="number" step="1" inputmode="decimal"></td></tr>
-          </tbody>
-        </table></div>
-        <p class="calc-line">ร้อยละคลาดเคลื่อนเฉลี่ย \(F_x\): <output id="errFxOutput">—</output> · \(F_y\): <output id="errFyOutput">—</output></p>
-      </div>
-
-      <div class="worksheet-block">
-        <h3>ตอนที่ 2 · โมเมนต์และสมดุลของคาน</h3>
-        <aside class="note note-warn note-block" style="margin-bottom:1rem;">
-          <span class="note-icon" aria-hidden="true">!</span>
-          <div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
-          <p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
-        </aside>
-        <div class="table-wrap">
-          <table class="data-table">
-          <thead><tr><th scope="col">\(m_1\) (g)</th><th scope="col">\(d_1\) (cm)</th><th scope="col">\(m_2\) (g)</th><th scope="col">\(d_2\) (cm)</th><th scope="col">\(M_1=m_1d_1\)</th><th scope="col">\(M_2=m_2d_2\)</th><th scope="col">% ต่าง</th></tr></thead>
-          <tbody id="mmBody">
-            <tr data-row="0"><td><input data-m1 data-store="mm_m1_0" type="number" step="1" inputmode="decimal"></td><td><input data-d1 data-store="mm_d1_0" type="number" step="0.1" inputmode="decimal"></td><td><input data-m2 data-store="mm_m2_0" type="number" step="1" inputmode="decimal"></td><td><input data-d2 data-store="mm_d2_0" type="number" step="0.1" inputmode="decimal"></td><td data-M1>—</td><td data-M2>—</td><td data-md>—</td></tr>
-            <tr data-row="1"><td><input data-m1 data-store="mm_m1_1" type="number" step="1" inputmode="decimal"></td><td><input data-d1 data-store="mm_d1_1" type="number" step="0.1" inputmode="decimal"></td><td><input data-m2 data-store="mm_m2_1" type="number" step="1" inputmode="decimal"></td><td><input data-d2 data-store="mm_d2_1" type="number" step="0.1" inputmode="decimal"></td><td data-M1>—</td><td data-M2>—</td><td data-md>—</td></tr>
-            <tr data-row="2"><td><input data-m1 data-store="mm_m1_2" type="number" step="1" inputmode="decimal"></td><td><input data-d1 data-store="mm_d1_2" type="number" step="0.1" inputmode="decimal"></td><td><input data-m2 data-store="mm_m2_2" type="number" step="1" inputmode="decimal"></td><td><input data-d2 data-store="mm_d2_2" type="number" step="0.1" inputmode="decimal"></td><td data-M1>—</td><td data-M2>—</td><td data-md>—</td></tr>
-          </tbody>
-        </table></div>
-        <p class="calc-line">ร้อยละความแตกต่างของโมเมนต์เฉลี่ย: <output id="mDiffOutput">—</output></p>
-      </div>
-
-      <div class="actions-row"><button type="button" class="btn btn-soft" id="resetTable">ล้างข้อมูลตาราง</button><span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span></div>
-    </section>
-
-    <section class="section" id="example" data-title="ตัวอย่าง">
-      <header class="section-head"><div><p class="kicker">ทำตามทีละบรรทัด</p><h2>ตัวอย่างการคำนวณ</h2></div></header>
-      <p class="lead">ตัวอย่างค่าสมมติเพื่อแสดงวิธีแทนค่า (ไม่ใช่ค่าจากการทดลองจริง)</p>
-      <div class="reveal-controls"><button type="button" class="btn btn-primary" id="exampleShow">แสดงตัวอย่างการคำนวณ</button><button type="button" class="btn btn-ghost" id="exampleHide" hidden>ซ่อนตัวอย่าง</button></div>
-      <div class="example-body" id="exampleBody" hidden></div>
-    </section>
-
-    <section class="section" id="checkpoint" data-title="ตรวจสอบ">
-      <header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
-      <div class="prompt-card prompt-wide">
-        <p class="prompt-tag">คำถามท้าทาย</p>
-        <p class="prompt-q">คานสมดุล มีมวล \(m_1=100\,g\) ที่ \(d_1=20\,cm\) อีกฝั่งใช้มวล \(m_2=200\,g\) ต้องวางที่ระยะ \(d_2\) เท่าใด?</p>
-        <div class="reveal-controls"><button type="button" class="btn btn-primary" id="answerShow">แสดงคำตอบ</button><button type="button" class="btn btn-ghost" id="answerHide" hidden>ซ่อนคำตอบ</button></div>
-        <div class="answer-body" id="answerBody" hidden>
-          <p>สมดุลเมื่อ \(m_1d_1=m_2d_2\) → \(d_2=\dfrac{m_1d_1}{m_2}=\dfrac{100\times20}{200}\) = <strong>10 cm</strong></p>
-          <ul class="tick-list"><li>มวลมากกว่าต้องอยู่ใกล้จุดหมุนกว่า</li><li>โมเมนต์ทั้งสองฝั่งเท่ากันจึงไม่หมุน</li></ul>
-          <p class="muted">บทเรียน: สมดุลการหมุนขึ้นกับทั้งแรงและระยะจากจุดหมุน</p>
-        </div>
-      </div>
-      <div class="quick-quiz" data-qid="force-analyze" data-bloom="analyze" data-answer="B">
-        <p class="quiz-label">คำถามสั้น</p>
-        <h3 class="prompt-q">คานสมดุลมีมวล 100 g ที่ระยะ 20 cm อีกด้านใช้มวล 200 g ต้องวางที่ระยะเท่าใด?</h3>
-        <div class="quiz-options">
-          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> 5 cm</button>
-          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> 10 cm</button>
-          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> 20 cm</button>
-          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> 30 cm</button>
-          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> 40 cm</button>
-        </div>
-        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="section" id="analysis" data-title="วิเคราะห์">
-      <header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
-      <div class="split">
-        <ol class="analysis-steps">
-          <li>คำนวณ \(F_x,F_y\) ทุกแรง แล้วเทียบกับองค์ประกอบที่วัดได้ (ร้อยละคลาดเคลื่อน)</li>
-          <li>ตรวจว่าผลรวม \(\sum F_x,\ \sum F_y\) เข้าใกล้ศูนย์ที่สมดุลหรือไม่</li>
-          <li>คำนวณ \(M_1,M_2\) ของคาน แล้วหาร้อยละความแตกต่าง</li>
-          <li>อภิปรายว่าผลสนับสนุนเงื่อนไขสมดุล \(\sum F=0,\ \sum\tau=0\) เพียงใด</li>
-        </ol>
-        <aside class="note note-info note-block"><span class="note-icon" aria-hidden="true">◆</span><div><span class="note-kind">ควรรู้</span><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>การจัดวงแหวนให้อยู่กลางพอดี</li><li>การอ่านมุมจากแผ่นองศา</li><li>แรงเสียดทานที่รอกและมวลของเชือก</li></ul></div></aside>
-      </div>
-      <div class="quick-quiz" data-qid="force-evaluate" data-bloom="evaluate" data-answer="E">
-        <p class="quiz-label">คำถามสั้น</p>
-        <h3 class="prompt-q">หลักฐานชุดใดสนับสนุนสมดุลของแรงได้ดีที่สุด?</h3>
-        <div class="quiz-options">
-          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> วงแหวนอยู่ใกล้ขอบโต๊ะ</button>
-          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> มวลทุกก้อนเท่ากัน</button>
-          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> มุมทุกมุมเป็น 90°</button>
-          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> แรงแต่ละแรงมีค่ามาก</button>
-          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> วงแหวนอยู่กลางและผลรวมองค์ประกอบใกล้ศูนย์ภายในความไม่แน่นอน</button>
-        </div>
-        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="section spotlight" id="conclusion" data-title="สรุป">
-      <header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
-      <div class="conclusion-grid">
-        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong>&nbsp;จากข้อมูลของคุณเอง</p>
-        <ul class="conclusion-points">
-          <li><span class="cp-ico">1</span><div><h3>รายงานองค์ประกอบแรง</h3><p>เทียบ \(F_x,F_y\) ที่คำนวณกับที่วัด พร้อมร้อยละความคลาดเคลื่อน</p></div></li>
-          <li><span class="cp-ico">2</span><div><h3>ยืนยันสมดุลของแรง</h3><p>รายงานว่า \(\sum F_x,\sum F_y\) เข้าใกล้ศูนย์เพียงใด</p></div></li>
-          <li><span class="cp-ico">3</span><div><h3>ยืนยันสมดุลโมเมนต์</h3><p>รายงาน \(M_1,M_2\) และร้อยละความแตกต่าง เพื่อยืนยัน \(m_1d_1=m_2d_2\)</p></div></li>
-          <li><span class="cp-ico">4</span><div><h3>อภิปรายแหล่งคลาดเคลื่อน</h3><p>ระบุสาเหตุหลัก เช่น การจัดวงแหวน การอ่านมุม และแรงเสียดทานที่รอก</p></div></li>
-
-          <li class="cp-extra"><span class="cp-ico">5</span><div><h3>ความรู้ที่ได้เพิ่มเติม</h3><p>เขียนสิ่งที่ค้นคว้าหรือควรรู้เพิ่มเติมจากการทดลองนี้ด้วยคำพูดของตนเอง เช่น การนำหลักการไปใช้ในสถานการณ์จริง ความเชื่อมโยงกับเนื้อหาอื่น หรือเทคนิคลดความคลาดเคลื่อนที่ค้นพบระหว่างทำการทดลอง</p></div></li>
-        </ul>
-      </div>
-      <p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
-    </section>
-
-    <section class="section band" id="discussion" data-title="อภิปราย">
-      <header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
-      <div class="q-grid">
-        <article class="q-card"><span class="q-no">Q1</span><p>เหตุใดวัตถุที่อยู่นิ่งจึงยังมีแรงกระทำได้หลายแรง?</p></article>
-        <article class="q-card"><span class="q-no">Q2</span><p>การแยกแรงเป็นองค์ประกอบช่วยตรวจสอบสมดุลอย่างไร?</p></article>
-        <article class="q-card"><span class="q-no">Q3</span><p>เหตุใดมวลที่มากกว่าต้องอยู่ใกล้จุดหมุนกว่าจึงจะสมดุล?</p></article>
-        <article class="q-card"><span class="q-no">Q4</span><p>แรงเสียดทานที่รอกและมวลของเชือกส่งผลต่อผลการทดลองอย่างไร?</p></article>
-        <article class="q-card"><span class="q-no">Q5</span><p>ผลของกลุ่มสนับสนุนเงื่อนไขสมดุล \(\sum F=0\) และ \(\sum\tau=0\) เพียงใด?</p></article>
-      </div>
-      <div class="quick-quiz" data-qid="force-create" data-bloom="create" data-answer="C">
-        <p class="quiz-label">คำถามสั้น</p>
-        <h3 class="prompt-q">ถ้าต้องปรับการทดลองโต๊ะแรงเพื่อลดความคลาดเคลื่อน แนวทางใดเหมาะสมที่สุด?</h3>
-        <div class="quiz-options">
-          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> ใช้รอกที่ฝืดขึ้น</button>
-          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> อ่านมุมจากคนละแกนอ้างอิง</button>
-          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> จัดรอกให้ตรง ใช้รอกเสียดทานต่ำ ตรวจมวล และทำซ้ำหลายมุม</button>
-          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ละเลยมวลของที่แขวน</button>
-          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ยอมให้วงแหวนแตะหมุดกลาง</button>
-        </div>
-        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="section band" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
-      <header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
-            <div class="prompt-card prompt-wide" style="margin: 0 auto;">
-        <p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
-          <span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
+<a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+<span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+<header class="topbar" id="topbar">
+<div class="topbar-inner">
+<a aria-label="กลับสู่ด้านบน" class="brand" href="#hero"><span class="brand-badge">09</span><span class="brand-text"><strong>แรง</strong><small>261111 · ปฏิบัติการฟิสิกส์</small></span></a>
+<nav aria-label="สารบัญบทปฏิบัติการ" class="phase-nav" id="chipNav">
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">เริ่มต้น</button><div class="phase-menu" role="menu"><a class="chip" href="#hero" role="menuitem">บทนำ</a><a class="chip" href="#hook" role="menuitem">ชวนคิด</a><a class="chip" href="#objectives" role="menuitem">จุดประสงค์</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">หลักการ</button><div class="phase-menu" role="menu"><a class="chip" href="#concept" role="menuitem">แนวคิดหลัก</a><a class="chip" href="#theory" role="menuitem">ทฤษฎี</a><a class="chip" href="#equipment" role="menuitem">อุปกรณ์</a><a class="chip" href="#formula" role="menuitem">สูตร</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">ลงมือทำ</button><div class="phase-menu" role="menu"><a class="chip" href="#procedure" role="menuitem">ขั้นตอน</a><a class="chip" href="#data" role="menuitem">ตารางข้อมูล</a><a class="chip" href="#example" role="menuitem">ตัวอย่าง</a><a class="chip" href="#checkpoint" role="menuitem">ตรวจสอบ</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">สรุปผล</button><div class="phase-menu" role="menu"><a class="chip" href="#analysis" role="menuitem">วิเคราะห์</a><a class="chip" href="#additional-knowledge" role="menuitem">ความรู้เพิ่มเติม</a><a class="chip" href="#conclusion" role="menuitem">สรุป</a><a class="chip" href="#discussion" role="menuitem">อภิปราย</a></div></div>
+</nav>
+<div class="topbar-meta">
+<span aria-hidden="true" class="sec-counter"><b id="secNow">01</b><span>/14</span></span>
+<div aria-label="อัตราส่วนการแสดงผล" class="ratio-seg" role="group"><span aria-hidden="true" class="ratio-seg-ico">▭</span><button aria-pressed="true" data-ratio="full" type="button">จอเต็ม</button><button aria-pressed="false" data-ratio="43" type="button">4:3</button><button aria-pressed="false" data-ratio="169" type="button">16:9</button></div>
+<button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
+</div>
+</div>
+<div aria-label="ความคืบหน้าการอ่าน" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="read-progress" role="progressbar"><span id="readBar"></span></div>
+</header>
+<main id="main">
+<section class="section hero" data-title="บทนำ" id="hero">
+<div class="hero-top"><p class="hero-eyebrow">261111 · ปฏิบัติการฟิสิกส์ · บทที่ 09</p><h1 class="hero-title">แรง</h1></div>
+<div class="hero-grid">
+<div class="hero-copy">
+<figure class="hero-question"><figcaption class="hq-tag">คำถามชวนคิด</figcaption><blockquote class="hq-text">เมื่อแรงหลายแรงดึงวัตถุพร้อมกัน อะไรทำให้มัน <strong>นิ่งสมดุล</strong>? และเราจะแยกแรงเอียง ๆ เป็น <strong>องค์ประกอบ x, y</strong> เพื่อทำนายการสมดุลได้อย่างไร</blockquote></figure>
+<ul class="hero-meta"><li><span class="hm-num">ΣF</span><span class="hm-label">= 0 ที่สมดุล (และ Στ = 0)</span></li></ul>
+<div class="hero-actions"><a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a><a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a></div>
+</div>
+<figure class="hero-visual">
+<span class="fig-tag">FIG.1 · องค์ประกอบของแรง</span>
+<svg aria-label="แผนภาพโต๊ะแรง: จานองศา วงแหวนกลาง รอกขอบโต๊ะ และมวลแขวน" role="img" viewbox="0 0 340 300">
+<defs>
+<lineargradient id="metalGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#edf2fc"></stop><stop offset="1" stop-color="#c1d1ed"></stop></lineargradient>
+</defs>
+<!-- โต๊ะแรง (จานองศา top-down) -->
+<circle cx="170" cy="150" fill="rgba(37,99,235,.05)" r="108" stroke="#cddffb" stroke-width="1.5"></circle>
+<circle cx="170" cy="150" fill="none" r="100" stroke="#a8c6f6" stroke-dasharray="1.3 5" stroke-width="3"></circle>
+<!-- สาย/แรง 3 เส้นจากวงแหวนไปรอก -->
+<g stroke="#2563eb" stroke-linecap="round" stroke-width="2.6">
+<line x1="170" x2="278" y1="150" y2="150"></line>
+<line x1="170" x2="116" y1="150" y2="56"></line>
+<line x1="170" x2="116" y1="150" y2="244"></line>
+</g>
+<!-- รอกขอบโต๊ะ + สายลงมวล -->
+<g fill="none" stroke="#173fa6" stroke-width="2">
+<path d="M278,150 H304"></path><path d="M116,56 L96,42"></path><path d="M116,244 L96,258"></path>
+</g>
+<g fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1">
+<circle cx="278" cy="150" r="8"></circle><circle cx="116" cy="56" r="8"></circle><circle cx="116" cy="244" r="8"></circle>
+</g>
+<!-- มวลแขวน (slotted) -->
+<g fill="#2f6fe0" stroke="#173fa6" stroke-width="1.1">
+<rect height="15" rx="4" width="22" x="300" y="142"></rect><rect height="15" rx="4" width="22" x="84" y="30"></rect><rect height="15" rx="4" width="22" x="84" y="252"></rect>
+</g>
+<!-- วงแหวนกลาง (สมดุล) -->
+<circle cx="170" cy="150" fill="#fff" r="11" stroke="#122a4f" stroke-width="3"></circle>
+<!-- ป้ายกำกับ -->
+<text class="d-label" x="232" y="34">โต๊ะแรง</text>
+<text class="d-label" x="178" y="178">วงแหวน</text>
+<text class="d-label" x="252" y="138">รอก</text>
+<text class="d-label" text-anchor="middle" x="96" y="286">มวลแขวน</text>
+</svg>
+<figcaption>แรงเอียงแยกเป็น \(F_x=F\cos\theta\) และ \(F_y=F\sin\theta\)</figcaption>
+</figure>
+</div>
+<p aria-hidden="true" class="scroll-hint">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
+</section>
+<section class="section" data-title="ชวนคิด" id="hook">
+<header class="section-head"><div><p class="kicker">ชวนคิดก่อนเริ่ม</p><h2>แรงสมดุลกันอย่างไร?</h2></div></header>
+<div class="split">
+<div class="prose"><p>วัตถุที่อยู่นิ่งไม่ได้แปลว่าไม่มีแรง — แต่แรงทั้งหมด <strong>หักล้างกันพอดี</strong> ทั้งแนว x และ y (\(\sum F_x=0,\ \sum F_y=0\)) และโมเมนต์รวมเป็นศูนย์ (\(\sum\tau=0\))</p><p>การแยกแรงเป็นองค์ประกอบช่วยให้เราตรวจสอบสมดุลได้เป็นตัวเลข</p></div>
+<aside class="prompt-card bloom-quiz-panel">
+<p class="prompt-tag">ตรวจความเข้าใจ</p>
+<div class="quick-quiz" data-answer="C" data-bloom="remember" data-qid="force-remember">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">เงื่อนไขสมดุลเชิงเส้นในสองมิติคือข้อใด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> \(F=ma\)</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> \(M=Fd\)</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> \(\sum F_x=0\) และ \(\sum F_y=0\)</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> \(F_x=F_y\) ทุกแรง</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> \(\sum m=0\)</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</aside>
+</div>
+</section>
+<section class="section" data-title="จุดประสงค์" id="objectives">
+<header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
+<ol class="objective-list">
+<li><span class="obj-no">1</span><div><h3>ศึกษาองค์ประกอบและการสมดุลของแรง</h3><p>แยกแรงเป็น \(F_x,F_y\) บนโต๊ะแรง และตรวจสอบเงื่อนไขสมดุล \(\sum F=0\)</p></div></li>
+<li><span class="obj-no">2</span><div><h3>ศึกษาโมเมนต์และสมดุลของคาน</h3><p>ตรวจสอบสมดุลการหมุน \(m_1d_1=m_2d_2\) (โมเมนต์รวมเป็นศูนย์)</p></div></li>
+</ol>
+<div class="note note-info"><span aria-hidden="true" class="note-icon">◆</span><p><span class="note-kind">ควรรู้</span><strong>สิ่งที่จะได้ลงมือทำ:</strong> แขวนมวลที่มุมต่าง ๆ บนโต๊ะแรง · วัดองค์ประกอบที่ทำให้สมดุล · เทียบกับ \(F\cos\theta,F\sin\theta\) · ทดลองสมดุลคานด้วยมวลและระยะ</p></div>
+</section>
+<section class="section band" data-title="แนวคิดหลัก" id="concept">
+<header class="section-head"><div><p class="kicker">ภาพรวมแนวคิด</p><h2>แรง องค์ประกอบ และโมเมนต์</h2></div></header>
+<p class="lead">แรงเป็นปริมาณเวกเตอร์ มีทั้งขนาดและทิศ การแยกเป็นองค์ประกอบตามแกนช่วยรวม/หักล้างแรงได้ ส่วนโมเมนต์บอกผลของแรงต่อการหมุน</p>
+<div class="card-grid cols-3">
+<article class="info-card"><span class="ic-step">A</span><h3>แรงเป็นเวกเตอร์</h3><p>แยกได้เป็น \(F_x=F\cos\theta\) และ \(F_y=F\sin\theta\) ตามแกน</p></article>
+<article class="info-card"><span class="ic-step">B</span><h3>สมดุลของแรง</h3><p>วัตถุสมดุลเมื่อ \(\sum F_x=0\) และ \(\sum F_y=0\) (แรงลัพธ์เป็นศูนย์)</p></article>
+<article class="info-card"><span class="ic-step">C</span><h3>โมเมนต์</h3><p>\(M=F\times d\) ผลของแรงต่อการหมุนรอบจุดหมุน สมดุลเมื่อโมเมนต์รวม \(=0\)</p></article>
+</div>
+</section>
+<section class="section spotlight" data-title="ทฤษฎี" id="theory">
+<header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>สมดุลของแรงและโมเมนต์</h2></div></header>
+<div class="theory-grid">
+<div class="prose">
+<p><strong>องค์ประกอบของแรง:</strong> แรง \(F\) ที่ทำมุม \(\theta\) กับแกน x แยกเป็น \(F_x=F\cos\theta\), \(F_y=F\sin\theta\) ที่โต๊ะแรง วงแหวนอยู่นิ่งกลางเมื่อ \(\sum F_x=\sum F_y=0\)</p>
+<p><strong>โมเมนต์:</strong> \(M=F\times d\) (แรงตั้งฉาก × ระยะจากจุดหมุน) คานสมดุลเมื่อโมเมนต์ทวนเข็ม = โมเมนต์ตามเข็ม คือ \(m_1d_1=m_2d_2\)</p>
+<ul class="tick-list"><li>วัดมุมจากแกนอ้างอิงของแผ่นองศา</li><li>วงแหวน (Force ring) ต้องอยู่กลางพอดีจึงสมดุล</li><li>โมเมนต์ใช้ระยะตั้งฉากจากจุดหมุน</li></ul>
+</div>
+<aside class="prompt-card bloom-quiz-panel">
+<p class="prompt-tag">ตรวจความเข้าใจ</p>
+<div class="quick-quiz" data-answer="A" data-bloom="understand" data-qid="force-understand">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">เหตุใดต้องบันทึกมุมของแรง ไม่ใช่เพียงขนาดของแรง?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> เพราะแรงเป็นเวกเตอร์และต้องใช้ทิศในการหาองค์ประกอบ</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> เพราะมุมทำให้มวลเพิ่ม</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> เพื่อให้วงแหวนหนักขึ้น</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> เพราะแรงไม่มีหน่วย</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> เพื่อใช้แทนระยะจากจุดหมุนทุกกรณี</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+<div class="quick-quiz" data-answer="D" data-bloom="apply" data-qid="force-apply">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">แรง \(10\,N\) ทำมุม \(60^\circ\) กับแกน x มีองค์ประกอบ \(F_x\) เท่าใด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> 0 N</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> 2.5 N</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> 4.0 N</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> 5.0 N</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> 8.66 N</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</aside>
+</div>
+</section>
+<section class="section" data-title="อุปกรณ์" id="equipment">
+<header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
+<div class="card-grid cols-3 equip-grid">
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: โต๊ะแรง" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-1.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>โต๊ะแรง / กระดานแรง + แผ่นองศา</h3><p>จานวงกลมมีสเกลองศา ใช้แขวนแรงหลายทิศพร้อมกัน อ่านมุมของแต่ละแรงได้</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: Force ring" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-2.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>วงแหวน (Force ring)</h3><p>จุดรวมของเชือกทุกเส้น เมื่อแรงสมดุลวงแหวนจะอยู่นิ่งตรงกลางจุดหมุน — ตัวชี้วัดสมดุล</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: รอก" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-3.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>รอก</h3><p>เปลี่ยนทิศของเชือกให้แรงดึงตามแนวที่ต้องการ โดยขนาดแรงยังเท่ากับน้ำหนักที่แขวน</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: มวลถ่วงและเชือก" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-4.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>มวลถ่วงและเชือก</h3><p>ให้แรงดึงขนาดต่าง ๆ (\(F=mg\)) ผ่านเชือกที่คล้องวงแหวนหรือแขวนบนคาน</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: คานและจุดหมุน" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-5.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>คาน + จุดหมุน</h3><p>ใช้ทดลองโมเมนต์ แขวนมวลที่ระยะต่าง ๆ จากจุดหมุน ปรับจนคานสมดุลแนวนอน</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: เครื่องชั่งดิจิทัล" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-6.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>เครื่องชั่งดิจิทัล</h3><p>หามวลของก้อนถ่วงน้ำหนักเพื่อคำนวณแรง \(F=mg\) และโมเมนต์</p></figcaption></figure>
+</div>
+</section>
+<section class="section" data-title="สูตร" id="formula">
+<header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
+<div class="card-grid cols-3">
+<article class="formula-card formula-accent"><h3>องค์ประกอบแกน x</h3><p class="formula">\[F_x=F\cos\theta\]</p><p class="formula-note">วัดมุมจากแกน x</p></article>
+<article class="formula-card"><h3>องค์ประกอบแกน y</h3><p class="formula">\[F_y=F\sin\theta\]</p><p class="formula-note">ตั้งฉากกับแกน x</p></article>
+<article class="formula-card"><h3>สมดุลของแรง</h3><p class="formula">\[\textstyle\sum F_x=0,\ \sum F_y=0\]</p><p class="formula-note">วงแหวนนิ่งกลาง</p></article>
+<article class="formula-card"><h3>โมเมนต์</h3><p class="formula">\[M=F\times d\]</p><p class="formula-note">หน่วย N·m</p></article>
+<article class="formula-card"><h3>สมดุลของคาน</h3><p class="formula">\[m_1d_1=m_2d_2\]</p><p class="formula-note">โมเมนต์รวม \(=0\)</p></article>
+<article class="formula-card"><h3>ร้อยละความแตกต่าง</h3><p class="formula">\[\%\,\mathrm{diff}=\dfrac{|M_1-M_2|}{(M_1+M_2)/2}\times100\]</p><p class="formula-note">ตรวจสมดุลโมเมนต์</p></article>
+</div>
+</section>
+<section class="section" data-title="ขั้นตอน" id="procedure">
+<header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
+<ol class="steps">
+<li><span class="step-n">1</span><div><h3>ตอนที่ 1 · ตั้งโต๊ะแรง</h3><p>ปรับให้วงแหวน (Force ring) อยู่กลางจุดหมุนเป็นศูนย์ (TARE)</p><p class="step-caution"><b>ระวัง:</b> ปรับให้วงแหวนอยู่กึ่งกลางพอดี (สมดุล) ก่อนอ่านค่าแรง</p></div></li>
+<li><span class="step-n">2</span><div><h3>แขวนแรงและองค์ประกอบ</h3><p>แขวนแรง \(F\) ที่มุม \(\theta\) แล้วปรับมวลในแนว x และ y จนวงแหวนสมดุลกลาง บันทึกมวลองค์ประกอบ</p><p class="step-caution"><b>ระวัง:</b> รวมมวลของที่แขวน (hanger) เข้าไปในแรงด้วย</p></div></li>
+<li><span class="step-n">3</span><div><h3>คำนวณและเทียบ</h3><p>คำนวณ \(F_x=F\cos\theta,\ F_y=F\sin\theta\) เทียบกับองค์ประกอบที่วัดได้ ทำซ้ำหลายมุม</p><p class="step-caution"><b>ระวัง:</b> ใช้มุมที่วัดจากแกนอ้างอิงเดียวกันสำหรับทุกแรง</p></div></li>
+<li><span class="step-n">4</span><div><h3>ตอนที่ 2 · สมดุลคาน</h3><p>แขวนมวล \(m_1\) ที่ระยะ \(d_1\) และ \(m_2\) ที่ระยะ \(d_2\) ปรับจนคานสมดุลแนวนอน</p><p class="step-caution"><b>ระวัง:</b> วัดระยะจากจุดหมุน (pivot) ให้ตรง โมเมนต์คือแรงคูณระยะตั้งฉาก</p></div></li>
+<li><span class="step-n">5</span><div><h3>ตรวจโมเมนต์</h3><p>คำนวณ \(M_1=m_1d_1,\ M_2=m_2d_2\) แล้วหาร้อยละความแตกต่าง — ควรเข้าใกล้ 0</p><p class="step-caution"><b>ระวัง:</b> ถ้าจุดหมุนไม่อยู่กึ่งกลาง ต้องคิดโมเมนต์จากมวลคานเองด้วย</p></div></li>
+</ol>
+<div class="note note-warn"><span aria-hidden="true" class="note-icon">!</span><div><span class="note-kind">ข้อควรระวัง</span><strong>ระวังระหว่างวัด</strong><ul><li>ตั้งวงแหวนให้อยู่กลางจุดหมุนพอดีจึงถือว่าสมดุล</li><li>อ่านมุมจากแกนอ้างอิงของแผ่นองศา</li><li>โมเมนต์ใช้ระยะตั้งฉากจากจุดหมุน</li></ul></div></div>
+</section>
+<section class="section band" data-title="ตารางข้อมูล" id="data">
+<header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>ตารางผลการทดลอง</h2></div></header>
+<p class="lead">กรอกแรง/มุม และองค์ประกอบที่วัดได้ (ตอน 1) และมวล/ระยะของคาน (ตอน 2) ระบบคำนวณองค์ประกอบ โมเมนต์ และร้อยละความคลาดเคลื่อน/แตกต่างให้อัตโนมัติ (ทำงานในหน่วยแรงเชิงมวล gram-force)</p>
+<div class="worksheet-block">
+<h3>ตอนที่ 1 · องค์ประกอบของแรง</h3>
+<aside class="note note-warn note-block" style="margin-bottom:1rem;">
+<span aria-hidden="true" class="note-icon">!</span>
+<div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
+<p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
+</aside>
+<div class="table-wrap">
+<table class="data-table">
+<thead><tr><th scope="col">\(F\) (g)</th><th scope="col">\(\theta\) (°)</th><th scope="col">\(F_x=F\cos\theta\) (g)</th><th scope="col">\(F_x\) วัด (g)</th><th scope="col">\(F_y=F\sin\theta\) (g)</th><th scope="col">\(F_y\) วัด (g)</th></tr></thead>
+<tbody id="fcBody">
+<tr data-row="0"><td><input data-f="" data-store="fc_F0" inputmode="decimal" step="1" type="number"/></td><td><input data-store="fc_th0" data-th="" inputmode="decimal" step="1" type="number"/></td><td data-fxc="">—</td><td><input data-fxm="" data-store="fc_fxm0" inputmode="decimal" step="1" type="number"/></td><td data-fyc="">—</td><td><input data-fym="" data-store="fc_fym0" inputmode="decimal" step="1" type="number"/></td></tr>
+<tr data-row="1"><td><input data-f="" data-store="fc_F1" inputmode="decimal" step="1" type="number"/></td><td><input data-store="fc_th1" data-th="" inputmode="decimal" step="1" type="number"/></td><td data-fxc="">—</td><td><input data-fxm="" data-store="fc_fxm1" inputmode="decimal" step="1" type="number"/></td><td data-fyc="">—</td><td><input data-fym="" data-store="fc_fym1" inputmode="decimal" step="1" type="number"/></td></tr>
+<tr data-row="2"><td><input data-f="" data-store="fc_F2" inputmode="decimal" step="1" type="number"/></td><td><input data-store="fc_th2" data-th="" inputmode="decimal" step="1" type="number"/></td><td data-fxc="">—</td><td><input data-fxm="" data-store="fc_fxm2" inputmode="decimal" step="1" type="number"/></td><td data-fyc="">—</td><td><input data-fym="" data-store="fc_fym2" inputmode="decimal" step="1" type="number"/></td></tr>
+</tbody>
+</table></div>
+<p class="calc-line">ร้อยละคลาดเคลื่อนเฉลี่ย \(F_x\): <output id="errFxOutput">—</output> · \(F_y\): <output id="errFyOutput">—</output></p>
+</div>
+<div class="worksheet-block">
+<h3>ตอนที่ 2 · โมเมนต์และสมดุลของคาน</h3>
+<aside class="note note-warn note-block" style="margin-bottom:1rem;">
+<span aria-hidden="true" class="note-icon">!</span>
+<div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
+<p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
+</aside>
+<div class="table-wrap">
+<table class="data-table">
+<thead><tr><th scope="col">\(m_1\) (g)</th><th scope="col">\(d_1\) (cm)</th><th scope="col">\(m_2\) (g)</th><th scope="col">\(d_2\) (cm)</th><th scope="col">\(M_1=m_1d_1\)</th><th scope="col">\(M_2=m_2d_2\)</th><th scope="col">% ต่าง</th></tr></thead>
+<tbody id="mmBody">
+<tr data-row="0"><td><input data-m1="" data-store="mm_m1_0" inputmode="decimal" step="1" type="number"/></td><td><input data-d1="" data-store="mm_d1_0" inputmode="decimal" step="0.1" type="number"/></td><td><input data-m2="" data-store="mm_m2_0" inputmode="decimal" step="1" type="number"/></td><td><input data-d2="" data-store="mm_d2_0" inputmode="decimal" step="0.1" type="number"/></td><td data-m1="">—</td><td data-m2="">—</td><td data-md="">—</td></tr>
+<tr data-row="1"><td><input data-m1="" data-store="mm_m1_1" inputmode="decimal" step="1" type="number"/></td><td><input data-d1="" data-store="mm_d1_1" inputmode="decimal" step="0.1" type="number"/></td><td><input data-m2="" data-store="mm_m2_1" inputmode="decimal" step="1" type="number"/></td><td><input data-d2="" data-store="mm_d2_1" inputmode="decimal" step="0.1" type="number"/></td><td data-m1="">—</td><td data-m2="">—</td><td data-md="">—</td></tr>
+<tr data-row="2"><td><input data-m1="" data-store="mm_m1_2" inputmode="decimal" step="1" type="number"/></td><td><input data-d1="" data-store="mm_d1_2" inputmode="decimal" step="0.1" type="number"/></td><td><input data-m2="" data-store="mm_m2_2" inputmode="decimal" step="1" type="number"/></td><td><input data-d2="" data-store="mm_d2_2" inputmode="decimal" step="0.1" type="number"/></td><td data-m1="">—</td><td data-m2="">—</td><td data-md="">—</td></tr>
+</tbody>
+</table></div>
+<p class="calc-line">ร้อยละความแตกต่างของโมเมนต์เฉลี่ย: <output id="mDiffOutput">—</output></p>
+</div>
+<div class="actions-row"><button class="btn btn-soft" id="resetTable" type="button">ล้างข้อมูลตาราง</button><span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span></div>
+</section>
+<section class="section" data-title="ตรวจสอบ" id="checkpoint">
+<header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
+<div class="prompt-card">
+<p class="prompt-tag">คำถามท้าทาย</p>
+<p class="prompt-q">คานสมดุล มีมวล \(m_1=100\,g\) ที่ \(d_1=20\,cm\) อีกฝั่งใช้มวล \(m_2=200\,g\) ต้องวางที่ระยะ \(d_2\) เท่าใด?</p>
+<div class="reveal-controls"><button class="btn btn-primary" id="answerShow" type="button">แสดงคำตอบ</button><button class="btn btn-ghost" hidden="" id="answerHide" type="button">ซ่อนคำตอบ</button></div>
+<div class="answer-body" hidden="" id="answerBody">
+<p>สมดุลเมื่อ \(m_1d_1=m_2d_2\) → \(d_2=\dfrac{m_1d_1}{m_2}=\dfrac{100\times20}{200}\) = <strong>10 cm</strong></p>
+<ul class="tick-list"><li>มวลมากกว่าต้องอยู่ใกล้จุดหมุนกว่า</li><li>โมเมนต์ทั้งสองฝั่งเท่ากันจึงไม่หมุน</li></ul>
+<p class="muted">บทเรียน: สมดุลการหมุนขึ้นกับทั้งแรงและระยะจากจุดหมุน</p>
+</div>
+</div>
+<div class="quick-quiz" data-answer="B" data-bloom="analyze" data-qid="force-analyze">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">คานสมดุลมีมวล 100 g ที่ระยะ 20 cm อีกด้านใช้มวล 200 g ต้องวางที่ระยะเท่าใด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> 5 cm</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> 10 cm</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> 20 cm</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> 30 cm</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> 40 cm</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+<section class="section" data-title="วิเคราะห์" id="analysis">
+<header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
+<div class="split">
+<ol class="analysis-steps">
+<li>คำนวณ \(F_x,F_y\) ทุกแรง แล้วเทียบกับองค์ประกอบที่วัดได้ (ร้อยละคลาดเคลื่อน)</li>
+<li>ตรวจว่าผลรวม \(\sum F_x,\ \sum F_y\) เข้าใกล้ศูนย์ที่สมดุลหรือไม่</li>
+<li>คำนวณ \(M_1,M_2\) ของคาน แล้วหาร้อยละความแตกต่าง</li>
+<li>อภิปรายว่าผลสนับสนุนเงื่อนไขสมดุล \(\sum F=0,\ \sum\tau=0\) เพียงใด</li>
+</ol>
+<aside class="note note-info note-block"><span aria-hidden="true" class="note-icon">◆</span><div><span class="note-kind">ควรรู้</span><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>การจัดวงแหวนให้อยู่กลางพอดี</li><li>การอ่านมุมจากแผ่นองศา</li><li>แรงเสียดทานที่รอกและมวลของเชือก</li></ul></div></aside>
+</div>
+<div class="quick-quiz" data-answer="E" data-bloom="evaluate" data-qid="force-evaluate">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">หลักฐานชุดใดสนับสนุนสมดุลของแรงได้ดีที่สุด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> วงแหวนอยู่ใกล้ขอบโต๊ะ</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> มวลทุกก้อนเท่ากัน</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> มุมทุกมุมเป็น 90°</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> แรงแต่ละแรงมีค่ามาก</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> วงแหวนอยู่กลางและผลรวมองค์ประกอบใกล้ศูนย์ภายในความไม่แน่นอน</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+<section class="section spotlight" data-title="สรุป" id="conclusion">
+<header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
+<div class="conclusion-grid">
+<p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong> จากข้อมูลของคุณเอง</p>
+<ul class="conclusion-points">
+<li><span class="cp-ico">1</span><div><h3>รายงานองค์ประกอบแรง</h3><p>เทียบ \(F_x,F_y\) ที่คำนวณกับที่วัด พร้อมร้อยละความคลาดเคลื่อน</p></div></li>
+<li><span class="cp-ico">2</span><div><h3>ยืนยันสมดุลของแรง</h3><p>รายงานว่า \(\sum F_x,\sum F_y\) เข้าใกล้ศูนย์เพียงใด</p></div></li>
+<li><span class="cp-ico">3</span><div><h3>ยืนยันสมดุลโมเมนต์</h3><p>รายงาน \(M_1,M_2\) และร้อยละความแตกต่าง เพื่อยืนยัน \(m_1d_1=m_2d_2\)</p></div></li>
+<li><span class="cp-ico">4</span><div><h3>อภิปรายแหล่งคลาดเคลื่อน</h3><p>ระบุสาเหตุหลัก เช่น การจัดวงแหวน การอ่านมุม และแรงเสียดทานที่รอก</p></div></li>
+<li class="cp-extra"><span class="cp-ico">5</span><div><h3>ความรู้ที่ได้เพิ่มเติม</h3><p>เขียนสิ่งที่ค้นคว้าหรือควรรู้เพิ่มเติมจากการทดลองนี้ด้วยคำพูดของตนเอง เช่น การนำหลักการไปใช้ในสถานการณ์จริง ความเชื่อมโยงกับเนื้อหาอื่น หรือเทคนิคลดความคลาดเคลื่อนที่ค้นพบระหว่างทำการทดลอง</p></div></li>
+</ul>
+</div>
+<p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
+</section>
+<section class="section band" data-title="อภิปราย" id="discussion">
+<header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
+<div class="q-grid">
+<article class="q-card"><span class="q-no">Q1</span><p>เหตุใดวัตถุที่อยู่นิ่งจึงยังมีแรงกระทำได้หลายแรง?</p></article>
+<article class="q-card"><span class="q-no">Q2</span><p>การแยกแรงเป็นองค์ประกอบช่วยตรวจสอบสมดุลอย่างไร?</p></article>
+<article class="q-card"><span class="q-no">Q3</span><p>เหตุใดมวลที่มากกว่าต้องอยู่ใกล้จุดหมุนกว่าจึงจะสมดุล?</p></article>
+<article class="q-card"><span class="q-no">Q4</span><p>แรงเสียดทานที่รอกและมวลของเชือกส่งผลต่อผลการทดลองอย่างไร?</p></article>
+<article class="q-card"><span class="q-no">Q5</span><p>ผลของกลุ่มสนับสนุนเงื่อนไขสมดุล \(\sum F=0\) และ \(\sum\tau=0\) เพียงใด?</p></article>
+</div>
+<div class="quick-quiz" data-answer="C" data-bloom="create" data-qid="force-create">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">ถ้าต้องปรับการทดลองโต๊ะแรงเพื่อลดความคลาดเคลื่อน แนวทางใดเหมาะสมที่สุด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> ใช้รอกที่ฝืดขึ้น</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> อ่านมุมจากคนละแกนอ้างอิง</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> จัดรอกให้ตรง ใช้รอกเสียดทานต่ำ ตรวจมวล และทำซ้ำหลายมุม</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> ละเลยมวลของที่แขวน</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> ยอมให้วงแหวนแตะหมุดกลาง</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+<section class="section band" data-title="ความรู้เพิ่มเติม" id="additional-knowledge">
+<header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
+<div class="prompt-card prompt-wide" style="margin: 0 auto;">
+<p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
+<span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
           แนวทางการเขียนความรู้เพิ่มเติม
         </p>
-        <p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
-        
-        <div class="q-grid" style="text-align: left;">
-          <article class="q-card">
-            <span class="q-no">01</span>
-            <p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
-          </article>
-          <article class="q-card" style="border-bottom: none;">
-            <span class="q-no">02</span>
-            <p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <nav class="stepper" aria-label="นำทางทีละส่วน"><button type="button" id="prevSec" aria-label="ส่วนก่อนหน้า">‹</button><span id="stepLabel">บทนำ</span><button type="button" id="nextSec" aria-label="ส่วนถัดไป">›</button></nav>
-  <div class="present-bar" id="presentBar" hidden><span class="present-label">▶ โหมดนำเสนอ</span><button type="button" id="presentPrev" aria-label="สไลด์ก่อนหน้า">‹</button><span id="presentCounter">1 / 14</span><button type="button" id="presentNext" aria-label="สไลด์ถัดไป">›</button><button type="button" id="presentExit" class="present-exit">✕ ออก (Esc)</button></div>
-  <div class="present-progress" id="presentProgress" aria-hidden="true"><span></span></div>
-  <div class="toast" id="toast" role="status" aria-live="polite" hidden><span id="toastMsg"></span><button type="button" id="toastUndo">เลิกทำ</button></div>
-  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="ภาพขยายอุปกรณ์"><div class="lightbox-inner"><button class="lightbox-close" id="lightboxClose" type="button" aria-label="ปิดภาพขยาย">✕</button><div class="lightbox-body" id="lightboxBody"></div></div></div>
-  <noscript><p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่การคำนวณและปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p></noscript>
+<p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
+<div class="q-grid" style="text-align: left;">
+<article class="q-card">
+<span class="q-no">01</span>
+<p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
+</article>
+<article class="q-card" style="border-bottom: none;">
+<span class="q-no">02</span>
+<p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
+</article>
+</div>
+</div>
+</section>
+</main>
+<nav aria-label="นำทางทีละส่วน" class="stepper"><button aria-label="ส่วนก่อนหน้า" id="prevSec" type="button">‹</button><span id="stepLabel">บทนำ</span><button aria-label="ส่วนถัดไป" id="nextSec" type="button">›</button></nav>
+<div class="present-bar" hidden="" id="presentBar"><span class="present-label">▶ โหมดนำเสนอ</span><button aria-label="สไลด์ก่อนหน้า" id="presentPrev" type="button">‹</button><span id="presentCounter">1 / 14</span><button aria-label="สไลด์ถัดไป" id="presentNext" type="button">›</button><button class="present-exit" id="presentExit" type="button">✕ ออก (Esc)</button></div>
+<div aria-hidden="true" class="present-progress" id="presentProgress"><span></span></div>
+<div aria-live="polite" class="toast" hidden="" id="toast" role="status"><span id="toastMsg"></span><button id="toastUndo" type="button">เลิกทำ</button></div>
+<div aria-label="ภาพขยายอุปกรณ์" aria-modal="true" class="lightbox" hidden="" id="lightbox" role="dialog"><div class="lightbox-inner"><button aria-label="ปิดภาพขยาย" class="lightbox-close" id="lightboxClose" type="button">✕</button><div class="lightbox-body" id="lightboxBody"></div></div></div>
+<noscript><p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่การคำนวณและปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p></noscript>
 </body>
 </html>

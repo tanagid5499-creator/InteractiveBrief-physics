@@ -1,677 +1,634 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="th">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lab 01 · การวัดและเครื่องมือวัด · Lab Brief</title>
-  <meta name="description" content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261111 บทที่ 1 การวัดและเครื่องมือวัดเบื้องต้น">
-
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E01%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <!-- KaTeX (math typesetting) — CDN, pinned. Auto-render handles \( … \) / \[ … \] inline. -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
-
-  <!-- design system (shared across all 261111 labs) + per-lab overrides -->
-  <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=10">
-  <link rel="stylesheet" href="styles.css?v=18">
-  <script defer src="../../shared/brief-core.js?v=7"></script>
-  <script defer src="js/app.js?v=10"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Lab 01 · การวัดและเครื่องมือวัด · Lab Brief</title>
+<meta content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261111 บทที่ 1 การวัดและเครื่องมือวัดเบื้องต้น" name="description"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E01%3C/text%3E%3C/svg%3E" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- KaTeX (math typesetting) — CDN, pinned. Auto-render handles \( … \) / \[ … \] inline. -->
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<!-- design system (shared across all 261111 labs) + per-lab overrides -->
+<link href="../../shared/drafting-sheet.css?v=10" rel="stylesheet"/>
+<link href="styles.css?v=18" rel="stylesheet"/>
+<script defer="" src="../../shared/brief-core.js?v=7"></script>
+<script defer="" src="js/app.js?v=10"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
-
-  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
-
-  <!-- ══════════════ TOP BAR ══════════════ -->
-  <header class="topbar" id="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="#hero" aria-label="กลับสู่ด้านบน">
-        <span class="brand-badge">01</span>
-        <span class="brand-text">
-          <strong>การวัดเบื้องต้น</strong>
-          <small>261111 · ปฏิบัติการฟิสิกส์</small>
-        </span>
-      </a>
-
-      <nav class="phase-nav" id="chipNav" aria-label="สารบัญบทปฏิบัติการ">
-        <div class="phase">
-          <button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">เริ่มต้น</button>
-          <div class="phase-menu" role="menu">
-            <a class="chip" role="menuitem" href="#hero">บทนำ</a>
-            <a class="chip" role="menuitem" href="#hook">ชวนคิด</a>
-            <a class="chip" role="menuitem" href="#objectives">จุดประสงค์</a>
-          </div>
-        </div>
-        <div class="phase">
-          <button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">หลักการ</button>
-          <div class="phase-menu" role="menu">
-            <a class="chip" role="menuitem" href="#concept">แนวคิดหลัก</a>
-            <a class="chip" role="menuitem" href="#equipment">อุปกรณ์</a>
-            <a class="chip" role="menuitem" href="#formula">สูตร</a>
-          </div>
-        </div>
-        <div class="phase">
-          <button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">ลงมือทำ</button>
-          <div class="phase-menu" role="menu">
-            <a class="chip" role="menuitem" href="#procedure">ขั้นตอน</a>
-            <a class="chip" role="menuitem" href="#practice">ฝึกอ่านสเกล</a>
-            <a class="chip" role="menuitem" href="#data">ตารางข้อมูล</a>
-            <a class="chip" role="menuitem" href="#checkpoint">ตรวจสอบ</a>
-          </div>
-        </div>
-        <div class="phase">
-          <button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">สรุปผล</button>
-          <div class="phase-menu" role="menu">
-            <a class="chip" role="menuitem" href="#analysis">วิเคราะห์</a>
-            <a class="chip" role="menuitem" href="#additional-knowledge">ความรู้เพิ่มเติม</a>
-            <a class="chip" role="menuitem" href="#conclusion">สรุป</a>
-            <a class="chip" role="menuitem" href="#discussion">อภิปราย</a>
-          </div>
-        </div>
-      </nav>
-
-      <div class="topbar-meta">
-        <span class="sec-counter" aria-hidden="true"><b id="secNow">01</b><span>/14</span></span>
-        <div class="ratio-seg" role="group" aria-label="อัตราส่วนการแสดงผล (จอเต็ม / 4:3 โปรเจกเตอร์ / 16:9 ทีวี)">
-          <span class="ratio-seg-ico" aria-hidden="true">▭</span>
-          <button type="button" data-ratio="full" aria-pressed="true" title="แสดงเต็มความกว้างจอ">จอเต็ม</button>
-          <button type="button" data-ratio="43" aria-pressed="false" title="อัตราส่วน 4:3 · โปรเจกเตอร์">4:3</button>
-          <button type="button" data-ratio="169" aria-pressed="false" title="อัตราส่วน 16:9 · ทีวี">16:9</button>
-        </div>
-        <button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
-      </div>
-    </div>
-    <div class="read-progress" role="progressbar" aria-label="ความคืบหน้าการอ่าน" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-      <span id="readBar"></span>
-    </div>
-  </header>
-
-  <main id="main">
-
-    <!-- ══════════════ 1 · HERO ══════════════ -->
-    <section class="section hero" id="hero" data-title="บทนำ">
-      <div class="hero-top">
-        <p class="hero-eyebrow">261111 · ปฏิบัติการฟิสิกส์ · บทที่ 01</p>
-        <h1 class="hero-title">การวัดและเครื่องมือวัดเบื้องต้น</h1>
-      </div>
-
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <figure class="hero-question">
-            <figcaption class="hq-tag">คำถามชวนคิด</figcaption>
-            <blockquote class="hq-text">
+<a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+<span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+<!-- ══════════════ TOP BAR ══════════════ -->
+<header class="topbar" id="topbar">
+<div class="topbar-inner">
+<a aria-label="กลับสู่ด้านบน" class="brand" href="#hero">
+<span class="brand-badge">01</span>
+<span class="brand-text">
+<strong>การวัดเบื้องต้น</strong>
+<small>261111 · ปฏิบัติการฟิสิกส์</small>
+</span>
+</a>
+<nav aria-label="สารบัญบทปฏิบัติการ" class="phase-nav" id="chipNav">
+<div class="phase">
+<button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">เริ่มต้น</button>
+<div class="phase-menu" role="menu">
+<a class="chip" href="#hero" role="menuitem">บทนำ</a>
+<a class="chip" href="#hook" role="menuitem">ชวนคิด</a>
+<a class="chip" href="#objectives" role="menuitem">จุดประสงค์</a>
+</div>
+</div>
+<div class="phase">
+<button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">หลักการ</button>
+<div class="phase-menu" role="menu">
+<a class="chip" href="#concept" role="menuitem">แนวคิดหลัก</a>
+<a class="chip" href="#equipment" role="menuitem">อุปกรณ์</a>
+<a class="chip" href="#formula" role="menuitem">สูตร</a>
+</div>
+</div>
+<div class="phase">
+<button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">ลงมือทำ</button>
+<div class="phase-menu" role="menu">
+<a class="chip" href="#procedure" role="menuitem">ขั้นตอน</a>
+<a class="chip" href="#practice" role="menuitem">ฝึกอ่านสเกล</a>
+<a class="chip" href="#data" role="menuitem">ตารางข้อมูล</a>
+<a class="chip" href="#checkpoint" role="menuitem">ตรวจสอบ</a>
+</div>
+</div>
+<div class="phase">
+<button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">สรุปผล</button>
+<div class="phase-menu" role="menu">
+<a class="chip" href="#analysis" role="menuitem">วิเคราะห์</a>
+<a class="chip" href="#additional-knowledge" role="menuitem">ความรู้เพิ่มเติม</a>
+<a class="chip" href="#conclusion" role="menuitem">สรุป</a>
+<a class="chip" href="#discussion" role="menuitem">อภิปราย</a>
+</div>
+</div>
+</nav>
+<div class="topbar-meta">
+<span aria-hidden="true" class="sec-counter"><b id="secNow">01</b><span>/14</span></span>
+<div aria-label="อัตราส่วนการแสดงผล (จอเต็ม / 4:3 โปรเจกเตอร์ / 16:9 ทีวี)" class="ratio-seg" role="group">
+<span aria-hidden="true" class="ratio-seg-ico">▭</span>
+<button aria-pressed="true" data-ratio="full" title="แสดงเต็มความกว้างจอ" type="button">จอเต็ม</button>
+<button aria-pressed="false" data-ratio="43" title="อัตราส่วน 4:3 · โปรเจกเตอร์" type="button">4:3</button>
+<button aria-pressed="false" data-ratio="169" title="อัตราส่วน 16:9 · ทีวี" type="button">16:9</button>
+</div>
+<button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
+</div>
+</div>
+<div aria-label="ความคืบหน้าการอ่าน" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="read-progress" role="progressbar">
+<span id="readBar"></span>
+</div>
+</header>
+<main id="main">
+<!-- ══════════════ 1 · HERO ══════════════ -->
+<section class="section hero" data-title="บทนำ" id="hero">
+<div class="hero-top">
+<p class="hero-eyebrow">261111 · ปฏิบัติการฟิสิกส์ · บทที่ 01</p>
+<h1 class="hero-title">การวัดและเครื่องมือวัดเบื้องต้น</h1>
+</div>
+<div class="hero-grid">
+<div class="hero-copy">
+<figure class="hero-question">
+<figcaption class="hq-tag">คำถามชวนคิด</figcaption>
+<blockquote class="hq-text">
               ฟิสิกส์เริ่มต้นจากการวัด แต่ตัวเลขที่อ่านได้จะ <strong>“เชื่อถือได้แค่ไหน”</strong>
               ขึ้นกับเครื่องมือและวิธีอ่าน วันนี้เราจะฝึกเลือกเครื่องมือ อ่านสเกล และรายงานผลอย่างมีเลขนัยสำคัญ
             </blockquote>
-          </figure>
-
-          <ul class="hero-meta" aria-label="ค่าอ้างอิงของแล็บ">
-            <li><span class="hm-num">π<sub>ref</sub></span><span class="hm-label">≈ 3.1416 (ใช้ตรวจการวัดเส้นรอบวง/เส้นผ่านศูนย์กลาง)</span></li>
-          </ul>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a>
-            <a class="btn btn-ghost" href="#practice">ไปที่แบบฝึกอ่านสเกล</a>
-          </div>
-        </div>
-
-        <figure class="hero-visual fig-photo">
-          <span class="fig-tag">FIG.1 · เวอร์เนียร์คาลิเปอร์</span>
-          <div class="fig-photo-wrap">
-            <img src="assets/equip/vernier.png" width="1000" height="400" decoding="async" alt="เวอร์เนียร์คาลิเปอร์ Mitutoyo 150 มม. แสดงปากวัดนอก ปากวัดใน สเกลหลัก สเกลเวอร์เนียร์ และก้านวัดลึก">
-            <span class="fig-pin" style="left:13%;top:12%">ปากวัดใน</span>
-            <span class="fig-pin" style="left:10%;top:79%">ปากวัดนอก</span>
-            <span class="fig-pin" style="left:52%;top:8%">สเกลหลัก</span>
-            <span class="fig-pin" style="left:39%;top:90%">สเกลเวอร์เนียร์</span>
-            <span class="fig-pin" style="left:90%;top:14%">ก้านวัดลึก</span>
-          </div>
-          <figcaption>วัดความยาว/เส้นผ่านศูนย์กลาง: อ่านสเกลหลัก แล้วบวกค่าจากสเกลเวอร์เนียร์</figcaption>
-        </figure>
-      </div>
-      <p class="scroll-hint" aria-hidden="true">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
-    </section>
-
-    <!-- ══════════════ 2 · HOOK ══════════════ -->
-    <section class="section" id="hook" data-title="ชวนคิด">
-      <header class="section-head">
-        <div>
-          <p class="kicker">ชวนคิดก่อนเริ่ม</p>
-          <h2>ทำไม “7.40” กับ “7.4” ถึงไม่เหมือนกัน?</h2>
-        </div>
-      </header>
-
-      <div class="split">
-        <div class="prose">
-          <p>
+</figure>
+<ul aria-label="ค่าอ้างอิงของแล็บ" class="hero-meta">
+<li><span class="hm-num">π<sub>ref</sub></span><span class="hm-label">≈ 3.1416 (ใช้ตรวจการวัดเส้นรอบวง/เส้นผ่านศูนย์กลาง)</span></li>
+</ul>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a>
+<a class="btn btn-ghost" href="#practice">ไปที่แบบฝึกอ่านสเกล</a>
+</div>
+</div>
+<figure class="hero-visual fig-photo">
+<span class="fig-tag">FIG.1 · เวอร์เนียร์คาลิเปอร์</span>
+<div class="fig-photo-wrap">
+<img alt="เวอร์เนียร์คาลิเปอร์ Mitutoyo 150 มม. แสดงปากวัดนอก ปากวัดใน สเกลหลัก สเกลเวอร์เนียร์ และก้านวัดลึก" decoding="async" height="400" src="assets/equip/vernier.png" width="1000"/>
+<span class="fig-pin" style="left:13%;top:12%">ปากวัดใน</span>
+<span class="fig-pin" style="left:10%;top:79%">ปากวัดนอก</span>
+<span class="fig-pin" style="left:52%;top:8%">สเกลหลัก</span>
+<span class="fig-pin" style="left:39%;top:90%">สเกลเวอร์เนียร์</span>
+<span class="fig-pin" style="left:90%;top:14%">ก้านวัดลึก</span>
+</div>
+<figcaption>วัดความยาว/เส้นผ่านศูนย์กลาง: อ่านสเกลหลัก แล้วบวกค่าจากสเกลเวอร์เนียร์</figcaption>
+</figure>
+</div>
+<p aria-hidden="true" class="scroll-hint">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
+</section>
+<!-- ══════════════ 2 · HOOK ══════════════ -->
+<section class="section" data-title="ชวนคิด" id="hook">
+<header class="section-head">
+<div>
+<p class="kicker">ชวนคิดก่อนเริ่ม</p>
+<h2>ทำไม “7.40” กับ “7.4” ถึงไม่เหมือนกัน?</h2>
+</div>
+</header>
+<div class="split">
+<div class="prose">
+<p>
             สองค่านี้เท่ากันในทางเลข แต่ในการวัด <strong>มันสื่อคุณภาพการวัดต่างกัน</strong>
             เพราะเลขนัยสำคัญบอกว่าเราอ่านสเกลได้ละเอียดถึงระดับใด และประมาณด้วยสายตาเพิ่มอีกหนึ่งหลัก
           </p>
-          <p>
+<p>
             แล็บนี้ฝึกให้เลือกเครื่องมือที่เหมาะกับงาน อ่านค่าอย่างถูกวิธี และรายงานผล
             พร้อม <strong>ความคลาดเคลื่อน</strong> อย่างที่งานทดลองจริงต้องทำ
           </p>
-        </div>
-
-        <aside class="prompt-card">
-          <div class="quick-quiz" data-qid="m-understand" data-bloom="understand" data-answer="B">
-            <p class="quiz-label">ลองตอบเร็ว</p>
-            <h3 class="prompt-q">ถ้าเครื่องมืออ่านละเอียดถึง \(0.1\,\mathrm{cm}\) และประมาณได้อีกหนึ่งหลัก ค่า \(7.40\,\mathrm{cm}\) กับ \(7.4\,\mathrm{cm}\) สื่อความละเอียดเท่ากันไหม?</h3>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> เท่ากัน</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> ต่างกัน — 7.40 มี 3 เลขนัยสำคัญ ละเอียดกว่า</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> ต่างกัน — 7.4 ละเอียดกว่า 7.40</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> เท่ากันเฉพาะเมื่อแปลงเป็นมิลลิเมตร</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> สรุปไม่ได้หากไม่ทราบเครื่องมือ</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ══════════════ 3 · OBJECTIVES ══════════════ -->
-    <section class="section" id="objectives" data-title="จุดประสงค์">
-      <header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
-      <ol class="objective-list">
-        <li>
-          <span class="obj-no">1</span>
-          <div>
-            <h3>ใช้เครื่องมือวัดเบื้องต้นให้ถูกวิธี</h3>
-            <p>ฝึกเลือกและใช้ไม้บรรทัด เวอร์เนียร์คาลิเปอร์ และไมโครมิเตอร์ให้เหมาะกับงานและความละเอียดที่ต้องการ</p>
-          </div>
-        </li>
-        <li>
-          <span class="obj-no">2</span>
-          <div>
-            <h3>บันทึกและแปลผลด้วยเลขนัยสำคัญ</h3>
-            <p>รายงานค่าวัดพร้อมความคลาดเคลื่อนอย่างเหมาะสม และคำนวณค่าเฉลี่ย ร้อยละความคลาดเคลื่อน และร้อยละความแตกต่าง</p>
-          </div>
-        </li>
-      </ol>
-      <div class="note note-info">
-        <span class="note-icon" aria-hidden="true">◆</span>
-        <div><span class="note-kind">ควรรู้</span><p><strong>สิ่งที่จะได้ลงมือทำ</strong> ฝึกอ่านสเกลทั้งสามเครื่องมือ · วัดเส้นผ่านศูนย์กลาง/เส้นรอบวง/ความหนา · หา \(\pi_{\mathrm{exp}}\), ปริมาตรและความหนาแน่นของทรงกระบอก, พื้นที่หน้าตัดเส้นลวด</p></div>
-      </div>
-    </section>
-
-    <!-- ══════════════ 4 · CONCEPT (band) ══════════════ -->
-    <section class="section band" id="concept" data-title="แนวคิดหลัก">
-      <header class="section-head">
-        <div><p class="kicker">ภาพรวมแนวคิด</p><h2>วัดอย่างไรให้ “เชื่อถือได้”</h2></div>
-      </header>
-      <p class="lead">
+</div>
+<aside class="prompt-card">
+<div class="quick-quiz" data-answer="B" data-bloom="understand" data-qid="m-understand">
+<p class="quiz-label">ลองตอบเร็ว</p>
+<h3 class="prompt-q">ถ้าเครื่องมืออ่านละเอียดถึง \(0.1\,\mathrm{cm}\) และประมาณได้อีกหนึ่งหลัก ค่า \(7.40\,\mathrm{cm}\) กับ \(7.4\,\mathrm{cm}\) สื่อความละเอียดเท่ากันไหม?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> เท่ากัน</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> ต่างกัน — 7.40 มี 3 เลขนัยสำคัญ ละเอียดกว่า</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> ต่างกัน — 7.4 ละเอียดกว่า 7.40</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> เท่ากันเฉพาะเมื่อแปลงเป็นมิลลิเมตร</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> สรุปไม่ได้หากไม่ทราบเครื่องมือ</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</aside>
+</div>
+</section>
+<!-- ══════════════ 3 · OBJECTIVES ══════════════ -->
+<section class="section" data-title="จุดประสงค์" id="objectives">
+<header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
+<ol class="objective-list">
+<li>
+<span class="obj-no">1</span>
+<div>
+<h3>ใช้เครื่องมือวัดเบื้องต้นให้ถูกวิธี</h3>
+<p>ฝึกเลือกและใช้ไม้บรรทัด เวอร์เนียร์คาลิเปอร์ และไมโครมิเตอร์ให้เหมาะกับงานและความละเอียดที่ต้องการ</p>
+</div>
+</li>
+<li>
+<span class="obj-no">2</span>
+<div>
+<h3>บันทึกและแปลผลด้วยเลขนัยสำคัญ</h3>
+<p>รายงานค่าวัดพร้อมความคลาดเคลื่อนอย่างเหมาะสม และคำนวณค่าเฉลี่ย ร้อยละความคลาดเคลื่อน และร้อยละความแตกต่าง</p>
+</div>
+</li>
+</ol>
+<div class="note note-info">
+<span aria-hidden="true" class="note-icon">◆</span>
+<div><span class="note-kind">ควรรู้</span><p><strong>สิ่งที่จะได้ลงมือทำ</strong> ฝึกอ่านสเกลทั้งสามเครื่องมือ · วัดเส้นผ่านศูนย์กลาง/เส้นรอบวง/ความหนา · หา \(\pi_{\mathrm{exp}}\), ปริมาตรและความหนาแน่นของทรงกระบอก, พื้นที่หน้าตัดเส้นลวด</p></div>
+</div>
+</section>
+<!-- ══════════════ 4 · CONCEPT (band) ══════════════ -->
+<section class="section band" data-title="แนวคิดหลัก" id="concept">
+<header class="section-head">
+<div><p class="kicker">ภาพรวมแนวคิด</p><h2>วัดอย่างไรให้ “เชื่อถือได้”</h2></div>
+</header>
+<p class="lead">
         การวัดต้องใช้หน่วยสากล (ระบบ SI) เครื่องมือแต่ละชนิดมีความละเอียดต่างกัน จึงต้องเลือกให้เหมาะกับงาน
         อ่านค่าจากสเกลที่แน่นอนแล้ว <strong>ประมาณเพิ่มอีกหนึ่งหลัก</strong> เสมอ
       </p>
-      <div class="card-grid cols-3">
-        <article class="info-card">
-          <span class="ic-step">A</span>
-          <h3>ความละเอียดและการประมาณ</h3>
-          <p>ไม้บรรทัดอ่านได้ \(1\,\mathrm{mm}\) จึงประมาณเพิ่มถึง \(0.1\,\mathrm{mm}\); เวอร์เนียร์และไมโครมิเตอร์ละเอียดกว่ามาก</p>
-        </article>
-        <article class="info-card">
-          <span class="ic-step">B</span>
-          <h3>เลขนัยสำคัญ</h3>
-          <p>ประกอบด้วยเลขที่อ่านแน่นอน + เลขประมาณอีกหนึ่งหลัก การเปลี่ยนหน่วยไม่เปลี่ยนจำนวนเลขนัยสำคัญ</p>
-        </article>
-        <article class="info-card">
-          <span class="ic-step">C</span>
-          <h3>ความแม่นยำ vs ความถูกต้อง</h3>
-          <p>ความแม่นยำ (precision) คือวัดซ้ำได้ค่าใกล้กัน ส่วนความถูกต้อง (accuracy) คือใกล้ค่าจริง — ไม่จำเป็นต้องมาพร้อมกัน</p>
-        </article>
-      </div>
-      <div class="note note-info">
-        <span class="note-icon" aria-hidden="true">◆</span>
-        <div><span class="note-kind">ควรรู้</span><p><strong>ความคลาดเคลื่อนสองแบบ</strong> เชิงระบบ (systematic) จากเครื่องมือ/วิธี/ผู้วัด แก้ได้ด้วยการสอบเทียบ · แบบสุ่ม (random) จากปัจจัยควบคุมไม่ได้ ลดได้ด้วยการวัดซ้ำแล้วเฉลี่ย</p></div>
-      </div>
-      <aside class="prompt-card" style="margin-top:1.4rem">
-        <p class="prompt-tag">ลองตอบเร็ว</p>
-        <div class="quick-quiz" data-qid="m-remember" data-bloom="remember" data-answer="B">
-          <h3 class="prompt-q">ไมโครมิเตอร์อ่านค่าได้ละเอียดถึงระดับใด?</h3>
-          <div class="quiz-options">
-            <button type="button" data-quiz-option="A"><b class="qo-key">A</b> \(0.1\,\mathrm{mm}\)</button>
-            <button type="button" data-quiz-option="B"><b class="qo-key">B</b> \(0.01\,\mathrm{mm}\)</button>
-            <button type="button" data-quiz-option="C"><b class="qo-key">C</b> \(1\,\mathrm{mm}\)</button>
-            <button type="button" data-quiz-option="D"><b class="qo-key">D</b> \(0.001\,\mathrm{mm}\)</button>
-            <button type="button" data-quiz-option="E"><b class="qo-key">E</b> \(1\,\mathrm{cm}\)</button>
-          </div>
-          <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-        </div>
-      </aside>
-    </section>
-
-    <!-- ══════════════ 5 · EQUIPMENT ══════════════ -->
-    <section class="section" id="equipment" data-title="อุปกรณ์">
-      <header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
-      <div class="card-grid cols-3 equip-grid">
-        <figure class="equip-card">
-          <button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ไม้บรรทัด">
-            <img src="assets/equip/equip-1.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span>
-          </button>
-          <figcaption><h3>ไม้บรรทัด / ไม้เมตร</h3><p>วัดความยาว เส้นผ่านศูนย์กลาง เส้นรอบวง และความหนา อ่านได้ละเอียด \(1\,\mathrm{mm}\) แล้วประมาณเพิ่มอีกหนึ่งหลักเป็น \(0.1\,\mathrm{mm}\)</p></figcaption>
-        </figure>
-        <figure class="equip-card">
-          <button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: เวอร์เนียร์คาลิเปอร์">
-            <img src="assets/equip/vernier.png" alt="" width="1000" height="400" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span>
-          </button>
-          <figcaption><h3>เวอร์เนียร์คาลิเปอร์</h3><p>วัดความยาว ความหนา และเส้นผ่านศูนย์กลางภายใน/ภายนอกของวัตถุไม่ใหญ่มาก ความละเอียดคำนวณจาก \(r=s/n\)</p></figcaption>
-        </figure>
-        <figure class="equip-card">
-          <button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ไมโครมิเตอร์">
-            <img src="assets/equip/equip-3.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span>
-          </button>
-          <figcaption><h3>ไมโครมิเตอร์</h3><p>วัดความหนา/เส้นผ่านศูนย์กลางของวัตถุขนาดเล็ก มีสเกลหลักและสเกลวงกลม ความละเอียดคำนวณจาก \(r=p/n\) ละเอียดถึง \(0.01\,\mathrm{mm}\)</p></figcaption>
-        </figure>
-        <figure class="equip-card">
-          <button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: เส้นด้ายและไม้บรรทัด">
-            <img src="assets/equip/equip-4.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span>
-          </button>
-          <figcaption><h3>เส้นด้าย</h3><p>ใช้วัดเส้นรอบวงของวัตถุทรงกลม โดยพันรอบแล้วนำไปเทียบกับไม้บรรทัด ต้องทำเครื่องหมายตำแหน่งเดิมทุกครั้ง</p></figcaption>
-        </figure>
-        <figure class="equip-card">
-          <button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: เครื่องชั่ง">
-            <img src="assets/equip/equip-5.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span>
-          </button>
-          <figcaption><h3>เครื่องชั่ง</h3><p>วัดมวลของทรงกระบอกเพื่อนำไปหาความหนาแน่น \(\rho=M/V\) ควรชั่งบนพื้นราบและรอให้ค่าคงที่ก่อนอ่าน</p></figcaption>
-        </figure>
-        <figure class="equip-card">
-          <button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ชิ้นงานทดสอบ">
-            <img src="assets/equip/equip-6.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span>
-          </button>
-          <figcaption><h3>ชิ้นงานทดสอบ</h3><p>แหวน กระดาษ ทรงกระบอกกลวง และเส้นลวด สำหรับฝึกวัดด้วยเครื่องมือต่าง ๆ และเปรียบเทียบผล</p></figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- ══════════════ 6 · FORMULAS ══════════════ -->
-    <section class="section" id="formula" data-title="สูตร">
-      <header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
-      <div class="card-grid cols-3">
-        <article class="formula-card">
-          <h3>ค่าเฉลี่ย</h3>
-          <p class="formula">\[\bar{x}=\frac{x_1+x_2+\cdots+x_n}{n}\]</p>
-          <p class="formula-note">เฉลี่ยจากการวัดซ้ำเพื่อลดความคลาดเคลื่อนแบบสุ่ม</p>
-        </article>
-        <article class="formula-card formula-accent">
-          <h3>ร้อยละความคลาดเคลื่อน</h3>
-          <p class="formula">\[\%\,\mathrm{error}=\frac{|x_{\mathrm{exp}}-x_{\mathrm{true}}|}{x_{\mathrm{true}}}\times100\]</p>
-          <p class="formula-note">เทียบค่าที่วัดได้กับค่าจริง/ค่ามาตรฐาน</p>
-        </article>
-        <article class="formula-card">
-          <h3>ร้อยละความแตกต่าง</h3>
-          <p class="formula">\[\%\,\mathrm{diff}=\frac{|x_1-x_2|}{(x_1+x_2)/2}\times100\]</p>
-          <p class="formula-note">เทียบผลจากสองวิธี/สองเครื่องมือ</p>
-        </article>
-        <article class="formula-card">
-          <h3>ความละเอียดเวอร์เนียร์</h3>
-          <p class="formula">\[r=\frac{s}{n}\]</p>
-          <p class="formula-note">\(s\) = ระยะ 1 ช่องสเกลหลัก · \(n\) = จำนวนช่องเวอร์เนียร์</p>
-        </article>
-        <article class="formula-card">
-          <h3>ความละเอียดไมโครมิเตอร์</h3>
-          <p class="formula">\[r=\frac{p}{n}\]</p>
-          <p class="formula-note">\(p\) = ระยะ 1 พิตช์ · \(n\) = จำนวนช่องสเกลวงกลม</p>
-        </article>
-        <article class="formula-card">
-          <h3>ความหนาแน่น / พื้นที่หน้าตัด</h3>
-          <p class="formula">\[\rho=\frac{M}{V}\qquad A=\pi r^{2}\]</p>
-          <p class="formula-note">ปริมาตรทรงกระบอกกลวงจากเส้นผ่านศูนย์กลางใน/นอกและความสูง</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ══════════════ 7 · PROCEDURE ══════════════ -->
-    <section class="section" id="procedure" data-title="ขั้นตอน">
-      <header class="section-head"><div><p class="kicker">ลำดับการทำงาน</p><h2>ขั้นตอนการวัด</h2></div></header>
-      <ol class="steps">
-        <li><span class="step-n">1</span><div><h3>เลือกเครื่องมือให้เหมาะกับงาน</h3><p>ของใหญ่หยาบใช้ไม้บรรทัด ของเล็กที่ต้องการความละเอียดใช้เวอร์เนียร์หรือไมโครมิเตอร์</p><p class="step-caution"><b>ระวัง:</b> อย่าใช้ไม้บรรทัดกับงานที่ต้องการความละเอียดสูง เช่น เส้นลวด เพราะค่าจะหยาบเกินไป</p></div></li>
-        <li><span class="step-n">2</span><div><h3>ตรวจ zero error</h3><p>ปิดปากวัด/หมุนจนสุดก่อนเริ่ม ตรวจว่าศูนย์ตรงกัน ถ้าไม่ตรงให้บันทึกค่าแก้</p><p class="step-caution"><b>ระวัง:</b> ถ้าศูนย์ไม่ตรงแล้วไม่บันทึกค่าแก้ ค่าที่วัดทุกครั้งจะคลาดเคลื่อนเชิงระบบเท่ากันหมด</p></div></li>
-        <li><span class="step-n">3</span><div><h3>อ่านสเกลหลัก</h3><p>อ่านค่าที่แน่นอนจากสเกลหลักในระดับสายตา (ตั้งฉากเพื่อลด parallax)</p><p class="step-caution"><b>ระวัง:</b> วางสายตาตั้งฉากกับขีดสเกล การมองเฉียงทำให้อ่านค่าผิด (parallax)</p></div></li>
-        <li><span class="step-n">4</span><div><h3>ประมาณเลขเพิ่มอีกหนึ่งหลัก</h3><p>เวอร์เนียร์: หาเส้นที่ตรงกับสเกลหลัก · ไมโครมิเตอร์: อ่านสเกลวงกลม</p><p class="step-caution"><b>ระวัง:</b> อย่าบีบไมโครมิเตอร์แรงเกินไป ใช้ ratchet ให้แรงกดสม่ำเสมอ และประมาณเพิ่มเพียงหนึ่งหลักเท่านั้น</p></div></li>
-        <li><span class="step-n">5</span><div><h3>วัดซ้ำหลายครั้งแล้วเฉลี่ย</h3><p>วัดอย่างน้อย 3 ครั้ง (และหลายตำแหน่งสำหรับวัตถุไม่สม่ำเสมอ) เพื่อลดความคลาดเคลื่อนแบบสุ่ม</p><p class="step-caution"><b>ระวัง:</b> การเฉลี่ยลดได้เฉพาะความคลาดเคลื่อนแบบสุ่ม ไม่ช่วยแก้ zero error หรือความคลาดเคลื่อนเชิงระบบ</p></div></li>
-        <li><span class="step-n">6</span><div><h3>บันทึกหน่วยและเลขนัยสำคัญให้ครบ</h3><p>ทุกค่าต้องใช้หน่วยเดียวกันก่อนคำนวณ และรายงานเลขนัยสำคัญให้สอดคล้องกับความละเอียดเครื่องมือ</p><p class="step-caution"><b>ระวัง:</b> แปลงหน่วยให้ตรงกันก่อนคำนวณ และอย่ารายงานเลขนัยสำคัญเกินความละเอียดของเครื่องมือ</p></div></li>
-      </ol>
-    </section>
-
-    <!-- ══════════════ 8 · PRACTICE / SIMULATORS (spotlight) ══════════════ -->
-    <section class="section spotlight" id="practice" data-title="ฝึกอ่านสเกล">
-      <header class="section-head"><div><p class="kicker">ฝึกอ่านค่าแบบโต้ตอบ</p><h2>แบบฝึกอ่านสเกล</h2></div></header>
-      <p class="lead">เลื่อนแถบเพื่อกำหนดปรับสเกล หรือกดปุ่มตัวอย่าง แล้วฝึกอ่านจากสเกลจำลองให้ตรงกับค่าที่แสดง</p>
-      <div class="note note-warn">
-        <span class="note-icon" aria-hidden="true">!</span>
-        <div><span class="note-kind">ข้อควรระวัง</span><strong>มองให้ตั้งฉากกับสเกล</strong><p>วางสายตาตั้งฉากกับขีดสเกลทุกครั้ง การมองเฉียงทำให้อ่านค่าคลาดเคลื่อน (parallax) — ฝึกในซิมูเลเตอร์ให้คุ้นตาก่อนวัดของจริง</p></div>
-      </div>
-
-      <div class="simulator-grid">
-        <section class="simulator-panel">
-          <div class="sim-header"><h3>ไม้บรรทัด</h3></div>
-          <canvas id="rulerCanvas" width="900" height="240" role="img" aria-label="ไม้บรรทัดจำลองแสดงการวัดความยาว"></canvas>
-          <div class="demo-controls">
-            <label>ปรับสเกล <input id="rulerValue" type="range" min="0" max="15" step="0.01" value="11.28"></label>
-
-          </div>
-          <div class="quick-quiz" data-qid="m-apply-ruler" data-bloom="apply" data-answer="B">
-            <p class="quiz-label">ลองตอบเร็ว</p>
-            <h4>ถ้าขีดย่อยเล็กสุดของไม้บรรทัดคือ \(1\,\mathrm{mm}\) เลขประมาณอีกหนึ่งหลักอยู่ระดับใด?</h4>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> \(1\,\mathrm{mm}\)</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> \(0.1\,\mathrm{mm}\)</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> \(10\,\mathrm{mm}\)</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> \(0.01\,\mathrm{mm}\)</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> อ่านได้เฉพาะจำนวนเต็มมิลลิเมตร</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-        </section>
-
-        <section class="simulator-panel">
-          <div class="sim-header"><h3>เวอร์เนียร์คาลิเปอร์</h3></div>
-          <canvas id="vernierCanvas" width="900" height="300" role="img" aria-label="เวอร์เนียร์คาลิเปอร์จำลองแสดงการอ่านสเกล"></canvas>
-          <div class="demo-controls">
-            <label>ปรับสเกล <input id="vernierValue" type="range" min="0" max="60" step="0.05" value="11.65"></label>
-
-          </div>
-          <div class="quick-quiz" data-qid="m-apply-vernier" data-bloom="apply" data-answer="B">
-            <p class="quiz-label">ลองตอบเร็ว</p>
-            <h4>ถ้าสเกลหลักอ่านได้ \(11\,\mathrm{mm}\) และสเกลเวอร์เนียร์เพิ่ม \(0.65\,\mathrm{mm}\) ค่าที่ควรรายงานคืออะไร?</h4>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> \(11.065\,\mathrm{mm}\)</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> \(11.65\,\mathrm{mm}\)</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> \(65.11\,\mathrm{mm}\)</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> \(11.06\,\mathrm{mm}\)</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> \(12.65\,\mathrm{mm}\)</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-        </section>
-
-        <section class="simulator-panel">
-          <div class="sim-header"><h3>ไมโครมิเตอร์</h3></div>
-          <canvas id="micrometerCanvas" width="900" height="320" role="img" aria-label="ไมโครมิเตอร์จำลองแสดงการอ่านสเกล"></canvas>
-          <div class="demo-controls">
-            <label>ปรับสเกล <input id="micrometerValue" type="range" min="0" max="10" step="0.001" value="7.380"></label>
-
-          </div>
-          <div class="quick-quiz" data-qid="m-apply-micrometer" data-bloom="apply" data-answer="A">
-            <p class="quiz-label">ลองตอบเร็ว</p>
-            <h4>ถ้าสเกลหลักอ่านได้ \(7.5\,\mathrm{mm}\) และสเกลวงกลมเพิ่ม \(0.221\,\mathrm{mm}\) ค่ารวมคืออะไร?</h4>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> \(7.721\,\mathrm{mm}\)</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> \(7.521\,\mathrm{mm}\)</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> \(7.500221\,\mathrm{mm}\)</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> \(7.721\,\mathrm{cm}\)</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> \(7.279\,\mathrm{mm}\)</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-        </section>
-      </div>
-    </section>
-
-    <!-- ══════════════ 9 · WORKSHEET (band) ══════════════ -->
-    <section class="section band" id="data" data-title="ตารางข้อมูล">
-      <header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>ตารางผลการทดลอง</h2></div></header>
-      <p class="lead">กรอกค่าจากการวัดจริง ค่าเฉลี่ยและผลคำนวณ (\(\pi_{\mathrm{exp}}\), ปริมาตร, ความหนาแน่น, พื้นที่หน้าตัดเส้นลวด) จะอัปเดตให้อัตโนมัติ ข้อมูลถูกบันทึกในเบราว์เซอร์เอง</p>
-
-      <!-- 1 · ruler -->
-      <div class="worksheet-block">
-        <h3>1 · วัดด้วยไม้บรรทัด → หา \(\pi_{\mathrm{exp}}\)</h3>
-        <div class="note note-warn compact">
-          <span class="note-icon" aria-hidden="true">!</span>
-          <div><span class="note-kind">ข้อควรระวัง</span><strong>ก่อนบันทึกค่า</strong><ul><li>ทุกค่าต้องใช้หน่วยเดียวกันก่อนหาค่าเฉลี่ย</li><li>วัดเส้นรอบวงด้วยเส้นด้าย ทำเครื่องหมายตำแหน่งเดิมทุกครั้ง</li></ul></div>
-        </div>
-        <aside class="note note-warn note-block" style="margin-bottom:1rem;">
-          <span class="note-icon" aria-hidden="true">!</span>
-          <div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
-          <p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
-        </aside>
-        <div class="table-wrap">
-          <table class="data-table" data-group="ruler">
-            <thead><tr><th scope="col">ปริมาณ</th><th scope="col">ครั้งที่ 1</th><th scope="col">ครั้งที่ 2</th><th scope="col">ครั้งที่ 3</th><th scope="col">ค่าเฉลี่ย</th></tr></thead>
-            <tbody>
-              <tr data-row="diameter"><th scope="row">เส้นผ่านศูนย์กลาง (\(\mathrm{mm}\))</th><td><input data-store="rul.dia.0" type="number" step="0.01" inputmode="decimal"></td><td><input data-store="rul.dia.1" type="number" step="0.01" inputmode="decimal"></td><td><input data-store="rul.dia.2" type="number" step="0.01" inputmode="decimal"></td><td data-average>—</td></tr>
-              <tr data-row="circumference"><th scope="row">เส้นรอบวง (\(\mathrm{mm}\))</th><td><input data-store="rul.cir.0" type="number" step="0.01" inputmode="decimal"></td><td><input data-store="rul.cir.1" type="number" step="0.01" inputmode="decimal"></td><td><input data-store="rul.cir.2" type="number" step="0.01" inputmode="decimal"></td><td data-average>—</td></tr>
-              <tr data-row="thickness"><th scope="row">ความหนา (\(\mathrm{mm}\))</th><td><input data-store="rul.thk.0" type="number" step="0.01" inputmode="decimal"></td><td><input data-store="rul.thk.1" type="number" step="0.01" inputmode="decimal"></td><td><input data-store="rul.thk.2" type="number" step="0.01" inputmode="decimal"></td><td data-average>—</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="calc-line">\(\pi_{\mathrm{exp}}=C_{\mathrm{avg}}/D_{\mathrm{avg}}\): <output id="rulerPiOutput">—</output> · ร้อยละความคลาดเคลื่อน: <output id="rulerErrorOutput">—</output></p>
-      </div>
-
-      <!-- 2 · vernier -->
-      <div class="worksheet-block">
-        <h3>2 · วัดด้วยเวอร์เนียร์ → ปริมาตร & ความหนาแน่น</h3>
-        <div class="setup-inputs">
-          <label>ระยะ 1 ช่องสเกลหลัก <span class="u">\(s\) (\(\mathrm{mm}\))</span> <input id="vernierS" data-store="ver.s" type="number" step="0.01" inputmode="decimal"></label>
-          <label>จำนวนช่อง <span class="u">\(n\)</span> <input id="vernierN" data-store="ver.n" type="number" step="1" inputmode="numeric"></label>
-          <label>มวลทรงกระบอก <span class="u">(\(\mathrm{g}\))</span> <input id="vernierMass" data-store="ver.mass" type="number" step="0.01" inputmode="decimal"></label>
-        </div>
-        <p class="calc-line">ความละเอียด \(r=s/n\): <output id="vernierResolutionOutput">—</output></p>
-        <aside class="note note-warn note-block" style="margin-bottom:1rem;">
-          <span class="note-icon" aria-hidden="true">!</span>
-          <div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
-          <p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
-        </aside>
-        <div class="table-wrap">
-          <table class="data-table" data-group="vernier">
-            <thead><tr><th scope="col">ปริมาณ</th><th scope="col">ครั้งที่ 1</th><th scope="col">ครั้งที่ 2</th><th scope="col">ครั้งที่ 3</th><th scope="col">ค่าเฉลี่ย</th></tr></thead>
-            <tbody>
-              <tr data-row="innerDiameter"><th scope="row">เส้นผ่านศูนย์กลางภายใน (\(\mathrm{mm}\))</th><td><input data-store="ver.id.0" type="number" step="0.01" inputmode="decimal"></td><td><input data-store="ver.id.1" type="number" step="0.01" inputmode="decimal"></td><td><input data-store="ver.id.2" type="number" step="0.01" inputmode="decimal"></td><td data-average>—</td></tr>
-              <tr data-row="outerDiameter"><th scope="row">เส้นผ่านศูนย์กลางภายนอก (\(\mathrm{mm}\))</th><td><input data-store="ver.od.0" type="number" step="0.01" inputmode="decimal"></td><td><input data-store="ver.od.1" type="number" step="0.01" inputmode="decimal"></td><td><input data-store="ver.od.2" type="number" step="0.01" inputmode="decimal"></td><td data-average>—</td></tr>
-              <tr data-row="height"><th scope="row">ความสูงของทรงกระบอก (\(\mathrm{mm}\))</th><td><input data-store="ver.h.0" type="number" step="0.01" inputmode="decimal"></td><td><input data-store="ver.h.1" type="number" step="0.01" inputmode="decimal"></td><td><input data-store="ver.h.2" type="number" step="0.01" inputmode="decimal"></td><td data-average>—</td></tr>
-              <tr data-row="outerCircumference"><th scope="row">เส้นรอบวงภายนอก (\(\mathrm{mm}\))</th><td><input data-store="ver.oc.0" type="number" step="0.01" inputmode="decimal"></td><td><input data-store="ver.oc.1" type="number" step="0.01" inputmode="decimal"></td><td><input data-store="ver.oc.2" type="number" step="0.01" inputmode="decimal"></td><td data-average>—</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="calc-line">\(\pi_{\mathrm{exp}}\): <output id="vernierPiOutput">—</output> · ปริมาตร: <output id="cylinderVolumeOutput">—</output> · ความหนาแน่น: <output id="densityOutput">—</output></p>
-      </div>
-
-      <!-- 3 · micrometer -->
-      <div class="worksheet-block">
-        <h3>3 · วัดด้วยไมโครมิเตอร์ → พื้นที่หน้าตัดเส้นลวด</h3>
-        <div class="setup-inputs">
-          <label>ระยะ 1 พิตช์ <span class="u">\(p\) (mm)</span> <input id="microP" data-store="mic.p" type="number" step="0.01" inputmode="decimal"></label>
-          <label>จำนวนช่องสเกลวงกลม <span class="u">\(n\)</span> <input id="microN" data-store="mic.n" type="number" step="1" inputmode="numeric"></label>
-        </div>
-        <p class="calc-line">ความละเอียด \(r=p/n\): <output id="microResolutionOutput">—</output></p>
-        <aside class="note note-warn note-block" style="margin-bottom:1rem;">
-          <span class="note-icon" aria-hidden="true">!</span>
-          <div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
-          <p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
-        </aside>
-        <div class="table-wrap">
-          <table class="data-table" data-group="micro">
-            <thead><tr><th scope="col">วัตถุ</th><th scope="col">ครั้งที่ 1</th><th scope="col">ครั้งที่ 2</th><th scope="col">ครั้งที่ 3</th><th scope="col">ค่าเฉลี่ย</th></tr></thead>
-            <tbody>
-              <tr data-row="cover"><th scope="row">ความหนาปกคู่มือ 1 แผ่น (\(\mathrm{mm}\))</th><td><input data-store="mic.cov.0" type="number" step="0.001" inputmode="decimal"></td><td><input data-store="mic.cov.1" type="number" step="0.001" inputmode="decimal"></td><td><input data-store="mic.cov.2" type="number" step="0.001" inputmode="decimal"></td><td data-average>—</td></tr>
-              <tr data-row="insidePaper"><th scope="row">ความหนากระดาษ 1 แผ่น (\(\mathrm{mm}\))</th><td><input data-store="mic.pap.0" type="number" step="0.001" inputmode="decimal"></td><td><input data-store="mic.pap.1" type="number" step="0.001" inputmode="decimal"></td><td><input data-store="mic.pap.2" type="number" step="0.001" inputmode="decimal"></td><td data-average>—</td></tr>
-              <tr data-row="wire"><th scope="row">ความหนาเส้นลวด 1 เส้น (\(\mathrm{mm}\))</th><td><input data-store="mic.wir.0" type="number" step="0.001" inputmode="decimal"></td><td><input data-store="mic.wir.1" type="number" step="0.001" inputmode="decimal"></td><td><input data-store="mic.wir.2" type="number" step="0.001" inputmode="decimal"></td><td data-average>—</td></tr>
-              <tr data-row="ring"><th scope="row">ความหนาแหวน (\(\mathrm{mm}\))</th><td><input data-store="mic.rng.0" type="number" step="0.001" inputmode="decimal"></td><td><input data-store="mic.rng.1" type="number" step="0.001" inputmode="decimal"></td><td><input data-store="mic.rng.2" type="number" step="0.001" inputmode="decimal"></td><td data-average>—</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="calc-line">พื้นที่หน้าตัดเส้นลวด \(A=\pi r^{2}\): <output id="wireAreaOutput">—</output> · ร้อยละความแตกต่างความหนาแหวน (ไมโครมิเตอร์ vs ไม้บรรทัด): <output id="ringDifferenceOutput">—</output></p>
-      </div>
-
-      <div class="actions-row">
-        <button type="button" class="btn btn-soft" id="resetTable">ล้างข้อมูลตาราง</button>
-        <span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span>
-      </div>
-    </section>
-
-    <!-- ══════════════ 10 · CHECKPOINT ══════════════ -->
-    <section class="section" id="checkpoint" data-title="ตรวจสอบ">
-      <header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
-      <aside class="prompt-card" style="margin-bottom:1.2rem">
-        <p class="prompt-tag">ลองตอบเร็ว</p>
-        <div class="quick-quiz" data-qid="m-analyze" data-bloom="analyze" data-answer="A">
-          <h3 class="prompt-q">วัดความหนาแหวนได้ \(2\,\mathrm{mm}\) ด้วยไม้บรรทัด และ \(1.98\,\mathrm{mm}\) ด้วยไมโครมิเตอร์ ค่าใดน่าเชื่อถือกว่า?</h3>
-          <div class="quiz-options">
-            <button type="button" data-quiz-option="A"><b class="qo-key">A</b> ไมโครมิเตอร์ (ละเอียด 0.01 mm)</button>
-            <button type="button" data-quiz-option="B"><b class="qo-key">B</b> ไม้บรรทัด</button>
-            <button type="button" data-quiz-option="C"><b class="qo-key">C</b> เชื่อถือเท่ากัน</button>
-            <button type="button" data-quiz-option="D"><b class="qo-key">D</b> เชื่อถือไม่ได้ทั้งคู่เพราะค่าต่างกัน</button>
-            <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ไม้บรรทัด เพราะไม่มีความคลาดเคลื่อนศูนย์</button>
-          </div>
-          <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-        </div>
-      </aside>
-      <div class="prompt-card prompt-wide">
-        <p class="prompt-tag">คำถามท้าทาย</p>
-        <p class="prompt-q">ถ้าวัดความหนาแหวนด้วย <strong>ไม้บรรทัด</strong> ได้ \(2\,\mathrm{mm}\) และด้วย <strong>ไมโครมิเตอร์</strong> ได้ \(1.98\,\mathrm{mm}\) ค่าใดน่าเชื่อถือกว่า และควรรายงานเลขนัยสำคัญต่างกันอย่างไร?</p>
-        <div class="reveal-controls">
-          <button type="button" class="btn btn-primary" id="answerShow">แสดงคำตอบ</button>
-          <button type="button" class="btn btn-ghost" id="answerHide" hidden>ซ่อนคำตอบ</button>
-        </div>
-        <div class="answer-body" id="answerBody" hidden>
-          <p>ไมโครมิเตอร์น่าเชื่อถือกว่า เพราะความละเอียดสูงถึง \(0.01\,\mathrm{mm}\) จึงรายงานได้ \(1.98\,\mathrm{mm}\) (3 เลขนัยสำคัญ)</p>
-          <ul class="tick-list">
-            <li>ไม้บรรทัดละเอียด \(1\,\mathrm{mm}\) ประมาณได้แค่ \(0.1\,\mathrm{mm}\) → รายงาน \(2.0\,\mathrm{mm}\)</li>
-            <li>อย่ารายงานเลขนัยสำคัญเกินความละเอียดเครื่องมือ</li>
-            <li>เทียบสองวิธีด้วย \(\%\,\mathrm{diff}\) เพื่อบอกความสอดคล้อง</li>
-          </ul>
-          <p class="muted">บทเรียน: เลือกเครื่องมือให้เหมาะกับความละเอียดที่งานต้องการ และรายงานเลขนัยสำคัญให้สอดคล้องกัน</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════ 11 · ANALYSIS ══════════════ -->
-    <section class="section" id="analysis" data-title="วิเคราะห์">
-      <header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
-      <div class="split">
-        <div class="split-col">
-          <ol class="analysis-steps">
-            <li>หาค่าเฉลี่ยของแต่ละปริมาณจากการวัดซ้ำ แล้วคำนวณ \(\pi_{\mathrm{exp}}\), ปริมาตร, ความหนาแน่น และพื้นที่หน้าตัดเส้นลวด</li>
-            <li>เทียบ \(\pi_{\mathrm{exp}}\) กับ \(\pi\approx3.1416\) ด้วยร้อยละความคลาดเคลื่อน</li>
-            <li>เทียบผลจากสองเครื่องมือ (เช่น ความหนาแหวน) ด้วยร้อยละความแตกต่าง</li>
-            <li>ตัดสินว่าค่าใดน่าเชื่อถือที่สุด โดยอ้างความละเอียดเครื่องมือและการกระจายของค่าที่วัดซ้ำ</li>
-          </ol>
-          <aside class="note note-info note-block">
-            <span class="note-icon" aria-hidden="true">◆</span>
-            <div><span class="note-kind">ควรรู้</span><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>parallax ขณะอ่านสเกล</li><li>zero error ของเวอร์เนียร์/ไมโครมิเตอร์</li><li>แรงกดและความไม่สม่ำเสมอของวัตถุ</li></ul></div>
-          </aside>
-        </div>
-        <aside class="prompt-card">
-          <p class="prompt-tag">ลองตอบเร็ว</p>
-          <div class="quick-quiz" data-qid="m-evaluate" data-bloom="evaluate" data-answer="A">
-            <h3 class="prompt-q">การวัดซ้ำหลายครั้งแล้วเฉลี่ย ช่วยลดความคลาดเคลื่อนชนิดใดได้?</h3>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> แบบสุ่ม (random)</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> เชิงระบบ (systematic)</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> ลดได้ทั้งสองแบบ</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ความละเอียดของสเกล</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ความคลาดเคลื่อนจากการสอบเทียบ</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ══════════════ 12 · CONCLUSION (spotlight) ══════════════ -->
-    <section class="section spotlight" id="conclusion" data-title="สรุป">
-      <header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
-      <div class="conclusion-grid">
-        <p class="lead conclusion-lead">บทสรุปที่ดีไม่ใช่การเล่าว่า “ได้ฝึกใช้เครื่องมือ” แต่คือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong>&nbsp;จากข้อมูลของคุณเอง</p>
-        <ul class="conclusion-points">
-          <li><span class="cp-ico">1</span><div><h3>รายงานผลหลัก</h3><p>ระบุ \(\pi_{\mathrm{exp}}\), ความหนาแน่นทรงกระบอก และพื้นที่หน้าตัดเส้นลวด พร้อมหน่วยและเลขนัยสำคัญที่เหมาะสม</p></div></li>
-          <li><span class="cp-ico">2</span><div><h3>เทียบกับค่าจริง</h3><p>รายงานร้อยละความคลาดเคลื่อนของ \(\pi_{\mathrm{exp}}\) เทียบ \(\pi\) และร้อยละความแตกต่างของผลจากสองเครื่องมือ</p></div></li>
-          <li><span class="cp-ico">3</span><div><h3>ตัดสินความน่าเชื่อถือ</h3><p>บอกว่าค่าใดน่าเชื่อถือที่สุด โดยอ้างความละเอียดเครื่องมือและการกระจายของค่าที่วัดซ้ำ</p></div></li>
-          <li><span class="cp-ico">4</span><div><h3>แหล่งคลาดเคลื่อนและการปรับปรุง</h3><p>ระบุสาเหตุหลักหนึ่งอย่าง (เช่น parallax, zero error, แรงกด) และเสนอวิธีลดในการทดลองครั้งถัดไป</p></div></li>
-        </ul>
-      </div>
-      <p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
-    </section>
-
-    <!-- ══════════════ 13 · DISCUSSION (band) ══════════════ -->
-    <section class="section band" id="discussion" data-title="อภิปราย">
-      <header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
-      <aside class="prompt-card" style="margin-bottom:1.2rem">
-        <p class="prompt-tag">ลองตอบเร็ว</p>
-        <div class="quick-quiz" data-qid="m-create" data-bloom="create" data-answer="C">
-          <h3 class="prompt-q">ต้องการหาความหนาแน่นของวัตถุรูปทรง <strong>ไม่สม่ำเสมอ</strong> ด้วยเครื่องมือในบทนี้ แนวทางใดเหมาะสมที่สุด?</h3>
-          <div class="quiz-options">
-            <button type="button" data-quiz-option="A"><b class="qo-key">A</b> วัดด้วยไม้บรรทัดแล้วคำนวณปริมาตรจากสูตรทรงเรขาคณิต</button>
-            <button type="button" data-quiz-option="B"><b class="qo-key">B</b> ใช้ไมโครมิเตอร์วัดทุกด้านแล้วคูณกัน</button>
-            <button type="button" data-quiz-option="C"><b class="qo-key">C</b> ชั่งมวล แล้วหาปริมาตรจากปริมาตรน้ำที่ถูกแทนที่ (\(\rho=M/V\))</button>
-            <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ชั่งมวลแล้วประมาณปริมาตรด้วยสายตา</button>
-            <button type="button" data-quiz-option="E"><b class="qo-key">E</b> วัดเส้นรอบวงเพียงค่าเดียวแล้วใช้เป็นปริมาตร</button>
-          </div>
-          <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-        </div>
-      </aside>
-      <div class="q-grid">
-        <article class="q-card"><span class="q-no">Q1</span><p>ความแม่นยำ (precision) กับความถูกต้อง (accuracy) ต่างกันอย่างไร ยกตัวอย่างจากข้อมูลที่วัดซ้ำ</p></article>
-        <article class="q-card"><span class="q-no">Q2</span><p>zero error ของเวอร์เนียร์/ไมโครมิเตอร์เกิดจากอะไร และแก้ค่าอย่างไร</p></article>
-        <article class="q-card"><span class="q-no">Q3</span><p>เหตุใดไมโครมิเตอร์จึงใช้ ratchet และแรงกดมีผลต่อค่าที่วัดได้ของวัตถุเล็ก/อ่อนอย่างไร</p></article>
-        <article class="q-card"><span class="q-no">Q4</span><p>เมื่อคำนวณจากค่าที่วัดด้วยเครื่องมือคนละความละเอียด ควรเลือกจำนวนเลขนัยสำคัญของผลลัพธ์อย่างไร</p></article>
-        <article class="q-card"><span class="q-no">Q5</span><p>ทำไมการวัดซ้ำหลายครั้งแล้วเฉลี่ยจึงช่วยลดความคลาดเคลื่อน และลดได้เฉพาะแบบใด</p></article>
-      </div>
-    </section>
-
-    <!-- ══════════════ 14 · ADDITIONAL-KNOWLEDGE ══════════════ -->
-    <section class="section band" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
-      <header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
-            <div class="prompt-card prompt-wide" style="margin: 0 auto;">
-        <p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
-          <span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
+<div class="card-grid cols-3">
+<article class="info-card">
+<span class="ic-step">A</span>
+<h3>ความละเอียดและการประมาณ</h3>
+<p>ไม้บรรทัดอ่านได้ \(1\,\mathrm{mm}\) จึงประมาณเพิ่มถึง \(0.1\,\mathrm{mm}\); เวอร์เนียร์และไมโครมิเตอร์ละเอียดกว่ามาก</p>
+</article>
+<article class="info-card">
+<span class="ic-step">B</span>
+<h3>เลขนัยสำคัญ</h3>
+<p>ประกอบด้วยเลขที่อ่านแน่นอน + เลขประมาณอีกหนึ่งหลัก การเปลี่ยนหน่วยไม่เปลี่ยนจำนวนเลขนัยสำคัญ</p>
+</article>
+<article class="info-card">
+<span class="ic-step">C</span>
+<h3>ความแม่นยำ vs ความถูกต้อง</h3>
+<p>ความแม่นยำ (precision) คือวัดซ้ำได้ค่าใกล้กัน ส่วนความถูกต้อง (accuracy) คือใกล้ค่าจริง — ไม่จำเป็นต้องมาพร้อมกัน</p>
+</article>
+</div>
+<div class="note note-info">
+<span aria-hidden="true" class="note-icon">◆</span>
+<div><span class="note-kind">ควรรู้</span><p><strong>ความคลาดเคลื่อนสองแบบ</strong> เชิงระบบ (systematic) จากเครื่องมือ/วิธี/ผู้วัด แก้ได้ด้วยการสอบเทียบ · แบบสุ่ม (random) จากปัจจัยควบคุมไม่ได้ ลดได้ด้วยการวัดซ้ำแล้วเฉลี่ย</p></div>
+</div>
+<aside class="prompt-card" style="margin-top:1.4rem">
+<p class="prompt-tag">ลองตอบเร็ว</p>
+<div class="quick-quiz" data-answer="B" data-bloom="remember" data-qid="m-remember">
+<h3 class="prompt-q">ไมโครมิเตอร์อ่านค่าได้ละเอียดถึงระดับใด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> \(0.1\,\mathrm{mm}\)</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> \(0.01\,\mathrm{mm}\)</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> \(1\,\mathrm{mm}\)</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> \(0.001\,\mathrm{mm}\)</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> \(1\,\mathrm{cm}\)</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</aside>
+</section>
+<!-- ══════════════ 5 · EQUIPMENT ══════════════ -->
+<section class="section" data-title="อุปกรณ์" id="equipment">
+<header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
+<div class="card-grid cols-3 equip-grid">
+<figure class="equip-card">
+<button aria-label="ดูภาพขยาย: ไม้บรรทัด" class="equip-photo" data-photo="" type="button">
+<img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-1.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span>
+</button>
+<figcaption><h3>ไม้บรรทัด / ไม้เมตร</h3><p>วัดความยาว เส้นผ่านศูนย์กลาง เส้นรอบวง และความหนา อ่านได้ละเอียด \(1\,\mathrm{mm}\) แล้วประมาณเพิ่มอีกหนึ่งหลักเป็น \(0.1\,\mathrm{mm}\)</p></figcaption>
+</figure>
+<figure class="equip-card">
+<button aria-label="ดูภาพขยาย: เวอร์เนียร์คาลิเปอร์" class="equip-photo" data-photo="" type="button">
+<img alt="" decoding="async" height="400" loading="lazy" src="assets/equip/vernier.png" width="1000"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span>
+</button>
+<figcaption><h3>เวอร์เนียร์คาลิเปอร์</h3><p>วัดความยาว ความหนา และเส้นผ่านศูนย์กลางภายใน/ภายนอกของวัตถุไม่ใหญ่มาก ความละเอียดคำนวณจาก \(r=s/n\)</p></figcaption>
+</figure>
+<figure class="equip-card">
+<button aria-label="ดูภาพขยาย: ไมโครมิเตอร์" class="equip-photo" data-photo="" type="button">
+<img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-3.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span>
+</button>
+<figcaption><h3>ไมโครมิเตอร์</h3><p>วัดความหนา/เส้นผ่านศูนย์กลางของวัตถุขนาดเล็ก มีสเกลหลักและสเกลวงกลม ความละเอียดคำนวณจาก \(r=p/n\) ละเอียดถึง \(0.01\,\mathrm{mm}\)</p></figcaption>
+</figure>
+<figure class="equip-card">
+<button aria-label="ดูภาพขยาย: เส้นด้ายและไม้บรรทัด" class="equip-photo" data-photo="" type="button">
+<img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-4.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span>
+</button>
+<figcaption><h3>เส้นด้าย</h3><p>ใช้วัดเส้นรอบวงของวัตถุทรงกลม โดยพันรอบแล้วนำไปเทียบกับไม้บรรทัด ต้องทำเครื่องหมายตำแหน่งเดิมทุกครั้ง</p></figcaption>
+</figure>
+<figure class="equip-card">
+<button aria-label="ดูภาพขยาย: เครื่องชั่ง" class="equip-photo" data-photo="" type="button">
+<img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-5.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span>
+</button>
+<figcaption><h3>เครื่องชั่ง</h3><p>วัดมวลของทรงกระบอกเพื่อนำไปหาความหนาแน่น \(\rho=M/V\) ควรชั่งบนพื้นราบและรอให้ค่าคงที่ก่อนอ่าน</p></figcaption>
+</figure>
+<figure class="equip-card">
+<button aria-label="ดูภาพขยาย: ชิ้นงานทดสอบ" class="equip-photo" data-photo="" type="button">
+<img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-6.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span>
+</button>
+<figcaption><h3>ชิ้นงานทดสอบ</h3><p>แหวน กระดาษ ทรงกระบอกกลวง และเส้นลวด สำหรับฝึกวัดด้วยเครื่องมือต่าง ๆ และเปรียบเทียบผล</p></figcaption>
+</figure>
+</div>
+</section>
+<!-- ══════════════ 6 · FORMULAS ══════════════ -->
+<section class="section" data-title="สูตร" id="formula">
+<header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
+<div class="card-grid cols-3">
+<article class="formula-card">
+<h3>ค่าเฉลี่ย</h3>
+<p class="formula">\[\bar{x}=\frac{x_1+x_2+\cdots+x_n}{n}\]</p>
+<p class="formula-note">เฉลี่ยจากการวัดซ้ำเพื่อลดความคลาดเคลื่อนแบบสุ่ม</p>
+</article>
+<article class="formula-card formula-accent">
+<h3>ร้อยละความคลาดเคลื่อน</h3>
+<p class="formula">\[\%\,\mathrm{error}=\frac{|x_{\mathrm{exp}}-x_{\mathrm{true}}|}{x_{\mathrm{true}}}\times100\]</p>
+<p class="formula-note">เทียบค่าที่วัดได้กับค่าจริง/ค่ามาตรฐาน</p>
+</article>
+<article class="formula-card">
+<h3>ร้อยละความแตกต่าง</h3>
+<p class="formula">\[\%\,\mathrm{diff}=\frac{|x_1-x_2|}{(x_1+x_2)/2}\times100\]</p>
+<p class="formula-note">เทียบผลจากสองวิธี/สองเครื่องมือ</p>
+</article>
+<article class="formula-card">
+<h3>ความละเอียดเวอร์เนียร์</h3>
+<p class="formula">\[r=\frac{s}{n}\]</p>
+<p class="formula-note">\(s\) = ระยะ 1 ช่องสเกลหลัก · \(n\) = จำนวนช่องเวอร์เนียร์</p>
+</article>
+<article class="formula-card">
+<h3>ความละเอียดไมโครมิเตอร์</h3>
+<p class="formula">\[r=\frac{p}{n}\]</p>
+<p class="formula-note">\(p\) = ระยะ 1 พิตช์ · \(n\) = จำนวนช่องสเกลวงกลม</p>
+</article>
+<article class="formula-card">
+<h3>ความหนาแน่น / พื้นที่หน้าตัด</h3>
+<p class="formula">\[\rho=\frac{M}{V}\qquad A=\pi r^{2}\]</p>
+<p class="formula-note">ปริมาตรทรงกระบอกกลวงจากเส้นผ่านศูนย์กลางใน/นอกและความสูง</p>
+</article>
+</div>
+</section>
+<!-- ══════════════ 7 · PROCEDURE ══════════════ -->
+<section class="section" data-title="ขั้นตอน" id="procedure">
+<header class="section-head"><div><p class="kicker">ลำดับการทำงาน</p><h2>ขั้นตอนการวัด</h2></div></header>
+<ol class="steps">
+<li><span class="step-n">1</span><div><h3>เลือกเครื่องมือให้เหมาะกับงาน</h3><p>ของใหญ่หยาบใช้ไม้บรรทัด ของเล็กที่ต้องการความละเอียดใช้เวอร์เนียร์หรือไมโครมิเตอร์</p><p class="step-caution"><b>ระวัง:</b> อย่าใช้ไม้บรรทัดกับงานที่ต้องการความละเอียดสูง เช่น เส้นลวด เพราะค่าจะหยาบเกินไป</p></div></li>
+<li><span class="step-n">2</span><div><h3>ตรวจ zero error</h3><p>ปิดปากวัด/หมุนจนสุดก่อนเริ่ม ตรวจว่าศูนย์ตรงกัน ถ้าไม่ตรงให้บันทึกค่าแก้</p><p class="step-caution"><b>ระวัง:</b> ถ้าศูนย์ไม่ตรงแล้วไม่บันทึกค่าแก้ ค่าที่วัดทุกครั้งจะคลาดเคลื่อนเชิงระบบเท่ากันหมด</p></div></li>
+<li><span class="step-n">3</span><div><h3>อ่านสเกลหลัก</h3><p>อ่านค่าที่แน่นอนจากสเกลหลักในระดับสายตา (ตั้งฉากเพื่อลด parallax)</p><p class="step-caution"><b>ระวัง:</b> วางสายตาตั้งฉากกับขีดสเกล การมองเฉียงทำให้อ่านค่าผิด (parallax)</p></div></li>
+<li><span class="step-n">4</span><div><h3>ประมาณเลขเพิ่มอีกหนึ่งหลัก</h3><p>เวอร์เนียร์: หาเส้นที่ตรงกับสเกลหลัก · ไมโครมิเตอร์: อ่านสเกลวงกลม</p><p class="step-caution"><b>ระวัง:</b> อย่าบีบไมโครมิเตอร์แรงเกินไป ใช้ ratchet ให้แรงกดสม่ำเสมอ และประมาณเพิ่มเพียงหนึ่งหลักเท่านั้น</p></div></li>
+<li><span class="step-n">5</span><div><h3>วัดซ้ำหลายครั้งแล้วเฉลี่ย</h3><p>วัดอย่างน้อย 3 ครั้ง (และหลายตำแหน่งสำหรับวัตถุไม่สม่ำเสมอ) เพื่อลดความคลาดเคลื่อนแบบสุ่ม</p><p class="step-caution"><b>ระวัง:</b> การเฉลี่ยลดได้เฉพาะความคลาดเคลื่อนแบบสุ่ม ไม่ช่วยแก้ zero error หรือความคลาดเคลื่อนเชิงระบบ</p></div></li>
+<li><span class="step-n">6</span><div><h3>บันทึกหน่วยและเลขนัยสำคัญให้ครบ</h3><p>ทุกค่าต้องใช้หน่วยเดียวกันก่อนคำนวณ และรายงานเลขนัยสำคัญให้สอดคล้องกับความละเอียดเครื่องมือ</p><p class="step-caution"><b>ระวัง:</b> แปลงหน่วยให้ตรงกันก่อนคำนวณ และอย่ารายงานเลขนัยสำคัญเกินความละเอียดของเครื่องมือ</p></div></li>
+</ol>
+</section>
+<!-- ══════════════ 8 · PRACTICE / SIMULATORS (spotlight) ══════════════ -->
+<section class="section spotlight" data-title="ฝึกอ่านสเกล" id="practice">
+<header class="section-head"><div><p class="kicker">ฝึกอ่านค่าแบบโต้ตอบ</p><h2>แบบฝึกอ่านสเกล</h2></div></header>
+<p class="lead">เลื่อนแถบเพื่อกำหนดปรับสเกล หรือกดปุ่มตัวอย่าง แล้วฝึกอ่านจากสเกลจำลองให้ตรงกับค่าที่แสดง</p>
+<div class="note note-warn">
+<span aria-hidden="true" class="note-icon">!</span>
+<div><span class="note-kind">ข้อควรระวัง</span><strong>มองให้ตั้งฉากกับสเกล</strong><p>วางสายตาตั้งฉากกับขีดสเกลทุกครั้ง การมองเฉียงทำให้อ่านค่าคลาดเคลื่อน (parallax) — ฝึกในซิมูเลเตอร์ให้คุ้นตาก่อนวัดของจริง</p></div>
+</div>
+<div class="simulator-grid">
+<section class="simulator-panel">
+<div class="sim-header"><h3>ไม้บรรทัด</h3></div>
+<canvas aria-label="ไม้บรรทัดจำลองแสดงการวัดความยาว" height="240" id="rulerCanvas" role="img" width="900"></canvas>
+<div class="demo-controls">
+<label>ปรับสเกล <input id="rulerValue" max="15" min="0" step="0.01" type="range" value="11.28"/></label>
+</div>
+<div class="quick-quiz" data-answer="B" data-bloom="apply" data-qid="m-apply-ruler">
+<p class="quiz-label">ลองตอบเร็ว</p>
+<h4>ถ้าขีดย่อยเล็กสุดของไม้บรรทัดคือ \(1\,\mathrm{mm}\) เลขประมาณอีกหนึ่งหลักอยู่ระดับใด?</h4>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> \(1\,\mathrm{mm}\)</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> \(0.1\,\mathrm{mm}\)</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> \(10\,\mathrm{mm}\)</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> \(0.01\,\mathrm{mm}\)</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> อ่านได้เฉพาะจำนวนเต็มมิลลิเมตร</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+<section class="simulator-panel">
+<div class="sim-header"><h3>เวอร์เนียร์คาลิเปอร์</h3></div>
+<canvas aria-label="เวอร์เนียร์คาลิเปอร์จำลองแสดงการอ่านสเกล" height="300" id="vernierCanvas" role="img" width="900"></canvas>
+<div class="demo-controls">
+<label>ปรับสเกล <input id="vernierValue" max="60" min="0" step="0.05" type="range" value="11.65"/></label>
+</div>
+<div class="quick-quiz" data-answer="B" data-bloom="apply" data-qid="m-apply-vernier">
+<p class="quiz-label">ลองตอบเร็ว</p>
+<h4>ถ้าสเกลหลักอ่านได้ \(11\,\mathrm{mm}\) และสเกลเวอร์เนียร์เพิ่ม \(0.65\,\mathrm{mm}\) ค่าที่ควรรายงานคืออะไร?</h4>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> \(11.065\,\mathrm{mm}\)</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> \(11.65\,\mathrm{mm}\)</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> \(65.11\,\mathrm{mm}\)</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> \(11.06\,\mathrm{mm}\)</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> \(12.65\,\mathrm{mm}\)</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+<section class="simulator-panel">
+<div class="sim-header"><h3>ไมโครมิเตอร์</h3></div>
+<canvas aria-label="ไมโครมิเตอร์จำลองแสดงการอ่านสเกล" height="320" id="micrometerCanvas" role="img" width="900"></canvas>
+<div class="demo-controls">
+<label>ปรับสเกล <input id="micrometerValue" max="10" min="0" step="0.001" type="range" value="7.380"/></label>
+</div>
+<div class="quick-quiz" data-answer="A" data-bloom="apply" data-qid="m-apply-micrometer">
+<p class="quiz-label">ลองตอบเร็ว</p>
+<h4>ถ้าสเกลหลักอ่านได้ \(7.5\,\mathrm{mm}\) และสเกลวงกลมเพิ่ม \(0.221\,\mathrm{mm}\) ค่ารวมคืออะไร?</h4>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> \(7.721\,\mathrm{mm}\)</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> \(7.521\,\mathrm{mm}\)</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> \(7.500221\,\mathrm{mm}\)</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> \(7.721\,\mathrm{cm}\)</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> \(7.279\,\mathrm{mm}\)</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+</div>
+</section>
+<!-- ══════════════ 9 · WORKSHEET (band) ══════════════ -->
+<section class="section band" data-title="ตารางข้อมูล" id="data">
+<header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>ตารางผลการทดลอง</h2></div></header>
+<p class="lead">กรอกค่าจากการวัดจริง ค่าเฉลี่ยและผลคำนวณ (\(\pi_{\mathrm{exp}}\), ปริมาตร, ความหนาแน่น, พื้นที่หน้าตัดเส้นลวด) จะอัปเดตให้อัตโนมัติ ข้อมูลถูกบันทึกในเบราว์เซอร์เอง</p>
+<!-- 1 · ruler -->
+<div class="worksheet-block">
+<h3>1 · วัดด้วยไม้บรรทัด → หา \(\pi_{\mathrm{exp}}\)</h3>
+<div class="note note-warn compact">
+<span aria-hidden="true" class="note-icon">!</span>
+<div><span class="note-kind">ข้อควรระวัง</span><strong>ก่อนบันทึกค่า</strong><ul><li>ทุกค่าต้องใช้หน่วยเดียวกันก่อนหาค่าเฉลี่ย</li><li>วัดเส้นรอบวงด้วยเส้นด้าย ทำเครื่องหมายตำแหน่งเดิมทุกครั้ง</li></ul></div>
+</div>
+<aside class="note note-warn note-block" style="margin-bottom:1rem;">
+<span aria-hidden="true" class="note-icon">!</span>
+<div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
+<p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
+</aside>
+<div class="table-wrap">
+<table class="data-table" data-group="ruler">
+<thead><tr><th scope="col">ปริมาณ</th><th scope="col">ครั้งที่ 1</th><th scope="col">ครั้งที่ 2</th><th scope="col">ครั้งที่ 3</th><th scope="col">ค่าเฉลี่ย</th></tr></thead>
+<tbody>
+<tr data-row="diameter"><th scope="row">เส้นผ่านศูนย์กลาง (\(\mathrm{mm}\))</th><td><input data-store="rul.dia.0" inputmode="decimal" step="0.01" type="number"/></td><td><input data-store="rul.dia.1" inputmode="decimal" step="0.01" type="number"/></td><td><input data-store="rul.dia.2" inputmode="decimal" step="0.01" type="number"/></td><td data-average="">—</td></tr>
+<tr data-row="circumference"><th scope="row">เส้นรอบวง (\(\mathrm{mm}\))</th><td><input data-store="rul.cir.0" inputmode="decimal" step="0.01" type="number"/></td><td><input data-store="rul.cir.1" inputmode="decimal" step="0.01" type="number"/></td><td><input data-store="rul.cir.2" inputmode="decimal" step="0.01" type="number"/></td><td data-average="">—</td></tr>
+<tr data-row="thickness"><th scope="row">ความหนา (\(\mathrm{mm}\))</th><td><input data-store="rul.thk.0" inputmode="decimal" step="0.01" type="number"/></td><td><input data-store="rul.thk.1" inputmode="decimal" step="0.01" type="number"/></td><td><input data-store="rul.thk.2" inputmode="decimal" step="0.01" type="number"/></td><td data-average="">—</td></tr>
+</tbody>
+</table>
+</div>
+<p class="calc-line">\(\pi_{\mathrm{exp}}=C_{\mathrm{avg}}/D_{\mathrm{avg}}\): <output id="rulerPiOutput">—</output> · ร้อยละความคลาดเคลื่อน: <output id="rulerErrorOutput">—</output></p>
+</div>
+<!-- 2 · vernier -->
+<div class="worksheet-block">
+<h3>2 · วัดด้วยเวอร์เนียร์ → ปริมาตร &amp; ความหนาแน่น</h3>
+<div class="setup-inputs">
+<label>ระยะ 1 ช่องสเกลหลัก <span class="u">\(s\) (\(\mathrm{mm}\))</span> <input data-store="ver.s" id="vernierS" inputmode="decimal" step="0.01" type="number"/></label>
+<label>จำนวนช่อง <span class="u">\(n\)</span> <input data-store="ver.n" id="vernierN" inputmode="numeric" step="1" type="number"/></label>
+<label>มวลทรงกระบอก <span class="u">(\(\mathrm{g}\))</span> <input data-store="ver.mass" id="vernierMass" inputmode="decimal" step="0.01" type="number"/></label>
+</div>
+<p class="calc-line">ความละเอียด \(r=s/n\): <output id="vernierResolutionOutput">—</output></p>
+<aside class="note note-warn note-block" style="margin-bottom:1rem;">
+<span aria-hidden="true" class="note-icon">!</span>
+<div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
+<p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
+</aside>
+<div class="table-wrap">
+<table class="data-table" data-group="vernier">
+<thead><tr><th scope="col">ปริมาณ</th><th scope="col">ครั้งที่ 1</th><th scope="col">ครั้งที่ 2</th><th scope="col">ครั้งที่ 3</th><th scope="col">ค่าเฉลี่ย</th></tr></thead>
+<tbody>
+<tr data-row="innerDiameter"><th scope="row">เส้นผ่านศูนย์กลางภายใน (\(\mathrm{mm}\))</th><td><input data-store="ver.id.0" inputmode="decimal" step="0.01" type="number"/></td><td><input data-store="ver.id.1" inputmode="decimal" step="0.01" type="number"/></td><td><input data-store="ver.id.2" inputmode="decimal" step="0.01" type="number"/></td><td data-average="">—</td></tr>
+<tr data-row="outerDiameter"><th scope="row">เส้นผ่านศูนย์กลางภายนอก (\(\mathrm{mm}\))</th><td><input data-store="ver.od.0" inputmode="decimal" step="0.01" type="number"/></td><td><input data-store="ver.od.1" inputmode="decimal" step="0.01" type="number"/></td><td><input data-store="ver.od.2" inputmode="decimal" step="0.01" type="number"/></td><td data-average="">—</td></tr>
+<tr data-row="height"><th scope="row">ความสูงของทรงกระบอก (\(\mathrm{mm}\))</th><td><input data-store="ver.h.0" inputmode="decimal" step="0.01" type="number"/></td><td><input data-store="ver.h.1" inputmode="decimal" step="0.01" type="number"/></td><td><input data-store="ver.h.2" inputmode="decimal" step="0.01" type="number"/></td><td data-average="">—</td></tr>
+<tr data-row="outerCircumference"><th scope="row">เส้นรอบวงภายนอก (\(\mathrm{mm}\))</th><td><input data-store="ver.oc.0" inputmode="decimal" step="0.01" type="number"/></td><td><input data-store="ver.oc.1" inputmode="decimal" step="0.01" type="number"/></td><td><input data-store="ver.oc.2" inputmode="decimal" step="0.01" type="number"/></td><td data-average="">—</td></tr>
+</tbody>
+</table>
+</div>
+<p class="calc-line">\(\pi_{\mathrm{exp}}\): <output id="vernierPiOutput">—</output> · ปริมาตร: <output id="cylinderVolumeOutput">—</output> · ความหนาแน่น: <output id="densityOutput">—</output></p>
+</div>
+<!-- 3 · micrometer -->
+<div class="worksheet-block">
+<h3>3 · วัดด้วยไมโครมิเตอร์ → พื้นที่หน้าตัดเส้นลวด</h3>
+<div class="setup-inputs">
+<label>ระยะ 1 พิตช์ <span class="u">\(p\) (mm)</span> <input data-store="mic.p" id="microP" inputmode="decimal" step="0.01" type="number"/></label>
+<label>จำนวนช่องสเกลวงกลม <span class="u">\(n\)</span> <input data-store="mic.n" id="microN" inputmode="numeric" step="1" type="number"/></label>
+</div>
+<p class="calc-line">ความละเอียด \(r=p/n\): <output id="microResolutionOutput">—</output></p>
+<aside class="note note-warn note-block" style="margin-bottom:1rem;">
+<span aria-hidden="true" class="note-icon">!</span>
+<div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
+<p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
+</aside>
+<div class="table-wrap">
+<table class="data-table" data-group="micro">
+<thead><tr><th scope="col">วัตถุ</th><th scope="col">ครั้งที่ 1</th><th scope="col">ครั้งที่ 2</th><th scope="col">ครั้งที่ 3</th><th scope="col">ค่าเฉลี่ย</th></tr></thead>
+<tbody>
+<tr data-row="cover"><th scope="row">ความหนาปกคู่มือ 1 แผ่น (\(\mathrm{mm}\))</th><td><input data-store="mic.cov.0" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="mic.cov.1" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="mic.cov.2" inputmode="decimal" step="0.001" type="number"/></td><td data-average="">—</td></tr>
+<tr data-row="insidePaper"><th scope="row">ความหนากระดาษ 1 แผ่น (\(\mathrm{mm}\))</th><td><input data-store="mic.pap.0" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="mic.pap.1" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="mic.pap.2" inputmode="decimal" step="0.001" type="number"/></td><td data-average="">—</td></tr>
+<tr data-row="wire"><th scope="row">ความหนาเส้นลวด 1 เส้น (\(\mathrm{mm}\))</th><td><input data-store="mic.wir.0" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="mic.wir.1" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="mic.wir.2" inputmode="decimal" step="0.001" type="number"/></td><td data-average="">—</td></tr>
+<tr data-row="ring"><th scope="row">ความหนาแหวน (\(\mathrm{mm}\))</th><td><input data-store="mic.rng.0" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="mic.rng.1" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="mic.rng.2" inputmode="decimal" step="0.001" type="number"/></td><td data-average="">—</td></tr>
+</tbody>
+</table>
+</div>
+<p class="calc-line">พื้นที่หน้าตัดเส้นลวด \(A=\pi r^{2}\): <output id="wireAreaOutput">—</output> · ร้อยละความแตกต่างความหนาแหวน (ไมโครมิเตอร์ vs ไม้บรรทัด): <output id="ringDifferenceOutput">—</output></p>
+</div>
+<div class="actions-row">
+<button class="btn btn-soft" id="resetTable" type="button">ล้างข้อมูลตาราง</button>
+<span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span>
+</div>
+</section>
+<!-- ══════════════ 10 · CHECKPOINT ══════════════ -->
+<section class="section" data-title="ตรวจสอบ" id="checkpoint">
+<header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
+<aside class="prompt-card" style="margin-bottom:1.2rem">
+<p class="prompt-tag">ลองตอบเร็ว</p>
+<div class="quick-quiz" data-answer="A" data-bloom="analyze" data-qid="m-analyze">
+<h3 class="prompt-q">วัดความหนาแหวนได้ \(2\,\mathrm{mm}\) ด้วยไม้บรรทัด และ \(1.98\,\mathrm{mm}\) ด้วยไมโครมิเตอร์ ค่าใดน่าเชื่อถือกว่า?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> ไมโครมิเตอร์ (ละเอียด 0.01 mm)</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> ไม้บรรทัด</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> เชื่อถือเท่ากัน</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> เชื่อถือไม่ได้ทั้งคู่เพราะค่าต่างกัน</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> ไม้บรรทัด เพราะไม่มีความคลาดเคลื่อนศูนย์</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</aside>
+<div class="prompt-card">
+<p class="prompt-tag">คำถามท้าทาย</p>
+<p class="prompt-q">ถ้าวัดความหนาแหวนด้วย <strong>ไม้บรรทัด</strong> ได้ \(2\,\mathrm{mm}\) และด้วย <strong>ไมโครมิเตอร์</strong> ได้ \(1.98\,\mathrm{mm}\) ค่าใดน่าเชื่อถือกว่า และควรรายงานเลขนัยสำคัญต่างกันอย่างไร?</p>
+<div class="reveal-controls">
+<button class="btn btn-primary" id="answerShow" type="button">แสดงคำตอบ</button>
+<button class="btn btn-ghost" hidden="" id="answerHide" type="button">ซ่อนคำตอบ</button>
+</div>
+<div class="answer-body" hidden="" id="answerBody">
+<p>ไมโครมิเตอร์น่าเชื่อถือกว่า เพราะความละเอียดสูงถึง \(0.01\,\mathrm{mm}\) จึงรายงานได้ \(1.98\,\mathrm{mm}\) (3 เลขนัยสำคัญ)</p>
+<ul class="tick-list">
+<li>ไม้บรรทัดละเอียด \(1\,\mathrm{mm}\) ประมาณได้แค่ \(0.1\,\mathrm{mm}\) → รายงาน \(2.0\,\mathrm{mm}\)</li>
+<li>อย่ารายงานเลขนัยสำคัญเกินความละเอียดเครื่องมือ</li>
+<li>เทียบสองวิธีด้วย \(\%\,\mathrm{diff}\) เพื่อบอกความสอดคล้อง</li>
+</ul>
+<p class="muted">บทเรียน: เลือกเครื่องมือให้เหมาะกับความละเอียดที่งานต้องการ และรายงานเลขนัยสำคัญให้สอดคล้องกัน</p>
+</div>
+</div>
+</section>
+<!-- ══════════════ 11 · ANALYSIS ══════════════ -->
+<section class="section" data-title="วิเคราะห์" id="analysis">
+<header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
+<div class="split">
+<div class="split-col">
+<ol class="analysis-steps">
+<li>หาค่าเฉลี่ยของแต่ละปริมาณจากการวัดซ้ำ แล้วคำนวณ \(\pi_{\mathrm{exp}}\), ปริมาตร, ความหนาแน่น และพื้นที่หน้าตัดเส้นลวด</li>
+<li>เทียบ \(\pi_{\mathrm{exp}}\) กับ \(\pi\approx3.1416\) ด้วยร้อยละความคลาดเคลื่อน</li>
+<li>เทียบผลจากสองเครื่องมือ (เช่น ความหนาแหวน) ด้วยร้อยละความแตกต่าง</li>
+<li>ตัดสินว่าค่าใดน่าเชื่อถือที่สุด โดยอ้างความละเอียดเครื่องมือและการกระจายของค่าที่วัดซ้ำ</li>
+</ol>
+<aside class="note note-info note-block">
+<span aria-hidden="true" class="note-icon">◆</span>
+<div><span class="note-kind">ควรรู้</span><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>parallax ขณะอ่านสเกล</li><li>zero error ของเวอร์เนียร์/ไมโครมิเตอร์</li><li>แรงกดและความไม่สม่ำเสมอของวัตถุ</li></ul></div>
+</aside>
+</div>
+<aside class="prompt-card">
+<p class="prompt-tag">ลองตอบเร็ว</p>
+<div class="quick-quiz" data-answer="A" data-bloom="evaluate" data-qid="m-evaluate">
+<h3 class="prompt-q">การวัดซ้ำหลายครั้งแล้วเฉลี่ย ช่วยลดความคลาดเคลื่อนชนิดใดได้?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> แบบสุ่ม (random)</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> เชิงระบบ (systematic)</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> ลดได้ทั้งสองแบบ</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> ความละเอียดของสเกล</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> ความคลาดเคลื่อนจากการสอบเทียบ</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</aside>
+</div>
+</section>
+<!-- ══════════════ 12 · CONCLUSION (spotlight) ══════════════ -->
+<section class="section spotlight" data-title="สรุป" id="conclusion">
+<header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
+<div class="conclusion-grid">
+<p class="lead conclusion-lead">บทสรุปที่ดีไม่ใช่การเล่าว่า “ได้ฝึกใช้เครื่องมือ” แต่คือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong> จากข้อมูลของคุณเอง</p>
+<ul class="conclusion-points">
+<li><span class="cp-ico">1</span><div><h3>รายงานผลหลัก</h3><p>ระบุ \(\pi_{\mathrm{exp}}\), ความหนาแน่นทรงกระบอก และพื้นที่หน้าตัดเส้นลวด พร้อมหน่วยและเลขนัยสำคัญที่เหมาะสม</p></div></li>
+<li><span class="cp-ico">2</span><div><h3>เทียบกับค่าจริง</h3><p>รายงานร้อยละความคลาดเคลื่อนของ \(\pi_{\mathrm{exp}}\) เทียบ \(\pi\) และร้อยละความแตกต่างของผลจากสองเครื่องมือ</p></div></li>
+<li><span class="cp-ico">3</span><div><h3>ตัดสินความน่าเชื่อถือ</h3><p>บอกว่าค่าใดน่าเชื่อถือที่สุด โดยอ้างความละเอียดเครื่องมือและการกระจายของค่าที่วัดซ้ำ</p></div></li>
+<li><span class="cp-ico">4</span><div><h3>แหล่งคลาดเคลื่อนและการปรับปรุง</h3><p>ระบุสาเหตุหลักหนึ่งอย่าง (เช่น parallax, zero error, แรงกด) และเสนอวิธีลดในการทดลองครั้งถัดไป</p></div></li>
+</ul>
+</div>
+<p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
+</section>
+<!-- ══════════════ 13 · DISCUSSION (band) ══════════════ -->
+<section class="section band" data-title="อภิปราย" id="discussion">
+<header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
+<aside class="prompt-card" style="margin-bottom:1.2rem">
+<p class="prompt-tag">ลองตอบเร็ว</p>
+<div class="quick-quiz" data-answer="C" data-bloom="create" data-qid="m-create">
+<h3 class="prompt-q">ต้องการหาความหนาแน่นของวัตถุรูปทรง <strong>ไม่สม่ำเสมอ</strong> ด้วยเครื่องมือในบทนี้ แนวทางใดเหมาะสมที่สุด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> วัดด้วยไม้บรรทัดแล้วคำนวณปริมาตรจากสูตรทรงเรขาคณิต</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> ใช้ไมโครมิเตอร์วัดทุกด้านแล้วคูณกัน</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> ชั่งมวล แล้วหาปริมาตรจากปริมาตรน้ำที่ถูกแทนที่ (\(\rho=M/V\))</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> ชั่งมวลแล้วประมาณปริมาตรด้วยสายตา</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> วัดเส้นรอบวงเพียงค่าเดียวแล้วใช้เป็นปริมาตร</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</aside>
+<div class="q-grid">
+<article class="q-card"><span class="q-no">Q1</span><p>ความแม่นยำ (precision) กับความถูกต้อง (accuracy) ต่างกันอย่างไร ยกตัวอย่างจากข้อมูลที่วัดซ้ำ</p></article>
+<article class="q-card"><span class="q-no">Q2</span><p>zero error ของเวอร์เนียร์/ไมโครมิเตอร์เกิดจากอะไร และแก้ค่าอย่างไร</p></article>
+<article class="q-card"><span class="q-no">Q3</span><p>เหตุใดไมโครมิเตอร์จึงใช้ ratchet และแรงกดมีผลต่อค่าที่วัดได้ของวัตถุเล็ก/อ่อนอย่างไร</p></article>
+<article class="q-card"><span class="q-no">Q4</span><p>เมื่อคำนวณจากค่าที่วัดด้วยเครื่องมือคนละความละเอียด ควรเลือกจำนวนเลขนัยสำคัญของผลลัพธ์อย่างไร</p></article>
+<article class="q-card"><span class="q-no">Q5</span><p>ทำไมการวัดซ้ำหลายครั้งแล้วเฉลี่ยจึงช่วยลดความคลาดเคลื่อน และลดได้เฉพาะแบบใด</p></article>
+</div>
+</section>
+<!-- ══════════════ 14 · ADDITIONAL-KNOWLEDGE ══════════════ -->
+<section class="section band" data-title="ความรู้เพิ่มเติม" id="additional-knowledge">
+<header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
+<div class="prompt-card prompt-wide" style="margin: 0 auto;">
+<p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
+<span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
           แนวทางการเขียนความรู้เพิ่มเติม
         </p>
-        <p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
-        
-        <div class="q-grid" style="text-align: left;">
-          <article class="q-card">
-            <span class="q-no">01</span>
-            <p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
-          </article>
-          <article class="q-card" style="border-bottom: none;">
-            <span class="q-no">02</span>
-            <p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ══════════════ FLOATING SECTION STEPPER ══════════════ -->
-  <nav class="stepper" aria-label="นำทางทีละส่วน">
-    <button type="button" id="prevSec" aria-label="ส่วนก่อนหน้า">‹</button>
-    <span id="stepLabel">บทนำ</span>
-    <button type="button" id="nextSec" aria-label="ส่วนถัดไป">›</button>
-  </nav>
-
-  <!-- ══════════════ PRESENT MODE (deck) CONTROLS ══════════════ -->
-  <div class="present-bar" id="presentBar" hidden>
-    <span class="present-label">▶ โหมดนำเสนอ</span>
-    <button type="button" id="presentPrev" aria-label="สไลด์ก่อนหน้า">‹</button>
-    <span id="presentCounter">1 / 13</span>
-    <button type="button" id="presentNext" aria-label="สไลด์ถัดไป">›</button>
-    <button type="button" id="presentExit" class="present-exit">✕ ออก (Esc)</button>
-  </div>
-  <div class="present-progress" id="presentProgress" aria-hidden="true"><span></span></div>
-
-  <!-- ══════════════ UNDO TOAST ══════════════ -->
-  <div class="toast" id="toast" role="status" aria-live="polite" hidden>
-    <span id="toastMsg"></span>
-    <button type="button" id="toastUndo">เลิกทำ</button>
-  </div>
-
-  <!-- ══════════════ EQUIPMENT LIGHTBOX ══════════════ -->
-  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="ภาพขยายอุปกรณ์">
-    <div class="lightbox-inner">
-      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="ปิดภาพขยาย">✕</button>
-      <div class="lightbox-body" id="lightboxBody"></div>
-    </div>
-  </div>
-
-  <noscript>
-    <p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่ซิมูเลเตอร์ การคำนวณ และปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p>
-  </noscript>
+<p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
+<div class="q-grid" style="text-align: left;">
+<article class="q-card">
+<span class="q-no">01</span>
+<p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
+</article>
+<article class="q-card" style="border-bottom: none;">
+<span class="q-no">02</span>
+<p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
+</article>
+</div>
+</div>
+</section>
+</main>
+<!-- ══════════════ FLOATING SECTION STEPPER ══════════════ -->
+<nav aria-label="นำทางทีละส่วน" class="stepper">
+<button aria-label="ส่วนก่อนหน้า" id="prevSec" type="button">‹</button>
+<span id="stepLabel">บทนำ</span>
+<button aria-label="ส่วนถัดไป" id="nextSec" type="button">›</button>
+</nav>
+<!-- ══════════════ PRESENT MODE (deck) CONTROLS ══════════════ -->
+<div class="present-bar" hidden="" id="presentBar">
+<span class="present-label">▶ โหมดนำเสนอ</span>
+<button aria-label="สไลด์ก่อนหน้า" id="presentPrev" type="button">‹</button>
+<span id="presentCounter">1 / 13</span>
+<button aria-label="สไลด์ถัดไป" id="presentNext" type="button">›</button>
+<button class="present-exit" id="presentExit" type="button">✕ ออก (Esc)</button>
+</div>
+<div aria-hidden="true" class="present-progress" id="presentProgress"><span></span></div>
+<!-- ══════════════ UNDO TOAST ══════════════ -->
+<div aria-live="polite" class="toast" hidden="" id="toast" role="status">
+<span id="toastMsg"></span>
+<button id="toastUndo" type="button">เลิกทำ</button>
+</div>
+<!-- ══════════════ EQUIPMENT LIGHTBOX ══════════════ -->
+<div aria-label="ภาพขยายอุปกรณ์" aria-modal="true" class="lightbox" hidden="" id="lightbox" role="dialog">
+<div class="lightbox-inner">
+<button aria-label="ปิดภาพขยาย" class="lightbox-close" id="lightboxClose" type="button">✕</button>
+<div class="lightbox-body" id="lightboxBody"></div>
+</div>
+</div>
+<noscript>
+<p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่ซิมูเลเตอร์ การคำนวณ และปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p>
+</noscript>
 </body>
 </html>

@@ -1,272 +1,249 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="th">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>261112 · Lab 09 · วงจรไฟฟ้ากระแสสลับ · Lab Brief</title>
-  <meta name="description" content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261112 บทที่ 9 วงจรไฟฟ้ากระแสสลับ (RC/RLC อิมพีแดนซ์และเรโซแนนซ์)">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231d4fd0'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E09%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=10">
-  <link rel="stylesheet" href="styles.css?v=1">
-  <script defer src="../../shared/brief-core.js?v=7"></script>
-  <script defer src="js/app.js?v=1"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>261112 · Lab 09 · วงจรไฟฟ้ากระแสสลับ · Lab Brief</title>
+<meta content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261112 บทที่ 9 วงจรไฟฟ้ากระแสสลับ (RC/RLC อิมพีแดนซ์และเรโซแนนซ์)" name="description"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231d4fd0'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E09%3C/text%3E%3C/svg%3E" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link href="../../shared/drafting-sheet.css?v=10" rel="stylesheet"/>
+<link href="styles.css?v=1" rel="stylesheet"/>
+<script defer="" src="../../shared/brief-core.js?v=7"></script>
+<script defer="" src="js/app.js?v=1"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
-  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
-
-  <header class="topbar" id="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="#hero" aria-label="กลับสู่ด้านบน"><span class="brand-badge">09</span><span class="brand-text"><strong>วงจร AC</strong><small>261112 · ปฏิบัติการฟิสิกส์ 2</small></span></a>
-      <nav class="phase-nav" id="chipNav" aria-label="สารบัญบทปฏิบัติการ">
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">เริ่มต้น</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#hero">บทนำ</a><a class="chip" role="menuitem" href="#hook">ชวนคิด</a><a class="chip" role="menuitem" href="#objectives">จุดประสงค์</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">หลักการ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#concept">แนวคิดหลัก</a><a class="chip" role="menuitem" href="#theory">ทฤษฎี</a><a class="chip" role="menuitem" href="#equipment">อุปกรณ์</a><a class="chip" role="menuitem" href="#formula">สูตร</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">ลงมือทำ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#procedure">ขั้นตอน</a><a class="chip" role="menuitem" href="#data">วัด/คำนวณ</a><a class="chip" role="menuitem" href="#example">ตัวอย่าง</a><a class="chip" role="menuitem" href="#checkpoint">ตรวจสอบ</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">สรุปผล</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#analysis">วิเคราะห์</a><a class="chip" role="menuitem" href="#discussion">อภิปราย</a><a class="chip" role="menuitem" href="#conclusion">สรุป</a></div></div>
-      </nav>
-      <div class="topbar-meta">
-        <span class="sec-counter" aria-hidden="true"><b id="secNow">01</b><span>/14</span></span>
-        <div class="ratio-seg" role="group" aria-label="อัตราส่วนการแสดงผล"><span class="ratio-seg-ico" aria-hidden="true">▭</span><button type="button" data-ratio="full" aria-pressed="true">จอเต็ม</button><button type="button" data-ratio="43" aria-pressed="false">4:3</button><button type="button" data-ratio="169" aria-pressed="false">16:9</button></div>
-        <button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
-      </div>
-    </div>
-    <div class="read-progress" role="progressbar" aria-label="ความคืบหน้าการอ่าน" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="readBar"></span></div>
-  </header>
-
-  <main id="main">
-    <section class="section hero" id="hero" data-title="บทนำ">
-      <div class="hero-top"><p class="hero-eyebrow">261112 · ปฏิบัติการฟิสิกส์ 2 · บทที่ 09</p><h1 class="hero-title">วงจรไฟฟ้ากระแสสลับ</h1></div>
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <figure class="hero-question"><figcaption class="hq-tag">คำถามชวนคิด</figcaption><blockquote class="hq-text">ในวงจรกระแสสลับ ตัวเก็บประจุและตัวเหนี่ยวนำ "ต้าน" กระแสได้โดยไม่กินพลังงาน — และทำไมที่ <strong>ความถี่หนึ่ง</strong> วงจรจึงให้กระแสสูงสุด</blockquote></figure>
-          <ul class="hero-meta"><li><span class="hm-num">Z</span><span class="hm-label">\(Z=\sqrt{R^2+(X_L-X_C)^2}\) · เรโซแนนซ์ \(X_L=X_C\)</span></li></ul>
-          <div class="hero-actions"><a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a><a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a></div>
-        </div>
-        <figure class="hero-visual">
-          <span class="fig-tag">FIG.1 · สามเหลี่ยมอิมพีแดนซ์</span>
-          <svg viewBox="0 0 320 240" role="img" aria-label="สามเหลี่ยมอิมพีแดนซ์ R, X, Z และมุมเฟส">
-            <g stroke="#90a4cf" stroke-width="1.5" fill="none"><line x1="50" y1="190" x2="280" y2="190"/><line x1="50" y1="190" x2="50" y2="40"/></g>
-            <path d="M50 190h170" stroke="#1d4fd0" stroke-width="3" fill="none"/>
-            <path d="M220 190V90" stroke="#d9480f" stroke-width="3" fill="none"/>
-            <path d="M50 190L220 90" stroke="#2563eb" stroke-width="3" fill="none"/>
-            <path d="M86 190a36 36 0 0 0 -8 -22" stroke="#888" stroke-width="1.5" fill="none"/>
-            <text x="135" y="206" text-anchor="middle" class="d-label">R</text>
-            <text x="232" y="142" text-anchor="start" class="d-label" fill="#d9480f">X = X_L − X_C</text>
-            <text x="120" y="128" text-anchor="middle" class="d-label" fill="#1d4fd0">Z</text>
-            <text x="96" y="178" text-anchor="middle" class="d-label">φ</text>
-          </svg>
-          <figcaption>อิมพีแดนซ์รวม \(R\) กับรีแอกแตนซ์สุทธิ \((X_L-X_C)\) แบบเวกเตอร์ ได้ \(Z\) และมุมเฟส \(\varphi\)</figcaption>
-        </figure>
-      </div>
-      <p class="scroll-hint" aria-hidden="true">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
-    </section>
-
-    <section class="section" id="hook" data-title="ชวนคิด">
-      <header class="section-head"><div><p class="kicker">ชวนคิดก่อนเริ่ม</p><h2>ความต้านที่ขึ้นกับความถี่</h2></div></header>
-      <div class="split">
-        <div class="prose"><p>ในไฟกระแสสลับ ตัวเก็บประจุและตัวเหนี่ยวนำต้านกระแสด้วย <strong>รีแอกแตนซ์</strong> ที่ขึ้นกับความถี่ — ตัวเก็บประจุต้านมากที่ความถี่ต่ำ ส่วนตัวเหนี่ยวนำต้านมากที่ความถี่สูง</p><p>เมื่อรีแอกแตนซ์ทั้งสองหักล้างกันพอดี (\(X_L=X_C\)) อิมพีแดนซ์เหลือแค่ \(R\) วงจรจึงให้กระแสสูงสุด — เรียกว่า <strong>เรโซแนนซ์</strong></p></div>
-        <aside class="prompt-card"><p class="prompt-tag">ลองตอบเร็ว</p>
-          <div class="quick-quiz" data-answer="ลดลง">
-            <h3 class="prompt-q">เมื่อความถี่ \(f\) เพิ่มขึ้น รีแอกแตนซ์ของตัวเก็บประจุ \(X_C\) จะ?</h3>
-            <div class="quiz-options"><button type="button" data-quiz-option="ลดลง">ลดลง</button><button type="button" data-quiz-option="เพิ่มขึ้น">เพิ่มขึ้น</button><button type="button" data-quiz-option="เท่าเดิม">เท่าเดิม</button></div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="objectives" data-title="จุดประสงค์">
-      <header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
-      <ol class="objective-list">
-        <li><span class="obj-no">1</span><div><h3>ศึกษาวงจร RC/RLC กระแสสลับ</h3><p>เข้าใจรีแอกแตนซ์ \(X_L, X_C\) และอิมพีแดนซ์ \(Z\) ที่ขึ้นกับความถี่</p></div></li>
-        <li><span class="obj-no">2</span><div><h3>ศึกษาเรโซแนนซ์</h3><p>หาความถี่เรโซแนนซ์ \(f_0\) ที่อิมพีแดนซ์ต่ำสุดและกระแสสูงสุด</p></div></li>
-      </ol>
-      <div class="note note-info"><span class="note-icon" aria-hidden="true">◆</span><p><strong>สิ่งที่จะได้ลงมือทำ:</strong> ต่อ \(R\)-\(C\) (และ \(L\)) กับเครื่องกำเนิดสัญญาณ · เปลี่ยนความถี่ \(f\) · วัด \(V_R, V_C\) · คำนวณ \(X_C, X_L, Z\) และหาความถี่เรโซแนนซ์ \(f_0\)</p></div>
-    </section>
-
-    <section class="section band" id="concept" data-title="แนวคิดหลัก">
-      <header class="section-head"><div><p class="kicker">ภาพรวมแนวคิด</p><h2>รีแอกแตนซ์ อิมพีแดนซ์ และเรโซแนนซ์</h2></div></header>
-      <p class="lead">ในวงจรกระแสสลับ ความต้านรวม (อิมพีแดนซ์) รวมผลของตัวต้านทานและรีแอกแตนซ์แบบเวกเตอร์ เพราะแรงดันแต่ละตัวมีเฟสต่างกัน</p>
-      <div class="card-grid cols-3">
-        <article class="info-card"><span class="ic-step">A</span><h3>รีแอกแตนซ์</h3><p>\(X_L=2\pi fL\) (เพิ่มตามความถี่) และ \(X_C=\dfrac{1}{2\pi fC}\) (ลดตามความถี่)</p></article>
-        <article class="info-card"><span class="ic-step">B</span><h3>อิมพีแดนซ์</h3><p>\(Z=\sqrt{R^2+(X_L-X_C)^2}\) ความต้านรวมต่อกระแสสลับ มีมุมเฟส \(\varphi\)</p></article>
-        <article class="info-card"><span class="ic-step">C</span><h3>เรโซแนนซ์</h3><p>เมื่อ \(X_L=X_C\) ได้ \(f_0=\dfrac{1}{2\pi\sqrt{LC}}\) อิมพีแดนซ์ต่ำสุด \(Z=R\)</p></article>
-      </div>
-    </section>
-
-    <section class="section spotlight" id="theory" data-title="ทฤษฎี">
-      <header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>เฟสและอิมพีแดนซ์</h2></div></header>
-      <div class="theory-grid">
-        <div class="prose">
-          <p>ในวงจร RC อนุกรม แรงดันคร่อม \(R\) กับ \(C\) ต่างเฟสกัน \(90^\circ\) แรงดันรวม \(V=\sqrt{V_R^2+V_C^2}\)</p>
-          <p>อิมพีแดนซ์รวม \(Z=\sqrt{R^2+(X_L-X_C)^2}\) โดย \(X_L=2\pi fL\), \(X_C=\dfrac{1}{2\pi fC}\) และมุมเฟส \(\tan\varphi=\dfrac{X_L-X_C}{R}\)</p>
-          <p>กระแสในวงจร \(I=V/Z\) — ที่เรโซแนนซ์ (\(X_L=X_C\)) \(Z\) ต่ำสุดเท่ากับ \(R\) กระแสจึงสูงสุด</p>
-          <ul class="tick-list"><li>\(X_C\) ใหญ่ที่ความถี่ต่ำ, \(X_L\) ใหญ่ที่ความถี่สูง</li><li>\(f_0=\dfrac{1}{2\pi\sqrt{LC}}\) คือจุดที่หักล้างกันพอดี</li></ul>
-        </div>
-        <aside class="prompt-card"><p class="prompt-tag">ลองตอบเร็ว</p>
-          <div class="quick-quiz" data-answer="Z = R (ต่ำสุด)">
-            <h3 class="prompt-q">ที่ความถี่เรโซแนนซ์ อิมพีแดนซ์ \(Z\) ของวงจร RLC อนุกรมเป็นอย่างไร?</h3>
-            <div class="quiz-options"><button type="button" data-quiz-option="Z = R (ต่ำสุด)">Z = R (ต่ำสุด)</button><button type="button" data-quiz-option="Z สูงสุด">Z สูงสุด</button><button type="button" data-quiz-option="Z = 0">Z = 0</button></div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="equipment" data-title="อุปกรณ์">
-      <header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
-      <div class="card-grid cols-3 equip-grid">
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: เครื่องกำเนิดสัญญาณ"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2"><rect x="20" y="18" width="56" height="32" rx="3"/><path d="M28 34q6 -10 12 0t12 0 12 0" stroke-linecap="round"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>เครื่องกำเนิดสัญญาณ (Function Generator)</h3><p>จ่ายแรงดันกระแสสลับที่ปรับความถี่ \(f\) ได้</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: มัลติมิเตอร์"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2"><rect x="30" y="14" width="36" height="40" rx="4"/><rect x="36" y="20" width="24" height="10" rx="1.5"/><circle cx="48" cy="42" r="6"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>มัลติมิเตอร์ (AC)</h3><p>วัดแรงดันกระแสสลับ \(V_R, V_C\) (ค่า RMS) ในวงจร</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ตัวต้านทาน"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 34h12l4-8 8 16 8-16 8 16 4-8h12"/><path d="M70 34h12"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ตัวต้านทาน \(R\)</h3><p>ส่วนความต้านทานจริงในวงจร (เช่น 1 kΩ) แรงดันคร่อม \(R\) เฟสตรงกับกระแส</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ตัวเก็บประจุ"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 34h26M52 34h26"/><path d="M44 20v28M52 20v28"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ตัวเก็บประจุ \(C\)</h3><p>ให้รีแอกแตนซ์เชิงประจุ \(X_C=1/(2\pi fC)\) ลดลงเมื่อความถี่เพิ่ม</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ตัวเหนี่ยวนำ"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 40h10"/><path d="M28 40a7 7 0 0 1 14 0 7 7 0 0 1 14 0 7 7 0 0 1 14 0" /><path d="M70 40h8"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ตัวเหนี่ยวนำ \(L\)</h3><p>ให้รีแอกแตนซ์เชิงเหนี่ยวนำ \(X_L=2\pi fL\) เพิ่มขึ้นเมื่อความถี่เพิ่ม</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: แผงต่อวงจร"><svg class="equip-ico" viewBox="0 0 96 68" fill="none" stroke="currentColor" stroke-width="2"><rect x="24" y="18" width="48" height="32" rx="3"/><path d="M32 26h.01M40 26h.01M48 26h.01M56 26h.01M32 34h.01M40 34h.01M48 34h.01M56 34h.01M32 42h.01M40 42h.01M48 42h.01M56 42h.01" stroke-linecap="round" stroke-width="3"/></svg><span>schematic</span><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>แผงต่อวงจร (breadboard)</h3><p>ต่อ \(R\)-\(C\)-\(L\) แบบอนุกรม/ขนานกับเครื่องกำเนิดสัญญาณ</p></figcaption></figure>
-      </div>
-    </section>
-
-    <section class="section" id="formula" data-title="สูตร">
-      <header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
-      <div class="card-grid cols-3">
-        <article class="formula-card formula-accent"><h3>รีแอกแตนซ์เหนี่ยวนำ</h3><p class="formula">\[X_L=2\pi fL\]</p><p class="formula-note">เพิ่มตามความถี่</p></article>
-        <article class="formula-card"><h3>รีแอกแตนซ์ประจุ</h3><p class="formula">\[X_C=\dfrac{1}{2\pi fC}\]</p><p class="formula-note">ลดตามความถี่</p></article>
-        <article class="formula-card"><h3>อิมพีแดนซ์</h3><p class="formula">\[Z=\sqrt{R^2+(X_L-X_C)^2}\]</p><p class="formula-note">ความต้านรวมต่อ AC</p></article>
-        <article class="formula-card"><h3>มุมเฟส</h3><p class="formula">\[\tan\varphi=\dfrac{X_L-X_C}{R}\]</p><p class="formula-note">แรงดันนำ/ตามกระแส</p></article>
-        <article class="formula-card"><h3>กระแส</h3><p class="formula">\[I=\dfrac{V}{Z}\]</p><p class="formula-note">กฎของโอห์มสำหรับ AC</p></article>
-        <article class="formula-card"><h3>ความถี่เรโซแนนซ์</h3><p class="formula">\[f_0=\dfrac{1}{2\pi\sqrt{LC}}\]</p><p class="formula-note">\(X_L=X_C\), \(Z=R\)</p></article>
-      </div>
-    </section>
-
-    <section class="section" id="procedure" data-title="ขั้นตอน">
-      <header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
-      <ol class="steps">
-        <li><span class="step-n">1</span><div><h3>ต่อวงจร RC/RLC</h3><p>ต่อ \(R\), \(C\) (และ \(L\)) อนุกรมกับเครื่องกำเนิดสัญญาณ</p></div></li>
-        <li><span class="step-n">2</span><div><h3>ตั้งแรงดันและความถี่</h3><p>ตั้งแรงดัน AC คงที่ ปรับความถี่ \(f\) เริ่มจากค่าต่ำ</p></div></li>
-        <li><span class="step-n">3</span><div><h3>วัดแรงดันแต่ละตัว</h3><p>วัด \(V_R, V_C\) (และ \(V_L\)) ที่แต่ละความถี่ด้วยมัลติมิเตอร์ย่าน AC</p></div></li>
-        <li><span class="step-n">4</span><div><h3>คำนวณรีแอกแตนซ์/อิมพีแดนซ์</h3><p>หา \(X_C=1/(2\pi fC)\), \(X_L=2\pi fL\), \(Z=\sqrt{R^2+(X_L-X_C)^2}\)</p></div></li>
-        <li><span class="step-n">5</span><div><h3>หาเรโซแนนซ์</h3><p>หาความถี่ที่กระแสสูงสุด/อิมพีแดนซ์ต่ำสุด เทียบกับ \(f_0=1/(2\pi\sqrt{LC})\)</p></div></li>
-      </ol>
-      <div class="note note-warn"><span class="note-icon" aria-hidden="true">!</span><div><strong>ข้อควรระวัง</strong><ul><li>ใช้มัลติมิเตอร์ย่าน AC และระวังย่านความถี่ที่มิเตอร์รองรับ</li><li>ตั้งแรงดันแหล่งจ่ายให้คงที่ขณะเปลี่ยนความถี่</li><li>ตรวจขั้วตัวเก็บประจุชนิดมีขั้วให้ถูกต้อง</li></ul></div></div>
-    </section>
-
-    <section class="section band" id="data" data-title="วัด/คำนวณ">
-      <header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>คำนวณรีแอกแตนซ์และอิมพีแดนซ์</h2></div></header>
-      <p class="lead">กรอก \(R\), \(L\), \(C\) และความถี่ \(f\) ระบบคำนวณ \(X_L=2\pi fL\), \(X_C=1/(2\pi fC)\), อิมพีแดนซ์ \(Z\) และความถี่เรโซแนนซ์ \(f_0\)</p>
-      <div class="worksheet-block">
-        <h3>วงจร RLC อนุกรม</h3>
-        <div class="setup-inputs">
-          <label>ความต้านทาน <span class="u">\(R\) (Ω)</span><input id="R" data-store="R" type="number" step="1" inputmode="decimal" value="1000"></label>
-          <label>ความเหนี่ยวนำ <span class="u">\(L\) (mH)</span><input id="L" data-store="L" type="number" step="1" inputmode="decimal" value="100"></label>
-          <label>ความจุ <span class="u">\(C\) (µF)</span><input id="C" data-store="C" type="number" step="0.01" inputmode="decimal" value="0.1"></label>
-          <label>ความถี่ <span class="u">\(f\) (Hz)</span><input id="f" data-store="f" type="number" step="1" inputmode="decimal" value="1000"></label>
-        </div>
-        <div class="result-summary" style="margin-top:1rem">
-          <h3>ผลวิเคราะห์สด</h3>
-          <dl>
-            <div><dt>รีแอกแตนซ์เหนี่ยวนำ \(X_L=2\pi fL\)</dt><dd id="xlOutput">—</dd></div>
-            <div><dt>รีแอกแตนซ์ประจุ \(X_C=1/(2\pi fC)\)</dt><dd id="xcOutput">—</dd></div>
-            <div><dt>อิมพีแดนซ์ \(Z\)</dt><dd id="zOutput">—</dd></div>
-            <div class="rs-em"><dt>ความถี่เรโซแนนซ์ \(f_0=1/(2\pi\sqrt{LC})\)</dt><dd id="f0Output">—</dd></div>
-          </dl>
-        </div>
-      </div>
-      <div class="actions-row"><button type="button" class="btn btn-soft" id="resetTable">ล้างข้อมูล</button><span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span></div>
-    </section>
-
-    <section class="section" id="example" data-title="ตัวอย่าง">
-      <header class="section-head"><div><p class="kicker">ทำตามทีละบรรทัด</p><h2>ตัวอย่างการคำนวณ</h2></div></header>
-      <p class="lead">ตัวอย่างค่าสมมติเพื่อแสดงวิธีหารีแอกแตนซ์และอิมพีแดนซ์ (ไม่ใช่ค่าจากการทดลองจริง)</p>
-      <div class="reveal-controls"><button type="button" class="btn btn-primary" id="exampleShow">แสดงตัวอย่างการคำนวณ</button><button type="button" class="btn btn-ghost" id="exampleHide" hidden>ซ่อนตัวอย่าง</button></div>
-      <div class="example-body" id="exampleBody" hidden></div>
-    </section>
-
-    <section class="section" id="checkpoint" data-title="ตรวจสอบ">
-      <header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
-      <div class="prompt-card prompt-wide">
-        <p class="prompt-tag">คำถามท้าทาย</p>
-        <p class="prompt-q">ตัวเก็บประจุ \(C=0.1\,\mu\mathrm{F}\) ที่ความถี่ \(f=2000\,\mathrm{Hz}\) มีรีแอกแตนซ์ \(X_C\) เท่าใด?</p>
-        <div class="reveal-controls"><button type="button" class="btn btn-primary" id="answerShow">แสดงคำตอบ</button><button type="button" class="btn btn-ghost" id="answerHide" hidden>ซ่อนคำตอบ</button></div>
-        <div class="answer-body" id="answerBody" hidden>
-          <p>\(X_C=\dfrac{1}{2\pi fC}=\dfrac{1}{2\pi(2000)(0.1\times10^{-6})}\approx\) <strong>795.8 Ω</strong></p>
-          <ul class="tick-list"><li>ที่ความถี่สูงขึ้น \(X_C\) ยิ่งลดลง (ตัวเก็บประจุยอมให้ AC ผ่านง่ายขึ้น)</li><li>อย่าลืมแปลง µF เป็น F ก่อนคำนวณ</li></ul>
-          <p class="muted">บทเรียน: รีแอกแตนซ์ของตัวเก็บประจุแปรผกผันกับความถี่และความจุ</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="analysis" data-title="วิเคราะห์">
-      <header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
-      <div class="split">
-        <ol class="analysis-steps">
-          <li>คำนวณ \(X_L\) และ \(X_C\) ที่แต่ละความถี่</li>
-          <li>หาอิมพีแดนซ์ \(Z=\sqrt{R^2+(X_L-X_C)^2}\) และกระแส \(I=V/Z\)</li>
-          <li>หาความถี่ที่กระแสสูงสุด (เรโซแนนซ์) เทียบกับ \(f_0=1/(2\pi\sqrt{LC})\)</li>
-          <li>อภิปรายความสัมพันธ์ระหว่างความถี่กับรีแอกแตนซ์และเฟส</li>
-        </ol>
-        <aside class="note note-info note-block"><span class="note-icon" aria-hidden="true">◆</span><div><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>ความต้านทานภายในของตัวเหนี่ยวนำ (มี R แฝง)</li><li>ย่านความถี่ที่มัลติมิเตอร์ AC อ่านได้แม่นยำ</li><li>ค่าจริงของ \(L, C\) ต่างจากค่าระบุ (tolerance)</li></ul></div></aside>
-      </div>
-    </section>
-
-    <section class="section band" id="discussion" data-title="อภิปราย">
-      <header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
-      <div class="q-grid">
-        <article class="q-card"><span class="q-no">Q1</span><p>เหตุใดรีแอกแตนซ์ของตัวเก็บประจุและตัวเหนี่ยวนำจึงขึ้นกับความถี่ในทิศตรงข้ามกัน?</p></article>
-        <article class="q-card"><span class="q-no">Q2</span><p>เหตุใดจึงรวมความต้านทานกับรีแอกแตนซ์แบบเวกเตอร์ (ไม่ใช่บวกตรง ๆ)?</p></article>
-        <article class="q-card"><span class="q-no">Q3</span><p>ที่ความถี่เรโซแนนซ์เกิดอะไรขึ้นกับอิมพีแดนซ์และกระแส และนำไปใช้ประโยชน์อย่างไร?</p></article>
-        <article class="q-card"><span class="q-no">Q4</span><p>มุมเฟส \(\varphi\) บอกอะไรเกี่ยวกับความสัมพันธ์ของแรงดันกับกระแส?</p></article>
-        <article class="q-card"><span class="q-no">Q5</span><p>เหตุใดรีแอกแตนซ์จึงไม่สิ้นเปลืองพลังงานเหมือนความต้านทาน?</p></article>
-      </div>
-    </section>
-
-    <section class="section spotlight" id="conclusion" data-title="สรุป">
-      <header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
-      <div class="conclusion-grid">
-        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong>&nbsp;จากข้อมูลของคุณเอง</p>
-        <ul class="conclusion-points">
-          <li><span class="cp-ico">1</span><div><h3>รายงานรีแอกแตนซ์</h3><p>ระบุ \(X_L, X_C\) ที่ความถี่ต่าง ๆ พร้อมหน่วยโอห์ม</p></div></li>
-          <li><span class="cp-ico">2</span><div><h3>รายงานอิมพีแดนซ์</h3><p>คำนวณ \(Z=\sqrt{R^2+(X_L-X_C)^2}\) และกระแส \(I=V/Z\)</p></div></li>
-          <li><span class="cp-ico">3</span><div><h3>รายงานเรโซแนนซ์</h3><p>ระบุความถี่ \(f_0\) ที่กระแสสูงสุด เทียบค่าทฤษฎี</p></div></li>
-          <li><span class="cp-ico">4</span><div><h3>อภิปรายแหล่งคลาดเคลื่อน</h3><p>ระบุสาเหตุหลัก เช่น ความต้านทานแฝงของขดลวดและย่านมิเตอร์ AC</p></div></li>
-        </ul>
-      </div>
-      <p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
-    </section>
-  
-    <!-- ══════════════ 14 · ADDITIONAL-KNOWLEDGE ══════════════ -->
-    <section class="section band" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
-      <header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
-            <div class="prompt-card prompt-wide" style="margin: 0 auto;">
-        <p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
-          <span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
+<a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+<span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+<header class="topbar" id="topbar">
+<div class="topbar-inner">
+<a aria-label="กลับสู่ด้านบน" class="brand" href="#hero"><span class="brand-badge">09</span><span class="brand-text"><strong>วงจร AC</strong><small>261112 · ปฏิบัติการฟิสิกส์ 2</small></span></a>
+<nav aria-label="สารบัญบทปฏิบัติการ" class="phase-nav" id="chipNav">
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">เริ่มต้น</button><div class="phase-menu" role="menu"><a class="chip" href="#hero" role="menuitem">บทนำ</a><a class="chip" href="#hook" role="menuitem">ชวนคิด</a><a class="chip" href="#objectives" role="menuitem">จุดประสงค์</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">หลักการ</button><div class="phase-menu" role="menu"><a class="chip" href="#concept" role="menuitem">แนวคิดหลัก</a><a class="chip" href="#theory" role="menuitem">ทฤษฎี</a><a class="chip" href="#equipment" role="menuitem">อุปกรณ์</a><a class="chip" href="#formula" role="menuitem">สูตร</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">ลงมือทำ</button><div class="phase-menu" role="menu"><a class="chip" href="#procedure" role="menuitem">ขั้นตอน</a><a class="chip" href="#data" role="menuitem">วัด/คำนวณ</a><a class="chip" href="#example" role="menuitem">ตัวอย่าง</a><a class="chip" href="#checkpoint" role="menuitem">ตรวจสอบ</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">สรุปผล</button><div class="phase-menu" role="menu"><a class="chip" href="#analysis" role="menuitem">วิเคราะห์</a><a class="chip" href="#discussion" role="menuitem">อภิปราย</a><a class="chip" href="#conclusion" role="menuitem">สรุป</a></div></div>
+</nav>
+<div class="topbar-meta">
+<span aria-hidden="true" class="sec-counter"><b id="secNow">01</b><span>/14</span></span>
+<div aria-label="อัตราส่วนการแสดงผล" class="ratio-seg" role="group"><span aria-hidden="true" class="ratio-seg-ico">▭</span><button aria-pressed="true" data-ratio="full" type="button">จอเต็ม</button><button aria-pressed="false" data-ratio="43" type="button">4:3</button><button aria-pressed="false" data-ratio="169" type="button">16:9</button></div>
+<button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
+</div>
+</div>
+<div aria-label="ความคืบหน้าการอ่าน" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="read-progress" role="progressbar"><span id="readBar"></span></div>
+</header>
+<main id="main">
+<section class="section hero" data-title="บทนำ" id="hero">
+<div class="hero-top"><p class="hero-eyebrow">261112 · ปฏิบัติการฟิสิกส์ 2 · บทที่ 09</p><h1 class="hero-title">วงจรไฟฟ้ากระแสสลับ</h1></div>
+<div class="hero-grid">
+<div class="hero-copy">
+<figure class="hero-question"><figcaption class="hq-tag">คำถามชวนคิด</figcaption><blockquote class="hq-text">ในวงจรกระแสสลับ ตัวเก็บประจุและตัวเหนี่ยวนำ "ต้าน" กระแสได้โดยไม่กินพลังงาน — และทำไมที่ <strong>ความถี่หนึ่ง</strong> วงจรจึงให้กระแสสูงสุด</blockquote></figure>
+<ul class="hero-meta"><li><span class="hm-num">Z</span><span class="hm-label">\(Z=\sqrt{R^2+(X_L-X_C)^2}\) · เรโซแนนซ์ \(X_L=X_C\)</span></li></ul>
+<div class="hero-actions"><a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a><a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a></div>
+</div>
+<figure class="hero-visual">
+<span class="fig-tag">FIG.1 · สามเหลี่ยมอิมพีแดนซ์</span>
+<svg aria-label="สามเหลี่ยมอิมพีแดนซ์ R, X, Z และมุมเฟส" role="img" viewbox="0 0 320 240">
+<g fill="none" stroke="#90a4cf" stroke-width="1.5"><line x1="50" x2="280" y1="190" y2="190"></line><line x1="50" x2="50" y1="190" y2="40"></line></g>
+<path d="M50 190h170" fill="none" stroke="#1d4fd0" stroke-width="3"></path>
+<path d="M220 190V90" fill="none" stroke="#d9480f" stroke-width="3"></path>
+<path d="M50 190L220 90" fill="none" stroke="#2563eb" stroke-width="3"></path>
+<path d="M86 190a36 36 0 0 0 -8 -22" fill="none" stroke="#888" stroke-width="1.5"></path>
+<text class="d-label" text-anchor="middle" x="135" y="206">R</text>
+<text class="d-label" fill="#d9480f" text-anchor="start" x="232" y="142">X = X_L − X_C</text>
+<text class="d-label" fill="#1d4fd0" text-anchor="middle" x="120" y="128">Z</text>
+<text class="d-label" text-anchor="middle" x="96" y="178">φ</text>
+</svg>
+<figcaption>อิมพีแดนซ์รวม \(R\) กับรีแอกแตนซ์สุทธิ \((X_L-X_C)\) แบบเวกเตอร์ ได้ \(Z\) และมุมเฟส \(\varphi\)</figcaption>
+</figure>
+</div>
+<p aria-hidden="true" class="scroll-hint">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
+</section>
+<section class="section" data-title="ชวนคิด" id="hook">
+<header class="section-head"><div><p class="kicker">ชวนคิดก่อนเริ่ม</p><h2>ความต้านที่ขึ้นกับความถี่</h2></div></header>
+<div class="split">
+<div class="prose"><p>ในไฟกระแสสลับ ตัวเก็บประจุและตัวเหนี่ยวนำต้านกระแสด้วย <strong>รีแอกแตนซ์</strong> ที่ขึ้นกับความถี่ — ตัวเก็บประจุต้านมากที่ความถี่ต่ำ ส่วนตัวเหนี่ยวนำต้านมากที่ความถี่สูง</p><p>เมื่อรีแอกแตนซ์ทั้งสองหักล้างกันพอดี (\(X_L=X_C\)) อิมพีแดนซ์เหลือแค่ \(R\) วงจรจึงให้กระแสสูงสุด — เรียกว่า <strong>เรโซแนนซ์</strong></p></div>
+<aside class="prompt-card"><p class="prompt-tag">ลองตอบเร็ว</p>
+<div class="quick-quiz" data-answer="ลดลง">
+<h3 class="prompt-q">เมื่อความถี่ \(f\) เพิ่มขึ้น รีแอกแตนซ์ของตัวเก็บประจุ \(X_C\) จะ?</h3>
+<div class="quiz-options"><button data-quiz-option="ลดลง" type="button">ลดลง</button><button data-quiz-option="เพิ่มขึ้น" type="button">เพิ่มขึ้น</button><button data-quiz-option="เท่าเดิม" type="button">เท่าเดิม</button></div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</aside>
+</div>
+</section>
+<section class="section" data-title="จุดประสงค์" id="objectives">
+<header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
+<ol class="objective-list">
+<li><span class="obj-no">1</span><div><h3>ศึกษาวงจร RC/RLC กระแสสลับ</h3><p>เข้าใจรีแอกแตนซ์ \(X_L, X_C\) และอิมพีแดนซ์ \(Z\) ที่ขึ้นกับความถี่</p></div></li>
+<li><span class="obj-no">2</span><div><h3>ศึกษาเรโซแนนซ์</h3><p>หาความถี่เรโซแนนซ์ \(f_0\) ที่อิมพีแดนซ์ต่ำสุดและกระแสสูงสุด</p></div></li>
+</ol>
+<div class="note note-info"><span aria-hidden="true" class="note-icon">◆</span><p><strong>สิ่งที่จะได้ลงมือทำ:</strong> ต่อ \(R\)-\(C\) (และ \(L\)) กับเครื่องกำเนิดสัญญาณ · เปลี่ยนความถี่ \(f\) · วัด \(V_R, V_C\) · คำนวณ \(X_C, X_L, Z\) และหาความถี่เรโซแนนซ์ \(f_0\)</p></div>
+</section>
+<section class="section band" data-title="แนวคิดหลัก" id="concept">
+<header class="section-head"><div><p class="kicker">ภาพรวมแนวคิด</p><h2>รีแอกแตนซ์ อิมพีแดนซ์ และเรโซแนนซ์</h2></div></header>
+<p class="lead">ในวงจรกระแสสลับ ความต้านรวม (อิมพีแดนซ์) รวมผลของตัวต้านทานและรีแอกแตนซ์แบบเวกเตอร์ เพราะแรงดันแต่ละตัวมีเฟสต่างกัน</p>
+<div class="card-grid cols-3">
+<article class="info-card"><span class="ic-step">A</span><h3>รีแอกแตนซ์</h3><p>\(X_L=2\pi fL\) (เพิ่มตามความถี่) และ \(X_C=\dfrac{1}{2\pi fC}\) (ลดตามความถี่)</p></article>
+<article class="info-card"><span class="ic-step">B</span><h3>อิมพีแดนซ์</h3><p>\(Z=\sqrt{R^2+(X_L-X_C)^2}\) ความต้านรวมต่อกระแสสลับ มีมุมเฟส \(\varphi\)</p></article>
+<article class="info-card"><span class="ic-step">C</span><h3>เรโซแนนซ์</h3><p>เมื่อ \(X_L=X_C\) ได้ \(f_0=\dfrac{1}{2\pi\sqrt{LC}}\) อิมพีแดนซ์ต่ำสุด \(Z=R\)</p></article>
+</div>
+</section>
+<section class="section spotlight" data-title="ทฤษฎี" id="theory">
+<header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>เฟสและอิมพีแดนซ์</h2></div></header>
+<div class="theory-grid">
+<div class="prose">
+<p>ในวงจร RC อนุกรม แรงดันคร่อม \(R\) กับ \(C\) ต่างเฟสกัน \(90^\circ\) แรงดันรวม \(V=\sqrt{V_R^2+V_C^2}\)</p>
+<p>อิมพีแดนซ์รวม \(Z=\sqrt{R^2+(X_L-X_C)^2}\) โดย \(X_L=2\pi fL\), \(X_C=\dfrac{1}{2\pi fC}\) และมุมเฟส \(\tan\varphi=\dfrac{X_L-X_C}{R}\)</p>
+<p>กระแสในวงจร \(I=V/Z\) — ที่เรโซแนนซ์ (\(X_L=X_C\)) \(Z\) ต่ำสุดเท่ากับ \(R\) กระแสจึงสูงสุด</p>
+<ul class="tick-list"><li>\(X_C\) ใหญ่ที่ความถี่ต่ำ, \(X_L\) ใหญ่ที่ความถี่สูง</li><li>\(f_0=\dfrac{1}{2\pi\sqrt{LC}}\) คือจุดที่หักล้างกันพอดี</li></ul>
+</div>
+<aside class="prompt-card"><p class="prompt-tag">ลองตอบเร็ว</p>
+<div class="quick-quiz" data-answer="Z = R (ต่ำสุด)">
+<h3 class="prompt-q">ที่ความถี่เรโซแนนซ์ อิมพีแดนซ์ \(Z\) ของวงจร RLC อนุกรมเป็นอย่างไร?</h3>
+<div class="quiz-options"><button data-quiz-option="Z = R (ต่ำสุด)" type="button">Z = R (ต่ำสุด)</button><button data-quiz-option="Z สูงสุด" type="button">Z สูงสุด</button><button data-quiz-option="Z = 0" type="button">Z = 0</button></div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</aside>
+</div>
+</section>
+<section class="section" data-title="อุปกรณ์" id="equipment">
+<header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
+<div class="card-grid cols-3 equip-grid">
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: เครื่องกำเนิดสัญญาณ" class="equip-photo" data-photo="" type="button"><svg class="equip-ico" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 96 68"><rect height="32" rx="3" width="56" x="20" y="18"></rect><path d="M28 34q6 -10 12 0t12 0 12 0" stroke-linecap="round"></path></svg><span>schematic</span><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>เครื่องกำเนิดสัญญาณ (Function Generator)</h3><p>จ่ายแรงดันกระแสสลับที่ปรับความถี่ \(f\) ได้</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: มัลติมิเตอร์" class="equip-photo" data-photo="" type="button"><svg class="equip-ico" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 96 68"><rect height="40" rx="4" width="36" x="30" y="14"></rect><rect height="10" rx="1.5" width="24" x="36" y="20"></rect><circle cx="48" cy="42" r="6"></circle></svg><span>schematic</span><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>มัลติมิเตอร์ (AC)</h3><p>วัดแรงดันกระแสสลับ \(V_R, V_C\) (ค่า RMS) ในวงจร</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: ตัวต้านทาน" class="equip-photo" data-photo="" type="button"><svg class="equip-ico" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 96 68"><path d="M18 34h12l4-8 8 16 8-16 8 16 4-8h12"></path><path d="M70 34h12"></path></svg><span>schematic</span><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>ตัวต้านทาน \(R\)</h3><p>ส่วนความต้านทานจริงในวงจร (เช่น 1 kΩ) แรงดันคร่อม \(R\) เฟสตรงกับกระแส</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: ตัวเก็บประจุ" class="equip-photo" data-photo="" type="button"><svg class="equip-ico" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 96 68"><path d="M18 34h26M52 34h26"></path><path d="M44 20v28M52 20v28"></path></svg><span>schematic</span><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>ตัวเก็บประจุ \(C\)</h3><p>ให้รีแอกแตนซ์เชิงประจุ \(X_C=1/(2\pi fC)\) ลดลงเมื่อความถี่เพิ่ม</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: ตัวเหนี่ยวนำ" class="equip-photo" data-photo="" type="button"><svg class="equip-ico" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 96 68"><path d="M18 40h10"></path><path d="M28 40a7 7 0 0 1 14 0 7 7 0 0 1 14 0 7 7 0 0 1 14 0"></path><path d="M70 40h8"></path></svg><span>schematic</span><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>ตัวเหนี่ยวนำ \(L\)</h3><p>ให้รีแอกแตนซ์เชิงเหนี่ยวนำ \(X_L=2\pi fL\) เพิ่มขึ้นเมื่อความถี่เพิ่ม</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: แผงต่อวงจร" class="equip-photo" data-photo="" type="button"><svg class="equip-ico" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 96 68"><rect height="32" rx="3" width="48" x="24" y="18"></rect><path d="M32 26h.01M40 26h.01M48 26h.01M56 26h.01M32 34h.01M40 34h.01M48 34h.01M56 34h.01M32 42h.01M40 42h.01M48 42h.01M56 42h.01" stroke-linecap="round" stroke-width="3"></path></svg><span>schematic</span><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>แผงต่อวงจร (breadboard)</h3><p>ต่อ \(R\)-\(C\)-\(L\) แบบอนุกรม/ขนานกับเครื่องกำเนิดสัญญาณ</p></figcaption></figure>
+</div>
+</section>
+<section class="section" data-title="สูตร" id="formula">
+<header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
+<div class="card-grid cols-3">
+<article class="formula-card formula-accent"><h3>รีแอกแตนซ์เหนี่ยวนำ</h3><p class="formula">\[X_L=2\pi fL\]</p><p class="formula-note">เพิ่มตามความถี่</p></article>
+<article class="formula-card"><h3>รีแอกแตนซ์ประจุ</h3><p class="formula">\[X_C=\dfrac{1}{2\pi fC}\]</p><p class="formula-note">ลดตามความถี่</p></article>
+<article class="formula-card"><h3>อิมพีแดนซ์</h3><p class="formula">\[Z=\sqrt{R^2+(X_L-X_C)^2}\]</p><p class="formula-note">ความต้านรวมต่อ AC</p></article>
+<article class="formula-card"><h3>มุมเฟส</h3><p class="formula">\[\tan\varphi=\dfrac{X_L-X_C}{R}\]</p><p class="formula-note">แรงดันนำ/ตามกระแส</p></article>
+<article class="formula-card"><h3>กระแส</h3><p class="formula">\[I=\dfrac{V}{Z}\]</p><p class="formula-note">กฎของโอห์มสำหรับ AC</p></article>
+<article class="formula-card"><h3>ความถี่เรโซแนนซ์</h3><p class="formula">\[f_0=\dfrac{1}{2\pi\sqrt{LC}}\]</p><p class="formula-note">\(X_L=X_C\), \(Z=R\)</p></article>
+</div>
+</section>
+<section class="section" data-title="ขั้นตอน" id="procedure">
+<header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
+<ol class="steps">
+<li><span class="step-n">1</span><div><h3>ต่อวงจร RC/RLC</h3><p>ต่อ \(R\), \(C\) (และ \(L\)) อนุกรมกับเครื่องกำเนิดสัญญาณ</p></div></li>
+<li><span class="step-n">2</span><div><h3>ตั้งแรงดันและความถี่</h3><p>ตั้งแรงดัน AC คงที่ ปรับความถี่ \(f\) เริ่มจากค่าต่ำ</p></div></li>
+<li><span class="step-n">3</span><div><h3>วัดแรงดันแต่ละตัว</h3><p>วัด \(V_R, V_C\) (และ \(V_L\)) ที่แต่ละความถี่ด้วยมัลติมิเตอร์ย่าน AC</p></div></li>
+<li><span class="step-n">4</span><div><h3>คำนวณรีแอกแตนซ์/อิมพีแดนซ์</h3><p>หา \(X_C=1/(2\pi fC)\), \(X_L=2\pi fL\), \(Z=\sqrt{R^2+(X_L-X_C)^2}\)</p></div></li>
+<li><span class="step-n">5</span><div><h3>หาเรโซแนนซ์</h3><p>หาความถี่ที่กระแสสูงสุด/อิมพีแดนซ์ต่ำสุด เทียบกับ \(f_0=1/(2\pi\sqrt{LC})\)</p></div></li>
+</ol>
+<div class="note note-warn"><span aria-hidden="true" class="note-icon">!</span><div><strong>ข้อควรระวัง</strong><ul><li>ใช้มัลติมิเตอร์ย่าน AC และระวังย่านความถี่ที่มิเตอร์รองรับ</li><li>ตั้งแรงดันแหล่งจ่ายให้คงที่ขณะเปลี่ยนความถี่</li><li>ตรวจขั้วตัวเก็บประจุชนิดมีขั้วให้ถูกต้อง</li></ul></div></div>
+</section>
+<section class="section band" data-title="วัด/คำนวณ" id="data">
+<header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>คำนวณรีแอกแตนซ์และอิมพีแดนซ์</h2></div></header>
+<p class="lead">กรอก \(R\), \(L\), \(C\) และความถี่ \(f\) ระบบคำนวณ \(X_L=2\pi fL\), \(X_C=1/(2\pi fC)\), อิมพีแดนซ์ \(Z\) และความถี่เรโซแนนซ์ \(f_0\)</p>
+<div class="worksheet-block">
+<h3>วงจร RLC อนุกรม</h3>
+<div class="setup-inputs">
+<label>ความต้านทาน <span class="u">\(R\) (Ω)</span><input data-store="R" id="R" inputmode="decimal" step="1" type="number" value="1000"/></label>
+<label>ความเหนี่ยวนำ <span class="u">\(L\) (mH)</span><input data-store="L" id="L" inputmode="decimal" step="1" type="number" value="100"/></label>
+<label>ความจุ <span class="u">\(C\) (µF)</span><input data-store="C" id="C" inputmode="decimal" step="0.01" type="number" value="0.1"/></label>
+<label>ความถี่ <span class="u">\(f\) (Hz)</span><input data-store="f" id="f" inputmode="decimal" step="1" type="number" value="1000"/></label>
+</div>
+<div class="result-summary" style="margin-top:1rem">
+<h3>ผลวิเคราะห์สด</h3>
+<dl>
+<div><dt>รีแอกแตนซ์เหนี่ยวนำ \(X_L=2\pi fL\)</dt><dd id="xlOutput">—</dd></div>
+<div><dt>รีแอกแตนซ์ประจุ \(X_C=1/(2\pi fC)\)</dt><dd id="xcOutput">—</dd></div>
+<div><dt>อิมพีแดนซ์ \(Z\)</dt><dd id="zOutput">—</dd></div>
+<div class="rs-em"><dt>ความถี่เรโซแนนซ์ \(f_0=1/(2\pi\sqrt{LC})\)</dt><dd id="f0Output">—</dd></div>
+</dl>
+</div>
+</div>
+<div class="actions-row"><button class="btn btn-soft" id="resetTable" type="button">ล้างข้อมูล</button><span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span></div>
+</section>
+<section class="section" data-title="ตรวจสอบ" id="checkpoint">
+<header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
+<div class="prompt-card">
+<p class="prompt-tag">คำถามท้าทาย</p>
+<p class="prompt-q">ตัวเก็บประจุ \(C=0.1\,\mu\mathrm{F}\) ที่ความถี่ \(f=2000\,\mathrm{Hz}\) มีรีแอกแตนซ์ \(X_C\) เท่าใด?</p>
+<div class="reveal-controls"><button class="btn btn-primary" id="answerShow" type="button">แสดงคำตอบ</button><button class="btn btn-ghost" hidden="" id="answerHide" type="button">ซ่อนคำตอบ</button></div>
+<div class="answer-body" hidden="" id="answerBody">
+<p>\(X_C=\dfrac{1}{2\pi fC}=\dfrac{1}{2\pi(2000)(0.1\times10^{-6})}\approx\) <strong>795.8 Ω</strong></p>
+<ul class="tick-list"><li>ที่ความถี่สูงขึ้น \(X_C\) ยิ่งลดลง (ตัวเก็บประจุยอมให้ AC ผ่านง่ายขึ้น)</li><li>อย่าลืมแปลง µF เป็น F ก่อนคำนวณ</li></ul>
+<p class="muted">บทเรียน: รีแอกแตนซ์ของตัวเก็บประจุแปรผกผันกับความถี่และความจุ</p>
+</div>
+</div>
+</section>
+<section class="section" data-title="วิเคราะห์" id="analysis">
+<header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
+<div class="split">
+<ol class="analysis-steps">
+<li>คำนวณ \(X_L\) และ \(X_C\) ที่แต่ละความถี่</li>
+<li>หาอิมพีแดนซ์ \(Z=\sqrt{R^2+(X_L-X_C)^2}\) และกระแส \(I=V/Z\)</li>
+<li>หาความถี่ที่กระแสสูงสุด (เรโซแนนซ์) เทียบกับ \(f_0=1/(2\pi\sqrt{LC})\)</li>
+<li>อภิปรายความสัมพันธ์ระหว่างความถี่กับรีแอกแตนซ์และเฟส</li>
+</ol>
+<aside class="note note-info note-block"><span aria-hidden="true" class="note-icon">◆</span><div><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>ความต้านทานภายในของตัวเหนี่ยวนำ (มี R แฝง)</li><li>ย่านความถี่ที่มัลติมิเตอร์ AC อ่านได้แม่นยำ</li><li>ค่าจริงของ \(L, C\) ต่างจากค่าระบุ (tolerance)</li></ul></div></aside>
+</div>
+</section>
+<section class="section band" data-title="อภิปราย" id="discussion">
+<header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
+<div class="q-grid">
+<article class="q-card"><span class="q-no">Q1</span><p>เหตุใดรีแอกแตนซ์ของตัวเก็บประจุและตัวเหนี่ยวนำจึงขึ้นกับความถี่ในทิศตรงข้ามกัน?</p></article>
+<article class="q-card"><span class="q-no">Q2</span><p>เหตุใดจึงรวมความต้านทานกับรีแอกแตนซ์แบบเวกเตอร์ (ไม่ใช่บวกตรง ๆ)?</p></article>
+<article class="q-card"><span class="q-no">Q3</span><p>ที่ความถี่เรโซแนนซ์เกิดอะไรขึ้นกับอิมพีแดนซ์และกระแส และนำไปใช้ประโยชน์อย่างไร?</p></article>
+<article class="q-card"><span class="q-no">Q4</span><p>มุมเฟส \(\varphi\) บอกอะไรเกี่ยวกับความสัมพันธ์ของแรงดันกับกระแส?</p></article>
+<article class="q-card"><span class="q-no">Q5</span><p>เหตุใดรีแอกแตนซ์จึงไม่สิ้นเปลืองพลังงานเหมือนความต้านทาน?</p></article>
+</div>
+</section>
+<section class="section spotlight" data-title="สรุป" id="conclusion">
+<header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
+<div class="conclusion-grid">
+<p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong> จากข้อมูลของคุณเอง</p>
+<ul class="conclusion-points">
+<li><span class="cp-ico">1</span><div><h3>รายงานรีแอกแตนซ์</h3><p>ระบุ \(X_L, X_C\) ที่ความถี่ต่าง ๆ พร้อมหน่วยโอห์ม</p></div></li>
+<li><span class="cp-ico">2</span><div><h3>รายงานอิมพีแดนซ์</h3><p>คำนวณ \(Z=\sqrt{R^2+(X_L-X_C)^2}\) และกระแส \(I=V/Z\)</p></div></li>
+<li><span class="cp-ico">3</span><div><h3>รายงานเรโซแนนซ์</h3><p>ระบุความถี่ \(f_0\) ที่กระแสสูงสุด เทียบค่าทฤษฎี</p></div></li>
+<li><span class="cp-ico">4</span><div><h3>อภิปรายแหล่งคลาดเคลื่อน</h3><p>ระบุสาเหตุหลัก เช่น ความต้านทานแฝงของขดลวดและย่านมิเตอร์ AC</p></div></li>
+</ul>
+</div>
+<p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
+</section>
+<!-- ══════════════ 14 · ADDITIONAL-KNOWLEDGE ══════════════ -->
+<section class="section band" data-title="ความรู้เพิ่มเติม" id="additional-knowledge">
+<header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
+<div class="prompt-card prompt-wide" style="margin: 0 auto;">
+<p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
+<span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
           แนวทางการเขียนความรู้เพิ่มเติม
         </p>
-        <p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
-        
-        <div class="q-grid" style="text-align: left;">
-          <article class="q-card">
-            <span class="q-no">01</span>
-            <p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
-          </article>
-          <article class="q-card" style="border-bottom: none;">
-            <span class="q-no">02</span>
-            <p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <nav class="stepper" aria-label="นำทางทีละส่วน"><button type="button" id="prevSec" aria-label="ส่วนก่อนหน้า">‹</button><span id="stepLabel">บทนำ</span><button type="button" id="nextSec" aria-label="ส่วนถัดไป">›</button></nav>
-  <div class="present-bar" id="presentBar" hidden><span class="present-label">▶ โหมดนำเสนอ</span><button type="button" id="presentPrev" aria-label="สไลด์ก่อนหน้า">‹</button><span id="presentCounter">1 / 14</span><button type="button" id="presentNext" aria-label="สไลด์ถัดไป">›</button><button type="button" id="presentExit" class="present-exit">✕ ออก (Esc)</button></div>
-  <div class="present-progress" id="presentProgress" aria-hidden="true"><span></span></div>
-  <div class="toast" id="toast" role="status" aria-live="polite" hidden><span id="toastMsg"></span><button type="button" id="toastUndo">เลิกทำ</button></div>
-  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="ภาพขยายอุปกรณ์"><div class="lightbox-inner"><button class="lightbox-close" id="lightboxClose" type="button" aria-label="ปิดภาพขยาย">✕</button><div class="lightbox-body" id="lightboxBody"></div></div></div>
-  <noscript><p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่การคำนวณและปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p></noscript>
+<p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
+<div class="q-grid" style="text-align: left;">
+<article class="q-card">
+<span class="q-no">01</span>
+<p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
+</article>
+<article class="q-card" style="border-bottom: none;">
+<span class="q-no">02</span>
+<p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
+</article>
+</div>
+</div>
+</section>
+</main>
+<nav aria-label="นำทางทีละส่วน" class="stepper"><button aria-label="ส่วนก่อนหน้า" id="prevSec" type="button">‹</button><span id="stepLabel">บทนำ</span><button aria-label="ส่วนถัดไป" id="nextSec" type="button">›</button></nav>
+<div class="present-bar" hidden="" id="presentBar"><span class="present-label">▶ โหมดนำเสนอ</span><button aria-label="สไลด์ก่อนหน้า" id="presentPrev" type="button">‹</button><span id="presentCounter">1 / 14</span><button aria-label="สไลด์ถัดไป" id="presentNext" type="button">›</button><button class="present-exit" id="presentExit" type="button">✕ ออก (Esc)</button></div>
+<div aria-hidden="true" class="present-progress" id="presentProgress"><span></span></div>
+<div aria-live="polite" class="toast" hidden="" id="toast" role="status"><span id="toastMsg"></span><button id="toastUndo" type="button">เลิกทำ</button></div>
+<div aria-label="ภาพขยายอุปกรณ์" aria-modal="true" class="lightbox" hidden="" id="lightbox" role="dialog"><div class="lightbox-inner"><button aria-label="ปิดภาพขยาย" class="lightbox-close" id="lightboxClose" type="button">✕</button><div class="lightbox-body" id="lightboxBody"></div></div></div>
+<noscript><p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่การคำนวณและปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p></noscript>
 </body>
 </html>

@@ -1,380 +1,353 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="th">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lab 07 · วัตถุตกอิสระและกฎข้อที่สองของนิวตัน · Lab Brief</title>
-  <meta name="description" content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261111 บทที่ 7 วัตถุตกอิสระและกฎข้อที่สองของนิวตัน">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E07%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=10">
-  <link rel="stylesheet" href="styles.css?v=2">
-  <script defer src="../../shared/brief-core.js?v=7"></script>
-  <script defer src="js/app.js?v=1"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Lab 07 · วัตถุตกอิสระและกฎข้อที่สองของนิวตัน · Lab Brief</title>
+<meta content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261111 บทที่ 7 วัตถุตกอิสระและกฎข้อที่สองของนิวตัน" name="description"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E07%3C/text%3E%3C/svg%3E" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link href="../../shared/drafting-sheet.css?v=10" rel="stylesheet"/>
+<link href="styles.css?v=2" rel="stylesheet"/>
+<script defer="" src="../../shared/brief-core.js?v=7"></script>
+<script defer="" src="js/app.js?v=1"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
-  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
-
-  <header class="topbar" id="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="#hero" aria-label="กลับสู่ด้านบน"><span class="brand-badge">07</span><span class="brand-text"><strong>วัตถุตกอิสระ</strong><small>261111 · ปฏิบัติการฟิสิกส์</small></span></a>
-      <nav class="phase-nav" id="chipNav" aria-label="สารบัญบทปฏิบัติการ">
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">เริ่มต้น</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#hero">บทนำ</a><a class="chip" role="menuitem" href="#hook">ชวนคิด</a><a class="chip" role="menuitem" href="#objectives">จุดประสงค์</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">หลักการ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#concept">แนวคิดหลัก</a><a class="chip" role="menuitem" href="#theory">ทฤษฎี</a><a class="chip" role="menuitem" href="#equipment">อุปกรณ์</a><a class="chip" role="menuitem" href="#formula">สูตร</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">ลงมือทำ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#procedure">ขั้นตอน</a><a class="chip" role="menuitem" href="#data">ตารางข้อมูล</a><a class="chip" role="menuitem" href="#example">ตัวอย่าง</a><a class="chip" role="menuitem" href="#checkpoint">ตรวจสอบ</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">สรุปผล</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#analysis">วิเคราะห์</a><a class="chip" role="menuitem" href="#additional-knowledge">ความรู้เพิ่มเติม</a><a class="chip" role="menuitem" href="#conclusion">สรุป</a><a class="chip" role="menuitem" href="#discussion">อภิปราย</a></div></div>
-      </nav>
-      <div class="topbar-meta">
-        <span class="sec-counter" aria-hidden="true"><b id="secNow">01</b><span>/14</span></span>
-        <div class="ratio-seg" role="group" aria-label="อัตราส่วนการแสดงผล"><span class="ratio-seg-ico" aria-hidden="true">▭</span><button type="button" data-ratio="full" aria-pressed="true">จอเต็ม</button><button type="button" data-ratio="43" aria-pressed="false">4:3</button><button type="button" data-ratio="169" aria-pressed="false">16:9</button></div>
-        <button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
-      </div>
-    </div>
-    <div class="read-progress" role="progressbar" aria-label="ความคืบหน้าการอ่าน" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="readBar"></span></div>
-  </header>
-
-  <main id="main">
-    <section class="section hero" id="hero" data-title="บทนำ">
-      <div class="hero-top"><p class="hero-eyebrow">261111 · ปฏิบัติการฟิสิกส์ · บทที่ 07</p><h1 class="hero-title">วัตถุตกอิสระและกฎข้อที่สองของนิวตัน</h1></div>
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <figure class="hero-question"><figcaption class="hq-tag">คำถามชวนคิด</figcaption><blockquote class="hq-text">ของหนักกับของเบาตกถึงพื้นพร้อมกันจริงไหม? และเราจะ <strong>วัดค่า g</strong> ได้อย่างไรจากเวลาที่วัตถุตก แค่ใช้กราฟเส้นตรง</blockquote></figure>
-          <ul class="hero-meta"><li><span class="hm-num">g<sub>ref</sub></span><span class="hm-label">= 9.80 m/s² (ค่าอ้างอิง)</span></li></ul>
-          <div class="hero-actions"><a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a><a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a></div>
-        </div>
-        <figure class="hero-visual">
-          <span class="fig-tag">FIG.1 · ตกอิสระ y = ½gt²</span>
-          <svg viewBox="0 0 340 300" role="img" aria-label="แผนภาพชุดทดลองวัตถุตกอิสระ: ตัวปล่อย ลูกเหล็ก และตัวจับเวลา">
-            <defs>
-              <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#edf2fc"/><stop offset="1" stop-color="#c1d1ed"/></linearGradient>
-            </defs>
-            <!-- ขาตั้ง: เสา + ฐาน + แขนบน -->
-            <rect x="20" y="36" width="10" height="248" rx="3" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
-            <rect x="12" y="280" width="84" height="10" rx="3" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
-            <rect x="28" y="36" width="40" height="9" rx="3" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
-            <!-- ตัวปล่อย (แม่เหล็กไฟฟ้า) -->
-            <rect x="48" y="40" width="24" height="14" rx="3" fill="#1d4fd0" stroke="#173fa6" stroke-width="1"/>
-            <!-- แนวตก + ลูกเหล็ก (สโตรบ เร่งขึ้น) -->
-            <line x1="60" y1="54" x2="60" y2="260" stroke="#9fb4d6" stroke-dasharray="4 4"/>
-            <circle cx="60" cy="58" r="8" fill="#9fb4d6"/>
-            <circle cx="60" cy="92" r="8" fill="#7d97c8"/>
-            <circle cx="60" cy="158" r="9" fill="#5278bf"/>
-            <circle cx="60" cy="246" r="10" fill="#2563eb"/>
-            <!-- ตัวจับเวลา + แป้นรับ -->
-            <rect x="38" y="262" width="44" height="12" rx="3" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
-            <rect x="88" y="256" width="36" height="20" rx="3" fill="#0b1f3f"/>
-            <text x="106" y="270" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#7ba6f0">t</text>
-            <!-- y dimension -->
-            <line class="dim" x1="148" y1="58" x2="148" y2="246"/><line class="dim" x1="144" y1="58" x2="152" y2="58"/><line class="dim" x1="144" y1="246" x2="152" y2="246"/>
-            <text class="dim-txt" x="162" y="152" transform="rotate(90 162 152)">y ∝ t²</text>
-            <!-- ป้ายกำกับ -->
-            <text x="80" y="40" class="d-label">ตัวปล่อย</text>
-            <text x="80" y="120" class="d-label">ลูกเหล็ก</text>
-            <text x="60" y="294" class="d-label" text-anchor="middle">ตัวจับเวลา</text>
-          </svg>
-          <figcaption>ระยะตก \(y\) แปรผันกับ \(t^2\) — ความชันของกราฟ \(y\)–\(t^2\) = \(\tfrac12 g\)</figcaption>
-        </figure>
-      </div>
-      <p class="scroll-hint" aria-hidden="true">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
-    </section>
-
-    <section class="section" id="hook" data-title="ชวนคิด">
-      <header class="section-head"><div><p class="kicker">ชวนคิดก่อนเริ่ม</p><h2>หนักกับเบา ตกพร้อมกันไหม?</h2></div></header>
-      <div class="split">
-        <div class="prose"><p>ในอุดมคติที่ไม่มีแรงต้านอากาศ วัตถุทุกมวลตกด้วย <strong>ความเร่งเท่ากัน</strong> คือ \(g\) เพราะแรงโน้มถ่วงแปรผันตามมวลพอดีกับความเฉื่อย</p><p>เรายืนยันได้ด้วยการวัดระยะตก \(y\) กับเวลา \(t\) แล้วใช้ \(y=\tfrac12gt^2\) — กราฟ \(y\)–\(t^2\) จะเป็นเส้นตรงที่บอกค่า \(g\)</p></div>
-                <aside class="prompt-card bloom-quiz-panel">
-          <p class="prompt-tag">ตรวจความเข้าใจ</p>
-          <div class="quick-quiz" data-qid="ff-remember" data-bloom="remember" data-answer="C">
-            <p class="quiz-label">คำถามสั้น</p>
-            <h3 class="prompt-q">สมการการตกอิสระจากหยุดนิ่งที่ใช้ในแล็บนี้คือข้อใด?</h3>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> \(y=gt\)</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> \(y=g/t\)</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> \(y=\tfrac12gt^2\)</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> \(y=2g/t^2\)</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> \(y=mg\)</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="objectives" data-title="จุดประสงค์">
-      <header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
-      <ol class="objective-list">
-        <li><span class="obj-no">1</span><div><h3>หาค่า g จากการตกอิสระ</h3><p>วัดระยะตกและเวลา แล้วหาค่าความเร่งโน้มถ่วงจากความชันกราฟ \(y\)–\(t^2\)</p></div></li>
-        <li><span class="obj-no">2</span><div><h3>ตรวจสอบกฎข้อที่สองของนิวตัน</h3><p>ใช้ระบบรอก (Atwood) หาความเร่ง \(a\) แล้วเชื่อมกับ \(g\) ผ่าน \(a=\dfrac{m_1-m_2}{m_1+m_2}g\)</p></div></li>
-      </ol>
-      <div class="note note-info"><span class="note-icon" aria-hidden="true">◆</span><p><span class="note-kind">ควรรู้</span><strong>สิ่งที่จะได้ลงมือทำ:</strong> ปล่อยลูกเหล็กหลายความสูง จับเวลา · เขียนกราฟ \(y\)–\(t^2\) · ทดลองรอกสองมวล หาความเร่ง · เทียบ \(g\) กับ 9.80</p></div>
-    </section>
-
-    <section class="section band" id="concept" data-title="แนวคิดหลัก">
-      <header class="section-head"><div><p class="kicker">ภาพรวมแนวคิด</p><h2>ความเร่งคงที่และแรงลัพธ์</h2></div></header>
-      <p class="lead">เมื่อแรงลัพธ์คงที่ วัตถุเคลื่อนที่ด้วยความเร่งคงที่ ระยะทางจึงแปรผันกับเวลายกกำลังสอง การวัดเวลากับระยะจึงให้ค่าความเร่งได้</p>
-      <div class="card-grid cols-3">
-        <article class="info-card"><span class="ic-step">A</span><h3>ความเร่งคงที่</h3><p>เริ่มจากหยุดนิ่ง \(y=\tfrac12at^2\) ระยะแปรผันกับ \(t^2\)</p></article>
-        <article class="info-card"><span class="ic-step">B</span><h3>กฎข้อที่สอง</h3><p>\(\sum F=ma\) แรงลัพธ์เท่ากับมวลคูณความเร่ง</p></article>
-        <article class="info-card"><span class="ic-step">C</span><h3>น้ำหนัก</h3><p>แรงโน้มถ่วง \(W=mg\) ทำให้ทุกมวลตกด้วยความเร่ง \(g\) เท่ากัน</p></article>
-      </div>
-    </section>
-
-    <section class="section spotlight" id="theory" data-title="ทฤษฎี">
-      <header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>หา g และ a จากความชันกราฟ</h2></div></header>
-      <div class="theory-grid">
-        <div class="prose">
-          <p><strong>ตกอิสระ:</strong> \(y=\tfrac12 g t^2\) ดังนั้นกราฟ \(y\) (แกนตั้ง) กับ \(t^2\) (แกนนอน) เป็นเส้นตรงผ่านจุดกำเนิด ความชัน \(=\tfrac12 g\) จึง</p>
-          <p class="derive">\[g=2\times\text{slope}\]</p>
-          <p><strong>ระบบรอก (Atwood):</strong> มวลสองก้อนต่างกัน \(y=\tfrac12 a t^2\) หา \(a\) จากกราฟ แล้ว \(a=\dfrac{m_1-m_2}{m_1+m_2}g\) จึงย้อนหา</p>
-          <p class="derive">\[g=\dfrac{a(m_1+m_2)}{m_1-m_2}\]</p>
-          <ul class="tick-list"><li>วัดเวลาหลายครั้งต่อหนึ่งความสูงแล้วเฉลี่ย</li><li>ปล่อยจากตำแหน่งหยุดนิ่งจริง</li><li>ความชันจากช่วงเส้นตรงของกราฟ</li></ul>
-        </div>
-                <aside class="prompt-card bloom-quiz-panel">
-          <p class="prompt-tag">ตรวจความเข้าใจ</p>
-          <div class="quick-quiz" data-qid="ff-understand" data-bloom="understand" data-answer="A">
-            <p class="quiz-label">คำถามสั้น</p>
-            <h3 class="prompt-q">ในอุดมคติที่ไม่มีแรงต้านอากาศ วัตถุมวลต่างกันจะตกอย่างไร?</h3>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> มีความเร่งเท่ากัน</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> วัตถุหนักเร่งมากกว่า</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> วัตถุเบาเร่งมากกว่า</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> วัตถุหนักไม่มีความเร่ง</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ขึ้นกับรูปร่างเท่านั้นแม้ไม่มีอากาศ</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-          <div class="quick-quiz" data-qid="ff-apply" data-bloom="apply" data-answer="D">
-            <p class="quiz-label">คำถามสั้น</p>
-            <h3 class="prompt-q">ถ้าความชันของกราฟ \(y\)–\(t^2\) เท่ากับ \(4.90\,\mathrm{m/s^2}\) ค่า \(g\) เท่าใด?</h3>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> 2.45 m/s²</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> 4.90 m/s²</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> 7.35 m/s²</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> 9.80 m/s²</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> 19.6 m/s²</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="equipment" data-title="อุปกรณ์">
-      <header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
-      <div class="card-grid cols-3 equip-grid">
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ชุดตกอิสระ"><img src="assets/equip/equip-1.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ชุดราวปล่อยลูกเหล็ก</h3><p>ปล่อยลูกเหล็กจากความสูงที่กำหนด มีกลไกปล่อยและตัวรับที่จุดต่ำสุดเพื่อวัดเวลาตกแม่นยำ</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ลูกเหล็ก"><img src="assets/equip/equip-2.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ลูกเหล็ก</h3><p>วัตถุทรงกลมหนาแน่น ลดผลของแรงต้านอากาศ ใช้เป็นวัตถุตกอิสระ</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: กล่องแสดงผลเวลา"><img src="assets/equip/equip-3.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>กล่องจับเวลา/แสดงผล</h3><p>เริ่มจับเวลาเมื่อปล่อยและหยุดเมื่อลูกถึงตัวรับ อ่านเวลาตกได้ละเอียด ลดความคลาดเคลื่อนจากผู้จับเวลา</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: รอก"><img src="assets/equip/equip-4.png" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>รอก</h3><p>เปลี่ยนทิศแรงดึงของเชือก ให้มวลสองข้างคล้องผ่านและเคลื่อนที่สวนกัน (ระบบ Atwood)</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo equip-photo-duo" type="button" data-photo aria-label="ดูภาพขยาย: มวลแขวน"><img src="assets/equip/equip-5a.png" alt="" loading="lazy" decoding="async"><img src="assets/equip/equip-5b.png" alt="" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>มวลแขวน</h3><p>มวลสองชุดต่างกันแขวนที่ปลายเชือกสองข้าง ความต่างของมวลทำให้ระบบเร่ง</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: นาฬิกาจับเวลา"><img src="assets/equip/stopwatch.png" alt="" width="1920" height="1080" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>นาฬิกาจับเวลา</h3><p>จับเวลาการเคลื่อนที่ของระบบรอก วัดหลายครั้งต่อหนึ่งระยะแล้วเฉลี่ยเพื่อลดความคลาดเคลื่อน</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ตลับเมตร"><img src="assets/equip/equip-6.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ตลับเมตร / สเกล</h3><p>วัดความสูงในการปล่อย \(y\) และระยะเคลื่อนที่ \(h\) ของระบบรอก</p></figcaption></figure>
-      </div>
-    </section>
-
-    <section class="section" id="formula" data-title="สูตร">
-      <header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
-      <div class="card-grid cols-3">
-        <article class="formula-card formula-accent"><h3>ตกอิสระ</h3><p class="formula">\[y=\tfrac12 g t^2\]</p><p class="formula-note">เริ่มจากหยุดนิ่ง</p></article>
-        <article class="formula-card"><h3>g จากความชัน</h3><p class="formula">\[g=2\times\text{slope}\]</p><p class="formula-note">กราฟ \(y\)–\(t^2\)</p></article>
-        <article class="formula-card"><h3>กฎข้อที่สอง</h3><p class="formula">\[\textstyle\sum F=ma\]</p><p class="formula-note">แรงลัพธ์ = มวล × ความเร่ง</p></article>
-        <article class="formula-card"><h3>ความเร่งระบบรอก</h3><p class="formula">\[a=\dfrac{m_1-m_2}{m_1+m_2}\,g\]</p><p class="formula-note">Atwood machine</p></article>
-        <article class="formula-card"><h3>g จากระบบรอก</h3><p class="formula">\[g=\dfrac{a(m_1+m_2)}{m_1-m_2}\]</p><p class="formula-note">\(a=2\times\text{slope}\)</p></article>
-        <article class="formula-card"><h3>ร้อยละความคลาดเคลื่อน</h3><p class="formula">\[\%\,\mathrm{err}=\dfrac{|g-9.80|}{9.80}\times100\]</p><p class="formula-note">เทียบ \(g=9.80\,\mathrm{m/s^2}\)</p></article>
-      </div>
-    </section>
-
-    <section class="section" id="procedure" data-title="ขั้นตอน">
-      <header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
-      <ol class="steps">
-        <li><span class="step-n">1</span><div><h3>ตอนที่ 1 · ตั้งชุดตกอิสระ</h3><p>ติดตั้งชุดปล่อยลูกเหล็กและตัวรับ ตั้งความสูงปล่อย \(y\) ที่ทราบค่า</p><p class="step-caution"><b>ระวัง:</b> ปล่อยจากนิ่งเท่านั้น (ความเร็วต้นเป็นศูนย์) และวัดความสูงตามแนวดิ่งให้ตรง</p></div></li>
-        <li><span class="step-n">2</span><div><h3>ปล่อยและจับเวลา</h3><p>ปล่อยลูกเหล็ก อ่านเวลาตก \(t\) จากกล่องแสดงผล ทำซ้ำหลายครั้งแล้วเฉลี่ย</p><p class="step-caution"><b>ระวัง:</b> เวลาตอบสนองของผู้จับเวลาเป็นความคลาดเคลื่อนหลัก ใช้ตัวจับเวลาอิเล็กทรอนิกส์ถ้ามี และวัดซ้ำ</p></div></li>
-        <li><span class="step-n">3</span><div><h3>เปลี่ยนความสูง</h3><p>ทำซ้ำกับความสูงหลายค่า (เช่น 8 ค่า) บันทึก \(y\) และ \(t\)</p><p class="step-caution"><b>ระวัง:</b> ปล่อยจากตำแหน่งเดิมทุกครั้ง เปลี่ยนเฉพาะความสูง</p></div></li>
-        <li><span class="step-n">4</span><div><h3>เขียนกราฟหา g</h3><p>เขียนกราฟ \(y\)–\(t^2\) หาความชัน แล้ว \(g=2\times\text{slope}\)</p><p class="step-caution"><b>ระวัง:</b> กราฟ y–t² ควรผ่านจุดกำเนิด ใช้เฉพาะช่วงเส้นตรง</p></div></li>
-        <li><span class="step-n">5</span><div><h3>ตอนที่ 2 · ระบบรอก</h3><p>คล้องมวล \(m_1>m_2\) ผ่านรอก วัดระยะ \(h\) และเวลา \(t\) ของการเคลื่อนที่</p><p class="step-caution"><b>ระวัง:</b> การละเลยแรงเสียดทานและมวลรอกทำให้ค่า a (และ g) ต่ำกว่าจริง</p></div></li>
-        <li><span class="step-n">6</span><div><h3>หา a และ g</h3><p>กราฟ \(h\)–\(t^2\) หา \(a=2\times\text{slope}\) แล้ว \(g=a(m_1+m_2)/(m_1-m_2)\)</p><p class="step-caution"><b>ระวัง:</b> ตรวจว่า m₁>m₂ พอให้ระบบเคลื่อนสม่ำเสมอ ไม่กระตุก</p></div></li>
-      </ol>
-      <div class="note note-warn"><span class="note-icon" aria-hidden="true">!</span><div><span class="note-kind">ข้อควรระวัง</span><strong>ระวังระหว่างวัด</strong><ul><li>ยึดอุปกรณ์ให้แน่นก่อนปล่อยวัตถุ</li><li>วัดระยะจากตำแหน่งปล่อยจริง</li><li>ทำซ้ำหลายครั้ง เพราะเวลาตอบสนองส่งผลต่อข้อมูล</li></ul></div></div>
-    </section>
-
-    <section class="section band" id="data" data-title="ตารางข้อมูล">
-      <header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>ตารางผลการทดลอง</h2></div></header>
-      <p class="lead">กรอกระยะและเวลา (เฉลี่ย) ระบบคำนวณ \(t^2\) เขียนกราฟ \(y\)–\(t^2\) และหาความชัน → \(g\) (และ \(a\) ของระบบรอก) ให้อัตโนมัติ</p>
-
-      <div class="worksheet-block">
-        <h3>ตอนที่ 1 · ตกอิสระ → หา g</h3>
-        <div class="data-foot">
-          <div class="table-wrap" style="flex:1"><table class="data-table">
-            <thead><tr><th scope="col">ครั้งที่</th><th scope="col">ความสูง \(y\) (m)</th><th scope="col">เวลา \(t\) (s)</th><th scope="col">\(t^2\) (s²)</th></tr></thead>
-            <tbody id="ffBody">
-              <tr data-row="0"><th scope="row">1</th><td><input data-y data-store="ff_y0" type="number" step="0.001" inputmode="decimal"></td><td><input data-t data-store="ff_t0" type="number" step="0.0001" inputmode="decimal"></td><td data-t2>—</td></tr>
-              <tr data-row="1"><th scope="row">2</th><td><input data-y data-store="ff_y1" type="number" step="0.001" inputmode="decimal"></td><td><input data-t data-store="ff_t1" type="number" step="0.0001" inputmode="decimal"></td><td data-t2>—</td></tr>
-              <tr data-row="2"><th scope="row">3</th><td><input data-y data-store="ff_y2" type="number" step="0.001" inputmode="decimal"></td><td><input data-t data-store="ff_t2" type="number" step="0.0001" inputmode="decimal"></td><td data-t2>—</td></tr>
-              <tr data-row="3"><th scope="row">4</th><td><input data-y data-store="ff_y3" type="number" step="0.001" inputmode="decimal"></td><td><input data-t data-store="ff_t3" type="number" step="0.0001" inputmode="decimal"></td><td data-t2>—</td></tr>
-              <tr data-row="4"><th scope="row">5</th><td><input data-y data-store="ff_y4" type="number" step="0.001" inputmode="decimal"></td><td><input data-t data-store="ff_t4" type="number" step="0.0001" inputmode="decimal"></td><td data-t2>—</td></tr>
-            </tbody>
-          </table></div>
-          <figure class="chart-card"><svg id="ffGraph" viewBox="0 0 520 320" role="img" aria-label="กราฟ y กับ t²"></svg><figcaption>กราฟ \(y\)–\(t^2\) ความชัน = \(\tfrac12 g\)</figcaption></figure>
-        </div>
-        <p class="calc-line">ค่า \(g\) จากความชัน: <output id="gFFOutput">—</output> · ร้อยละความคลาดเคลื่อน (เทียบ 9.80): <output id="errFFOutput">—</output></p>
-      </div>
-
-      <div class="worksheet-block">
-        <h3>ตอนที่ 2 · ระบบรอก (Atwood) → หา a และ g</h3>
-        <div class="setup-inputs">
-          <label>มวลก้อนหนัก <span class="u">\(m_1\) (g)</span><input id="m1" data-store="m1" type="number" step="0.1" value="120" inputmode="decimal"></label>
-          <label>มวลก้อนเบา <span class="u">\(m_2\) (g)</span><input id="m2" data-store="m2" type="number" step="0.1" value="100" inputmode="decimal"></label>
-        </div>
-        <div class="data-foot">
-          <div class="table-wrap" style="flex:1"><table class="data-table">
-            <thead><tr><th scope="col">ครั้งที่</th><th scope="col">ระยะ \(h\) (m)</th><th scope="col">เวลา \(t\) (s)</th><th scope="col">\(t^2\) (s²)</th></tr></thead>
-            <tbody id="atBody">
-              <tr data-row="0"><th scope="row">1</th><td><input data-h data-store="at_h0" type="number" step="0.001" inputmode="decimal"></td><td><input data-t data-store="at_t0" type="number" step="0.001" inputmode="decimal"></td><td data-t2>—</td></tr>
-              <tr data-row="1"><th scope="row">2</th><td><input data-h data-store="at_h1" type="number" step="0.001" inputmode="decimal"></td><td><input data-t data-store="at_t1" type="number" step="0.001" inputmode="decimal"></td><td data-t2>—</td></tr>
-              <tr data-row="2"><th scope="row">3</th><td><input data-h data-store="at_h2" type="number" step="0.001" inputmode="decimal"></td><td><input data-t data-store="at_t2" type="number" step="0.001" inputmode="decimal"></td><td data-t2>—</td></tr>
-              <tr data-row="3"><th scope="row">4</th><td><input data-h data-store="at_h3" type="number" step="0.001" inputmode="decimal"></td><td><input data-t data-store="at_t3" type="number" step="0.001" inputmode="decimal"></td><td data-t2>—</td></tr>
-              <tr data-row="4"><th scope="row">5</th><td><input data-h data-store="at_h4" type="number" step="0.001" inputmode="decimal"></td><td><input data-t data-store="at_t4" type="number" step="0.001" inputmode="decimal"></td><td data-t2>—</td></tr>
-            </tbody>
-          </table></div>
-          <figure class="chart-card"><svg id="atGraph" viewBox="0 0 520 320" role="img" aria-label="กราฟ h กับ t²"></svg><figcaption>กราฟ \(h\)–\(t^2\) ความชัน = \(\tfrac12 a\)</figcaption></figure>
-        </div>
-        <p class="calc-line">ความเร่ง \(a\): <output id="aOutput">—</output> · ค่า \(g\): <output id="gATOutput">—</output> · คลาดเคลื่อน: <output id="errATOutput">—</output></p>
-      </div>
-
-      <div class="actions-row"><button type="button" class="btn btn-soft" id="resetTable">ล้างข้อมูลตาราง</button><span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span></div>
-    </section>
-
-    <section class="section" id="example" data-title="ตัวอย่าง">
-      <header class="section-head"><div><p class="kicker">ทำตามทีละบรรทัด</p><h2>ตัวอย่างการคำนวณ</h2></div></header>
-      <p class="lead">ตัวอย่างค่าสมมติเพื่อแสดงวิธีแทนค่า (ไม่ใช่ค่าจากการทดลองจริง)</p>
-      <div class="reveal-controls"><button type="button" class="btn btn-primary" id="exampleShow">แสดงตัวอย่างการคำนวณ</button><button type="button" class="btn btn-ghost" id="exampleHide" hidden>ซ่อนตัวอย่าง</button></div>
-      <div class="example-body" id="exampleBody" hidden></div>
-    </section>
-
-    <section class="section" id="checkpoint" data-title="ตรวจสอบ">
-      <header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
-      <div class="prompt-card prompt-wide">
-        <p class="prompt-tag">คำถามท้าทาย</p>
-        <p class="prompt-q">ในระบบรอก ถ้ามวลสองก้อน <strong>เท่ากันพอดี</strong> (\(m_1=m_2\)) ระบบจะเคลื่อนที่อย่างไร และสูตร \(a\) บอกอะไร?</p>
-        <div class="reveal-controls"><button type="button" class="btn btn-primary" id="answerShow">แสดงคำตอบ</button><button type="button" class="btn btn-ghost" id="answerHide" hidden>ซ่อนคำตอบ</button></div>
-        <div class="answer-body" id="answerBody" hidden>
-          <p>จาก \(a=\dfrac{m_1-m_2}{m_1+m_2}g\) ถ้า \(m_1=m_2\) → ตัวเศษ \(=0\) → \(a=0\) ระบบ <strong>อยู่นิ่งหรือเคลื่อนที่ด้วยความเร็วคงที่</strong></p>
-          <ul class="tick-list"><li>แรงลัพธ์เป็นศูนย์ (สมดุล)</li><li>ยิ่งมวลต่างกันมาก ความเร่งยิ่งมาก (เข้าใกล้ \(g\))</li></ul>
-          <p class="muted">บทเรียน: ระบบรอกช่วย "ชะลอ" การตกให้จับเวลาได้ง่ายกว่าการตกอิสระตรง ๆ</p>
-        </div>
-      </div>
-      <div class="quick-quiz" data-qid="ff-analyze" data-bloom="analyze" data-answer="B">
-        <p class="quiz-label">คำถามสั้น</p>
-        <h3 class="prompt-q">ในระบบรอก ถ้า \(m_1=m_2\) สูตร \(a=\dfrac{m_1-m_2}{m_1+m_2}g\) ทำนายอย่างไร?</h3>
-        <div class="quiz-options">
-          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> \(a=g\)</button>
-          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> \(a=0\)</button>
-          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> \(a=2g\)</button>
-          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> \(a=-g\)</button>
-          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> คำนวณไม่ได้</button>
-        </div>
-        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="section" id="analysis" data-title="วิเคราะห์">
-      <header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
-      <div class="split">
-        <ol class="analysis-steps">
-          <li>คำนวณ \(t^2\) ทุกแถว แล้วเขียนกราฟ \(y\)–\(t^2\) (ตอน 1) หาความชัน</li>
-          <li>หา \(g=2\times\text{slope}\) เทียบกับ 9.80 m/s²</li>
-          <li>ตอน 2 หา \(a=2\times\text{slope}\) แล้ว \(g=a(m_1+m_2)/(m_1-m_2)\)</li>
-          <li>เปรียบเทียบ \(g\) จากสองวิธี และอภิปรายความสอดคล้อง</li>
-        </ol>
-        <aside class="note note-info note-block"><span class="note-icon" aria-hidden="true">◆</span><div><span class="note-kind">ควรรู้</span><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>เวลาตอบสนองของการจับเวลา</li><li>แรงเสียดทานที่รอกและความเฉื่อยของรอก</li><li>แรงต้านอากาศ (ตอนตกอิสระ)</li></ul></div></aside>
-      </div>
-      <div class="quick-quiz" data-qid="ff-evaluate" data-bloom="evaluate" data-answer="E">
-        <p class="quiz-label">คำถามสั้น</p>
-        <h3 class="prompt-q">ผลแบบใดเป็นหลักฐานดีที่สุดว่าวัตถุเคลื่อนที่ด้วยความเร่งคงที่?</h3>
-        <div class="quiz-options">
-          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> เวลาแต่ละครั้งไม่เท่ากันเลย</button>
-          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> กราฟ \(y\)–\(t\) เป็นเส้นตรง</button>
-          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> ระยะทุกค่ามากกว่าศูนย์</button>
-          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> มวลวัตถุคงที่</button>
-          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> กราฟ \(y\)–\(t^2\) เป็นเส้นตรงใกล้จุดกำเนิดและให้ค่า \(g\) สม่ำเสมอ</button>
-        </div>
-        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="section spotlight" id="conclusion" data-title="สรุป">
-      <header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
-      <div class="conclusion-grid">
-        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong>&nbsp;จากข้อมูลของคุณเอง</p>
-        <ul class="conclusion-points">
-          <li><span class="cp-ico">1</span><div><h3>รายงานค่า g</h3><p>ระบุ \(g\) จากการตกอิสระและจากระบบรอก พร้อมหน่วย m/s²</p></div></li>
-          <li><span class="cp-ico">2</span><div><h3>เทียบกับค่ามาตรฐาน</h3><p>รายงานร้อยละความคลาดเคลื่อนเทียบ \(g=9.80\,\mathrm{m/s^2}\)</p></div></li>
-          <li><span class="cp-ico">3</span><div><h3>ตีความกราฟ</h3><p>ระบุว่ากราฟ \(y\)–\(t^2\) เป็นเส้นตรงผ่านจุดกำเนิดหรือไม่ เพื่อยืนยันความเร่งคงที่</p></div></li>
-          <li><span class="cp-ico">4</span><div><h3>อภิปรายแหล่งคลาดเคลื่อน</h3><p>ระบุสาเหตุหลัก เช่น การจับเวลา แรงเสียดทานที่รอก และแรงต้านอากาศ</p></div></li>
-
-          <li class="cp-extra"><span class="cp-ico">5</span><div><h3>ความรู้ที่ได้เพิ่มเติม</h3><p>เขียนสิ่งที่ค้นคว้าหรือควรรู้เพิ่มเติมจากการทดลองนี้ด้วยคำพูดของตนเอง เช่น การนำหลักการไปใช้ในสถานการณ์จริง ความเชื่อมโยงกับเนื้อหาอื่น หรือเทคนิคลดความคลาดเคลื่อนที่ค้นพบระหว่างทำการทดลอง</p></div></li>
-        </ul>
-      </div>
-      <p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
-    </section>
-
-    <section class="section band" id="discussion" data-title="อภิปราย">
-      <header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
-      <div class="q-grid">
-        <article class="q-card"><span class="q-no">Q1</span><p>เหตุใดวัตถุมวลต่างกันจึงตกอิสระด้วยความเร่งเท่ากันในอุดมคติ?</p></article>
-        <article class="q-card"><span class="q-no">Q2</span><p>ทำไมกราฟ \(y\)–\(t^2\) จึงเป็นเส้นตรงผ่านจุดกำเนิด?</p></article>
-        <article class="q-card"><span class="q-no">Q3</span><p>ระบบรอกช่วยให้วัดความเร่งได้ง่ายกว่าการตกอิสระตรง ๆ อย่างไร?</p></article>
-        <article class="q-card"><span class="q-no">Q4</span><p>แรงเสียดทานและความเฉื่อยของรอกส่งผลต่อค่า \(g\) ที่ได้อย่างไร?</p></article>
-        <article class="q-card"><span class="q-no">Q5</span><p>\(g\) จากสองวิธีต่างกันหรือไม่ เพราะอะไร?</p></article>
-      </div>
-      <div class="quick-quiz" data-qid="ff-create" data-bloom="create" data-answer="C">
-        <p class="quiz-label">คำถามสั้น</p>
-        <h3 class="prompt-q">ถ้าต้องลดผลของเวลาตอบสนองผู้ทดลอง แนวทางใดเหมาะสมที่สุด?</h3>
-        <div class="quiz-options">
-          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> ปล่อยจากความสูงเดียวครั้งเดียว</button>
-          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> เพิ่มมวลลูกเหล็กอย่างเดียว</button>
-          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> ใช้กลไกปล่อยและตัวจับเวลาอิเล็กทรอนิกส์ พร้อมทำซ้ำหลายครั้ง</button>
-          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ใช้ไม้บรรทัดแทนนาฬิกา</button>
-          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ตัดข้อมูลที่ต่างจากค่ามาตรฐานทิ้งทั้งหมด</button>
-        </div>
-        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="section band" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
-      <header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
-            <div class="prompt-card prompt-wide" style="margin: 0 auto;">
-        <p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
-          <span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
+<a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+<span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+<header class="topbar" id="topbar">
+<div class="topbar-inner">
+<a aria-label="กลับสู่ด้านบน" class="brand" href="#hero"><span class="brand-badge">07</span><span class="brand-text"><strong>วัตถุตกอิสระ</strong><small>261111 · ปฏิบัติการฟิสิกส์</small></span></a>
+<nav aria-label="สารบัญบทปฏิบัติการ" class="phase-nav" id="chipNav">
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">เริ่มต้น</button><div class="phase-menu" role="menu"><a class="chip" href="#hero" role="menuitem">บทนำ</a><a class="chip" href="#hook" role="menuitem">ชวนคิด</a><a class="chip" href="#objectives" role="menuitem">จุดประสงค์</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">หลักการ</button><div class="phase-menu" role="menu"><a class="chip" href="#concept" role="menuitem">แนวคิดหลัก</a><a class="chip" href="#theory" role="menuitem">ทฤษฎี</a><a class="chip" href="#equipment" role="menuitem">อุปกรณ์</a><a class="chip" href="#formula" role="menuitem">สูตร</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">ลงมือทำ</button><div class="phase-menu" role="menu"><a class="chip" href="#procedure" role="menuitem">ขั้นตอน</a><a class="chip" href="#data" role="menuitem">ตารางข้อมูล</a><a class="chip" href="#example" role="menuitem">ตัวอย่าง</a><a class="chip" href="#checkpoint" role="menuitem">ตรวจสอบ</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">สรุปผล</button><div class="phase-menu" role="menu"><a class="chip" href="#analysis" role="menuitem">วิเคราะห์</a><a class="chip" href="#additional-knowledge" role="menuitem">ความรู้เพิ่มเติม</a><a class="chip" href="#conclusion" role="menuitem">สรุป</a><a class="chip" href="#discussion" role="menuitem">อภิปราย</a></div></div>
+</nav>
+<div class="topbar-meta">
+<span aria-hidden="true" class="sec-counter"><b id="secNow">01</b><span>/14</span></span>
+<div aria-label="อัตราส่วนการแสดงผล" class="ratio-seg" role="group"><span aria-hidden="true" class="ratio-seg-ico">▭</span><button aria-pressed="true" data-ratio="full" type="button">จอเต็ม</button><button aria-pressed="false" data-ratio="43" type="button">4:3</button><button aria-pressed="false" data-ratio="169" type="button">16:9</button></div>
+<button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
+</div>
+</div>
+<div aria-label="ความคืบหน้าการอ่าน" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="read-progress" role="progressbar"><span id="readBar"></span></div>
+</header>
+<main id="main">
+<section class="section hero" data-title="บทนำ" id="hero">
+<div class="hero-top"><p class="hero-eyebrow">261111 · ปฏิบัติการฟิสิกส์ · บทที่ 07</p><h1 class="hero-title">วัตถุตกอิสระและกฎข้อที่สองของนิวตัน</h1></div>
+<div class="hero-grid">
+<div class="hero-copy">
+<figure class="hero-question"><figcaption class="hq-tag">คำถามชวนคิด</figcaption><blockquote class="hq-text">ของหนักกับของเบาตกถึงพื้นพร้อมกันจริงไหม? และเราจะ <strong>วัดค่า g</strong> ได้อย่างไรจากเวลาที่วัตถุตก แค่ใช้กราฟเส้นตรง</blockquote></figure>
+<ul class="hero-meta"><li><span class="hm-num">g<sub>ref</sub></span><span class="hm-label">= 9.80 m/s² (ค่าอ้างอิง)</span></li></ul>
+<div class="hero-actions"><a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a><a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a></div>
+</div>
+<figure class="hero-visual">
+<span class="fig-tag">FIG.1 · ตกอิสระ y = ½gt²</span>
+<svg aria-label="แผนภาพชุดทดลองวัตถุตกอิสระ: ตัวปล่อย ลูกเหล็ก และตัวจับเวลา" role="img" viewbox="0 0 340 300">
+<defs>
+<lineargradient id="metalGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#edf2fc"></stop><stop offset="1" stop-color="#c1d1ed"></stop></lineargradient>
+</defs>
+<!-- ขาตั้ง: เสา + ฐาน + แขนบน -->
+<rect fill="url(#metalGrad)" height="248" rx="3" stroke="#9fb4d6" stroke-width="1" width="10" x="20" y="36"></rect>
+<rect fill="url(#metalGrad)" height="10" rx="3" stroke="#9fb4d6" stroke-width="1" width="84" x="12" y="280"></rect>
+<rect fill="url(#metalGrad)" height="9" rx="3" stroke="#9fb4d6" stroke-width="1" width="40" x="28" y="36"></rect>
+<!-- ตัวปล่อย (แม่เหล็กไฟฟ้า) -->
+<rect fill="#1d4fd0" height="14" rx="3" stroke="#173fa6" stroke-width="1" width="24" x="48" y="40"></rect>
+<!-- แนวตก + ลูกเหล็ก (สโตรบ เร่งขึ้น) -->
+<line stroke="#9fb4d6" stroke-dasharray="4 4" x1="60" x2="60" y1="54" y2="260"></line>
+<circle cx="60" cy="58" fill="#9fb4d6" r="8"></circle>
+<circle cx="60" cy="92" fill="#7d97c8" r="8"></circle>
+<circle cx="60" cy="158" fill="#5278bf" r="9"></circle>
+<circle cx="60" cy="246" fill="#2563eb" r="10"></circle>
+<!-- ตัวจับเวลา + แป้นรับ -->
+<rect fill="url(#metalGrad)" height="12" rx="3" stroke="#9fb4d6" stroke-width="1" width="44" x="38" y="262"></rect>
+<rect fill="#0b1f3f" height="20" rx="3" width="36" x="88" y="256"></rect>
+<text fill="#7ba6f0" font-family="'IBM Plex Mono',monospace" font-size="10" text-anchor="middle" x="106" y="270">t</text>
+<!-- y dimension -->
+<line class="dim" x1="148" x2="148" y1="58" y2="246"></line><line class="dim" x1="144" x2="152" y1="58" y2="58"></line><line class="dim" x1="144" x2="152" y1="246" y2="246"></line>
+<text class="dim-txt" transform="rotate(90 162 152)" x="162" y="152">y ∝ t²</text>
+<!-- ป้ายกำกับ -->
+<text class="d-label" x="80" y="40">ตัวปล่อย</text>
+<text class="d-label" x="80" y="120">ลูกเหล็ก</text>
+<text class="d-label" text-anchor="middle" x="60" y="294">ตัวจับเวลา</text>
+</svg>
+<figcaption>ระยะตก \(y\) แปรผันกับ \(t^2\) — ความชันของกราฟ \(y\)–\(t^2\) = \(\tfrac12 g\)</figcaption>
+</figure>
+</div>
+<p aria-hidden="true" class="scroll-hint">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
+</section>
+<section class="section" data-title="ชวนคิด" id="hook">
+<header class="section-head"><div><p class="kicker">ชวนคิดก่อนเริ่ม</p><h2>หนักกับเบา ตกพร้อมกันไหม?</h2></div></header>
+<div class="split">
+<div class="prose"><p>ในอุดมคติที่ไม่มีแรงต้านอากาศ วัตถุทุกมวลตกด้วย <strong>ความเร่งเท่ากัน</strong> คือ \(g\) เพราะแรงโน้มถ่วงแปรผันตามมวลพอดีกับความเฉื่อย</p><p>เรายืนยันได้ด้วยการวัดระยะตก \(y\) กับเวลา \(t\) แล้วใช้ \(y=\tfrac12gt^2\) — กราฟ \(y\)–\(t^2\) จะเป็นเส้นตรงที่บอกค่า \(g\)</p></div>
+<aside class="prompt-card bloom-quiz-panel">
+<p class="prompt-tag">ตรวจความเข้าใจ</p>
+<div class="quick-quiz" data-answer="C" data-bloom="remember" data-qid="ff-remember">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">สมการการตกอิสระจากหยุดนิ่งที่ใช้ในแล็บนี้คือข้อใด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> \(y=gt\)</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> \(y=g/t\)</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> \(y=\tfrac12gt^2\)</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> \(y=2g/t^2\)</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> \(y=mg\)</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</aside>
+</div>
+</section>
+<section class="section" data-title="จุดประสงค์" id="objectives">
+<header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
+<ol class="objective-list">
+<li><span class="obj-no">1</span><div><h3>หาค่า g จากการตกอิสระ</h3><p>วัดระยะตกและเวลา แล้วหาค่าความเร่งโน้มถ่วงจากความชันกราฟ \(y\)–\(t^2\)</p></div></li>
+<li><span class="obj-no">2</span><div><h3>ตรวจสอบกฎข้อที่สองของนิวตัน</h3><p>ใช้ระบบรอก (Atwood) หาความเร่ง \(a\) แล้วเชื่อมกับ \(g\) ผ่าน \(a=\dfrac{m_1-m_2}{m_1+m_2}g\)</p></div></li>
+</ol>
+<div class="note note-info"><span aria-hidden="true" class="note-icon">◆</span><p><span class="note-kind">ควรรู้</span><strong>สิ่งที่จะได้ลงมือทำ:</strong> ปล่อยลูกเหล็กหลายความสูง จับเวลา · เขียนกราฟ \(y\)–\(t^2\) · ทดลองรอกสองมวล หาความเร่ง · เทียบ \(g\) กับ 9.80</p></div>
+</section>
+<section class="section band" data-title="แนวคิดหลัก" id="concept">
+<header class="section-head"><div><p class="kicker">ภาพรวมแนวคิด</p><h2>ความเร่งคงที่และแรงลัพธ์</h2></div></header>
+<p class="lead">เมื่อแรงลัพธ์คงที่ วัตถุเคลื่อนที่ด้วยความเร่งคงที่ ระยะทางจึงแปรผันกับเวลายกกำลังสอง การวัดเวลากับระยะจึงให้ค่าความเร่งได้</p>
+<div class="card-grid cols-3">
+<article class="info-card"><span class="ic-step">A</span><h3>ความเร่งคงที่</h3><p>เริ่มจากหยุดนิ่ง \(y=\tfrac12at^2\) ระยะแปรผันกับ \(t^2\)</p></article>
+<article class="info-card"><span class="ic-step">B</span><h3>กฎข้อที่สอง</h3><p>\(\sum F=ma\) แรงลัพธ์เท่ากับมวลคูณความเร่ง</p></article>
+<article class="info-card"><span class="ic-step">C</span><h3>น้ำหนัก</h3><p>แรงโน้มถ่วง \(W=mg\) ทำให้ทุกมวลตกด้วยความเร่ง \(g\) เท่ากัน</p></article>
+</div>
+</section>
+<section class="section spotlight" data-title="ทฤษฎี" id="theory">
+<header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>หา g และ a จากความชันกราฟ</h2></div></header>
+<div class="theory-grid">
+<div class="prose">
+<p><strong>ตกอิสระ:</strong> \(y=\tfrac12 g t^2\) ดังนั้นกราฟ \(y\) (แกนตั้ง) กับ \(t^2\) (แกนนอน) เป็นเส้นตรงผ่านจุดกำเนิด ความชัน \(=\tfrac12 g\) จึง</p>
+<p class="derive">\[g=2\times\text{slope}\]</p>
+<p><strong>ระบบรอก (Atwood):</strong> มวลสองก้อนต่างกัน \(y=\tfrac12 a t^2\) หา \(a\) จากกราฟ แล้ว \(a=\dfrac{m_1-m_2}{m_1+m_2}g\) จึงย้อนหา</p>
+<p class="derive">\[g=\dfrac{a(m_1+m_2)}{m_1-m_2}\]</p>
+<ul class="tick-list"><li>วัดเวลาหลายครั้งต่อหนึ่งความสูงแล้วเฉลี่ย</li><li>ปล่อยจากตำแหน่งหยุดนิ่งจริง</li><li>ความชันจากช่วงเส้นตรงของกราฟ</li></ul>
+</div>
+<aside class="prompt-card bloom-quiz-panel">
+<p class="prompt-tag">ตรวจความเข้าใจ</p>
+<div class="quick-quiz" data-answer="A" data-bloom="understand" data-qid="ff-understand">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">ในอุดมคติที่ไม่มีแรงต้านอากาศ วัตถุมวลต่างกันจะตกอย่างไร?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> มีความเร่งเท่ากัน</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> วัตถุหนักเร่งมากกว่า</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> วัตถุเบาเร่งมากกว่า</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> วัตถุหนักไม่มีความเร่ง</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> ขึ้นกับรูปร่างเท่านั้นแม้ไม่มีอากาศ</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+<div class="quick-quiz" data-answer="D" data-bloom="apply" data-qid="ff-apply">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">ถ้าความชันของกราฟ \(y\)–\(t^2\) เท่ากับ \(4.90\,\mathrm{m/s^2}\) ค่า \(g\) เท่าใด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> 2.45 m/s²</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> 4.90 m/s²</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> 7.35 m/s²</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> 9.80 m/s²</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> 19.6 m/s²</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</aside>
+</div>
+</section>
+<section class="section" data-title="อุปกรณ์" id="equipment">
+<header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
+<div class="card-grid cols-3 equip-grid">
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: ชุดตกอิสระ" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-1.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>ชุดราวปล่อยลูกเหล็ก</h3><p>ปล่อยลูกเหล็กจากความสูงที่กำหนด มีกลไกปล่อยและตัวรับที่จุดต่ำสุดเพื่อวัดเวลาตกแม่นยำ</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: ลูกเหล็ก" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-2.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>ลูกเหล็ก</h3><p>วัตถุทรงกลมหนาแน่น ลดผลของแรงต้านอากาศ ใช้เป็นวัตถุตกอิสระ</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: กล่องแสดงผลเวลา" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-3.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>กล่องจับเวลา/แสดงผล</h3><p>เริ่มจับเวลาเมื่อปล่อยและหยุดเมื่อลูกถึงตัวรับ อ่านเวลาตกได้ละเอียด ลดความคลาดเคลื่อนจากผู้จับเวลา</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: รอก" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-4.png" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>รอก</h3><p>เปลี่ยนทิศแรงดึงของเชือก ให้มวลสองข้างคล้องผ่านและเคลื่อนที่สวนกัน (ระบบ Atwood)</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: มวลแขวน" class="equip-photo equip-photo-duo" data-photo="" type="button"><img alt="" decoding="async" loading="lazy" src="assets/equip/equip-5a.png"/><img alt="" decoding="async" loading="lazy" src="assets/equip/equip-5b.png"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>มวลแขวน</h3><p>มวลสองชุดต่างกันแขวนที่ปลายเชือกสองข้าง ความต่างของมวลทำให้ระบบเร่ง</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: นาฬิกาจับเวลา" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="1080" loading="lazy" src="assets/equip/stopwatch.png" width="1920"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>นาฬิกาจับเวลา</h3><p>จับเวลาการเคลื่อนที่ของระบบรอก วัดหลายครั้งต่อหนึ่งระยะแล้วเฉลี่ยเพื่อลดความคลาดเคลื่อน</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: ตลับเมตร" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-6.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>ตลับเมตร / สเกล</h3><p>วัดความสูงในการปล่อย \(y\) และระยะเคลื่อนที่ \(h\) ของระบบรอก</p></figcaption></figure>
+</div>
+</section>
+<section class="section" data-title="สูตร" id="formula">
+<header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
+<div class="card-grid cols-3">
+<article class="formula-card formula-accent"><h3>ตกอิสระ</h3><p class="formula">\[y=\tfrac12 g t^2\]</p><p class="formula-note">เริ่มจากหยุดนิ่ง</p></article>
+<article class="formula-card"><h3>g จากความชัน</h3><p class="formula">\[g=2\times\text{slope}\]</p><p class="formula-note">กราฟ \(y\)–\(t^2\)</p></article>
+<article class="formula-card"><h3>กฎข้อที่สอง</h3><p class="formula">\[\textstyle\sum F=ma\]</p><p class="formula-note">แรงลัพธ์ = มวล × ความเร่ง</p></article>
+<article class="formula-card"><h3>ความเร่งระบบรอก</h3><p class="formula">\[a=\dfrac{m_1-m_2}{m_1+m_2}\,g\]</p><p class="formula-note">Atwood machine</p></article>
+<article class="formula-card"><h3>g จากระบบรอก</h3><p class="formula">\[g=\dfrac{a(m_1+m_2)}{m_1-m_2}\]</p><p class="formula-note">\(a=2\times\text{slope}\)</p></article>
+<article class="formula-card"><h3>ร้อยละความคลาดเคลื่อน</h3><p class="formula">\[\%\,\mathrm{err}=\dfrac{|g-9.80|}{9.80}\times100\]</p><p class="formula-note">เทียบ \(g=9.80\,\mathrm{m/s^2}\)</p></article>
+</div>
+</section>
+<section class="section" data-title="ขั้นตอน" id="procedure">
+<header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
+<ol class="steps">
+<li><span class="step-n">1</span><div><h3>ตอนที่ 1 · ตั้งชุดตกอิสระ</h3><p>ติดตั้งชุดปล่อยลูกเหล็กและตัวรับ ตั้งความสูงปล่อย \(y\) ที่ทราบค่า</p><p class="step-caution"><b>ระวัง:</b> ปล่อยจากนิ่งเท่านั้น (ความเร็วต้นเป็นศูนย์) และวัดความสูงตามแนวดิ่งให้ตรง</p></div></li>
+<li><span class="step-n">2</span><div><h3>ปล่อยและจับเวลา</h3><p>ปล่อยลูกเหล็ก อ่านเวลาตก \(t\) จากกล่องแสดงผล ทำซ้ำหลายครั้งแล้วเฉลี่ย</p><p class="step-caution"><b>ระวัง:</b> เวลาตอบสนองของผู้จับเวลาเป็นความคลาดเคลื่อนหลัก ใช้ตัวจับเวลาอิเล็กทรอนิกส์ถ้ามี และวัดซ้ำ</p></div></li>
+<li><span class="step-n">3</span><div><h3>เปลี่ยนความสูง</h3><p>ทำซ้ำกับความสูงหลายค่า (เช่น 8 ค่า) บันทึก \(y\) และ \(t\)</p><p class="step-caution"><b>ระวัง:</b> ปล่อยจากตำแหน่งเดิมทุกครั้ง เปลี่ยนเฉพาะความสูง</p></div></li>
+<li><span class="step-n">4</span><div><h3>เขียนกราฟหา g</h3><p>เขียนกราฟ \(y\)–\(t^2\) หาความชัน แล้ว \(g=2\times\text{slope}\)</p><p class="step-caution"><b>ระวัง:</b> กราฟ y–t² ควรผ่านจุดกำเนิด ใช้เฉพาะช่วงเส้นตรง</p></div></li>
+<li><span class="step-n">5</span><div><h3>ตอนที่ 2 · ระบบรอก</h3><p>คล้องมวล \(m_1&gt;m_2\) ผ่านรอก วัดระยะ \(h\) และเวลา \(t\) ของการเคลื่อนที่</p><p class="step-caution"><b>ระวัง:</b> การละเลยแรงเสียดทานและมวลรอกทำให้ค่า a (และ g) ต่ำกว่าจริง</p></div></li>
+<li><span class="step-n">6</span><div><h3>หา a และ g</h3><p>กราฟ \(h\)–\(t^2\) หา \(a=2\times\text{slope}\) แล้ว \(g=a(m_1+m_2)/(m_1-m_2)\)</p><p class="step-caution"><b>ระวัง:</b> ตรวจว่า m₁&gt;m₂ พอให้ระบบเคลื่อนสม่ำเสมอ ไม่กระตุก</p></div></li>
+</ol>
+<div class="note note-warn"><span aria-hidden="true" class="note-icon">!</span><div><span class="note-kind">ข้อควรระวัง</span><strong>ระวังระหว่างวัด</strong><ul><li>ยึดอุปกรณ์ให้แน่นก่อนปล่อยวัตถุ</li><li>วัดระยะจากตำแหน่งปล่อยจริง</li><li>ทำซ้ำหลายครั้ง เพราะเวลาตอบสนองส่งผลต่อข้อมูล</li></ul></div></div>
+</section>
+<section class="section band" data-title="ตารางข้อมูล" id="data">
+<header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>ตารางผลการทดลอง</h2></div></header>
+<p class="lead">กรอกระยะและเวลา (เฉลี่ย) ระบบคำนวณ \(t^2\) เขียนกราฟ \(y\)–\(t^2\) และหาความชัน → \(g\) (และ \(a\) ของระบบรอก) ให้อัตโนมัติ</p>
+<div class="worksheet-block">
+<h3>ตอนที่ 1 · ตกอิสระ → หา g</h3>
+<div class="data-foot">
+<div class="table-wrap" style="flex:1"><table class="data-table">
+<thead><tr><th scope="col">ครั้งที่</th><th scope="col">ความสูง \(y\) (m)</th><th scope="col">เวลา \(t\) (s)</th><th scope="col">\(t^2\) (s²)</th></tr></thead>
+<tbody id="ffBody">
+<tr data-row="0"><th scope="row"><span class="math">1</span></th><td><input data-store="ff_y0" data-y="" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="ff_t0" data-t="" inputmode="decimal" step="0.0001" type="number"/></td><td data-t2="">—</td></tr>
+<tr data-row="1"><th scope="row"><span class="math">2</span></th><td><input data-store="ff_y1" data-y="" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="ff_t1" data-t="" inputmode="decimal" step="0.0001" type="number"/></td><td data-t2="">—</td></tr>
+<tr data-row="2"><th scope="row"><span class="math">3</span></th><td><input data-store="ff_y2" data-y="" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="ff_t2" data-t="" inputmode="decimal" step="0.0001" type="number"/></td><td data-t2="">—</td></tr>
+<tr data-row="3"><th scope="row"><span class="math">4</span></th><td><input data-store="ff_y3" data-y="" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="ff_t3" data-t="" inputmode="decimal" step="0.0001" type="number"/></td><td data-t2="">—</td></tr>
+<tr data-row="4"><th scope="row"><span class="math">5</span></th><td><input data-store="ff_y4" data-y="" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="ff_t4" data-t="" inputmode="decimal" step="0.0001" type="number"/></td><td data-t2="">—</td></tr>
+</tbody>
+</table></div>
+<figure class="chart-card"><svg aria-label="กราฟ y กับ t²" id="ffGraph" role="img" viewbox="0 0 520 320"></svg><figcaption>กราฟ \(y\)–\(t^2\) ความชัน = \(\tfrac12 g\)</figcaption></figure>
+</div>
+<p class="calc-line">ค่า \(g\) จากความชัน: <output id="gFFOutput">—</output> · ร้อยละความคลาดเคลื่อน (เทียบ 9.80): <output id="errFFOutput">—</output></p>
+</div>
+<div class="worksheet-block">
+<h3>ตอนที่ 2 · ระบบรอก (Atwood) → หา a และ g</h3>
+<div class="setup-inputs">
+<label>มวลก้อนหนัก <span class="u">\(m_1\) (g)</span><input data-store="m1" id="m1" inputmode="decimal" step="0.1" type="number" value="120"/></label>
+<label>มวลก้อนเบา <span class="u">\(m_2\) (g)</span><input data-store="m2" id="m2" inputmode="decimal" step="0.1" type="number" value="100"/></label>
+</div>
+<div class="data-foot">
+<div class="table-wrap" style="flex:1"><table class="data-table">
+<thead><tr><th scope="col">ครั้งที่</th><th scope="col">ระยะ \(h\) (m)</th><th scope="col">เวลา \(t\) (s)</th><th scope="col">\(t^2\) (s²)</th></tr></thead>
+<tbody id="atBody">
+<tr data-row="0"><th scope="row"><span class="math">1</span></th><td><input data-h="" data-store="at_h0" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="at_t0" data-t="" inputmode="decimal" step="0.001" type="number"/></td><td data-t2="">—</td></tr>
+<tr data-row="1"><th scope="row"><span class="math">2</span></th><td><input data-h="" data-store="at_h1" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="at_t1" data-t="" inputmode="decimal" step="0.001" type="number"/></td><td data-t2="">—</td></tr>
+<tr data-row="2"><th scope="row"><span class="math">3</span></th><td><input data-h="" data-store="at_h2" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="at_t2" data-t="" inputmode="decimal" step="0.001" type="number"/></td><td data-t2="">—</td></tr>
+<tr data-row="3"><th scope="row"><span class="math">4</span></th><td><input data-h="" data-store="at_h3" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="at_t3" data-t="" inputmode="decimal" step="0.001" type="number"/></td><td data-t2="">—</td></tr>
+<tr data-row="4"><th scope="row"><span class="math">5</span></th><td><input data-h="" data-store="at_h4" inputmode="decimal" step="0.001" type="number"/></td><td><input data-store="at_t4" data-t="" inputmode="decimal" step="0.001" type="number"/></td><td data-t2="">—</td></tr>
+</tbody>
+</table></div>
+<figure class="chart-card"><svg aria-label="กราฟ h กับ t²" id="atGraph" role="img" viewbox="0 0 520 320"></svg><figcaption>กราฟ \(h\)–\(t^2\) ความชัน = \(\tfrac12 a\)</figcaption></figure>
+</div>
+<p class="calc-line">ความเร่ง \(a\): <output id="aOutput">—</output> · ค่า \(g\): <output id="gATOutput">—</output> · คลาดเคลื่อน: <output id="errATOutput">—</output></p>
+</div>
+<div class="actions-row"><button class="btn btn-soft" id="resetTable" type="button">ล้างข้อมูลตาราง</button><span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span></div>
+</section>
+<section class="section" data-title="ตรวจสอบ" id="checkpoint">
+<header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
+<div class="prompt-card">
+<p class="prompt-tag">คำถามท้าทาย</p>
+<p class="prompt-q">ในระบบรอก ถ้ามวลสองก้อน <strong>เท่ากันพอดี</strong> (\(m_1=m_2\)) ระบบจะเคลื่อนที่อย่างไร และสูตร \(a\) บอกอะไร?</p>
+<div class="reveal-controls"><button class="btn btn-primary" id="answerShow" type="button">แสดงคำตอบ</button><button class="btn btn-ghost" hidden="" id="answerHide" type="button">ซ่อนคำตอบ</button></div>
+<div class="answer-body" hidden="" id="answerBody">
+<p>จาก \(a=\dfrac{m_1-m_2}{m_1+m_2}g\) ถ้า \(m_1=m_2\) → ตัวเศษ \(=0\) → \(a=0\) ระบบ <strong>อยู่นิ่งหรือเคลื่อนที่ด้วยความเร็วคงที่</strong></p>
+<ul class="tick-list"><li>แรงลัพธ์เป็นศูนย์ (สมดุล)</li><li>ยิ่งมวลต่างกันมาก ความเร่งยิ่งมาก (เข้าใกล้ \(g\))</li></ul>
+<p class="muted">บทเรียน: ระบบรอกช่วย "ชะลอ" การตกให้จับเวลาได้ง่ายกว่าการตกอิสระตรง ๆ</p>
+</div>
+</div>
+<div class="quick-quiz" data-answer="B" data-bloom="analyze" data-qid="ff-analyze">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">ในระบบรอก ถ้า \(m_1=m_2\) สูตร \(a=\dfrac{m_1-m_2}{m_1+m_2}g\) ทำนายอย่างไร?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> \(a=g\)</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> \(a=0\)</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> \(a=2g\)</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> \(a=-g\)</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> คำนวณไม่ได้</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+<section class="section" data-title="วิเคราะห์" id="analysis">
+<header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
+<div class="split">
+<ol class="analysis-steps">
+<li>คำนวณ \(t^2\) ทุกแถว แล้วเขียนกราฟ \(y\)–\(t^2\) (ตอน 1) หาความชัน</li>
+<li>หา \(g=2\times\text{slope}\) เทียบกับ 9.80 m/s²</li>
+<li>ตอน 2 หา \(a=2\times\text{slope}\) แล้ว \(g=a(m_1+m_2)/(m_1-m_2)\)</li>
+<li>เปรียบเทียบ \(g\) จากสองวิธี และอภิปรายความสอดคล้อง</li>
+</ol>
+<aside class="note note-info note-block"><span aria-hidden="true" class="note-icon">◆</span><div><span class="note-kind">ควรรู้</span><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>เวลาตอบสนองของการจับเวลา</li><li>แรงเสียดทานที่รอกและความเฉื่อยของรอก</li><li>แรงต้านอากาศ (ตอนตกอิสระ)</li></ul></div></aside>
+</div>
+<div class="quick-quiz" data-answer="E" data-bloom="evaluate" data-qid="ff-evaluate">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">ผลแบบใดเป็นหลักฐานดีที่สุดว่าวัตถุเคลื่อนที่ด้วยความเร่งคงที่?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> เวลาแต่ละครั้งไม่เท่ากันเลย</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> กราฟ \(y\)–\(t\) เป็นเส้นตรง</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> ระยะทุกค่ามากกว่าศูนย์</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> มวลวัตถุคงที่</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> กราฟ \(y\)–\(t^2\) เป็นเส้นตรงใกล้จุดกำเนิดและให้ค่า \(g\) สม่ำเสมอ</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+<section class="section spotlight" data-title="สรุป" id="conclusion">
+<header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
+<div class="conclusion-grid">
+<p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong> จากข้อมูลของคุณเอง</p>
+<ul class="conclusion-points">
+<li><span class="cp-ico">1</span><div><h3>รายงานค่า g</h3><p>ระบุ \(g\) จากการตกอิสระและจากระบบรอก พร้อมหน่วย m/s²</p></div></li>
+<li><span class="cp-ico">2</span><div><h3>เทียบกับค่ามาตรฐาน</h3><p>รายงานร้อยละความคลาดเคลื่อนเทียบ \(g=9.80\,\mathrm{m/s^2}\)</p></div></li>
+<li><span class="cp-ico">3</span><div><h3>ตีความกราฟ</h3><p>ระบุว่ากราฟ \(y\)–\(t^2\) เป็นเส้นตรงผ่านจุดกำเนิดหรือไม่ เพื่อยืนยันความเร่งคงที่</p></div></li>
+<li><span class="cp-ico">4</span><div><h3>อภิปรายแหล่งคลาดเคลื่อน</h3><p>ระบุสาเหตุหลัก เช่น การจับเวลา แรงเสียดทานที่รอก และแรงต้านอากาศ</p></div></li>
+<li class="cp-extra"><span class="cp-ico">5</span><div><h3>ความรู้ที่ได้เพิ่มเติม</h3><p>เขียนสิ่งที่ค้นคว้าหรือควรรู้เพิ่มเติมจากการทดลองนี้ด้วยคำพูดของตนเอง เช่น การนำหลักการไปใช้ในสถานการณ์จริง ความเชื่อมโยงกับเนื้อหาอื่น หรือเทคนิคลดความคลาดเคลื่อนที่ค้นพบระหว่างทำการทดลอง</p></div></li>
+</ul>
+</div>
+<p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
+</section>
+<section class="section band" data-title="อภิปราย" id="discussion">
+<header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
+<div class="q-grid">
+<article class="q-card"><span class="q-no">Q1</span><p>เหตุใดวัตถุมวลต่างกันจึงตกอิสระด้วยความเร่งเท่ากันในอุดมคติ?</p></article>
+<article class="q-card"><span class="q-no">Q2</span><p>ทำไมกราฟ \(y\)–\(t^2\) จึงเป็นเส้นตรงผ่านจุดกำเนิด?</p></article>
+<article class="q-card"><span class="q-no">Q3</span><p>ระบบรอกช่วยให้วัดความเร่งได้ง่ายกว่าการตกอิสระตรง ๆ อย่างไร?</p></article>
+<article class="q-card"><span class="q-no">Q4</span><p>แรงเสียดทานและความเฉื่อยของรอกส่งผลต่อค่า \(g\) ที่ได้อย่างไร?</p></article>
+<article class="q-card"><span class="q-no">Q5</span><p>\(g\) จากสองวิธีต่างกันหรือไม่ เพราะอะไร?</p></article>
+</div>
+<div class="quick-quiz" data-answer="C" data-bloom="create" data-qid="ff-create">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">ถ้าต้องลดผลของเวลาตอบสนองผู้ทดลอง แนวทางใดเหมาะสมที่สุด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> ปล่อยจากความสูงเดียวครั้งเดียว</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> เพิ่มมวลลูกเหล็กอย่างเดียว</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> ใช้กลไกปล่อยและตัวจับเวลาอิเล็กทรอนิกส์ พร้อมทำซ้ำหลายครั้ง</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> ใช้ไม้บรรทัดแทนนาฬิกา</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> ตัดข้อมูลที่ต่างจากค่ามาตรฐานทิ้งทั้งหมด</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+<section class="section band" data-title="ความรู้เพิ่มเติม" id="additional-knowledge">
+<header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
+<div class="prompt-card prompt-wide" style="margin: 0 auto;">
+<p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
+<span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
           แนวทางการเขียนความรู้เพิ่มเติม
         </p>
-        <p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
-        
-        <div class="q-grid" style="text-align: left;">
-          <article class="q-card">
-            <span class="q-no">01</span>
-            <p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
-          </article>
-          <article class="q-card" style="border-bottom: none;">
-            <span class="q-no">02</span>
-            <p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <nav class="stepper" aria-label="นำทางทีละส่วน"><button type="button" id="prevSec" aria-label="ส่วนก่อนหน้า">‹</button><span id="stepLabel">บทนำ</span><button type="button" id="nextSec" aria-label="ส่วนถัดไป">›</button></nav>
-  <div class="present-bar" id="presentBar" hidden><span class="present-label">▶ โหมดนำเสนอ</span><button type="button" id="presentPrev" aria-label="สไลด์ก่อนหน้า">‹</button><span id="presentCounter">1 / 14</span><button type="button" id="presentNext" aria-label="สไลด์ถัดไป">›</button><button type="button" id="presentExit" class="present-exit">✕ ออก (Esc)</button></div>
-  <div class="present-progress" id="presentProgress" aria-hidden="true"><span></span></div>
-  <div class="toast" id="toast" role="status" aria-live="polite" hidden><span id="toastMsg"></span><button type="button" id="toastUndo">เลิกทำ</button></div>
-  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="ภาพขยายอุปกรณ์"><div class="lightbox-inner"><button class="lightbox-close" id="lightboxClose" type="button" aria-label="ปิดภาพขยาย">✕</button><div class="lightbox-body" id="lightboxBody"></div></div></div>
-  <noscript><p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่การคำนวณ กราฟ และปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p></noscript>
+<p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
+<div class="q-grid" style="text-align: left;">
+<article class="q-card">
+<span class="q-no">01</span>
+<p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
+</article>
+<article class="q-card" style="border-bottom: none;">
+<span class="q-no">02</span>
+<p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
+</article>
+</div>
+</div>
+</section>
+</main>
+<nav aria-label="นำทางทีละส่วน" class="stepper"><button aria-label="ส่วนก่อนหน้า" id="prevSec" type="button">‹</button><span id="stepLabel">บทนำ</span><button aria-label="ส่วนถัดไป" id="nextSec" type="button">›</button></nav>
+<div class="present-bar" hidden="" id="presentBar"><span class="present-label">▶ โหมดนำเสนอ</span><button aria-label="สไลด์ก่อนหน้า" id="presentPrev" type="button">‹</button><span id="presentCounter">1 / 14</span><button aria-label="สไลด์ถัดไป" id="presentNext" type="button">›</button><button class="present-exit" id="presentExit" type="button">✕ ออก (Esc)</button></div>
+<div aria-hidden="true" class="present-progress" id="presentProgress"><span></span></div>
+<div aria-live="polite" class="toast" hidden="" id="toast" role="status"><span id="toastMsg"></span><button id="toastUndo" type="button">เลิกทำ</button></div>
+<div aria-label="ภาพขยายอุปกรณ์" aria-modal="true" class="lightbox" hidden="" id="lightbox" role="dialog"><div class="lightbox-inner"><button aria-label="ปิดภาพขยาย" class="lightbox-close" id="lightboxClose" type="button">✕</button><div class="lightbox-body" id="lightboxBody"></div></div></div>
+<noscript><p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่การคำนวณ กราฟ และปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p></noscript>
 </body>
 </html>

@@ -1,376 +1,352 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="th">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lab 08 · สมมูลไฟฟ้า-ความร้อน · Lab Brief</title>
-  <meta name="description" content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261111 บทที่ 8 สมมูลไฟฟ้า-ความร้อน">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E08%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=10">
-  <link rel="stylesheet" href="styles.css?v=1">
-  <script defer src="../../shared/brief-core.js?v=7"></script>
-  <script defer src="js/app.js?v=1"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Lab 08 · สมมูลไฟฟ้า-ความร้อน · Lab Brief</title>
+<meta content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261111 บทที่ 8 สมมูลไฟฟ้า-ความร้อน" name="description"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E08%3C/text%3E%3C/svg%3E" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link href="../../shared/drafting-sheet.css?v=10" rel="stylesheet"/>
+<link href="styles.css?v=1" rel="stylesheet"/>
+<script defer="" src="../../shared/brief-core.js?v=7"></script>
+<script defer="" src="js/app.js?v=1"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
-  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
-
-  <header class="topbar" id="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="#hero" aria-label="กลับสู่ด้านบน"><span class="brand-badge">08</span><span class="brand-text"><strong>สมมูลไฟฟ้า-ความร้อน</strong><small>261111 · ปฏิบัติการฟิสิกส์</small></span></a>
-      <nav class="phase-nav" id="chipNav" aria-label="สารบัญบทปฏิบัติการ">
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">เริ่มต้น</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#hero">บทนำ</a><a class="chip" role="menuitem" href="#hook">ชวนคิด</a><a class="chip" role="menuitem" href="#objectives">จุดประสงค์</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">หลักการ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#concept">แนวคิดหลัก</a><a class="chip" role="menuitem" href="#theory">ทฤษฎี</a><a class="chip" role="menuitem" href="#equipment">อุปกรณ์</a><a class="chip" role="menuitem" href="#formula">สูตร</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">ลงมือทำ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#procedure">ขั้นตอน</a><a class="chip" role="menuitem" href="#data">ตารางข้อมูล</a><a class="chip" role="menuitem" href="#example">ตัวอย่าง</a><a class="chip" role="menuitem" href="#checkpoint">ตรวจสอบ</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">สรุปผล</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#analysis">วิเคราะห์</a><a class="chip" role="menuitem" href="#additional-knowledge">ความรู้เพิ่มเติม</a><a class="chip" role="menuitem" href="#conclusion">สรุป</a><a class="chip" role="menuitem" href="#discussion">อภิปราย</a></div></div>
-      </nav>
-      <div class="topbar-meta">
-        <span class="sec-counter" aria-hidden="true"><b id="secNow">01</b><span>/14</span></span>
-        <div class="ratio-seg" role="group" aria-label="อัตราส่วนการแสดงผล"><span class="ratio-seg-ico" aria-hidden="true">▭</span><button type="button" data-ratio="full" aria-pressed="true">จอเต็ม</button><button type="button" data-ratio="43" aria-pressed="false">4:3</button><button type="button" data-ratio="169" aria-pressed="false">16:9</button></div>
-        <button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
-      </div>
-    </div>
-    <div class="read-progress" role="progressbar" aria-label="ความคืบหน้าการอ่าน" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="readBar"></span></div>
-  </header>
-
-  <main id="main">
-    <section class="section hero" id="hero" data-title="บทนำ">
-      <div class="hero-top"><p class="hero-eyebrow">261111 · ปฏิบัติการฟิสิกส์ · บทที่ 08</p><h1 class="hero-title">สมมูลไฟฟ้า-ความร้อน</h1></div>
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <figure class="hero-question"><figcaption class="hq-tag">คำถามชวนคิด</figcaption><blockquote class="hq-text">พลังงานไฟฟ้าเปลี่ยนเป็น <strong>ความร้อน</strong> ได้กี่จูลต่อกิโลแคลอรี? เราจะวัด <strong>สมมูลความร้อน</strong> ได้จากการต้มน้ำด้วยขดลวดไฟฟ้าอย่างไร</blockquote></figure>
-          <ul class="hero-meta"><li><span class="hm-num">J<sub>ref</sub></span><span class="hm-label">= 4186 J/kcal (ค่าอ้างอิง)</span></li></ul>
-          <div class="hero-actions"><a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a><a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a></div>
-        </div>
-        <figure class="hero-visual">
-          <span class="fig-tag">FIG.1 · แคลอรีมิเตอร์ + ขดลวดไฟฟ้า</span>
-          <svg viewBox="0 0 340 290" role="img" aria-label="แผนภาพชุดทดลองสมมูลไฟฟ้า-ความร้อน: แหล่งจ่ายไฟ แอมมิเตอร์ โวลต์มิเตอร์ และแคลอรีมิเตอร์">
-            <defs>
-              <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#edf2fc"/><stop offset="1" stop-color="#c1d1ed"/></linearGradient>
-            </defs>
-            <!-- สายวงจรจากขดลวดขึ้นสู่มิเตอร์ -->
-            <g stroke="#173fa6" stroke-width="2" fill="none">
-              <path d="M150,130 V60 H113"/>
-              <path d="M184,130 V84 H223"/>
-              <path d="M74,60 H87"/>
-            </g>
-            <!-- แหล่งจ่ายไฟ + A + V -->
-            <rect x="30" y="46" width="44" height="28" rx="5" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
-            <text x="52" y="64" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="11" fill="#1d4fd0">DC</text>
-            <circle cx="100" cy="60" r="13" fill="#fff" stroke="#122a4f" stroke-width="1.4"/><text x="100" y="64" text-anchor="middle" font-size="11" fill="#122a4f">A</text>
-            <circle cx="236" cy="84" r="13" fill="#fff" stroke="#122a4f" stroke-width="1.4"/><text x="236" y="88" text-anchor="middle" font-size="11" fill="#122a4f">V</text>
-            <!-- แคลอรีมิเตอร์ผนัง 2 ชั้น + น้ำ -->
-            <rect x="100" y="118" width="120" height="130" rx="9" fill="rgba(37,99,235,.05)" stroke="#9fb4d6" stroke-width="1.2"/>
-            <rect x="111" y="129" width="98" height="110" rx="6" fill="rgba(37,99,235,.12)" stroke="#2563eb" stroke-width="2"/>
-            <path d="M111 162 h98 v65 a6 6 0 0 1 -6 6 h-86 a6 6 0 0 1 -6 -6 z" fill="rgba(37,99,235,.22)"/>
-            <!-- ขดลวดให้ความร้อน -->
-            <path d="M160 130 V176 q0 7 7 7 h6 q7 0 7 7 q0 7 -7 7 h-6 q-7 0 -7 7 v8" fill="none" stroke="#d9480f" stroke-width="2.5"/>
-            <!-- เทอร์โมมิเตอร์ + ที่กวน -->
-            <rect x="124" y="86" width="9" height="70" rx="3" fill="#cdd9ee" stroke="#9fb4d6" stroke-width="1"/><circle cx="128.5" cy="158" r="5.5" fill="#d9480f"/>
-            <path d="M198 96 V152 a8 8 0 0 0 16 0" fill="none" stroke="#8ea7cf" stroke-width="2.5"/>
-            <!-- ป้ายกำกับ -->
-            <text x="52" y="34" class="d-label" text-anchor="middle">แหล่งจ่ายไฟ</text>
-            <text x="84" y="104" class="d-label" text-anchor="middle">เทอร์โม</text>
-            <text x="232" y="118" class="d-label">ที่กวน</text>
-            <text x="246" y="170" class="d-label">ขดลวด</text>
-            <text x="160" y="272" text-anchor="middle" class="d-label">น้ำ + แคลอรีมิเตอร์</text>
-          </svg>
-          <figcaption>ขดลวดให้ความร้อน \(IVt\) ทำให้น้ำอุณหภูมิสูงขึ้น \(\Delta T\)</figcaption>
-        </figure>
-      </div>
-      <p class="scroll-hint" aria-hidden="true">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
-    </section>
-
-    <section class="section" id="hook" data-title="ชวนคิด">
-      <header class="section-head"><div><p class="kicker">ชวนคิดก่อนเริ่ม</p><h2>ไฟฟ้ากลายเป็นความร้อนเท่าไร?</h2></div></header>
-      <div class="split">
-        <div class="prose"><p>เมื่อกระแสไหลผ่านขดลวดต้านทาน พลังงานไฟฟ้า \(IVt\) เปลี่ยนเป็น <strong>ความร้อน</strong> ทั้งหมด ทำให้น้ำร้อนขึ้น</p><p>โดยวัดพลังงานไฟฟ้าที่ใส่เข้าไปและความร้อนที่น้ำได้รับ เราหา <strong>สมมูลความร้อน J</strong> ว่าพลังงาน 1 กิโลแคลอรีเท่ากับกี่จูล</p></div>
-                <aside class="prompt-card bloom-quiz-panel">
-          <p class="prompt-tag">ตรวจความเข้าใจ</p>
-          <div class="quick-quiz" data-qid="heat-remember" data-bloom="remember" data-answer="B">
-            <p class="quiz-label">คำถามสั้น</p>
-            <h3 class="prompt-q">พลังงานไฟฟ้าที่จ่ายให้ขดลวดในเวลา \(t\) เขียนได้อย่างไร?</h3>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> \(V/I\)</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> \(IVt\)</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> \(I/Vt\)</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> \(mc\Delta T\)</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> \(Vt/I\)</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="objectives" data-title="จุดประสงค์">
-      <header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
-      <ol class="objective-list">
-        <li><span class="obj-no">1</span><div><h3>ศึกษาสมมูลของพลังงานไฟฟ้าและความร้อน</h3><p>หาค่าสมมูลความร้อน \(J\) ที่เชื่อมพลังงานไฟฟ้า (จูล) กับความร้อน (กิโลแคลอรี)</p></div></li>
-        <li><span class="obj-no">2</span><div><h3>ฝึกวัดปริมาณทางความร้อนและไฟฟ้า</h3><p>วัดมวล อุณหภูมิ แรงดัน กระแส และเวลา แล้วใช้ความชันกราฟ \(\Delta T\)–\(t\)</p></div></li>
-      </ol>
-      <div class="note note-info"><span class="note-icon" aria-hidden="true">◆</span><p><span class="note-kind">ควรรู้</span><strong>สิ่งที่จะได้ลงมือทำ:</strong> ชั่งมวลน้ำและแคลอรีมิเตอร์ · ให้ความร้อนด้วยขดลวด อ่าน \(V,I\) · บันทึก \(\Delta T\) ตามเวลา · เขียนกราฟ · คำนวณ \(J\)</p></div>
-    </section>
-
-    <section class="section band" id="concept" data-title="แนวคิดหลัก">
-      <header class="section-head"><div><p class="kicker">ภาพรวมแนวคิด</p><h2>จากพลังงานไฟฟ้าสู่ความร้อน</h2></div></header>
-      <p class="lead">พลังงานไฟฟ้าที่จ่ายให้ขดลวดเปลี่ยนเป็นความร้อนที่น้ำและภาชนะดูดซับ การเทียบพลังงานสองรูปนี้ให้ค่าสมมูลความร้อน</p>
-      <div class="card-grid cols-3">
-        <article class="info-card"><span class="ic-step">A</span><h3>พลังงานไฟฟ้า</h3><p>\(\Delta W=IVt\) (กำลัง \(P=IV\) คูณเวลา) หน่วยจูล</p></article>
-        <article class="info-card"><span class="ic-step">B</span><h3>ความร้อนที่น้ำรับ</h3><p>\(\Delta Q=(m_c c_c+m_w c_w)\Delta T\) รวมน้ำและภาชนะ หน่วยกิโลแคลอรี</p></article>
-        <article class="info-card"><span class="ic-step">C</span><h3>สมดุลพลังงาน</h3><p>\(\Delta W=J\,\Delta Q\) เมื่อ \(J\) คือสมมูลความร้อน (J/kcal)</p></article>
-      </div>
-    </section>
-
-    <section class="section spotlight" id="theory" data-title="ทฤษฎี">
-      <header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>หา J จากความชันกราฟ ΔT–t</h2></div></header>
-      <div class="theory-grid">
-        <div class="prose">
-          <p>พลังงานไฟฟ้าเท่ากับความร้อนที่ระบบรับ</p>
-          <p class="derive">\[IVt=J(m_c c_c+m_w c_w)\Delta T\]</p>
-          <p>หารด้วย \(t\) จะได้ \(IV=J(m_c c_c+m_w c_w)\dfrac{\Delta T}{t}\) ดังนั้น</p>
-          <p class="derive">\[J=\dfrac{IV}{(m_c c_c+m_w c_w)\,(\Delta T/\Delta t)}\]</p>
-          <p>โดย \(\Delta T/\Delta t\) คือความชันของกราฟ \(\Delta T\)–\(t\)</p>
-          <ul class="tick-list"><li>\(c_{น้ำ}=1.0,\ c_{อะลู}=0.21\) kcal/kg·°C</li><li>กวนน้ำให้อุณหภูมิสม่ำเสมอก่อนอ่าน</li><li>เริ่มจับเวลาพร้อมเปิดไฟ</li></ul>
-        </div>
-                <aside class="prompt-card bloom-quiz-panel">
-          <p class="prompt-tag">ตรวจความเข้าใจ</p>
-          <div class="quick-quiz" data-qid="heat-understand" data-bloom="understand" data-answer="D">
-            <p class="quiz-label">คำถามสั้น</p>
-            <h3 class="prompt-q">เหตุใดจึงต้องรวมความจุความร้อนของแคลอรีมิเตอร์ในการคำนวณ?</h3>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> เพื่อเพิ่มค่าแรงดัน</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> เพราะแคลอรีมิเตอร์สร้างกระแส</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> เพื่อให้มวลน้ำเป็นศูนย์</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> เพราะภาชนะรับพลังงานความร้อนร่วมกับน้ำ</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> เพราะเวลาไม่เกี่ยวกับพลังงาน</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-          <div class="quick-quiz" data-qid="heat-apply" data-bloom="apply" data-answer="C">
-            <p class="quiz-label">คำถามสั้น</p>
-            <h3 class="prompt-q">ถ้า \(V=10\,V\), \(I=2.0\,A\) และให้ความร้อน 60 s พลังงานไฟฟ้าเท่าใด?</h3>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> 120 J</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> 600 J</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> 1200 J</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> 3000 J</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> 12000 J</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="equipment" data-title="อุปกรณ์">
-      <header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
-      <div class="card-grid cols-3 equip-grid">
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: แคลอรีมิเตอร์"><img src="assets/equip/equip-1.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>แคลอรีมิเตอร์ (อะลูมิเนียม)</h3><p>ภาชนะหุ้มฉนวนใส่น้ำ ลดการสูญเสียความร้อนสู่ภายนอก มวลและความร้อนจำเพาะของมันต้องนำมาคิดด้วย</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ขดลวดให้ความร้อน"><img src="assets/equip/equip-2.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ขดลวดต้านทานให้ความร้อน</h3><p>เปลี่ยนพลังงานไฟฟ้าเป็นความร้อนจมอยู่ในน้ำ ความร้อนถ่ายเทสู่น้ำทั้งหมด (ในอุดมคติ)</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: โวลต์มิเตอร์"><img src="assets/equip/equip-3.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>โวลต์มิเตอร์</h3><p>วัดความต่างศักย์ \(V\) คร่อมขดลวด ต่อแบบขนานกับขดลวด</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: แอมมิเตอร์"><img src="assets/equip/equip-4.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>แอมมิเตอร์</h3><p>วัดกระแส \(I\) ที่ไหลผ่านขดลวด ต่อแบบอนุกรมในวงจร</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: เทอร์มอมิเตอร์"><img src="assets/equip/equip-5.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>เทอร์มอมิเตอร์</h3><p>วัดอุณหภูมิน้ำตามเวลา เพื่อหา \(\Delta T\) กวนน้ำให้อุณหภูมิสม่ำเสมอก่อนอ่าน</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: นาฬิกาจับเวลา"><img src="assets/equip/stopwatch.png" alt="" width="1920" height="1080" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>นาฬิกาจับเวลา</h3><p>จับเวลาที่จ่ายพลังงานไฟฟ้าให้ขดลวด \(t\) เพื่อคำนวณงานไฟฟ้า \(VIt\)</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: เครื่องชั่ง"><img src="assets/equip/balance.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>เครื่องชั่ง</h3><p>ชั่งหามวลน้ำ \(m_w\) และมวลแคลอรีมิเตอร์ \(m_c\) เพื่อคำนวณความร้อนที่น้ำรับ</p></figcaption></figure>
-      </div>
-    </section>
-
-    <section class="section" id="formula" data-title="สูตร">
-      <header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
-      <div class="card-grid cols-3">
-        <article class="formula-card"><h3>กำลังไฟฟ้า</h3><p class="formula">\[P=IV\]</p><p class="formula-note">หน่วยวัตต์ (J/s)</p></article>
-        <article class="formula-card"><h3>พลังงานไฟฟ้า</h3><p class="formula">\[\Delta W=IVt\]</p><p class="formula-note">หน่วยจูล</p></article>
-        <article class="formula-card"><h3>ความร้อนที่น้ำรับ</h3><p class="formula">\[\Delta Q=(m_c c_c+m_w c_w)\Delta T\]</p><p class="formula-note">หน่วยกิโลแคลอรี</p></article>
-        <article class="formula-card"><h3>สมดุลพลังงาน</h3><p class="formula">\[\Delta W=J\,\Delta Q\]</p><p class="formula-note">\(J\) = สมมูลความร้อน</p></article>
-        <article class="formula-card formula-accent"><h3>สมมูลความร้อน</h3><p class="formula">\[J=\dfrac{IV}{(m_c c_c+m_w c_w)(\Delta T/\Delta t)}\]</p><p class="formula-note">\(\Delta T/\Delta t\) = ความชันกราฟ</p></article>
-        <article class="formula-card"><h3>ร้อยละความคลาดเคลื่อน</h3><p class="formula">\[\%\,\mathrm{err}=\dfrac{|J-4186|}{4186}\times100\]</p><p class="formula-note">เทียบ \(J=4186\,\mathrm{J/kcal}\)</p></article>
-      </div>
-    </section>
-
-    <section class="section" id="procedure" data-title="ขั้นตอน">
-      <header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
-      <ol class="steps">
-        <li><span class="step-n">1</span><div><h3>ชั่งมวล</h3><p>ชั่งแคลอรีมิเตอร์เปล่า (\(m_c\)) และน้ำที่เติม (\(m_w\))</p><p class="step-caution"><b>ระวัง:</b> ชั่ง mc และ mw แยกให้แม่น เพราะเข้าสูตรความจุความร้อนโดยตรง</p></div></li>
-        <li><span class="step-n">2</span><div><h3>ต่อวงจร</h3><p>ต่อขดลวดจมในน้ำ แอมมิเตอร์อนุกรม โวลต์มิเตอร์ขนานคร่อมขดลวด</p><p class="step-caution"><b>ระวัง:</b> ขดลวดต้องจมในน้ำทั้งหมด ห้ามเปิดไฟขณะลวดโผล่พ้นน้ำเพราะลวดจะไหม้</p></div></li>
-        <li><span class="step-n">3</span><div><h3>เริ่มให้ความร้อน</h3><p>เปิดไฟพร้อมเริ่มจับเวลา อ่าน \(V\) และ \(I\) (ควรคงที่)</p><p class="step-caution"><b>ระวัง:</b> เริ่มจับเวลาพร้อมเปิดไฟ และคุม I, V ให้คงที่ตลอดการทดลอง</p></div></li>
-        <li><span class="step-n">4</span><div><h3>บันทึกอุณหภูมิตามเวลา</h3><p>กวนน้ำเบา ๆ บันทึก \(\Delta T\) ทุกช่วงเวลา (เช่น ทุก 60 วินาที)</p><p class="step-caution"><b>ระวัง:</b> กวนน้ำเบาๆ ตลอดให้ความร้อนกระจายสม่ำเสมอ และวางเทอร์โมมิเตอร์ไม่ให้แตะขดลวด</p></div></li>
-        <li><span class="step-n">5</span><div><h3>เขียนกราฟ</h3><p>เขียนกราฟ \(\Delta T\) (แกนตั้ง) กับ \(t\) (แกนนอน) หาความชัน \(\Delta T/\Delta t\)</p><p class="step-caution"><b>ระวัง:</b> ใช้ช่วงเส้นตรงของกราฟ ΔT–t (หลังอุณหภูมิเริ่มขึ้นสม่ำเสมอแล้ว)</p></div></li>
-        <li><span class="step-n">6</span><div><h3>คำนวณ J</h3><p>แทนในสมการ \(J=IV/[(m_c c_c+m_w c_w)(\Delta T/\Delta t)]\) เทียบกับ 4186</p><p class="step-caution"><b>ระวัง:</b> การสูญเสียความร้อนสู่สิ่งแวดล้อมทำให้ J คลาดเคลื่อน ควรลดเวลาทดลองหรือหุ้มฉนวน</p></div></li>
-      </ol>
-      <div class="note note-warn"><span class="note-icon" aria-hidden="true">!</span><div><span class="note-kind">ข้อควรระวัง</span><strong>ก่อนอ่านค่า</strong><ul><li>กวนน้ำให้อุณหภูมิสม่ำเสมอก่อนอ่านเทอร์มอมิเตอร์</li><li>เริ่มจับเวลาพร้อมเปิดไฟพอดี</li><li>ลดการสูญเสียความร้อน (ปิดฝา/หุ้มฉนวน)</li></ul></div></div>
-    </section>
-
-    <section class="section band" id="data" data-title="ตารางข้อมูล">
-      <header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>ตารางผลการทดลอง</h2></div></header>
-      <p class="lead">กรอกค่าตั้งต้น (มวล/ความร้อนจำเพาะ/แรงดัน/กระแส) และอุณหภูมิที่เพิ่มขึ้น \(\Delta T\) ตามเวลา ระบบเขียนกราฟ \(\Delta T\)–\(t\) หาความชัน และคำนวณ \(J\) ให้อัตโนมัติ</p>
-      <div class="setup-inputs">
-        <label>มวลแคลอรีมิเตอร์ <span class="u">\(m_c\) (kg)</span><input id="mC" data-store="mC" type="number" min="0" step="0.001" value="0.10" inputmode="decimal"></label>
-        <label>ความร้อนจำเพาะ <span class="u">\(c_c\) (kcal/kg·°C)</span><input id="cC" data-store="cC" type="number" min="0" step="0.01" value="0.21" inputmode="decimal"></label>
-        <label>มวลน้ำ <span class="u">\(m_w\) (kg)</span><input id="mW" data-store="mW" type="number" min="0" step="0.001" value="0.20" inputmode="decimal"></label>
-        <label>ความร้อนจำเพาะน้ำ <span class="u">\(c_w\) (kcal/kg·°C)</span><input id="cW" data-store="cW" type="number" min="0" step="0.01" value="1.0" inputmode="decimal"></label>
-        <label>แรงดัน <span class="u">\(V\) (โวลต์)</span><input id="volt" data-store="volt" type="number" min="0" step="0.1" value="10" inputmode="decimal"></label>
-        <label>กระแส <span class="u">\(I\) (แอมป์)</span><input id="amp" data-store="amp" type="number" min="0" step="0.01" value="2" inputmode="decimal"></label>
-        <label>ค่าอ้างอิง <span class="u">\(J\) (J/kcal)</span><input id="Jref" data-store="Jref" type="number" min="0" step="1" value="4186" inputmode="decimal"></label>
-      </div>
-      <div class="data-foot">
-        <div class="table-wrap" style="flex:1"><table class="data-table">
-          <thead><tr><th scope="col">เวลา \(t\) (s)</th><th scope="col">อุณหภูมิที่เพิ่ม \(\Delta T\) (°C)</th></tr></thead>
-          <tbody id="heatBody">
-            <tr data-row="0"><td><input data-t data-store="ht_t0" type="number" step="1" value="0" inputmode="decimal"></td><td><input data-dt data-store="ht_dt0" type="number" step="0.1" value="0" inputmode="decimal"></td></tr>
-            <tr data-row="1"><td><input data-t data-store="ht_t1" type="number" step="1" inputmode="decimal"></td><td><input data-dt data-store="ht_dt1" type="number" step="0.1" inputmode="decimal"></td></tr>
-            <tr data-row="2"><td><input data-t data-store="ht_t2" type="number" step="1" inputmode="decimal"></td><td><input data-dt data-store="ht_dt2" type="number" step="0.1" inputmode="decimal"></td></tr>
-            <tr data-row="3"><td><input data-t data-store="ht_t3" type="number" step="1" inputmode="decimal"></td><td><input data-dt data-store="ht_dt3" type="number" step="0.1" inputmode="decimal"></td></tr>
-            <tr data-row="4"><td><input data-t data-store="ht_t4" type="number" step="1" inputmode="decimal"></td><td><input data-dt data-store="ht_dt4" type="number" step="0.1" inputmode="decimal"></td></tr>
-            <tr data-row="5"><td><input data-t data-store="ht_t5" type="number" step="1" inputmode="decimal"></td><td><input data-dt data-store="ht_dt5" type="number" step="0.1" inputmode="decimal"></td></tr>
-          </tbody>
-        </table></div>
-        <figure class="chart-card"><svg id="heatGraph" viewBox="0 0 520 320" role="img" aria-label="กราฟ ΔT กับ t"></svg><figcaption>กราฟ \(\Delta T\)–\(t\) ความชัน = \(\Delta T/\Delta t\)</figcaption></figure>
-      </div>
-      <div class="result-summary" style="margin-top:1rem">
-        <h3>ผลวิเคราะห์สด</h3>
-        <dl>
-          <div><dt>กำลังไฟฟ้า \(P=IV\)</dt><dd id="powerOutput">—</dd></div>
-          <div><dt>ความจุความร้อน \(m_c c_c+m_w c_w\)</dt><dd id="capOutput">—</dd></div>
-          <div><dt>ความชัน \(\Delta T/\Delta t\)</dt><dd id="slopeOutput">—</dd></div>
-          <div><dt>สมมูลความร้อน \(J\)</dt><dd id="jOutput">—</dd></div>
-          <div class="rs-em"><dt>ร้อยละความคลาดเคลื่อน (เทียบ 4186)</dt><dd id="errOutput">—</dd></div>
-        </dl>
-      </div>
-      <div class="actions-row"><button type="button" class="btn btn-soft" id="resetTable">ล้างข้อมูลตาราง</button><span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span></div>
-    </section>
-
-    <section class="section" id="example" data-title="ตัวอย่าง">
-      <header class="section-head"><div><p class="kicker">ทำตามทีละบรรทัด</p><h2>ตัวอย่างการคำนวณ</h2></div></header>
-      <p class="lead">ตัวอย่างค่าสมมติเพื่อแสดงวิธีแทนค่า (ไม่ใช่ค่าจากการทดลองจริง)</p>
-      <div class="reveal-controls"><button type="button" class="btn btn-primary" id="exampleShow">แสดงตัวอย่างการคำนวณ</button><button type="button" class="btn btn-ghost" id="exampleHide" hidden>ซ่อนตัวอย่าง</button></div>
-      <div class="example-body" id="exampleBody" hidden></div>
-    </section>
-
-    <section class="section" id="checkpoint" data-title="ตรวจสอบ">
-      <header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
-      <div class="prompt-card prompt-wide">
-        <p class="prompt-tag">คำถามท้าทาย</p>
-        <p class="prompt-q">ถ้ามี <strong>ความร้อนรั่วไหล</strong> สู่สิ่งแวดล้อมระหว่างการทดลอง \(\Delta T\) ที่วัดได้จะคลาดเคลื่อน และค่า \(J\) ที่คำนวณจะ <strong>สูงหรือต่ำ</strong> กว่าความจริง?</p>
-        <div class="reveal-controls"><button type="button" class="btn btn-primary" id="answerShow">แสดงคำตอบ</button><button type="button" class="btn btn-ghost" id="answerHide" hidden>ซ่อนคำตอบ</button></div>
-        <div class="answer-body" id="answerBody" hidden>
-          <p>ความร้อนรั่วทำให้ \(\Delta T\) <strong>น้อยกว่าความจริง</strong> → ความชัน \(\Delta T/\Delta t\) ต่ำลง → \(J=IV/((mc)\cdot\text{slope})\) <strong>สูงกว่าความจริง</strong></p>
-          <ul class="tick-list"><li>พลังงานไฟฟ้าที่ใส่เท่าเดิม แต่ความร้อนที่วัดได้น้อยลง</li><li>ลดได้ด้วยฉนวน ปิดฝา และให้ความร้อนเร็วขึ้น</li></ul>
-          <p class="muted">บทเรียน: การสูญเสียความร้อนเป็นแหล่งคลาดเคลื่อนหลักของการทดลองนี้</p>
-        </div>
-      </div>
-      <div class="quick-quiz" data-qid="heat-analyze" data-bloom="analyze" data-answer="E">
-        <p class="quiz-label">คำถามสั้น</p>
-        <h3 class="prompt-q">ถ้าความร้อนสูญเสียสู่สิ่งแวดล้อม ทำให้ความชัน \(\Delta T/\Delta t\) ต่ำกว่าจริง ค่า \(J\) ที่คำนวณจะเป็นอย่างไร?</h3>
-        <div class="quiz-options">
-          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> เป็นศูนย์</button>
-          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> ต่ำกว่าความจริง</button>
-          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> ไม่เปลี่ยน</button>
-          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> เป็นลบ</button>
-          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> สูงกว่าความจริง</button>
-        </div>
-        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="section" id="analysis" data-title="วิเคราะห์">
-      <header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
-      <div class="split">
-        <ol class="analysis-steps">
-          <li>เขียนกราฟ \(\Delta T\)–\(t\) หาความชัน \(\Delta T/\Delta t\) (ช่วงเส้นตรง)</li>
-          <li>คำนวณความจุความร้อน \(m_c c_c+m_w c_w\)</li>
-          <li>หา \(J=IV/[(m_c c_c+m_w c_w)(\Delta T/\Delta t)]\)</li>
-          <li>เทียบกับ \(J=4186\) J/kcal ด้วยร้อยละความคลาดเคลื่อน</li>
-        </ol>
-        <aside class="note note-info note-block"><span class="note-icon" aria-hidden="true">◆</span><div><span class="note-kind">ควรรู้</span><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>ความร้อนสูญเสียสู่สิ่งแวดล้อม</li><li>การอ่านอุณหภูมิและการกวนน้ำ</li><li>ความคลาดเคลื่อนของ \(V,I\) และเวลา</li></ul></div></aside>
-      </div>
-      <div class="quick-quiz" data-qid="heat-evaluate" data-bloom="evaluate" data-answer="B">
-        <p class="quiz-label">คำถามสั้น</p>
-        <h3 class="prompt-q">ควรเลือกช่วงใดของกราฟ \(\Delta T\)–\(t\) เพื่อหาความชันที่น่าเชื่อถือที่สุด?</h3>
-        <div class="quiz-options">
-          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> จุดแรกเพียงจุดเดียว</button>
-          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> ช่วงกลางที่เป็นเส้นตรงหลังระบบเริ่มคงที่</button>
-          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> ช่วงหลังปิดไฟทั้งหมด</button>
-          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ช่วงที่อุณหภูมิลดลงเร็วที่สุด</button>
-          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> เลือกสองจุดที่ให้ค่าใกล้ 4186 ที่สุด</button>
-        </div>
-        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="section spotlight" id="conclusion" data-title="สรุป">
-      <header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
-      <div class="conclusion-grid">
-        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong>&nbsp;จากข้อมูลของคุณเอง</p>
-        <ul class="conclusion-points">
-          <li><span class="cp-ico">1</span><div><h3>รายงานค่า J</h3><p>ระบุค่าสมมูลความร้อน \(J\) ที่หาได้ พร้อมหน่วย J/kcal</p></div></li>
-          <li><span class="cp-ico">2</span><div><h3>เทียบกับค่ามาตรฐาน</h3><p>รายงานร้อยละความคลาดเคลื่อนเทียบ \(J=4186\) J/kcal</p></div></li>
-          <li><span class="cp-ico">3</span><div><h3>ตีความกราฟ</h3><p>ระบุว่ากราฟ \(\Delta T\)–\(t\) เป็นเส้นตรงหรือไม่ เพื่อยืนยันอัตราการให้ความร้อนคงที่</p></div></li>
-          <li><span class="cp-ico">4</span><div><h3>อภิปรายแหล่งคลาดเคลื่อน</h3><p>ระบุสาเหตุหลัก โดยเฉพาะการสูญเสียความร้อน และการวัด \(V,I,\Delta T\)</p></div></li>
-
-          <li class="cp-extra"><span class="cp-ico">5</span><div><h3>ความรู้ที่ได้เพิ่มเติม</h3><p>เขียนสิ่งที่ค้นคว้าหรือควรรู้เพิ่มเติมจากการทดลองนี้ด้วยคำพูดของตนเอง เช่น การนำหลักการไปใช้ในสถานการณ์จริง ความเชื่อมโยงกับเนื้อหาอื่น หรือเทคนิคลดความคลาดเคลื่อนที่ค้นพบระหว่างทำการทดลอง</p></div></li>
-        </ul>
-      </div>
-      <p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
-    </section>
-
-    <section class="section band" id="discussion" data-title="อภิปราย">
-      <header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
-      <div class="q-grid">
-        <article class="q-card"><span class="q-no">Q1</span><p>เหตุใดต้องคิดมวลและความร้อนจำเพาะของแคลอรีมิเตอร์ด้วย ไม่ใช่แค่ของน้ำ?</p></article>
-        <article class="q-card"><span class="q-no">Q2</span><p>ทำไมพลังงานไฟฟ้าและความร้อนจึงควรเท่ากันตามหลักอนุรักษ์พลังงาน?</p></article>
-        <article class="q-card"><span class="q-no">Q3</span><p>ค่า \(J=4186\) J/kcal มีความหมายทางฟิสิกส์อย่างไร?</p></article>
-        <article class="q-card"><span class="q-no">Q4</span><p>การสูญเสียความร้อนส่งผลต่อค่า \(J\) ที่ได้อย่างไร และลดได้อย่างไร?</p></article>
-        <article class="q-card"><span class="q-no">Q5</span><p>ค่าที่กลุ่มได้ใกล้เคียง 4186 เพียงใด อะไรทำให้ต่าง?</p></article>
-      </div>
-      <div class="quick-quiz" data-qid="heat-create" data-bloom="create" data-answer="D">
-        <p class="quiz-label">คำถามสั้น</p>
-        <h3 class="prompt-q">การจัดชุดทดลองแบบใดช่วยลดการสูญเสียความร้อนและเพิ่มคุณภาพข้อมูลได้ดีที่สุด?</h3>
-        <div class="quiz-options">
-          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> เปิดฝาและหยุดกวน</button>
-          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> ใช้เวลานานที่สุดเท่าที่ทำได้</button>
-          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> อ่านอุณหภูมิเฉพาะตอนสุดท้าย</button>
-          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ใช้ฉนวนและฝาปิด กวนสม่ำเสมอ ให้ความร้อนช่วงสั้น และบันทึกต่อเนื่อง</button>
-          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ลดมวลน้ำจนขดลวดโผล่</button>
-        </div>
-        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="section band" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
-      <header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
-            <div class="prompt-card prompt-wide" style="margin: 0 auto;">
-        <p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
-          <span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
+<a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+<span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+<header class="topbar" id="topbar">
+<div class="topbar-inner">
+<a aria-label="กลับสู่ด้านบน" class="brand" href="#hero"><span class="brand-badge">08</span><span class="brand-text"><strong>สมมูลไฟฟ้า-ความร้อน</strong><small>261111 · ปฏิบัติการฟิสิกส์</small></span></a>
+<nav aria-label="สารบัญบทปฏิบัติการ" class="phase-nav" id="chipNav">
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">เริ่มต้น</button><div class="phase-menu" role="menu"><a class="chip" href="#hero" role="menuitem">บทนำ</a><a class="chip" href="#hook" role="menuitem">ชวนคิด</a><a class="chip" href="#objectives" role="menuitem">จุดประสงค์</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">หลักการ</button><div class="phase-menu" role="menu"><a class="chip" href="#concept" role="menuitem">แนวคิดหลัก</a><a class="chip" href="#theory" role="menuitem">ทฤษฎี</a><a class="chip" href="#equipment" role="menuitem">อุปกรณ์</a><a class="chip" href="#formula" role="menuitem">สูตร</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">ลงมือทำ</button><div class="phase-menu" role="menu"><a class="chip" href="#procedure" role="menuitem">ขั้นตอน</a><a class="chip" href="#data" role="menuitem">ตารางข้อมูล</a><a class="chip" href="#example" role="menuitem">ตัวอย่าง</a><a class="chip" href="#checkpoint" role="menuitem">ตรวจสอบ</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">สรุปผล</button><div class="phase-menu" role="menu"><a class="chip" href="#analysis" role="menuitem">วิเคราะห์</a><a class="chip" href="#additional-knowledge" role="menuitem">ความรู้เพิ่มเติม</a><a class="chip" href="#conclusion" role="menuitem">สรุป</a><a class="chip" href="#discussion" role="menuitem">อภิปราย</a></div></div>
+</nav>
+<div class="topbar-meta">
+<span aria-hidden="true" class="sec-counter"><b id="secNow">01</b><span>/14</span></span>
+<div aria-label="อัตราส่วนการแสดงผล" class="ratio-seg" role="group"><span aria-hidden="true" class="ratio-seg-ico">▭</span><button aria-pressed="true" data-ratio="full" type="button">จอเต็ม</button><button aria-pressed="false" data-ratio="43" type="button">4:3</button><button aria-pressed="false" data-ratio="169" type="button">16:9</button></div>
+<button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
+</div>
+</div>
+<div aria-label="ความคืบหน้าการอ่าน" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="read-progress" role="progressbar"><span id="readBar"></span></div>
+</header>
+<main id="main">
+<section class="section hero" data-title="บทนำ" id="hero">
+<div class="hero-top"><p class="hero-eyebrow">261111 · ปฏิบัติการฟิสิกส์ · บทที่ 08</p><h1 class="hero-title">สมมูลไฟฟ้า-ความร้อน</h1></div>
+<div class="hero-grid">
+<div class="hero-copy">
+<figure class="hero-question"><figcaption class="hq-tag">คำถามชวนคิด</figcaption><blockquote class="hq-text">พลังงานไฟฟ้าเปลี่ยนเป็น <strong>ความร้อน</strong> ได้กี่จูลต่อกิโลแคลอรี? เราจะวัด <strong>สมมูลความร้อน</strong> ได้จากการต้มน้ำด้วยขดลวดไฟฟ้าอย่างไร</blockquote></figure>
+<ul class="hero-meta"><li><span class="hm-num">J<sub>ref</sub></span><span class="hm-label">= 4186 J/kcal (ค่าอ้างอิง)</span></li></ul>
+<div class="hero-actions"><a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a><a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a></div>
+</div>
+<figure class="hero-visual">
+<span class="fig-tag">FIG.1 · แคลอรีมิเตอร์ + ขดลวดไฟฟ้า</span>
+<svg aria-label="แผนภาพชุดทดลองสมมูลไฟฟ้า-ความร้อน: แหล่งจ่ายไฟ แอมมิเตอร์ โวลต์มิเตอร์ และแคลอรีมิเตอร์" role="img" viewbox="0 0 340 290">
+<defs>
+<lineargradient id="metalGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#edf2fc"></stop><stop offset="1" stop-color="#c1d1ed"></stop></lineargradient>
+</defs>
+<!-- สายวงจรจากขดลวดขึ้นสู่มิเตอร์ -->
+<g fill="none" stroke="#173fa6" stroke-width="2">
+<path d="M150,130 V60 H113"></path>
+<path d="M184,130 V84 H223"></path>
+<path d="M74,60 H87"></path>
+</g>
+<!-- แหล่งจ่ายไฟ + A + V -->
+<rect fill="url(#metalGrad)" height="28" rx="5" stroke="#9fb4d6" stroke-width="1" width="44" x="30" y="46"></rect>
+<text fill="#1d4fd0" font-family="'IBM Plex Mono',monospace" font-size="11" text-anchor="middle" x="52" y="64">DC</text>
+<circle cx="100" cy="60" fill="#fff" r="13" stroke="#122a4f" stroke-width="1.4"></circle><text fill="#122a4f" font-size="11" text-anchor="middle" x="100" y="64">A</text>
+<circle cx="236" cy="84" fill="#fff" r="13" stroke="#122a4f" stroke-width="1.4"></circle><text fill="#122a4f" font-size="11" text-anchor="middle" x="236" y="88">V</text>
+<!-- แคลอรีมิเตอร์ผนัง 2 ชั้น + น้ำ -->
+<rect fill="rgba(37,99,235,.05)" height="130" rx="9" stroke="#9fb4d6" stroke-width="1.2" width="120" x="100" y="118"></rect>
+<rect fill="rgba(37,99,235,.12)" height="110" rx="6" stroke="#2563eb" stroke-width="2" width="98" x="111" y="129"></rect>
+<path d="M111 162 h98 v65 a6 6 0 0 1 -6 6 h-86 a6 6 0 0 1 -6 -6 z" fill="rgba(37,99,235,.22)"></path>
+<!-- ขดลวดให้ความร้อน -->
+<path d="M160 130 V176 q0 7 7 7 h6 q7 0 7 7 q0 7 -7 7 h-6 q-7 0 -7 7 v8" fill="none" stroke="#d9480f" stroke-width="2.5"></path>
+<!-- เทอร์โมมิเตอร์ + ที่กวน -->
+<rect fill="#cdd9ee" height="70" rx="3" stroke="#9fb4d6" stroke-width="1" width="9" x="124" y="86"></rect><circle cx="128.5" cy="158" fill="#d9480f" r="5.5"></circle>
+<path d="M198 96 V152 a8 8 0 0 0 16 0" fill="none" stroke="#8ea7cf" stroke-width="2.5"></path>
+<!-- ป้ายกำกับ -->
+<text class="d-label" text-anchor="middle" x="52" y="34">แหล่งจ่ายไฟ</text>
+<text class="d-label" text-anchor="middle" x="84" y="104">เทอร์โม</text>
+<text class="d-label" x="232" y="118">ที่กวน</text>
+<text class="d-label" x="246" y="170">ขดลวด</text>
+<text class="d-label" text-anchor="middle" x="160" y="272">น้ำ + แคลอรีมิเตอร์</text>
+</svg>
+<figcaption>ขดลวดให้ความร้อน \(IVt\) ทำให้น้ำอุณหภูมิสูงขึ้น \(\Delta T\)</figcaption>
+</figure>
+</div>
+<p aria-hidden="true" class="scroll-hint">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
+</section>
+<section class="section" data-title="ชวนคิด" id="hook">
+<header class="section-head"><div><p class="kicker">ชวนคิดก่อนเริ่ม</p><h2>ไฟฟ้ากลายเป็นความร้อนเท่าไร?</h2></div></header>
+<div class="split">
+<div class="prose"><p>เมื่อกระแสไหลผ่านขดลวดต้านทาน พลังงานไฟฟ้า \(IVt\) เปลี่ยนเป็น <strong>ความร้อน</strong> ทั้งหมด ทำให้น้ำร้อนขึ้น</p><p>โดยวัดพลังงานไฟฟ้าที่ใส่เข้าไปและความร้อนที่น้ำได้รับ เราหา <strong>สมมูลความร้อน J</strong> ว่าพลังงาน 1 กิโลแคลอรีเท่ากับกี่จูล</p></div>
+<aside class="prompt-card bloom-quiz-panel">
+<p class="prompt-tag">ตรวจความเข้าใจ</p>
+<div class="quick-quiz" data-answer="B" data-bloom="remember" data-qid="heat-remember">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">พลังงานไฟฟ้าที่จ่ายให้ขดลวดในเวลา \(t\) เขียนได้อย่างไร?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> \(V/I\)</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> \(IVt\)</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> \(I/Vt\)</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> \(mc\Delta T\)</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> \(Vt/I\)</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</aside>
+</div>
+</section>
+<section class="section" data-title="จุดประสงค์" id="objectives">
+<header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
+<ol class="objective-list">
+<li><span class="obj-no">1</span><div><h3>ศึกษาสมมูลของพลังงานไฟฟ้าและความร้อน</h3><p>หาค่าสมมูลความร้อน \(J\) ที่เชื่อมพลังงานไฟฟ้า (จูล) กับความร้อน (กิโลแคลอรี)</p></div></li>
+<li><span class="obj-no">2</span><div><h3>ฝึกวัดปริมาณทางความร้อนและไฟฟ้า</h3><p>วัดมวล อุณหภูมิ แรงดัน กระแส และเวลา แล้วใช้ความชันกราฟ \(\Delta T\)–\(t\)</p></div></li>
+</ol>
+<div class="note note-info"><span aria-hidden="true" class="note-icon">◆</span><p><span class="note-kind">ควรรู้</span><strong>สิ่งที่จะได้ลงมือทำ:</strong> ชั่งมวลน้ำและแคลอรีมิเตอร์ · ให้ความร้อนด้วยขดลวด อ่าน \(V,I\) · บันทึก \(\Delta T\) ตามเวลา · เขียนกราฟ · คำนวณ \(J\)</p></div>
+</section>
+<section class="section band" data-title="แนวคิดหลัก" id="concept">
+<header class="section-head"><div><p class="kicker">ภาพรวมแนวคิด</p><h2>จากพลังงานไฟฟ้าสู่ความร้อน</h2></div></header>
+<p class="lead">พลังงานไฟฟ้าที่จ่ายให้ขดลวดเปลี่ยนเป็นความร้อนที่น้ำและภาชนะดูดซับ การเทียบพลังงานสองรูปนี้ให้ค่าสมมูลความร้อน</p>
+<div class="card-grid cols-3">
+<article class="info-card"><span class="ic-step">A</span><h3>พลังงานไฟฟ้า</h3><p>\(\Delta W=IVt\) (กำลัง \(P=IV\) คูณเวลา) หน่วยจูล</p></article>
+<article class="info-card"><span class="ic-step">B</span><h3>ความร้อนที่น้ำรับ</h3><p>\(\Delta Q=(m_c c_c+m_w c_w)\Delta T\) รวมน้ำและภาชนะ หน่วยกิโลแคลอรี</p></article>
+<article class="info-card"><span class="ic-step">C</span><h3>สมดุลพลังงาน</h3><p>\(\Delta W=J\,\Delta Q\) เมื่อ \(J\) คือสมมูลความร้อน (J/kcal)</p></article>
+</div>
+</section>
+<section class="section spotlight" data-title="ทฤษฎี" id="theory">
+<header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>หา J จากความชันกราฟ ΔT–t</h2></div></header>
+<div class="theory-grid">
+<div class="prose">
+<p>พลังงานไฟฟ้าเท่ากับความร้อนที่ระบบรับ</p>
+<p class="derive">\[IVt=J(m_c c_c+m_w c_w)\Delta T\]</p>
+<p>หารด้วย \(t\) จะได้ \(IV=J(m_c c_c+m_w c_w)\dfrac{\Delta T}{t}\) ดังนั้น</p>
+<p class="derive">\[J=\dfrac{IV}{(m_c c_c+m_w c_w)\,(\Delta T/\Delta t)}\]</p>
+<p>โดย \(\Delta T/\Delta t\) คือความชันของกราฟ \(\Delta T\)–\(t\)</p>
+<ul class="tick-list"><li>\(c_{น้ำ}=1.0,\ c_{อะลู}=0.21\) kcal/kg·°C</li><li>กวนน้ำให้อุณหภูมิสม่ำเสมอก่อนอ่าน</li><li>เริ่มจับเวลาพร้อมเปิดไฟ</li></ul>
+</div>
+<aside class="prompt-card bloom-quiz-panel">
+<p class="prompt-tag">ตรวจความเข้าใจ</p>
+<div class="quick-quiz" data-answer="D" data-bloom="understand" data-qid="heat-understand">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">เหตุใดจึงต้องรวมความจุความร้อนของแคลอรีมิเตอร์ในการคำนวณ?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> เพื่อเพิ่มค่าแรงดัน</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> เพราะแคลอรีมิเตอร์สร้างกระแส</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> เพื่อให้มวลน้ำเป็นศูนย์</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> เพราะภาชนะรับพลังงานความร้อนร่วมกับน้ำ</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> เพราะเวลาไม่เกี่ยวกับพลังงาน</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+<div class="quick-quiz" data-answer="C" data-bloom="apply" data-qid="heat-apply">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">ถ้า \(V=10\,V\), \(I=2.0\,A\) และให้ความร้อน 60 s พลังงานไฟฟ้าเท่าใด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> 120 J</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> 600 J</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> 1200 J</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> 3000 J</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> 12000 J</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</aside>
+</div>
+</section>
+<section class="section" data-title="อุปกรณ์" id="equipment">
+<header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
+<div class="card-grid cols-3 equip-grid">
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: แคลอรีมิเตอร์" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-1.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>แคลอรีมิเตอร์ (อะลูมิเนียม)</h3><p>ภาชนะหุ้มฉนวนใส่น้ำ ลดการสูญเสียความร้อนสู่ภายนอก มวลและความร้อนจำเพาะของมันต้องนำมาคิดด้วย</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: ขดลวดให้ความร้อน" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-2.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>ขดลวดต้านทานให้ความร้อน</h3><p>เปลี่ยนพลังงานไฟฟ้าเป็นความร้อนจมอยู่ในน้ำ ความร้อนถ่ายเทสู่น้ำทั้งหมด (ในอุดมคติ)</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: โวลต์มิเตอร์" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-3.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>โวลต์มิเตอร์</h3><p>วัดความต่างศักย์ \(V\) คร่อมขดลวด ต่อแบบขนานกับขดลวด</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: แอมมิเตอร์" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-4.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>แอมมิเตอร์</h3><p>วัดกระแส \(I\) ที่ไหลผ่านขดลวด ต่อแบบอนุกรมในวงจร</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: เทอร์มอมิเตอร์" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-5.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>เทอร์มอมิเตอร์</h3><p>วัดอุณหภูมิน้ำตามเวลา เพื่อหา \(\Delta T\) กวนน้ำให้อุณหภูมิสม่ำเสมอก่อนอ่าน</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: นาฬิกาจับเวลา" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="1080" loading="lazy" src="assets/equip/stopwatch.png" width="1920"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>นาฬิกาจับเวลา</h3><p>จับเวลาที่จ่ายพลังงานไฟฟ้าให้ขดลวด \(t\) เพื่อคำนวณงานไฟฟ้า \(VIt\)</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: เครื่องชั่ง" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/balance.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>เครื่องชั่ง</h3><p>ชั่งหามวลน้ำ \(m_w\) และมวลแคลอรีมิเตอร์ \(m_c\) เพื่อคำนวณความร้อนที่น้ำรับ</p></figcaption></figure>
+</div>
+</section>
+<section class="section" data-title="สูตร" id="formula">
+<header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
+<div class="card-grid cols-3">
+<article class="formula-card"><h3>กำลังไฟฟ้า</h3><p class="formula">\[P=IV\]</p><p class="formula-note">หน่วยวัตต์ (J/s)</p></article>
+<article class="formula-card"><h3>พลังงานไฟฟ้า</h3><p class="formula">\[\Delta W=IVt\]</p><p class="formula-note">หน่วยจูล</p></article>
+<article class="formula-card"><h3>ความร้อนที่น้ำรับ</h3><p class="formula">\[\Delta Q=(m_c c_c+m_w c_w)\Delta T\]</p><p class="formula-note">หน่วยกิโลแคลอรี</p></article>
+<article class="formula-card"><h3>สมดุลพลังงาน</h3><p class="formula">\[\Delta W=J\,\Delta Q\]</p><p class="formula-note">\(J\) = สมมูลความร้อน</p></article>
+<article class="formula-card formula-accent"><h3>สมมูลความร้อน</h3><p class="formula">\[J=\dfrac{IV}{(m_c c_c+m_w c_w)(\Delta T/\Delta t)}\]</p><p class="formula-note">\(\Delta T/\Delta t\) = ความชันกราฟ</p></article>
+<article class="formula-card"><h3>ร้อยละความคลาดเคลื่อน</h3><p class="formula">\[\%\,\mathrm{err}=\dfrac{|J-4186|}{4186}\times100\]</p><p class="formula-note">เทียบ \(J=4186\,\mathrm{J/kcal}\)</p></article>
+</div>
+</section>
+<section class="section" data-title="ขั้นตอน" id="procedure">
+<header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
+<ol class="steps">
+<li><span class="step-n">1</span><div><h3>ชั่งมวล</h3><p>ชั่งแคลอรีมิเตอร์เปล่า (\(m_c\)) และน้ำที่เติม (\(m_w\))</p><p class="step-caution"><b>ระวัง:</b> ชั่ง mc และ mw แยกให้แม่น เพราะเข้าสูตรความจุความร้อนโดยตรง</p></div></li>
+<li><span class="step-n">2</span><div><h3>ต่อวงจร</h3><p>ต่อขดลวดจมในน้ำ แอมมิเตอร์อนุกรม โวลต์มิเตอร์ขนานคร่อมขดลวด</p><p class="step-caution"><b>ระวัง:</b> ขดลวดต้องจมในน้ำทั้งหมด ห้ามเปิดไฟขณะลวดโผล่พ้นน้ำเพราะลวดจะไหม้</p></div></li>
+<li><span class="step-n">3</span><div><h3>เริ่มให้ความร้อน</h3><p>เปิดไฟพร้อมเริ่มจับเวลา อ่าน \(V\) และ \(I\) (ควรคงที่)</p><p class="step-caution"><b>ระวัง:</b> เริ่มจับเวลาพร้อมเปิดไฟ และคุม I, V ให้คงที่ตลอดการทดลอง</p></div></li>
+<li><span class="step-n">4</span><div><h3>บันทึกอุณหภูมิตามเวลา</h3><p>กวนน้ำเบา ๆ บันทึก \(\Delta T\) ทุกช่วงเวลา (เช่น ทุก 60 วินาที)</p><p class="step-caution"><b>ระวัง:</b> กวนน้ำเบาๆ ตลอดให้ความร้อนกระจายสม่ำเสมอ และวางเทอร์โมมิเตอร์ไม่ให้แตะขดลวด</p></div></li>
+<li><span class="step-n">5</span><div><h3>เขียนกราฟ</h3><p>เขียนกราฟ \(\Delta T\) (แกนตั้ง) กับ \(t\) (แกนนอน) หาความชัน \(\Delta T/\Delta t\)</p><p class="step-caution"><b>ระวัง:</b> ใช้ช่วงเส้นตรงของกราฟ ΔT–t (หลังอุณหภูมิเริ่มขึ้นสม่ำเสมอแล้ว)</p></div></li>
+<li><span class="step-n">6</span><div><h3>คำนวณ J</h3><p>แทนในสมการ \(J=IV/[(m_c c_c+m_w c_w)(\Delta T/\Delta t)]\) เทียบกับ 4186</p><p class="step-caution"><b>ระวัง:</b> การสูญเสียความร้อนสู่สิ่งแวดล้อมทำให้ J คลาดเคลื่อน ควรลดเวลาทดลองหรือหุ้มฉนวน</p></div></li>
+</ol>
+<div class="note note-warn"><span aria-hidden="true" class="note-icon">!</span><div><span class="note-kind">ข้อควรระวัง</span><strong>ก่อนอ่านค่า</strong><ul><li>กวนน้ำให้อุณหภูมิสม่ำเสมอก่อนอ่านเทอร์มอมิเตอร์</li><li>เริ่มจับเวลาพร้อมเปิดไฟพอดี</li><li>ลดการสูญเสียความร้อน (ปิดฝา/หุ้มฉนวน)</li></ul></div></div>
+</section>
+<section class="section band" data-title="ตารางข้อมูล" id="data">
+<header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>ตารางผลการทดลอง</h2></div></header>
+<p class="lead">กรอกค่าตั้งต้น (มวล/ความร้อนจำเพาะ/แรงดัน/กระแส) และอุณหภูมิที่เพิ่มขึ้น \(\Delta T\) ตามเวลา ระบบเขียนกราฟ \(\Delta T\)–\(t\) หาความชัน และคำนวณ \(J\) ให้อัตโนมัติ</p>
+<div class="setup-inputs">
+<label>มวลแคลอรีมิเตอร์ <span class="u">\(m_c\) (kg)</span><input data-store="mC" id="mC" inputmode="decimal" min="0" step="0.001" type="number" value="0.10"/></label>
+<label>ความร้อนจำเพาะ <span class="u">\(c_c\) (kcal/kg·°C)</span><input data-store="cC" id="cC" inputmode="decimal" min="0" step="0.01" type="number" value="0.21"/></label>
+<label>มวลน้ำ <span class="u">\(m_w\) (kg)</span><input data-store="mW" id="mW" inputmode="decimal" min="0" step="0.001" type="number" value="0.20"/></label>
+<label>ความร้อนจำเพาะน้ำ <span class="u">\(c_w\) (kcal/kg·°C)</span><input data-store="cW" id="cW" inputmode="decimal" min="0" step="0.01" type="number" value="1.0"/></label>
+<label>แรงดัน <span class="u">\(V\) (โวลต์)</span><input data-store="volt" id="volt" inputmode="decimal" min="0" step="0.1" type="number" value="10"/></label>
+<label>กระแส <span class="u">\(I\) (แอมป์)</span><input data-store="amp" id="amp" inputmode="decimal" min="0" step="0.01" type="number" value="2"/></label>
+<label>ค่าอ้างอิง <span class="u">\(J\) (J/kcal)</span><input data-store="Jref" id="Jref" inputmode="decimal" min="0" step="1" type="number" value="4186"/></label>
+</div>
+<div class="data-foot">
+<div class="table-wrap" style="flex:1"><table class="data-table">
+<thead><tr><th scope="col">เวลา \(t\) (s)</th><th scope="col">อุณหภูมิที่เพิ่ม \(\Delta T\) (°C)</th></tr></thead>
+<tbody id="heatBody">
+<tr data-row="0"><td><input data-store="ht_t0" data-t="" inputmode="decimal" step="1" type="number" value="0"/></td><td><input data-dt="" data-store="ht_dt0" inputmode="decimal" step="0.1" type="number" value="0"/></td></tr>
+<tr data-row="1"><td><input data-store="ht_t1" data-t="" inputmode="decimal" step="1" type="number"/></td><td><input data-dt="" data-store="ht_dt1" inputmode="decimal" step="0.1" type="number"/></td></tr>
+<tr data-row="2"><td><input data-store="ht_t2" data-t="" inputmode="decimal" step="1" type="number"/></td><td><input data-dt="" data-store="ht_dt2" inputmode="decimal" step="0.1" type="number"/></td></tr>
+<tr data-row="3"><td><input data-store="ht_t3" data-t="" inputmode="decimal" step="1" type="number"/></td><td><input data-dt="" data-store="ht_dt3" inputmode="decimal" step="0.1" type="number"/></td></tr>
+<tr data-row="4"><td><input data-store="ht_t4" data-t="" inputmode="decimal" step="1" type="number"/></td><td><input data-dt="" data-store="ht_dt4" inputmode="decimal" step="0.1" type="number"/></td></tr>
+<tr data-row="5"><td><input data-store="ht_t5" data-t="" inputmode="decimal" step="1" type="number"/></td><td><input data-dt="" data-store="ht_dt5" inputmode="decimal" step="0.1" type="number"/></td></tr>
+</tbody>
+</table></div>
+<figure class="chart-card"><svg aria-label="กราฟ ΔT กับ t" id="heatGraph" role="img" viewbox="0 0 520 320"></svg><figcaption>กราฟ \(\Delta T\)–\(t\) ความชัน = \(\Delta T/\Delta t\)</figcaption></figure>
+</div>
+<div class="result-summary" style="margin-top:1rem">
+<h3>ผลวิเคราะห์สด</h3>
+<dl>
+<div><dt>กำลังไฟฟ้า \(P=IV\)</dt><dd id="powerOutput">—</dd></div>
+<div><dt>ความจุความร้อน \(m_c c_c+m_w c_w\)</dt><dd id="capOutput">—</dd></div>
+<div><dt>ความชัน \(\Delta T/\Delta t\)</dt><dd id="slopeOutput">—</dd></div>
+<div><dt>สมมูลความร้อน \(J\)</dt><dd id="jOutput">—</dd></div>
+<div class="rs-em"><dt>ร้อยละความคลาดเคลื่อน (เทียบ 4186)</dt><dd id="errOutput">—</dd></div>
+</dl>
+</div>
+<div class="actions-row"><button class="btn btn-soft" id="resetTable" type="button">ล้างข้อมูลตาราง</button><span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span></div>
+</section>
+<section class="section" data-title="ตรวจสอบ" id="checkpoint">
+<header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
+<div class="prompt-card">
+<p class="prompt-tag">คำถามท้าทาย</p>
+<p class="prompt-q">ถ้ามี <strong>ความร้อนรั่วไหล</strong> สู่สิ่งแวดล้อมระหว่างการทดลอง \(\Delta T\) ที่วัดได้จะคลาดเคลื่อน และค่า \(J\) ที่คำนวณจะ <strong>สูงหรือต่ำ</strong> กว่าความจริง?</p>
+<div class="reveal-controls"><button class="btn btn-primary" id="answerShow" type="button">แสดงคำตอบ</button><button class="btn btn-ghost" hidden="" id="answerHide" type="button">ซ่อนคำตอบ</button></div>
+<div class="answer-body" hidden="" id="answerBody">
+<p>ความร้อนรั่วทำให้ \(\Delta T\) <strong>น้อยกว่าความจริง</strong> → ความชัน \(\Delta T/\Delta t\) ต่ำลง → \(J=IV/((mc)\cdot\text{slope})\) <strong>สูงกว่าความจริง</strong></p>
+<ul class="tick-list"><li>พลังงานไฟฟ้าที่ใส่เท่าเดิม แต่ความร้อนที่วัดได้น้อยลง</li><li>ลดได้ด้วยฉนวน ปิดฝา และให้ความร้อนเร็วขึ้น</li></ul>
+<p class="muted">บทเรียน: การสูญเสียความร้อนเป็นแหล่งคลาดเคลื่อนหลักของการทดลองนี้</p>
+</div>
+</div>
+<div class="quick-quiz" data-answer="E" data-bloom="analyze" data-qid="heat-analyze">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">ถ้าความร้อนสูญเสียสู่สิ่งแวดล้อม ทำให้ความชัน \(\Delta T/\Delta t\) ต่ำกว่าจริง ค่า \(J\) ที่คำนวณจะเป็นอย่างไร?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> เป็นศูนย์</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> ต่ำกว่าความจริง</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> ไม่เปลี่ยน</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> เป็นลบ</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> สูงกว่าความจริง</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+<section class="section" data-title="วิเคราะห์" id="analysis">
+<header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
+<div class="split">
+<ol class="analysis-steps">
+<li>เขียนกราฟ \(\Delta T\)–\(t\) หาความชัน \(\Delta T/\Delta t\) (ช่วงเส้นตรง)</li>
+<li>คำนวณความจุความร้อน \(m_c c_c+m_w c_w\)</li>
+<li>หา \(J=IV/[(m_c c_c+m_w c_w)(\Delta T/\Delta t)]\)</li>
+<li>เทียบกับ \(J=4186\) J/kcal ด้วยร้อยละความคลาดเคลื่อน</li>
+</ol>
+<aside class="note note-info note-block"><span aria-hidden="true" class="note-icon">◆</span><div><span class="note-kind">ควรรู้</span><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>ความร้อนสูญเสียสู่สิ่งแวดล้อม</li><li>การอ่านอุณหภูมิและการกวนน้ำ</li><li>ความคลาดเคลื่อนของ \(V,I\) และเวลา</li></ul></div></aside>
+</div>
+<div class="quick-quiz" data-answer="B" data-bloom="evaluate" data-qid="heat-evaluate">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">ควรเลือกช่วงใดของกราฟ \(\Delta T\)–\(t\) เพื่อหาความชันที่น่าเชื่อถือที่สุด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> จุดแรกเพียงจุดเดียว</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> ช่วงกลางที่เป็นเส้นตรงหลังระบบเริ่มคงที่</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> ช่วงหลังปิดไฟทั้งหมด</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> ช่วงที่อุณหภูมิลดลงเร็วที่สุด</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> เลือกสองจุดที่ให้ค่าใกล้ 4186 ที่สุด</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+<section class="section spotlight" data-title="สรุป" id="conclusion">
+<header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
+<div class="conclusion-grid">
+<p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong> จากข้อมูลของคุณเอง</p>
+<ul class="conclusion-points">
+<li><span class="cp-ico">1</span><div><h3>รายงานค่า J</h3><p>ระบุค่าสมมูลความร้อน \(J\) ที่หาได้ พร้อมหน่วย J/kcal</p></div></li>
+<li><span class="cp-ico">2</span><div><h3>เทียบกับค่ามาตรฐาน</h3><p>รายงานร้อยละความคลาดเคลื่อนเทียบ \(J=4186\) J/kcal</p></div></li>
+<li><span class="cp-ico">3</span><div><h3>ตีความกราฟ</h3><p>ระบุว่ากราฟ \(\Delta T\)–\(t\) เป็นเส้นตรงหรือไม่ เพื่อยืนยันอัตราการให้ความร้อนคงที่</p></div></li>
+<li><span class="cp-ico">4</span><div><h3>อภิปรายแหล่งคลาดเคลื่อน</h3><p>ระบุสาเหตุหลัก โดยเฉพาะการสูญเสียความร้อน และการวัด \(V,I,\Delta T\)</p></div></li>
+<li class="cp-extra"><span class="cp-ico">5</span><div><h3>ความรู้ที่ได้เพิ่มเติม</h3><p>เขียนสิ่งที่ค้นคว้าหรือควรรู้เพิ่มเติมจากการทดลองนี้ด้วยคำพูดของตนเอง เช่น การนำหลักการไปใช้ในสถานการณ์จริง ความเชื่อมโยงกับเนื้อหาอื่น หรือเทคนิคลดความคลาดเคลื่อนที่ค้นพบระหว่างทำการทดลอง</p></div></li>
+</ul>
+</div>
+<p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
+</section>
+<section class="section band" data-title="อภิปราย" id="discussion">
+<header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
+<div class="q-grid">
+<article class="q-card"><span class="q-no">Q1</span><p>เหตุใดต้องคิดมวลและความร้อนจำเพาะของแคลอรีมิเตอร์ด้วย ไม่ใช่แค่ของน้ำ?</p></article>
+<article class="q-card"><span class="q-no">Q2</span><p>ทำไมพลังงานไฟฟ้าและความร้อนจึงควรเท่ากันตามหลักอนุรักษ์พลังงาน?</p></article>
+<article class="q-card"><span class="q-no">Q3</span><p>ค่า \(J=4186\) J/kcal มีความหมายทางฟิสิกส์อย่างไร?</p></article>
+<article class="q-card"><span class="q-no">Q4</span><p>การสูญเสียความร้อนส่งผลต่อค่า \(J\) ที่ได้อย่างไร และลดได้อย่างไร?</p></article>
+<article class="q-card"><span class="q-no">Q5</span><p>ค่าที่กลุ่มได้ใกล้เคียง 4186 เพียงใด อะไรทำให้ต่าง?</p></article>
+</div>
+<div class="quick-quiz" data-answer="D" data-bloom="create" data-qid="heat-create">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">การจัดชุดทดลองแบบใดช่วยลดการสูญเสียความร้อนและเพิ่มคุณภาพข้อมูลได้ดีที่สุด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> เปิดฝาและหยุดกวน</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> ใช้เวลานานที่สุดเท่าที่ทำได้</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> อ่านอุณหภูมิเฉพาะตอนสุดท้าย</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> ใช้ฉนวนและฝาปิด กวนสม่ำเสมอ ให้ความร้อนช่วงสั้น และบันทึกต่อเนื่อง</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> ลดมวลน้ำจนขดลวดโผล่</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+<section class="section band" data-title="ความรู้เพิ่มเติม" id="additional-knowledge">
+<header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
+<div class="prompt-card prompt-wide" style="margin: 0 auto;">
+<p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
+<span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
           แนวทางการเขียนความรู้เพิ่มเติม
         </p>
-        <p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
-        
-        <div class="q-grid" style="text-align: left;">
-          <article class="q-card">
-            <span class="q-no">01</span>
-            <p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
-          </article>
-          <article class="q-card" style="border-bottom: none;">
-            <span class="q-no">02</span>
-            <p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <nav class="stepper" aria-label="นำทางทีละส่วน"><button type="button" id="prevSec" aria-label="ส่วนก่อนหน้า">‹</button><span id="stepLabel">บทนำ</span><button type="button" id="nextSec" aria-label="ส่วนถัดไป">›</button></nav>
-  <div class="present-bar" id="presentBar" hidden><span class="present-label">▶ โหมดนำเสนอ</span><button type="button" id="presentPrev" aria-label="สไลด์ก่อนหน้า">‹</button><span id="presentCounter">1 / 14</span><button type="button" id="presentNext" aria-label="สไลด์ถัดไป">›</button><button type="button" id="presentExit" class="present-exit">✕ ออก (Esc)</button></div>
-  <div class="present-progress" id="presentProgress" aria-hidden="true"><span></span></div>
-  <div class="toast" id="toast" role="status" aria-live="polite" hidden><span id="toastMsg"></span><button type="button" id="toastUndo">เลิกทำ</button></div>
-  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="ภาพขยายอุปกรณ์"><div class="lightbox-inner"><button class="lightbox-close" id="lightboxClose" type="button" aria-label="ปิดภาพขยาย">✕</button><div class="lightbox-body" id="lightboxBody"></div></div></div>
-  <noscript><p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่การคำนวณ กราฟ และปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p></noscript>
+<p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
+<div class="q-grid" style="text-align: left;">
+<article class="q-card">
+<span class="q-no">01</span>
+<p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
+</article>
+<article class="q-card" style="border-bottom: none;">
+<span class="q-no">02</span>
+<p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
+</article>
+</div>
+</div>
+</section>
+</main>
+<nav aria-label="นำทางทีละส่วน" class="stepper"><button aria-label="ส่วนก่อนหน้า" id="prevSec" type="button">‹</button><span id="stepLabel">บทนำ</span><button aria-label="ส่วนถัดไป" id="nextSec" type="button">›</button></nav>
+<div class="present-bar" hidden="" id="presentBar"><span class="present-label">▶ โหมดนำเสนอ</span><button aria-label="สไลด์ก่อนหน้า" id="presentPrev" type="button">‹</button><span id="presentCounter">1 / 14</span><button aria-label="สไลด์ถัดไป" id="presentNext" type="button">›</button><button class="present-exit" id="presentExit" type="button">✕ ออก (Esc)</button></div>
+<div aria-hidden="true" class="present-progress" id="presentProgress"><span></span></div>
+<div aria-live="polite" class="toast" hidden="" id="toast" role="status"><span id="toastMsg"></span><button id="toastUndo" type="button">เลิกทำ</button></div>
+<div aria-label="ภาพขยายอุปกรณ์" aria-modal="true" class="lightbox" hidden="" id="lightbox" role="dialog"><div class="lightbox-inner"><button aria-label="ปิดภาพขยาย" class="lightbox-close" id="lightboxClose" type="button">✕</button><div class="lightbox-body" id="lightboxBody"></div></div></div>
+<noscript><p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่การคำนวณ กราฟ และปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p></noscript>
 </body>
 </html>

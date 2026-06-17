@@ -174,7 +174,7 @@ input[type="number"]:focus { outline: none; border-color: var(--blue-500); box-s
 .data-table .katex { font-size: 1em; }
 /* the fillable number inputs can't be true KaTeX (they're editable), so give them KaTeX's own font so the typed
    values visually match the rendered KaTeX cells around them. Falls back to mono if the KaTeX font isn't loaded. */
-#data input[type="number"] { font-family: "KaTeX_Main", var(--font-mono); }
+#data input[type="number"], .math { font-family: "KaTeX_Main", var(--font-mono); }
 .formula .katex-display { margin: 0; }                              /* drop KaTeX's default block margin */
 .formula .katex-display > .katex { font-size: 1.55rem; text-align: left; vertical-align: baseline; }
 @media (max-width: 600px) { .formula .katex-display > .katex { font-size: 1.32rem; } }
@@ -316,8 +316,8 @@ main { display: block; }
 .split-col > * { margin-block: 0; }
 .prose p + p { margin-top: .9rem; }
 .prose { max-width: 60ch; }
-.prose ul { list-style: disc; padding-left: 1.4rem; margin-top: .7rem; }
-.prose ul li { margin-top: .4rem; }
+.prose ul:not(.tick-list) { list-style: disc; padding-left: 1.4rem; margin-top: .7rem; }
+.prose ul:not(.tick-list) li { margin-top: .4rem; }
 
 /* Guidance Box Formatting (Additional Knowledge) */
 .text-center { text-align: center; }
@@ -1284,7 +1284,6 @@ body.present-mode.ratio-169 .section.is-present {
 
 /* 2 · theory/split with a quiz column — top-align the columns (Continuity) so a
       tall quiz aside no longer floats the prose. Chart-only grids stay centered. */
-.theory-grid:has(.quick-quiz) { align-items: start; }
 .prose > .tick-list { margin-top: clamp(1.05rem, 2vw, 1.45rem); }
 
 /* 3 · in-prose derivation — lift the key formula off the page as the figure

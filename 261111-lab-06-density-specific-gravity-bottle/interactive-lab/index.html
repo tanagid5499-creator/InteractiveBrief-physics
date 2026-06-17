@@ -1,356 +1,329 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="th">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lab 06 · ความหนาแน่นจากขวดถ่วงจำเพาะ · Lab Brief</title>
-  <meta name="description" content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261111 บทที่ 6 ความหนาแน่นจากขวดถ่วงจำเพาะ">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E06%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=10">
-  <link rel="stylesheet" href="styles.css?v=1">
-  <script defer src="../../shared/brief-core.js?v=7"></script>
-  <script defer src="js/app.js?v=1"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Lab 06 · ความหนาแน่นจากขวดถ่วงจำเพาะ · Lab Brief</title>
+<meta content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261111 บทที่ 6 ความหนาแน่นจากขวดถ่วงจำเพาะ" name="description"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E06%3C/text%3E%3C/svg%3E" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link href="../../shared/drafting-sheet.css?v=10" rel="stylesheet"/>
+<link href="styles.css?v=1" rel="stylesheet"/>
+<script defer="" src="../../shared/brief-core.js?v=7"></script>
+<script defer="" src="js/app.js?v=1"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
-  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
-
-  <header class="topbar" id="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="#hero" aria-label="กลับสู่ด้านบน"><span class="brand-badge">06</span><span class="brand-text"><strong>ความหนาแน่น</strong><small>261111 · ปฏิบัติการฟิสิกส์</small></span></a>
-      <nav class="phase-nav" id="chipNav" aria-label="สารบัญบทปฏิบัติการ">
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">เริ่มต้น</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#hero">บทนำ</a><a class="chip" role="menuitem" href="#hook">ชวนคิด</a><a class="chip" role="menuitem" href="#objectives">จุดประสงค์</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">หลักการ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#concept">แนวคิดหลัก</a><a class="chip" role="menuitem" href="#theory">ทฤษฎี</a><a class="chip" role="menuitem" href="#equipment">อุปกรณ์</a><a class="chip" role="menuitem" href="#formula">สูตร</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">ลงมือทำ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#procedure">ขั้นตอน</a><a class="chip" role="menuitem" href="#data">ตารางข้อมูล</a><a class="chip" role="menuitem" href="#example">ตัวอย่าง</a><a class="chip" role="menuitem" href="#checkpoint">ตรวจสอบ</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">สรุปผล</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#analysis">วิเคราะห์</a><a class="chip" role="menuitem" href="#additional-knowledge">ความรู้เพิ่มเติม</a><a class="chip" role="menuitem" href="#conclusion">สรุป</a><a class="chip" role="menuitem" href="#discussion">อภิปราย</a></div></div>
-      </nav>
-      <div class="topbar-meta">
-        <span class="sec-counter" aria-hidden="true"><b id="secNow">01</b><span>/14</span></span>
-        <div class="ratio-seg" role="group" aria-label="อัตราส่วนการแสดงผล"><span class="ratio-seg-ico" aria-hidden="true">▭</span><button type="button" data-ratio="full" aria-pressed="true">จอเต็ม</button><button type="button" data-ratio="43" aria-pressed="false">4:3</button><button type="button" data-ratio="169" aria-pressed="false">16:9</button></div>
-        <button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
-      </div>
-    </div>
-    <div class="read-progress" role="progressbar" aria-label="ความคืบหน้าการอ่าน" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="readBar"></span></div>
-  </header>
-
-  <main id="main">
-    <section class="section hero" id="hero" data-title="บทนำ">
-      <div class="hero-top"><p class="hero-eyebrow">261111 · ปฏิบัติการฟิสิกส์ · บทที่ 06</p><h1 class="hero-title">ความหนาแน่นจากขวดถ่วงจำเพาะ</h1></div>
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <figure class="hero-question"><figcaption class="hq-tag">คำถามชวนคิด</figcaption><blockquote class="hq-text">เราจะวัด <strong>ความหนาแน่น</strong> ของของเหลวและของแข็งรูปร่างประหลาด (ที่หาปริมาตรตรง ๆ ไม่ได้) ได้อย่างไร? คำตอบคือ <strong>ขวดถ่วงจำเพาะ</strong> ที่ตรึงปริมาตรให้คงที่</blockquote></figure>
-          <ul class="hero-meta"><li><span class="hm-num">ρ<sub>น้ำ</sub></span><span class="hm-label">≈ 0.997 g/cm³ (ที่ 25°C · ค่าอ้างอิง)</span></li></ul>
-          <div class="hero-actions"><a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a><a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a></div>
-        </div>
-        <figure class="hero-visual">
-          <span class="fig-tag">FIG.1 · ขวดถ่วงจำเพาะ</span>
-          <svg viewBox="0 0 340 320" role="img" aria-label="แผนภาพขวดถ่วงจำเพาะวางบนเครื่องชั่ง">
-            <defs>
-              <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#edf2fc"/><stop offset="1" stop-color="#c1d1ed"/></linearGradient>
-            </defs>
-            <!-- เครื่องชั่งดิจิทัล -->
-            <rect x="40" y="238" width="240" height="52" rx="8" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
-            <rect x="72" y="222" width="176" height="16" rx="4" fill="#d4e0f4" stroke="#9fb4d6" stroke-width="1"/>
-            <rect x="204" y="254" width="62" height="22" rx="4" fill="#0b1f3f"/>
-            <text x="235" y="270" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="12" fill="#7ba6f0">— g</text>
-            <g fill="#8ea7cf"><circle cx="58" cy="290" r="3"/><circle cx="262" cy="290" r="3"/></g>
-            <!-- ขวดถ่วงจำเพาะ (วางบนจานชั่ง) -->
-            <path d="M120 60 h80 v6 h-80 z" fill="#9fb4d6"/>
-            <rect x="150" y="40" width="20" height="24" rx="3" fill="#cdd9ee" stroke="#9fb4d6" stroke-width="1"/>
-            <path d="M128 66 L112 130 a60 90 0 1 0 96 0 L192 66 Z" fill="rgba(37,99,235,.12)" stroke="#2563eb" stroke-width="2"/>
-            <path d="M118 150 a55 80 0 1 0 84 0 Z" fill="rgba(37,99,235,.22)"/>
-            <line x1="160" y1="44" x2="160" y2="30" stroke="#d9480f" stroke-width="2"/>
-            <!-- ป้ายกำกับ -->
-            <text x="160" y="24" class="d-label" text-anchor="middle">จุกแก้ว (ตรึงปริมาตร)</text>
-            <text x="232" y="150" class="d-label" text-anchor="start">ของเหลว/น้ำ</text>
-            <text x="160" y="312" class="d-label" text-anchor="middle">เครื่องชั่งดิจิทัล</text>
-          </svg>
-          <figcaption>ขวด+จุกบรรจุปริมาตรคงที่เสมอ → เทียบมวลของเหลวกับมวลน้ำได้โดยตรง</figcaption>
-        </figure>
-      </div>
-      <p class="scroll-hint" aria-hidden="true">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
-    </section>
-
-    <section class="section" id="hook" data-title="ชวนคิด">
-      <header class="section-head"><div><p class="kicker">ชวนคิดก่อนเริ่ม</p><h2>ปริมาตรเท่ากัน บอกอะไรได้?</h2></div></header>
-      <div class="split">
-        <div class="prose"><p>ขวดถ่วงจำเพาะเมื่อเติมเต็มและปิดจุก จะบรรจุของเหลว <strong>ปริมาตรเท่ากันทุกครั้ง</strong> ดังนั้นถ้าชั่งมวลของเหลวเทียบกับมวลน้ำในปริมาตรเดียวกัน อัตราส่วนคือ <strong>ความถ่วงจำเพาะ</strong></p><p>คูณด้วยความหนาแน่นน้ำ ก็ได้ความหนาแน่นของของเหลว — และใช้หลักการแทนที่น้ำหาความหนาแน่นของแข็งได้ด้วย</p></div>
-                <aside class="prompt-card bloom-quiz-panel">
-          <p class="prompt-tag">ตรวจความเข้าใจ</p>
-          <div class="quick-quiz" data-qid="den-remember" data-bloom="remember" data-answer="B">
-            <p class="quiz-label">คำถามสั้น</p>
-            <h3 class="prompt-q">หน่วยที่ใช้รายงานความหนาแน่นของตัวอย่างในแล็บนี้คือข้อใด?</h3>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> N</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> g/cm³</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> J</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> m/s</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> kg·m</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="objectives" data-title="จุดประสงค์">
-      <header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
-      <ol class="objective-list">
-        <li><span class="obj-no">1</span><div><h3>หาความหนาแน่นของของเหลว</h3><p>ใช้ขวดถ่วงจำเพาะหาความหนาแน่นและความถ่วงจำเพาะของของเหลวตัวอย่าง</p></div></li>
-        <li><span class="obj-no">2</span><div><h3>หาความหนาแน่นของของแข็ง</h3><p>ใช้หลักการแทนที่น้ำในขวดถ่วงจำเพาะหาความหนาแน่นของของแข็ง</p></div></li>
-      </ol>
-      <div class="note note-info"><span class="note-icon" aria-hidden="true">◆</span><p><span class="note-kind">ควรรู้</span><strong>สิ่งที่จะได้ลงมือทำ:</strong> ชั่งมวลขวดเปล่า/ขวด+น้ำ/ขวด+ตัวอย่าง · อ่านอุณหภูมิเพื่อหา \(\rho_{น้ำ}\) · คำนวณ \(\rho\) และความถ่วงจำเพาะ \(S\)</p></div>
-    </section>
-
-    <section class="section band" id="concept" data-title="แนวคิดหลัก">
-      <header class="section-head"><div><p class="kicker">ภาพรวมแนวคิด</p><h2>ความหนาแน่นและความถ่วงจำเพาะ</h2></div></header>
-      <p class="lead">ความหนาแน่นคือมวลต่อหนึ่งหน่วยปริมาตร เมื่อตรึงปริมาตรให้คงที่ด้วยขวดถ่วงจำเพาะ การเทียบมวลก็คือการเทียบความหนาแน่นโดยตรง</p>
-      <div class="card-grid cols-3">
-        <article class="info-card"><span class="ic-step">A</span><h3>ความหนาแน่น</h3><p>\(\rho=m/V\) มวลต่อหนึ่งหน่วยปริมาตร หน่วย kg/m³ หรือ g/cm³</p></article>
-        <article class="info-card"><span class="ic-step">B</span><h3>ความถ่วงจำเพาะ</h3><p>\(S=\rho/\rho_{น้ำ}\) อัตราส่วนความหนาแน่นต่อน้ำ (ไม่มีหน่วย)</p></article>
-        <article class="info-card"><span class="ic-step">C</span><h3>ปริมาตรคงที่</h3><p>ขวด+จุกบรรจุปริมาตรเท่าเดิมเสมอ จึงเทียบมวลของเหลวต่างชนิดในปริมาตรเดียวกันได้</p></article>
-      </div>
-    </section>
-
-    <section class="section spotlight" id="theory" data-title="ทฤษฎี">
-      <header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>จากมวลที่ชั่ง สู่ความหนาแน่น</h2></div></header>
-      <div class="theory-grid">
-        <div class="prose">
-          <p><strong>ของเหลว:</strong> มวลของเหลว \(=m_3-m_1\), มวลน้ำ \(=m_2-m_1\) (ปริมาตรเดียวกัน) จึงได้</p>
-          <p class="derive">\[\rho=\dfrac{m_3-m_1}{m_2-m_1}\,\rho_{น้ำ}\]</p>
-          <p><strong>ของแข็ง:</strong> มวลของแข็ง \(=m_2-m_1\), มวลน้ำที่ถูกแทนที่ \(=(m_4-m_1)-(m_3-m_2)\) จึงได้</p>
-          <p class="derive">\[\rho=\dfrac{m_2-m_1}{(m_4-m_1)-(m_3-m_2)}\,\rho_{น้ำ}\]</p>
-          <ul class="tick-list"><li>เช็ดผิวขวดด้านนอกให้แห้งก่อนชั่งทุกครั้ง</li><li>ไล่ฟองอากาศออกให้หมดก่อนปิดจุก</li><li>อ่านอุณหภูมิเพื่อเลือก \(\rho_{น้ำ}\) ให้ถูก</li></ul>
-        </div>
-                <aside class="prompt-card bloom-quiz-panel">
-          <p class="prompt-tag">ตรวจความเข้าใจ</p>
-          <div class="quick-quiz" data-qid="den-understand" data-bloom="understand" data-answer="D">
-            <p class="quiz-label">คำถามสั้น</p>
-            <h3 class="prompt-q">เหตุใดขวดถ่วงจำเพาะจึงใช้เปรียบเทียบความหนาแน่นจากมวลได้?</h3>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> ขวดมีมวลเป็นศูนย์</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> ของเหลวทุกชนิดมีมวลเท่ากัน</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> อุณหภูมิไม่มีผล</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ขวดบรรจุปริมาตรเดิมเมื่อปิดจุกอย่างถูกต้อง</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> เครื่องชั่งวัดปริมาตรได้โดยตรง</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-          <div class="quick-quiz" data-qid="den-apply" data-bloom="apply" data-answer="C">
-            <p class="quiz-label">คำถามสั้น</p>
-            <h3 class="prompt-q">ถ้า \(m_1=20\,g\), \(m_2=45\,g\), \(m_3=40\,g\) และ \(\rho_{น้ำ}=1.00\,g/cm^3\) ความหนาแน่นของของเหลวเท่าใด?</h3>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> 0.50 g/cm³</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> 0.75 g/cm³</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> 0.80 g/cm³</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> 1.20 g/cm³</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> 1.25 g/cm³</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="equipment" data-title="อุปกรณ์">
-      <header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
-      <div class="card-grid cols-3 equip-grid">
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ขวดถ่วงจำเพาะ"><img src="assets/equip/equip-1.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ขวดถ่วงจำเพาะ + จุก</h3><p>ขวดแก้วที่มีจุกรูเล็ก เมื่อเติมเต็มและปิดจุกจะบรรจุปริมาตรคงที่ทุกครั้ง — หัวใจของการเทียบมวล</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: เครื่องชั่งดิจิทัล"><img src="assets/equip/equip-2.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>เครื่องชั่งดิจิทัล</h3><p>ชั่งมวลขวดเปล่า ขวด+น้ำ และขวด+ตัวอย่าง ละเอียดถึง 0.01 g ตั้งบนพื้นราบและรอค่าคงที่</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: เทอร์มอมิเตอร์"><img src="assets/equip/equip-3.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>เทอร์มอมิเตอร์</h3><p>วัดอุณหภูมิน้ำ เพื่อเลือกค่าความหนาแน่นน้ำ \(\rho_{น้ำ}\) จากตารางให้ถูกต้อง (เปลี่ยนตามอุณหภูมิ)</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: บีกเกอร์และน้ำกลั่น"><img src="assets/equip/equip-4.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>บีกเกอร์ & น้ำกลั่น</h3><p>น้ำกลั่นเป็นของเหลวอ้างอิง (ทราบ \(\rho\)) บีกเกอร์ใช้เตรียม/พักน้ำและของเหลวตัวอย่าง</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ของแข็งตัวอย่าง"><img src="assets/equip/equip-5.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ของแข็งตัวอย่าง</h3><p>ของแข็งขนาดเล็ก (เช่น เม็ดโลหะ) ที่ใส่ในขวดได้ ใช้หลักการแทนที่น้ำหาความหนาแน่น</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: กระดาษซับ"><img src="assets/equip/equip-6.png" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>กระดาษซับ / ผ้าแห้ง</h3><p>เช็ดผิวขวดด้านนอกและไล่หยดน้ำส่วนเกินก่อนชั่ง เพื่อไม่ให้มวลคลาดเคลื่อน</p></figcaption></figure>
-      </div>
-    </section>
-
-    <section class="section" id="formula" data-title="สูตร">
-      <header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
-      <div class="card-grid cols-3">
-        <article class="formula-card"><h3>ความหนาแน่น</h3><p class="formula">\[\rho=\dfrac{m}{V}\]</p><p class="formula-note">มวลต่อปริมาตร</p></article>
-        <article class="formula-card"><h3>ความถ่วงจำเพาะ</h3><p class="formula">\[S=\dfrac{\rho}{\rho_{น้ำ}}\]</p><p class="formula-note">ไม่มีหน่วย</p></article>
-        <article class="formula-card formula-accent"><h3>ความหนาแน่นของเหลว</h3><p class="formula">\[\rho=\dfrac{m_3-m_1}{m_2-m_1}\,\rho_{น้ำ}\]</p><p class="formula-note">ขวดเปล่า/ขวด+น้ำ/ขวด+ของเหลว</p></article>
-        <article class="formula-card"><h3>ความหนาแน่นของแข็ง</h3><p class="formula">\[\rho=\dfrac{m_2-m_1}{(m_4-m_1)-(m_3-m_2)}\,\rho_{น้ำ}\]</p><p class="formula-note">หลักการแทนที่น้ำ</p></article>
-        <article class="formula-card"><h3>มวลน้ำที่ถูกแทนที่</h3><p class="formula">\[(m_4-m_1)-(m_3-m_2)\]</p><p class="formula-note">= ปริมาตรของแข็ง × \(\rho_{น้ำ}\)</p></article>
-        <article class="formula-card"><h3>ความหนาแน่นน้ำ</h3><p class="formula">\[\rho_{น้ำ}\approx 0.997\ \mathrm{g/cm^3}\]</p><p class="formula-note">ที่ 25°C (เลือกตามอุณหภูมิ)</p></article>
-      </div>
-    </section>
-
-    <section class="section" id="procedure" data-title="ขั้นตอน">
-      <header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
-      <ol class="steps">
-        <li><span class="step-n">1</span><div><h3>เตรียมขวด</h3><p>ทำความสะอาดขวดถ่วงจำเพาะและจุก เช็ดด้านนอกให้แห้งสนิท</p><p class="step-caution"><b>ระวัง:</b> ขวดต้องแห้งสนิททั้งนอกและในก่อนชั่ง น้ำค้างทำให้มวลผิด</p></div></li>
-        <li><span class="step-n">2</span><div><h3>ชั่งขวดเปล่า</h3><p>ชั่งขวด+จุกที่แห้งสะอาด บันทึกเป็น \(m_1\) (ทำซ้ำแล้วเฉลี่ย)</p><p class="step-caution"><b>ระวัง:</b> จับขวดด้วยกระดาษหรือผ้า ไม่ใช้มือเปล่า เพราะไขมัน/เหงื่อเพิ่มมวล</p></div></li>
-        <li><span class="step-n">3</span><div><h3>ชั่งขวด+น้ำ</h3><p>เติมน้ำกลั่นจนเต็ม ปิดจุกให้น้ำล้นออกพอดี เช็ดแห้ง ชั่งเป็น \(m_2\)</p><p class="step-caution"><b>ระวัง:</b> เติมน้ำจนเต็มไม่มีฟองอากาศ แล้วเช็ดน้ำที่ล้นออกให้แห้งก่อนชั่ง</p></div></li>
-        <li><span class="step-n">4</span><div><h3>ชั่งขวด+ของเหลว</h3><p>เทน้ำออก ทำให้แห้ง เติมของเหลวตัวอย่างจนเต็ม ปิดจุก เช็ดแห้ง ชั่งเป็น \(m_3\)</p><p class="step-caution"><b>ระวัง:</b> ทำให้ขวดแห้งสนิทก่อนเปลี่ยนของเหลว ไม่ให้ของเหลวเดิมปนค่า</p></div></li>
-        <li><span class="step-n">5</span><div><h3>ของแข็ง (แทนที่น้ำ)</h3><p>ชั่งขวด+ของแข็ง (\(m_2\)) · ขวด+ของแข็ง+น้ำเต็ม (\(m_3\)) · ขวด+น้ำเต็ม (\(m_4\))</p><p class="step-caution"><b>ระวัง:</b> ของแข็งต้องจมและไม่มีฟองอากาศเกาะ เคาะเบาๆ ไล่ฟองก่อนชั่ง</p></div></li>
-        <li><span class="step-n">6</span><div><h3>อ่านอุณหภูมิและคำนวณ</h3><p>อ่านอุณหภูมิน้ำเพื่อเลือก \(\rho_{น้ำ}\) แล้วคำนวณ \(\rho\) และ \(S\)</p><p class="step-caution"><b>ระวัง:</b> ความหนาแน่นของน้ำขึ้นกับอุณหภูมิ ใช้ค่าที่อุณหภูมิจริงในการคำนวณ</p></div></li>
-      </ol>
-      <div class="note note-warn"><span class="note-icon" aria-hidden="true">!</span><div><span class="note-kind">ข้อควรระวัง</span><strong>ก่อนบันทึกค่า</strong><ul><li>เช็ดผิวขวดด้านนอกให้แห้งทุกครั้งก่อนชั่ง</li><li>ไล่ฟองอากาศในขวดให้หมดก่อนปิดจุก</li><li>เลือก \(\rho_{น้ำ}\) ตามอุณหภูมิจริงของน้ำ</li></ul></div></div>
-    </section>
-
-    <section class="section band" id="data" data-title="ตารางข้อมูล">
-      <header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>ตารางผลการทดลอง</h2></div></header>
-      <p class="lead">กรอกมวลที่ชั่งได้ (กรัม) ระบบคำนวณความถ่วงจำเพาะ \(S\) และความหนาแน่น \(\rho\) ให้อัตโนมัติ — เลือก \(\rho_{น้ำ}\) ตามอุณหภูมิ</p>
-      <div class="setup-inputs">
-        <label>ความหนาแน่นน้ำ <span class="u">\(\rho_{น้ำ}\) (g/cm³)</span><input id="rhoW" data-store="rhoW" type="number" min="0" step="0.0001" value="0.997" inputmode="decimal"></label>
-      </div>
-
-      <div class="worksheet-block">
-        <h3>ตอนที่ 1 · ความหนาแน่นของเหลว</h3>
-        <div class="setup-inputs">
-          <label>ขวดเปล่า+จุก <span class="u">\(m_1\) (g)</span><input id="liqM1" data-store="liqM1" type="number" step="0.01" inputmode="decimal"></label>
-          <label>ขวด+น้ำ <span class="u">\(m_2\) (g)</span><input id="liqM2" data-store="liqM2" type="number" step="0.01" inputmode="decimal"></label>
-          <label>ขวด+ของเหลว <span class="u">\(m_3\) (g)</span><input id="liqM3" data-store="liqM3" type="number" step="0.01" inputmode="decimal"></label>
-        </div>
-        <p class="calc-line">ความถ่วงจำเพาะ \(S\): <output id="sLiqOutput">—</output> · ความหนาแน่น \(\rho\): <output id="rhoLiqOutput">—</output></p>
-      </div>
-
-      <div class="worksheet-block">
-        <h3>ตอนที่ 2 · ความหนาแน่นของแข็ง (แทนที่น้ำ)</h3>
-        <div class="setup-inputs">
-          <label>ขวดเปล่า+จุก <span class="u">\(m_1\) (g)</span><input id="solM1" data-store="solM1" type="number" step="0.01" inputmode="decimal"></label>
-          <label>ขวด+ของแข็ง <span class="u">\(m_2\) (g)</span><input id="solM2" data-store="solM2" type="number" step="0.01" inputmode="decimal"></label>
-          <label>ขวด+ของแข็ง+น้ำ <span class="u">\(m_3\) (g)</span><input id="solM3" data-store="solM3" type="number" step="0.01" inputmode="decimal"></label>
-          <label>ขวด+น้ำเต็ม <span class="u">\(m_4\) (g)</span><input id="solM4" data-store="solM4" type="number" step="0.01" inputmode="decimal"></label>
-        </div>
-        <p class="calc-line">ความถ่วงจำเพาะ \(S\): <output id="sSolOutput">—</output> · ความหนาแน่น \(\rho\): <output id="rhoSolOutput">—</output></p>
-      </div>
-
-      <div class="actions-row"><button type="button" class="btn btn-soft" id="resetTable">ล้างข้อมูลตาราง</button><span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span></div>
-    </section>
-
-    <section class="section" id="example" data-title="ตัวอย่าง">
-      <header class="section-head"><div><p class="kicker">ทำตามทีละบรรทัด</p><h2>ตัวอย่างการคำนวณ</h2></div></header>
-      <p class="lead">ตัวอย่างค่าสมมติเพื่อแสดงวิธีแทนค่า (ไม่ใช่ค่าจากการทดลองจริง)</p>
-      <div class="reveal-controls"><button type="button" class="btn btn-primary" id="exampleShow">แสดงตัวอย่างการคำนวณ</button><button type="button" class="btn btn-ghost" id="exampleHide" hidden>ซ่อนตัวอย่าง</button></div>
-      <div class="example-body" id="exampleBody" hidden></div>
-    </section>
-
-    <section class="section" id="checkpoint" data-title="ตรวจสอบ">
-      <header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
-      <div class="prompt-card prompt-wide">
-        <p class="prompt-tag">คำถามท้าทาย</p>
-        <p class="prompt-q">ถ้ามี <strong>ฟองอากาศ</strong> ค้างในขวดตอนชั่งขวด+ของเหลว (\(m_3\)) ความหนาแน่นที่คำนวณได้จะคลาดเคลื่อนไปทางใด?</p>
-        <div class="reveal-controls"><button type="button" class="btn btn-primary" id="answerShow">แสดงคำตอบ</button><button type="button" class="btn btn-ghost" id="answerHide" hidden>ซ่อนคำตอบ</button></div>
-        <div class="answer-body" id="answerBody" hidden>
-          <p>ฟองอากาศแทนที่ของเหลว → \(m_3\) <strong>น้อยกว่าความจริง</strong> → \(\rho=(m_3-m_1)/(m_2-m_1)\rho_{น้ำ}\) <strong>ต่ำกว่าความจริง</strong></p>
-          <ul class="tick-list"><li>ปริมาตรของเหลวจริงน้อยกว่าที่ควรเป็น</li><li>ต้องไล่ฟองและเติมให้เต็มสนิทก่อนปิดจุก</li></ul>
-          <p class="muted">บทเรียน: ตรึงปริมาตรให้คงที่จริง ๆ จึงจะเทียบมวลได้ถูกต้อง</p>
-        </div>
-      </div>
-      <div class="quick-quiz" data-qid="den-analyze" data-bloom="analyze" data-answer="A">
-        <p class="quiz-label">คำถามสั้น</p>
-        <h3 class="prompt-q">ถ้ามีฟองอากาศค้างในขวดขณะชั่งของเหลว ค่า \(m_3\) และความหนาแน่นที่คำนวณจะเปลี่ยนอย่างไร?</h3>
-        <div class="quiz-options">
-          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> \(m_3\) ต่ำลง และความหนาแน่นต่ำกว่าความจริง</button>
-          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> \(m_3\) สูงขึ้น และความหนาแน่นสูงกว่าความจริง</button>
-          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> \(m_3\) ไม่เปลี่ยน</button>
-          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ความหนาแน่นเป็นศูนย์</button>
-          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ผลเปลี่ยนเฉพาะหน่วย</button>
-        </div>
-        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="section" id="analysis" data-title="วิเคราะห์">
-      <header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
-      <div class="split">
-        <ol class="analysis-steps">
-          <li>หามวลของเหลว (\(m_3-m_1\)) และมวลน้ำ (\(m_2-m_1\)) ในปริมาตรเดียวกัน</li>
-          <li>คำนวณ \(S\) และ \(\rho\) ของของเหลว แล้วเทียบกับค่าของสารที่คาด</li>
-          <li>สำหรับของแข็ง หามวลน้ำที่ถูกแทนที่ แล้วคำนวณ \(\rho\)</li>
-          <li>อภิปรายว่าค่าที่ได้สมเหตุสมผลกับชนิดของสารหรือไม่</li>
-        </ol>
-        <aside class="note note-info note-block"><span class="note-icon" aria-hidden="true">◆</span><div><span class="note-kind">ควรรู้</span><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>หยดน้ำ/ของเหลวที่ผิวขวด</li><li>ฟองอากาศที่ค้างในขวด</li><li>การเลือก \(\rho_{น้ำ}\) ไม่ตรงอุณหภูมิ</li></ul></div></aside>
-      </div>
-      <div class="quick-quiz" data-qid="den-evaluate" data-bloom="evaluate" data-answer="E">
-        <p class="quiz-label">คำถามสั้น</p>
-        <h3 class="prompt-q">ข้อมูลชุดใดน่าเชื่อถือที่สุดสำหรับใช้สรุปความหนาแน่น?</h3>
-        <div class="quiz-options">
-          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> ชั่งครั้งเดียวโดยมีหยดน้ำด้านนอก</button>
-          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> ใช้ฟองอากาศเป็นตัวบอกปริมาตร</button>
-          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> เลือกค่าที่ใกล้ตารางที่สุด</button>
-          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ไม่วัดอุณหภูมิน้ำ</button>
-          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ชั่งซ้ำจนค่าคงที่ เช็ดขวดแห้ง ไล่ฟอง และใช้ \(\rho_{น้ำ}\) ตรงอุณหภูมิ</button>
-        </div>
-        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="section spotlight" id="conclusion" data-title="สรุป">
-      <header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
-      <div class="conclusion-grid">
-        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong>&nbsp;จากข้อมูลของคุณเอง</p>
-        <ul class="conclusion-points">
-          <li><span class="cp-ico">1</span><div><h3>รายงานความหนาแน่น</h3><p>ระบุ \(\rho\) และ \(S\) ของของเหลวและของแข็ง พร้อมหน่วย g/cm³</p></div></li>
-          <li><span class="cp-ico">2</span><div><h3>เทียบกับสารที่คาด</h3><p>เปรียบเทียบกับความหนาแน่นมาตรฐานของสาร และอภิปรายว่าน่าจะเป็นสารใด</p></div></li>
-          <li><span class="cp-ico">3</span><div><h3>ตีความความถ่วงจำเพาะ</h3><p>บอกว่าสารจะลอยหรือจมในน้ำตามค่า \(S\) (มากกว่า/น้อยกว่า 1)</p></div></li>
-          <li><span class="cp-ico">4</span><div><h3>อภิปรายแหล่งคลาดเคลื่อน</h3><p>ระบุสาเหตุหลัก เช่น หยดน้ำที่ผิวขวด ฟองอากาศ และอุณหภูมิน้ำ</p></div></li>
-
-          <li class="cp-extra"><span class="cp-ico">5</span><div><h3>ความรู้ที่ได้เพิ่มเติม</h3><p>เขียนสิ่งที่ค้นคว้าหรือควรรู้เพิ่มเติมจากการทดลองนี้ด้วยคำพูดของตนเอง เช่น การนำหลักการไปใช้ในสถานการณ์จริง ความเชื่อมโยงกับเนื้อหาอื่น หรือเทคนิคลดความคลาดเคลื่อนที่ค้นพบระหว่างทำการทดลอง</p></div></li>
-        </ul>
-      </div>
-      <p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
-    </section>
-
-    <section class="section band" id="discussion" data-title="อภิปราย">
-      <header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
-      <div class="q-grid">
-        <article class="q-card"><span class="q-no">Q1</span><p>เหตุใดการตรึงปริมาตรให้คงที่จึงทำให้เทียบมวลแทนความหนาแน่นได้?</p></article>
-        <article class="q-card"><span class="q-no">Q2</span><p>ความหนาแน่นของน้ำเปลี่ยนตามอุณหภูมิอย่างไร และมีผลต่อผลลัพธ์แค่ไหน?</p></article>
-        <article class="q-card"><span class="q-no">Q3</span><p>หลักการแทนที่น้ำหาความหนาแน่นของแข็งอาศัยหลักของอาร์คิมิดีสอย่างไร?</p></article>
-        <article class="q-card"><span class="q-no">Q4</span><p>ความถ่วงจำเพาะ \(S\) บอกอะไรเกี่ยวกับการลอย/จมของสารในน้ำ?</p></article>
-        <article class="q-card"><span class="q-no">Q5</span><p>ค่าที่กลุ่มได้สอดคล้องกับชนิดของสารที่คาดไว้เพียงใด?</p></article>
-      </div>
-      <div class="quick-quiz" data-qid="den-create" data-bloom="create" data-answer="D">
-        <p class="quiz-label">คำถามสั้น</p>
-        <h3 class="prompt-q">ถ้าต้องหาความหนาแน่นของของแข็งรูปร่างไม่สม่ำเสมอด้วยขวดถ่วงจำเพาะ แนวทางใดเหมาะสมที่สุด?</h3>
-        <div class="quiz-options">
-          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> วัดด้านกว้างยาวแล้วคูณกัน</button>
-          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> ชั่งของแข็งอย่างเดียวแล้วเดาปริมาตร</button>
-          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> เติมน้ำไม่เต็มขวดเพื่อให้ใส่ง่าย</button>
-          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ชั่งมวลตามลำดับขวดเปล่า ของแข็ง และขวดกับน้ำก่อนใช้สมการแทนที่</button>
-          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ใช้เฉพาะค่าความหนาแน่นของน้ำ</button>
-        </div>
-        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="section band" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
-      <header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
-            <div class="prompt-card prompt-wide" style="margin: 0 auto;">
-        <p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
-          <span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
+<a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+<span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+<header class="topbar" id="topbar">
+<div class="topbar-inner">
+<a aria-label="กลับสู่ด้านบน" class="brand" href="#hero"><span class="brand-badge">06</span><span class="brand-text"><strong>ความหนาแน่น</strong><small>261111 · ปฏิบัติการฟิสิกส์</small></span></a>
+<nav aria-label="สารบัญบทปฏิบัติการ" class="phase-nav" id="chipNav">
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">เริ่มต้น</button><div class="phase-menu" role="menu"><a class="chip" href="#hero" role="menuitem">บทนำ</a><a class="chip" href="#hook" role="menuitem">ชวนคิด</a><a class="chip" href="#objectives" role="menuitem">จุดประสงค์</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">หลักการ</button><div class="phase-menu" role="menu"><a class="chip" href="#concept" role="menuitem">แนวคิดหลัก</a><a class="chip" href="#theory" role="menuitem">ทฤษฎี</a><a class="chip" href="#equipment" role="menuitem">อุปกรณ์</a><a class="chip" href="#formula" role="menuitem">สูตร</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">ลงมือทำ</button><div class="phase-menu" role="menu"><a class="chip" href="#procedure" role="menuitem">ขั้นตอน</a><a class="chip" href="#data" role="menuitem">ตารางข้อมูล</a><a class="chip" href="#example" role="menuitem">ตัวอย่าง</a><a class="chip" href="#checkpoint" role="menuitem">ตรวจสอบ</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">สรุปผล</button><div class="phase-menu" role="menu"><a class="chip" href="#analysis" role="menuitem">วิเคราะห์</a><a class="chip" href="#additional-knowledge" role="menuitem">ความรู้เพิ่มเติม</a><a class="chip" href="#conclusion" role="menuitem">สรุป</a><a class="chip" href="#discussion" role="menuitem">อภิปราย</a></div></div>
+</nav>
+<div class="topbar-meta">
+<span aria-hidden="true" class="sec-counter"><b id="secNow">01</b><span>/14</span></span>
+<div aria-label="อัตราส่วนการแสดงผล" class="ratio-seg" role="group"><span aria-hidden="true" class="ratio-seg-ico">▭</span><button aria-pressed="true" data-ratio="full" type="button">จอเต็ม</button><button aria-pressed="false" data-ratio="43" type="button">4:3</button><button aria-pressed="false" data-ratio="169" type="button">16:9</button></div>
+<button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
+</div>
+</div>
+<div aria-label="ความคืบหน้าการอ่าน" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="read-progress" role="progressbar"><span id="readBar"></span></div>
+</header>
+<main id="main">
+<section class="section hero" data-title="บทนำ" id="hero">
+<div class="hero-top"><p class="hero-eyebrow">261111 · ปฏิบัติการฟิสิกส์ · บทที่ 06</p><h1 class="hero-title">ความหนาแน่นจากขวดถ่วงจำเพาะ</h1></div>
+<div class="hero-grid">
+<div class="hero-copy">
+<figure class="hero-question"><figcaption class="hq-tag">คำถามชวนคิด</figcaption><blockquote class="hq-text">เราจะวัด <strong>ความหนาแน่น</strong> ของของเหลวและของแข็งรูปร่างประหลาด (ที่หาปริมาตรตรง ๆ ไม่ได้) ได้อย่างไร? คำตอบคือ <strong>ขวดถ่วงจำเพาะ</strong> ที่ตรึงปริมาตรให้คงที่</blockquote></figure>
+<ul class="hero-meta"><li><span class="hm-num">ρ<sub>น้ำ</sub></span><span class="hm-label">≈ 0.997 g/cm³ (ที่ 25°C · ค่าอ้างอิง)</span></li></ul>
+<div class="hero-actions"><a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a><a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a></div>
+</div>
+<figure class="hero-visual">
+<span class="fig-tag">FIG.1 · ขวดถ่วงจำเพาะ</span>
+<svg aria-label="แผนภาพขวดถ่วงจำเพาะวางบนเครื่องชั่ง" role="img" viewbox="0 0 340 320">
+<defs>
+<lineargradient id="metalGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#edf2fc"></stop><stop offset="1" stop-color="#c1d1ed"></stop></lineargradient>
+</defs>
+<!-- เครื่องชั่งดิจิทัล -->
+<rect fill="url(#metalGrad)" height="52" rx="8" stroke="#9fb4d6" stroke-width="1" width="240" x="40" y="238"></rect>
+<rect fill="#d4e0f4" height="16" rx="4" stroke="#9fb4d6" stroke-width="1" width="176" x="72" y="222"></rect>
+<rect fill="#0b1f3f" height="22" rx="4" width="62" x="204" y="254"></rect>
+<text fill="#7ba6f0" font-family="'IBM Plex Mono',monospace" font-size="12" text-anchor="middle" x="235" y="270">— g</text>
+<g fill="#8ea7cf"><circle cx="58" cy="290" r="3"></circle><circle cx="262" cy="290" r="3"></circle></g>
+<!-- ขวดถ่วงจำเพาะ (วางบนจานชั่ง) -->
+<path d="M120 60 h80 v6 h-80 z" fill="#9fb4d6"></path>
+<rect fill="#cdd9ee" height="24" rx="3" stroke="#9fb4d6" stroke-width="1" width="20" x="150" y="40"></rect>
+<path d="M128 66 L112 130 a60 90 0 1 0 96 0 L192 66 Z" fill="rgba(37,99,235,.12)" stroke="#2563eb" stroke-width="2"></path>
+<path d="M118 150 a55 80 0 1 0 84 0 Z" fill="rgba(37,99,235,.22)"></path>
+<line stroke="#d9480f" stroke-width="2" x1="160" x2="160" y1="44" y2="30"></line>
+<!-- ป้ายกำกับ -->
+<text class="d-label" text-anchor="middle" x="160" y="24">จุกแก้ว (ตรึงปริมาตร)</text>
+<text class="d-label" text-anchor="start" x="232" y="150">ของเหลว/น้ำ</text>
+<text class="d-label" text-anchor="middle" x="160" y="312">เครื่องชั่งดิจิทัล</text>
+</svg>
+<figcaption>ขวด+จุกบรรจุปริมาตรคงที่เสมอ → เทียบมวลของเหลวกับมวลน้ำได้โดยตรง</figcaption>
+</figure>
+</div>
+<p aria-hidden="true" class="scroll-hint">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
+</section>
+<section class="section" data-title="ชวนคิด" id="hook">
+<header class="section-head"><div><p class="kicker">ชวนคิดก่อนเริ่ม</p><h2>ปริมาตรเท่ากัน บอกอะไรได้?</h2></div></header>
+<div class="split">
+<div class="prose"><p>ขวดถ่วงจำเพาะเมื่อเติมเต็มและปิดจุก จะบรรจุของเหลว <strong>ปริมาตรเท่ากันทุกครั้ง</strong> ดังนั้นถ้าชั่งมวลของเหลวเทียบกับมวลน้ำในปริมาตรเดียวกัน อัตราส่วนคือ <strong>ความถ่วงจำเพาะ</strong></p><p>คูณด้วยความหนาแน่นน้ำ ก็ได้ความหนาแน่นของของเหลว — และใช้หลักการแทนที่น้ำหาความหนาแน่นของแข็งได้ด้วย</p></div>
+<aside class="prompt-card bloom-quiz-panel">
+<p class="prompt-tag">ตรวจความเข้าใจ</p>
+<div class="quick-quiz" data-answer="B" data-bloom="remember" data-qid="den-remember">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">หน่วยที่ใช้รายงานความหนาแน่นของตัวอย่างในแล็บนี้คือข้อใด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> N</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> g/cm³</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> J</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> m/s</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> kg·m</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</aside>
+</div>
+</section>
+<section class="section" data-title="จุดประสงค์" id="objectives">
+<header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
+<ol class="objective-list">
+<li><span class="obj-no">1</span><div><h3>หาความหนาแน่นของของเหลว</h3><p>ใช้ขวดถ่วงจำเพาะหาความหนาแน่นและความถ่วงจำเพาะของของเหลวตัวอย่าง</p></div></li>
+<li><span class="obj-no">2</span><div><h3>หาความหนาแน่นของของแข็ง</h3><p>ใช้หลักการแทนที่น้ำในขวดถ่วงจำเพาะหาความหนาแน่นของของแข็ง</p></div></li>
+</ol>
+<div class="note note-info"><span aria-hidden="true" class="note-icon">◆</span><p><span class="note-kind">ควรรู้</span><strong>สิ่งที่จะได้ลงมือทำ:</strong> ชั่งมวลขวดเปล่า/ขวด+น้ำ/ขวด+ตัวอย่าง · อ่านอุณหภูมิเพื่อหา \(\rho_{น้ำ}\) · คำนวณ \(\rho\) และความถ่วงจำเพาะ \(S\)</p></div>
+</section>
+<section class="section band" data-title="แนวคิดหลัก" id="concept">
+<header class="section-head"><div><p class="kicker">ภาพรวมแนวคิด</p><h2>ความหนาแน่นและความถ่วงจำเพาะ</h2></div></header>
+<p class="lead">ความหนาแน่นคือมวลต่อหนึ่งหน่วยปริมาตร เมื่อตรึงปริมาตรให้คงที่ด้วยขวดถ่วงจำเพาะ การเทียบมวลก็คือการเทียบความหนาแน่นโดยตรง</p>
+<div class="card-grid cols-3">
+<article class="info-card"><span class="ic-step">A</span><h3>ความหนาแน่น</h3><p>\(\rho=m/V\) มวลต่อหนึ่งหน่วยปริมาตร หน่วย kg/m³ หรือ g/cm³</p></article>
+<article class="info-card"><span class="ic-step">B</span><h3>ความถ่วงจำเพาะ</h3><p>\(S=\rho/\rho_{น้ำ}\) อัตราส่วนความหนาแน่นต่อน้ำ (ไม่มีหน่วย)</p></article>
+<article class="info-card"><span class="ic-step">C</span><h3>ปริมาตรคงที่</h3><p>ขวด+จุกบรรจุปริมาตรเท่าเดิมเสมอ จึงเทียบมวลของเหลวต่างชนิดในปริมาตรเดียวกันได้</p></article>
+</div>
+</section>
+<section class="section spotlight" data-title="ทฤษฎี" id="theory">
+<header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>จากมวลที่ชั่ง สู่ความหนาแน่น</h2></div></header>
+<div class="theory-grid">
+<div class="prose">
+<p><strong>ของเหลว:</strong> มวลของเหลว \(=m_3-m_1\), มวลน้ำ \(=m_2-m_1\) (ปริมาตรเดียวกัน) จึงได้</p>
+<p class="derive">\[\rho=\dfrac{m_3-m_1}{m_2-m_1}\,\rho_{น้ำ}\]</p>
+<p><strong>ของแข็ง:</strong> มวลของแข็ง \(=m_2-m_1\), มวลน้ำที่ถูกแทนที่ \(=(m_4-m_1)-(m_3-m_2)\) จึงได้</p>
+<p class="derive">\[\rho=\dfrac{m_2-m_1}{(m_4-m_1)-(m_3-m_2)}\,\rho_{น้ำ}\]</p>
+<ul class="tick-list"><li>เช็ดผิวขวดด้านนอกให้แห้งก่อนชั่งทุกครั้ง</li><li>ไล่ฟองอากาศออกให้หมดก่อนปิดจุก</li><li>อ่านอุณหภูมิเพื่อเลือก \(\rho_{น้ำ}\) ให้ถูก</li></ul>
+</div>
+<aside class="prompt-card bloom-quiz-panel">
+<p class="prompt-tag">ตรวจความเข้าใจ</p>
+<div class="quick-quiz" data-answer="D" data-bloom="understand" data-qid="den-understand">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">เหตุใดขวดถ่วงจำเพาะจึงใช้เปรียบเทียบความหนาแน่นจากมวลได้?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> ขวดมีมวลเป็นศูนย์</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> ของเหลวทุกชนิดมีมวลเท่ากัน</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> อุณหภูมิไม่มีผล</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> ขวดบรรจุปริมาตรเดิมเมื่อปิดจุกอย่างถูกต้อง</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> เครื่องชั่งวัดปริมาตรได้โดยตรง</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+<div class="quick-quiz" data-answer="C" data-bloom="apply" data-qid="den-apply">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">ถ้า \(m_1=20\,g\), \(m_2=45\,g\), \(m_3=40\,g\) และ \(\rho_{น้ำ}=1.00\,g/cm^3\) ความหนาแน่นของของเหลวเท่าใด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> 0.50 g/cm³</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> 0.75 g/cm³</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> 0.80 g/cm³</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> 1.20 g/cm³</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> 1.25 g/cm³</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</aside>
+</div>
+</section>
+<section class="section" data-title="อุปกรณ์" id="equipment">
+<header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
+<div class="card-grid cols-3 equip-grid">
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: ขวดถ่วงจำเพาะ" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-1.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>ขวดถ่วงจำเพาะ + จุก</h3><p>ขวดแก้วที่มีจุกรูเล็ก เมื่อเติมเต็มและปิดจุกจะบรรจุปริมาตรคงที่ทุกครั้ง — หัวใจของการเทียบมวล</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: เครื่องชั่งดิจิทัล" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-2.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>เครื่องชั่งดิจิทัล</h3><p>ชั่งมวลขวดเปล่า ขวด+น้ำ และขวด+ตัวอย่าง ละเอียดถึง 0.01 g ตั้งบนพื้นราบและรอค่าคงที่</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: เทอร์มอมิเตอร์" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-3.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>เทอร์มอมิเตอร์</h3><p>วัดอุณหภูมิน้ำ เพื่อเลือกค่าความหนาแน่นน้ำ \(\rho_{น้ำ}\) จากตารางให้ถูกต้อง (เปลี่ยนตามอุณหภูมิ)</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: บีกเกอร์และน้ำกลั่น" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-4.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>บีกเกอร์ &amp; น้ำกลั่น</h3><p>น้ำกลั่นเป็นของเหลวอ้างอิง (ทราบ \(\rho\)) บีกเกอร์ใช้เตรียม/พักน้ำและของเหลวตัวอย่าง</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: ของแข็งตัวอย่าง" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-5.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>ของแข็งตัวอย่าง</h3><p>ของแข็งขนาดเล็ก (เช่น เม็ดโลหะ) ที่ใส่ในขวดได้ ใช้หลักการแทนที่น้ำหาความหนาแน่น</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: กระดาษซับ" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-6.png" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>กระดาษซับ / ผ้าแห้ง</h3><p>เช็ดผิวขวดด้านนอกและไล่หยดน้ำส่วนเกินก่อนชั่ง เพื่อไม่ให้มวลคลาดเคลื่อน</p></figcaption></figure>
+</div>
+</section>
+<section class="section" data-title="สูตร" id="formula">
+<header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
+<div class="card-grid cols-3">
+<article class="formula-card"><h3>ความหนาแน่น</h3><p class="formula">\[\rho=\dfrac{m}{V}\]</p><p class="formula-note">มวลต่อปริมาตร</p></article>
+<article class="formula-card"><h3>ความถ่วงจำเพาะ</h3><p class="formula">\[S=\dfrac{\rho}{\rho_{น้ำ}}\]</p><p class="formula-note">ไม่มีหน่วย</p></article>
+<article class="formula-card formula-accent"><h3>ความหนาแน่นของเหลว</h3><p class="formula">\[\rho=\dfrac{m_3-m_1}{m_2-m_1}\,\rho_{น้ำ}\]</p><p class="formula-note">ขวดเปล่า/ขวด+น้ำ/ขวด+ของเหลว</p></article>
+<article class="formula-card"><h3>ความหนาแน่นของแข็ง</h3><p class="formula">\[\rho=\dfrac{m_2-m_1}{(m_4-m_1)-(m_3-m_2)}\,\rho_{น้ำ}\]</p><p class="formula-note">หลักการแทนที่น้ำ</p></article>
+<article class="formula-card"><h3>มวลน้ำที่ถูกแทนที่</h3><p class="formula">\[(m_4-m_1)-(m_3-m_2)\]</p><p class="formula-note">= ปริมาตรของแข็ง × \(\rho_{น้ำ}\)</p></article>
+<article class="formula-card"><h3>ความหนาแน่นน้ำ</h3><p class="formula">\[\rho_{น้ำ}\approx 0.997\ \mathrm{g/cm^3}\]</p><p class="formula-note">ที่ 25°C (เลือกตามอุณหภูมิ)</p></article>
+</div>
+</section>
+<section class="section" data-title="ขั้นตอน" id="procedure">
+<header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
+<ol class="steps">
+<li><span class="step-n">1</span><div><h3>เตรียมขวด</h3><p>ทำความสะอาดขวดถ่วงจำเพาะและจุก เช็ดด้านนอกให้แห้งสนิท</p><p class="step-caution"><b>ระวัง:</b> ขวดต้องแห้งสนิททั้งนอกและในก่อนชั่ง น้ำค้างทำให้มวลผิด</p></div></li>
+<li><span class="step-n">2</span><div><h3>ชั่งขวดเปล่า</h3><p>ชั่งขวด+จุกที่แห้งสะอาด บันทึกเป็น \(m_1\) (ทำซ้ำแล้วเฉลี่ย)</p><p class="step-caution"><b>ระวัง:</b> จับขวดด้วยกระดาษหรือผ้า ไม่ใช้มือเปล่า เพราะไขมัน/เหงื่อเพิ่มมวล</p></div></li>
+<li><span class="step-n">3</span><div><h3>ชั่งขวด+น้ำ</h3><p>เติมน้ำกลั่นจนเต็ม ปิดจุกให้น้ำล้นออกพอดี เช็ดแห้ง ชั่งเป็น \(m_2\)</p><p class="step-caution"><b>ระวัง:</b> เติมน้ำจนเต็มไม่มีฟองอากาศ แล้วเช็ดน้ำที่ล้นออกให้แห้งก่อนชั่ง</p></div></li>
+<li><span class="step-n">4</span><div><h3>ชั่งขวด+ของเหลว</h3><p>เทน้ำออก ทำให้แห้ง เติมของเหลวตัวอย่างจนเต็ม ปิดจุก เช็ดแห้ง ชั่งเป็น \(m_3\)</p><p class="step-caution"><b>ระวัง:</b> ทำให้ขวดแห้งสนิทก่อนเปลี่ยนของเหลว ไม่ให้ของเหลวเดิมปนค่า</p></div></li>
+<li><span class="step-n">5</span><div><h3>ของแข็ง (แทนที่น้ำ)</h3><p>ชั่งขวด+ของแข็ง (\(m_2\)) · ขวด+ของแข็ง+น้ำเต็ม (\(m_3\)) · ขวด+น้ำเต็ม (\(m_4\))</p><p class="step-caution"><b>ระวัง:</b> ของแข็งต้องจมและไม่มีฟองอากาศเกาะ เคาะเบาๆ ไล่ฟองก่อนชั่ง</p></div></li>
+<li><span class="step-n">6</span><div><h3>อ่านอุณหภูมิและคำนวณ</h3><p>อ่านอุณหภูมิน้ำเพื่อเลือก \(\rho_{น้ำ}\) แล้วคำนวณ \(\rho\) และ \(S\)</p><p class="step-caution"><b>ระวัง:</b> ความหนาแน่นของน้ำขึ้นกับอุณหภูมิ ใช้ค่าที่อุณหภูมิจริงในการคำนวณ</p></div></li>
+</ol>
+<div class="note note-warn"><span aria-hidden="true" class="note-icon">!</span><div><span class="note-kind">ข้อควรระวัง</span><strong>ก่อนบันทึกค่า</strong><ul><li>เช็ดผิวขวดด้านนอกให้แห้งทุกครั้งก่อนชั่ง</li><li>ไล่ฟองอากาศในขวดให้หมดก่อนปิดจุก</li><li>เลือก \(\rho_{น้ำ}\) ตามอุณหภูมิจริงของน้ำ</li></ul></div></div>
+</section>
+<section class="section band" data-title="ตารางข้อมูล" id="data">
+<header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>ตารางผลการทดลอง</h2></div></header>
+<p class="lead">กรอกมวลที่ชั่งได้ (กรัม) ระบบคำนวณความถ่วงจำเพาะ \(S\) และความหนาแน่น \(\rho\) ให้อัตโนมัติ — เลือก \(\rho_{น้ำ}\) ตามอุณหภูมิ</p>
+<div class="setup-inputs">
+<label>ความหนาแน่นน้ำ <span class="u">\(\rho_{น้ำ}\) (g/cm³)</span><input data-store="rhoW" id="rhoW" inputmode="decimal" min="0" step="0.0001" type="number" value="0.997"/></label>
+</div>
+<div class="worksheet-block">
+<h3>ตอนที่ 1 · ความหนาแน่นของเหลว</h3>
+<div class="setup-inputs">
+<label>ขวดเปล่า+จุก <span class="u">\(m_1\) (g)</span><input data-store="liqM1" id="liqM1" inputmode="decimal" step="0.01" type="number"/></label>
+<label>ขวด+น้ำ <span class="u">\(m_2\) (g)</span><input data-store="liqM2" id="liqM2" inputmode="decimal" step="0.01" type="number"/></label>
+<label>ขวด+ของเหลว <span class="u">\(m_3\) (g)</span><input data-store="liqM3" id="liqM3" inputmode="decimal" step="0.01" type="number"/></label>
+</div>
+<p class="calc-line">ความถ่วงจำเพาะ \(S\): <output id="sLiqOutput">—</output> · ความหนาแน่น \(\rho\): <output id="rhoLiqOutput">—</output></p>
+</div>
+<div class="worksheet-block">
+<h3>ตอนที่ 2 · ความหนาแน่นของแข็ง (แทนที่น้ำ)</h3>
+<div class="setup-inputs">
+<label>ขวดเปล่า+จุก <span class="u">\(m_1\) (g)</span><input data-store="solM1" id="solM1" inputmode="decimal" step="0.01" type="number"/></label>
+<label>ขวด+ของแข็ง <span class="u">\(m_2\) (g)</span><input data-store="solM2" id="solM2" inputmode="decimal" step="0.01" type="number"/></label>
+<label>ขวด+ของแข็ง+น้ำ <span class="u">\(m_3\) (g)</span><input data-store="solM3" id="solM3" inputmode="decimal" step="0.01" type="number"/></label>
+<label>ขวด+น้ำเต็ม <span class="u">\(m_4\) (g)</span><input data-store="solM4" id="solM4" inputmode="decimal" step="0.01" type="number"/></label>
+</div>
+<p class="calc-line">ความถ่วงจำเพาะ \(S\): <output id="sSolOutput">—</output> · ความหนาแน่น \(\rho\): <output id="rhoSolOutput">—</output></p>
+</div>
+<div class="actions-row"><button class="btn btn-soft" id="resetTable" type="button">ล้างข้อมูลตาราง</button><span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span></div>
+</section>
+<section class="section" data-title="ตรวจสอบ" id="checkpoint">
+<header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
+<div class="prompt-card">
+<p class="prompt-tag">คำถามท้าทาย</p>
+<p class="prompt-q">ถ้ามี <strong>ฟองอากาศ</strong> ค้างในขวดตอนชั่งขวด+ของเหลว (\(m_3\)) ความหนาแน่นที่คำนวณได้จะคลาดเคลื่อนไปทางใด?</p>
+<div class="reveal-controls"><button class="btn btn-primary" id="answerShow" type="button">แสดงคำตอบ</button><button class="btn btn-ghost" hidden="" id="answerHide" type="button">ซ่อนคำตอบ</button></div>
+<div class="answer-body" hidden="" id="answerBody">
+<p>ฟองอากาศแทนที่ของเหลว → \(m_3\) <strong>น้อยกว่าความจริง</strong> → \(\rho=(m_3-m_1)/(m_2-m_1)\rho_{น้ำ}\) <strong>ต่ำกว่าความจริง</strong></p>
+<ul class="tick-list"><li>ปริมาตรของเหลวจริงน้อยกว่าที่ควรเป็น</li><li>ต้องไล่ฟองและเติมให้เต็มสนิทก่อนปิดจุก</li></ul>
+<p class="muted">บทเรียน: ตรึงปริมาตรให้คงที่จริง ๆ จึงจะเทียบมวลได้ถูกต้อง</p>
+</div>
+</div>
+<div class="quick-quiz" data-answer="A" data-bloom="analyze" data-qid="den-analyze">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">ถ้ามีฟองอากาศค้างในขวดขณะชั่งของเหลว ค่า \(m_3\) และความหนาแน่นที่คำนวณจะเปลี่ยนอย่างไร?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> \(m_3\) ต่ำลง และความหนาแน่นต่ำกว่าความจริง</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> \(m_3\) สูงขึ้น และความหนาแน่นสูงกว่าความจริง</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> \(m_3\) ไม่เปลี่ยน</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> ความหนาแน่นเป็นศูนย์</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> ผลเปลี่ยนเฉพาะหน่วย</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+<section class="section" data-title="วิเคราะห์" id="analysis">
+<header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
+<div class="split">
+<ol class="analysis-steps">
+<li>หามวลของเหลว (\(m_3-m_1\)) และมวลน้ำ (\(m_2-m_1\)) ในปริมาตรเดียวกัน</li>
+<li>คำนวณ \(S\) และ \(\rho\) ของของเหลว แล้วเทียบกับค่าของสารที่คาด</li>
+<li>สำหรับของแข็ง หามวลน้ำที่ถูกแทนที่ แล้วคำนวณ \(\rho\)</li>
+<li>อภิปรายว่าค่าที่ได้สมเหตุสมผลกับชนิดของสารหรือไม่</li>
+</ol>
+<aside class="note note-info note-block"><span aria-hidden="true" class="note-icon">◆</span><div><span class="note-kind">ควรรู้</span><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>หยดน้ำ/ของเหลวที่ผิวขวด</li><li>ฟองอากาศที่ค้างในขวด</li><li>การเลือก \(\rho_{น้ำ}\) ไม่ตรงอุณหภูมิ</li></ul></div></aside>
+</div>
+<div class="quick-quiz" data-answer="E" data-bloom="evaluate" data-qid="den-evaluate">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">ข้อมูลชุดใดน่าเชื่อถือที่สุดสำหรับใช้สรุปความหนาแน่น?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> ชั่งครั้งเดียวโดยมีหยดน้ำด้านนอก</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> ใช้ฟองอากาศเป็นตัวบอกปริมาตร</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> เลือกค่าที่ใกล้ตารางที่สุด</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> ไม่วัดอุณหภูมิน้ำ</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> ชั่งซ้ำจนค่าคงที่ เช็ดขวดแห้ง ไล่ฟอง และใช้ \(\rho_{น้ำ}\) ตรงอุณหภูมิ</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+<section class="section spotlight" data-title="สรุป" id="conclusion">
+<header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
+<div class="conclusion-grid">
+<p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong> จากข้อมูลของคุณเอง</p>
+<ul class="conclusion-points">
+<li><span class="cp-ico">1</span><div><h3>รายงานความหนาแน่น</h3><p>ระบุ \(\rho\) และ \(S\) ของของเหลวและของแข็ง พร้อมหน่วย g/cm³</p></div></li>
+<li><span class="cp-ico">2</span><div><h3>เทียบกับสารที่คาด</h3><p>เปรียบเทียบกับความหนาแน่นมาตรฐานของสาร และอภิปรายว่าน่าจะเป็นสารใด</p></div></li>
+<li><span class="cp-ico">3</span><div><h3>ตีความความถ่วงจำเพาะ</h3><p>บอกว่าสารจะลอยหรือจมในน้ำตามค่า \(S\) (มากกว่า/น้อยกว่า 1)</p></div></li>
+<li><span class="cp-ico">4</span><div><h3>อภิปรายแหล่งคลาดเคลื่อน</h3><p>ระบุสาเหตุหลัก เช่น หยดน้ำที่ผิวขวด ฟองอากาศ และอุณหภูมิน้ำ</p></div></li>
+<li class="cp-extra"><span class="cp-ico">5</span><div><h3>ความรู้ที่ได้เพิ่มเติม</h3><p>เขียนสิ่งที่ค้นคว้าหรือควรรู้เพิ่มเติมจากการทดลองนี้ด้วยคำพูดของตนเอง เช่น การนำหลักการไปใช้ในสถานการณ์จริง ความเชื่อมโยงกับเนื้อหาอื่น หรือเทคนิคลดความคลาดเคลื่อนที่ค้นพบระหว่างทำการทดลอง</p></div></li>
+</ul>
+</div>
+<p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
+</section>
+<section class="section band" data-title="อภิปราย" id="discussion">
+<header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
+<div class="q-grid">
+<article class="q-card"><span class="q-no">Q1</span><p>เหตุใดการตรึงปริมาตรให้คงที่จึงทำให้เทียบมวลแทนความหนาแน่นได้?</p></article>
+<article class="q-card"><span class="q-no">Q2</span><p>ความหนาแน่นของน้ำเปลี่ยนตามอุณหภูมิอย่างไร และมีผลต่อผลลัพธ์แค่ไหน?</p></article>
+<article class="q-card"><span class="q-no">Q3</span><p>หลักการแทนที่น้ำหาความหนาแน่นของแข็งอาศัยหลักของอาร์คิมิดีสอย่างไร?</p></article>
+<article class="q-card"><span class="q-no">Q4</span><p>ความถ่วงจำเพาะ \(S\) บอกอะไรเกี่ยวกับการลอย/จมของสารในน้ำ?</p></article>
+<article class="q-card"><span class="q-no">Q5</span><p>ค่าที่กลุ่มได้สอดคล้องกับชนิดของสารที่คาดไว้เพียงใด?</p></article>
+</div>
+<div class="quick-quiz" data-answer="D" data-bloom="create" data-qid="den-create">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">ถ้าต้องหาความหนาแน่นของของแข็งรูปร่างไม่สม่ำเสมอด้วยขวดถ่วงจำเพาะ แนวทางใดเหมาะสมที่สุด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> วัดด้านกว้างยาวแล้วคูณกัน</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> ชั่งของแข็งอย่างเดียวแล้วเดาปริมาตร</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> เติมน้ำไม่เต็มขวดเพื่อให้ใส่ง่าย</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> ชั่งมวลตามลำดับขวดเปล่า ของแข็ง และขวดกับน้ำก่อนใช้สมการแทนที่</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> ใช้เฉพาะค่าความหนาแน่นของน้ำ</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+<section class="section band" data-title="ความรู้เพิ่มเติม" id="additional-knowledge">
+<header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
+<div class="prompt-card prompt-wide" style="margin: 0 auto;">
+<p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
+<span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
           แนวทางการเขียนความรู้เพิ่มเติม
         </p>
-        <p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
-        
-        <div class="q-grid" style="text-align: left;">
-          <article class="q-card">
-            <span class="q-no">01</span>
-            <p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
-          </article>
-          <article class="q-card" style="border-bottom: none;">
-            <span class="q-no">02</span>
-            <p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <nav class="stepper" aria-label="นำทางทีละส่วน"><button type="button" id="prevSec" aria-label="ส่วนก่อนหน้า">‹</button><span id="stepLabel">บทนำ</span><button type="button" id="nextSec" aria-label="ส่วนถัดไป">›</button></nav>
-  <div class="present-bar" id="presentBar" hidden><span class="present-label">▶ โหมดนำเสนอ</span><button type="button" id="presentPrev" aria-label="สไลด์ก่อนหน้า">‹</button><span id="presentCounter">1 / 14</span><button type="button" id="presentNext" aria-label="สไลด์ถัดไป">›</button><button type="button" id="presentExit" class="present-exit">✕ ออก (Esc)</button></div>
-  <div class="present-progress" id="presentProgress" aria-hidden="true"><span></span></div>
-  <div class="toast" id="toast" role="status" aria-live="polite" hidden><span id="toastMsg"></span><button type="button" id="toastUndo">เลิกทำ</button></div>
-  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="ภาพขยายอุปกรณ์"><div class="lightbox-inner"><button class="lightbox-close" id="lightboxClose" type="button" aria-label="ปิดภาพขยาย">✕</button><div class="lightbox-body" id="lightboxBody"></div></div></div>
-  <noscript><p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่การคำนวณและปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p></noscript>
+<p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
+<div class="q-grid" style="text-align: left;">
+<article class="q-card">
+<span class="q-no">01</span>
+<p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
+</article>
+<article class="q-card" style="border-bottom: none;">
+<span class="q-no">02</span>
+<p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
+</article>
+</div>
+</div>
+</section>
+</main>
+<nav aria-label="นำทางทีละส่วน" class="stepper"><button aria-label="ส่วนก่อนหน้า" id="prevSec" type="button">‹</button><span id="stepLabel">บทนำ</span><button aria-label="ส่วนถัดไป" id="nextSec" type="button">›</button></nav>
+<div class="present-bar" hidden="" id="presentBar"><span class="present-label">▶ โหมดนำเสนอ</span><button aria-label="สไลด์ก่อนหน้า" id="presentPrev" type="button">‹</button><span id="presentCounter">1 / 14</span><button aria-label="สไลด์ถัดไป" id="presentNext" type="button">›</button><button class="present-exit" id="presentExit" type="button">✕ ออก (Esc)</button></div>
+<div aria-hidden="true" class="present-progress" id="presentProgress"><span></span></div>
+<div aria-live="polite" class="toast" hidden="" id="toast" role="status"><span id="toastMsg"></span><button id="toastUndo" type="button">เลิกทำ</button></div>
+<div aria-label="ภาพขยายอุปกรณ์" aria-modal="true" class="lightbox" hidden="" id="lightbox" role="dialog"><div class="lightbox-inner"><button aria-label="ปิดภาพขยาย" class="lightbox-close" id="lightboxClose" type="button">✕</button><div class="lightbox-body" id="lightboxBody"></div></div></div>
+<noscript><p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่การคำนวณและปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p></noscript>
 </body>
 </html>

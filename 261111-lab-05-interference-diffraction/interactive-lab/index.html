@@ -1,386 +1,359 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="th">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lab 05 · การแทรกสอดและการเลี้ยวเบนของแสง · Lab Brief</title>
-  <meta name="description" content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261111 บทที่ 5 การแทรกสอดและการเลี้ยวเบนของแสง">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E05%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../../shared/drafting-sheet.css?v=10">
-  <link rel="stylesheet" href="styles.css?v=1">
-  <script defer src="../../shared/brief-core.js?v=7"></script>
-  <script defer src="js/app.js?v=1"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Lab 05 · การแทรกสอดและการเลี้ยวเบนของแสง · Lab Brief</title>
+<meta content="Lab Brief แบบโต้ตอบสำหรับปฏิบัติการฟิสิกส์ 261111 บทที่ 5 การแทรกสอดและการเลี้ยวเบนของแสง" name="description"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3E05%3C/text%3E%3C/svg%3E" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link href="../../shared/drafting-sheet.css?v=10" rel="stylesheet"/>
+<link href="styles.css?v=1" rel="stylesheet"/>
+<script defer="" src="../../shared/brief-core.js?v=7"></script>
+<script defer="" src="js/app.js?v=1"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
-  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
-
-  <header class="topbar" id="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="#hero" aria-label="กลับสู่ด้านบน"><span class="brand-badge">05</span><span class="brand-text"><strong>แทรกสอด–เลี้ยวเบน</strong><small>261111 · ปฏิบัติการฟิสิกส์</small></span></a>
-      <nav class="phase-nav" id="chipNav" aria-label="สารบัญบทปฏิบัติการ">
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">เริ่มต้น</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#hero">บทนำ</a><a class="chip" role="menuitem" href="#hook">ชวนคิด</a><a class="chip" role="menuitem" href="#objectives">จุดประสงค์</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">หลักการ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#concept">แนวคิดหลัก</a><a class="chip" role="menuitem" href="#theory">ทฤษฎี</a><a class="chip" role="menuitem" href="#equipment">อุปกรณ์</a><a class="chip" role="menuitem" href="#formula">สูตร</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">ลงมือทำ</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#procedure">ขั้นตอน</a><a class="chip" role="menuitem" href="#data">ตารางข้อมูล</a><a class="chip" role="menuitem" href="#example">ตัวอย่าง</a><a class="chip" role="menuitem" href="#checkpoint">ตรวจสอบ</a></div></div>
-        <div class="phase"><button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">สรุปผล</button><div class="phase-menu" role="menu"><a class="chip" role="menuitem" href="#analysis">วิเคราะห์</a><a class="chip" role="menuitem" href="#additional-knowledge">ความรู้เพิ่มเติม</a><a class="chip" role="menuitem" href="#conclusion">สรุป</a><a class="chip" role="menuitem" href="#discussion">อภิปราย</a></div></div>
-      </nav>
-      <div class="topbar-meta">
-        <span class="sec-counter" aria-hidden="true"><b id="secNow">01</b><span>/14</span></span>
-        <div class="ratio-seg" role="group" aria-label="อัตราส่วนการแสดงผล"><span class="ratio-seg-ico" aria-hidden="true">▭</span><button type="button" data-ratio="full" aria-pressed="true">จอเต็ม</button><button type="button" data-ratio="43" aria-pressed="false">4:3</button><button type="button" data-ratio="169" aria-pressed="false">16:9</button></div>
-        <button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
-      </div>
-    </div>
-    <div class="read-progress" role="progressbar" aria-label="ความคืบหน้าการอ่าน" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="readBar"></span></div>
-  </header>
-
-  <main id="main">
-    <section class="section hero" id="hero" data-title="บทนำ">
-      <div class="hero-top"><p class="hero-eyebrow">261111 · ปฏิบัติการฟิสิกส์ · บทที่ 05</p><h1 class="hero-title">การแทรกสอดและการเลี้ยวเบนของแสง</h1></div>
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <figure class="hero-question"><figcaption class="hq-tag">คำถามชวนคิด</figcaption><blockquote class="hq-text">ทำไมแสงเลเซอร์ผ่านช่องแคบ ๆ จึงเกิด <strong>แถบสว่าง-มืดสลับกัน</strong> บนฉาก? และเราใช้ลวดลายนั้น <strong>วัดความยาวคลื่นแสง</strong> และ <strong>ความกว้างช่อง</strong> ได้อย่างไร</blockquote></figure>
-          <ul class="hero-meta"><li><span class="hm-num">λ</span><span class="hm-label">เลเซอร์ ≈ 650 nm (สีแดง · ใช้เทียบผล)</span></li></ul>
-          <div class="hero-actions"><a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a><a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a></div>
-        </div>
-        <figure class="hero-visual">
-          <span class="fig-tag">FIG.1 · แถบแทรกสอดจากสลิตคู่</span>
-          <svg viewBox="0 0 460 240" role="img" aria-label="แผนภาพชุดทดลองการแทรกสอด: เลเซอร์ สลิตคู่ และฉากรับแถบ">
-            <defs>
-              <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#edf2fc"/><stop offset="1" stop-color="#c1d1ed"/></linearGradient>
-            </defs>
-            <line x1="18" y1="216" x2="442" y2="216" stroke="#cddffb" stroke-width="2"/>
-            <!-- เลเซอร์ -->
-            <rect x="22" y="104" width="36" height="32" rx="5" fill="url(#metalGrad)" stroke="#9fb4d6" stroke-width="1"/>
-            <rect x="29" y="113" width="11" height="14" rx="2" fill="#1d4fd0"/>
-            <circle cx="58" cy="120" r="2.4" fill="#d9480f"/>
-            <line x1="58" y1="120" x2="148" y2="120" stroke="#2563eb" stroke-width="2.5"/>
-            <!-- สลิตคู่ (barrier with two slits) -->
-            <g fill="#8ea7cf"><rect x="148" y="40" width="9" height="66" rx="2"/><rect x="148" y="118" width="9" height="8" rx="1"/><rect x="148" y="138" width="9" height="62" rx="2"/></g>
-            <!-- ลำแสงเลี้ยวเบนจากสองสลิตซ้อนทับกัน -->
-            <g stroke="#2563eb" stroke-width="1.4" fill="none" opacity=".8"><path d="M157,112 L418,60"/><path d="M157,112 L418,120"/><path d="M157,112 L418,180"/><path d="M157,132 L418,60"/><path d="M157,132 L418,120"/><path d="M157,132 L418,180"/></g>
-            <!-- ฉาก + เส้นความเข้ม (fringe envelope) + แถบสว่าง -->
-            <rect x="418" y="36" width="11" height="168" rx="2" fill="#e6eefc" stroke="#9fb4d6" stroke-width="1"/>
-            <path d="M409,42 Q401,51 409,60 Q400,75 409,90 Q396,105 409,120 Q400,135 409,150 Q400,165 409,180 Q401,189 409,198" fill="none" stroke="#2563eb" stroke-width="1.6" opacity=".5"/>
-            <g fill="#d9480f"><circle cx="424" cy="60" r="3"/><circle cx="424" cy="90" r="3"/><circle cx="424" cy="120" r="4"/><circle cx="424" cy="150" r="3"/><circle cx="424" cy="180" r="3"/></g>
-            <!-- ป้ายกำกับ + y -->
-            <text x="40" y="92" class="d-label" text-anchor="middle">เลเซอร์</text>
-            <text x="152" y="32" class="d-label" text-anchor="middle">สลิตคู่ d</text>
-            <text x="400" y="28" class="d-label">ฉาก (L)</text>
-            <line class="dim" x1="440" y1="120" x2="440" y2="150"/><text class="dim-txt" x="452" y="138" transform="rotate(90 452 138)">y</text>
-          </svg>
-          <figcaption>ระยะแถบ \(y\) สัมพันธ์กับ \(\lambda\), \(L\), \(d\) ตาม \(y=m\lambda L/d\)</figcaption>
-        </figure>
-      </div>
-      <p class="scroll-hint" aria-hidden="true">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
-    </section>
-
-    <section class="section" id="hook" data-title="ชวนคิด">
-      <header class="section-head"><div><p class="kicker">ชวนคิดก่อนเริ่ม</p><h2>แสงเป็นคลื่นจริงไหม?</h2></div></header>
-      <div class="split">
-        <div class="prose"><p>ถ้าแสงเป็นเพียงลำตรง ผ่านช่องแคบควรได้แถบสว่างเดียว แต่จริง ๆ กลับได้ <strong>แถบสว่าง-มืดสลับ</strong> — หลักฐานว่าแสงเป็น <strong>คลื่น</strong> ที่แทรกสอดและเลี้ยวเบนได้</p><p>เมื่อรู้ลวดลายและระยะ เราย้อนหา \(\lambda\) ของแสง หรือความกว้างช่อง \(a\) ได้</p></div>
-                <aside class="prompt-card bloom-quiz-panel">
-          <p class="prompt-tag">ตรวจความเข้าใจ</p>
-          <div class="quick-quiz" data-qid="id-remember" data-bloom="remember" data-answer="B">
-            <p class="quiz-label">คำถามสั้น</p>
-            <h3 class="prompt-q">เงื่อนไขแถบสว่างของการแทรกสอดจากสลิตคู่คือข้อใด?</h3>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> \(a\sin\theta=m\lambda\)</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> \(d\sin\theta=m\lambda\)</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> \(d\cos\theta=m\lambda\)</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> \(a\cos\theta=m\lambda\)</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> \(L\sin\theta=d\)</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="objectives" data-title="จุดประสงค์">
-      <header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
-      <ol class="objective-list">
-        <li><span class="obj-no">1</span><div><h3>ศึกษาการแทรกสอดของแสง</h3><p>ใช้สลิตคู่หาความยาวคลื่นของเลเซอร์จากระยะแถบสว่าง \(\lambda=d\,y/(mL)\)</p></div></li>
-        <li><span class="obj-no">2</span><div><h3>ศึกษาการเลี้ยวเบนของแสง</h3><p>ใช้สลิตเดี่ยวหาความกว้างช่องจากระยะแถบมืด \(a=m\lambda L/y\)</p></div></li>
-      </ol>
-      <div class="note note-info"><span class="note-icon" aria-hidden="true">◆</span><p><span class="note-kind">ควรรู้</span><strong>สิ่งที่จะได้ลงมือทำ:</strong> ฉายเลเซอร์ผ่านสลิตคู่/สลิตเดี่ยว · วัดระยะแถบ \(y\) และระยะฉาก \(L\) · คำนวณ \(\lambda\) และ \(a\) เทียบค่าจริง</p></div>
-    </section>
-
-    <section class="section band" id="concept" data-title="แนวคิดหลัก">
-      <header class="section-head"><div><p class="kicker">ภาพรวมแนวคิด</p><h2>แทรกสอด vs เลี้ยวเบน</h2></div></header>
-      <p class="lead">เมื่อคลื่นแสงสองขบวน (หรือส่วนของหน้าคลื่นเดียว) มารวมกัน เฟสที่ต่างกันทำให้เสริมกัน (สว่าง) หรือหักล้างกัน (มืด) เป็นลวดลายที่ทำนายได้</p>
-      <div class="card-grid cols-3">
-        <article class="info-card"><span class="ic-step">A</span><h3>แทรกสอดสลิตคู่</h3><p>แถบสว่างเมื่อ \(d\sin\theta=m\lambda\); มุมเล็ก \(y_m=m\lambda L/d\)</p></article>
-        <article class="info-card"><span class="ic-step">B</span><h3>เลี้ยวเบนช่องเดี่ยว</h3><p>แถบมืดแรกเมื่อ \(a\sin\theta=m\lambda\) — ช่องแคบลงลวดลายกว้างขึ้น</p></article>
-        <article class="info-card"><span class="ic-step">C</span><h3>มุมเล็ก</h3><p>เมื่อ \(L\gg y\): \(\sin\theta\approx\tan\theta=y/L\) ทำให้คำนวณได้ง่าย</p></article>
-      </div>
-    </section>
-
-    <section class="section spotlight" id="theory" data-title="ทฤษฎี">
-      <header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>จากลวดลายสู่ตัวเลข</h2></div></header>
-      <div class="theory-grid">
-        <div class="prose">
-          <p><strong>สลิตคู่:</strong> ผลต่างทางเดิน \(\delta=d\sin\theta\) แถบสว่างเมื่อ \(\delta=m\lambda\) มุมเล็ก \(\sin\theta\approx y/L\) จึงได้</p>
-          <p class="derive">\[\lambda=\dfrac{d\,y}{mL}\]</p>
-          <p><strong>สลิตเดี่ยว:</strong> แถบมืดเมื่อ \(a\sin\theta=m\lambda\) มุมเล็กได้</p>
-          <p class="derive">\[a=\dfrac{m\lambda L}{y}\]</p>
-          <ul class="tick-list"><li>วัด \(y\) จากแถบกลาง (m=0) ออกไป</li><li>ยิ่งห่างจากแถบกลาง อันดับ \(m\) สูงขึ้น</li><li>วัด \(L\) จากสลิตถึงฉากตามแนวตั้งฉาก</li></ul>
-        </div>
-                <aside class="prompt-card bloom-quiz-panel">
-          <p class="prompt-tag">ตรวจความเข้าใจ</p>
-          <div class="quick-quiz" data-qid="id-understand" data-bloom="understand" data-answer="D">
-            <p class="quiz-label">คำถามสั้น</p>
-            <h3 class="prompt-q">ถ้าระยะระหว่างสลิต \(d\) เล็กลง โดย \(\lambda\) และ \(L\) คงที่ แถบสว่างจะเปลี่ยนอย่างไร?</h3>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> ชิดกันมากขึ้น</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> หายไปทั้งหมด</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> กว้างเท่าเดิม</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ห่างกันมากขึ้น</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> สว่างเท่ากันทุกตำแหน่ง</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-          <div class="quick-quiz" data-qid="id-apply" data-bloom="apply" data-answer="C">
-            <p class="quiz-label">คำถามสั้น</p>
-            <h3 class="prompt-q">สลิตคู่มี \(d=0.25\,\mathrm{mm}\), \(L=1.0\,\mathrm{m}\), \(\lambda=650\,\mathrm{nm}\) แถบอันดับหนึ่งอยู่ห่างกลางประมาณเท่าใด?</h3>
-            <div class="quiz-options">
-              <button type="button" data-quiz-option="A"><b class="qo-key">A</b> 0.26 mm</button>
-              <button type="button" data-quiz-option="B"><b class="qo-key">B</b> 1.3 mm</button>
-              <button type="button" data-quiz-option="C"><b class="qo-key">C</b> 2.6 mm</button>
-              <button type="button" data-quiz-option="D"><b class="qo-key">D</b> 26 mm</button>
-              <button type="button" data-quiz-option="E"><b class="qo-key">E</b> 260 mm</button>
-            </div>
-            <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="equipment" data-title="อุปกรณ์">
-      <header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
-      <div class="card-grid cols-3 equip-grid">
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: เลเซอร์"><img src="assets/equip/equip-1.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>เลเซอร์ (≈650 nm)</h3><p>แหล่งกำเนิดแสงอาพันธ์ (coherent) สีเดียว จำเป็นต่อการเกิดลวดลายแทรกสอด/เลี้ยวเบนที่คมชัด</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: สลิตคู่"><img src="assets/equip/equip-2.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>สลิตคู่ (d = 120 µm)</h3><p>ช่องแคบสองช่องระยะห่าง \(d\) ที่ทราบค่า ใช้หาความยาวคลื่นจากระยะแถบสว่าง</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: สลิตเดี่ยว"><img src="assets/equip/equip-3.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>สลิตเดี่ยว</h3><p>ช่องแคบช่องเดียวที่ต้องการหาความกว้าง \(a\) จากระยะแถบมืดของลวดลายเลี้ยวเบน</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ฉากรับภาพ"><img src="assets/equip/equip-4.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ฉากรับภาพ</h3><p>รับลวดลายแถบสว่าง-มืด วางขนานกับสลิต ตั้งฉากกับลำแสง เพื่อให้วัดระยะแถบ \(y\) ได้ตรง</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ไม้เมตร"><img src="assets/equip/equip-5.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ไม้เมตร / สเกล</h3><p>วัดระยะฉาก \(L\) จากสลิตถึงฉาก และระยะแถบ \(y\) บนฉาก</p></figcaption></figure>
-        <figure class="equip-card"><button class="equip-photo" type="button" data-photo aria-label="ดูภาพขยาย: ฐานจับอุปกรณ์"><img src="assets/equip/equip-6.webp" alt="" width="1200" height="675" loading="lazy" decoding="async"><span class="equip-zoom" aria-hidden="true">⤢ ดูภาพขยาย</span></button><figcaption><h3>ฐานจับ / ราง</h3><p>ยึดเลเซอร์ สลิต และฉากให้อยู่ในแนวเดียวกันและระยะคงที่ระหว่างวัด</p></figcaption></figure>
-      </div>
-    </section>
-
-    <section class="section" id="formula" data-title="สูตร">
-      <header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
-      <div class="card-grid cols-3">
-        <article class="formula-card"><h3>แทรกสอดสลิตคู่ (สว่าง)</h3><p class="formula">\[d\sin\theta=m\lambda\]</p><p class="formula-note">\(m=0,\pm1,\pm2,\dots\)</p></article>
-        <article class="formula-card formula-accent"><h3>ความยาวคลื่น</h3><p class="formula">\[\lambda=\dfrac{d\,y}{mL}\]</p><p class="formula-note">มุมเล็ก \(\sin\theta\approx y/L\)</p></article>
-        <article class="formula-card"><h3>เลี้ยวเบนช่องเดี่ยว (มืด)</h3><p class="formula">\[a\sin\theta=m\lambda\]</p><p class="formula-note">\(m=\pm1,\pm2,\dots\)</p></article>
-        <article class="formula-card"><h3>ความกว้างช่อง</h3><p class="formula">\[a=\dfrac{m\lambda L}{y}\]</p><p class="formula-note">จากระยะแถบมืด</p></article>
-        <article class="formula-card"><h3>ผลต่างทางเดิน</h3><p class="formula">\[\delta=d\sin\theta\]</p><p class="formula-note">เสริม = \(m\lambda\) · หักล้าง = \((m-\tfrac12)\lambda\)</p></article>
-        <article class="formula-card"><h3>ร้อยละความคลาดเคลื่อน</h3><p class="formula">\[\%\,\mathrm{err}=\dfrac{|x-x_{\mathrm{จริง}}|}{x_{\mathrm{จริง}}}\times100\]</p><p class="formula-note">\(\lambda_{\mathrm{จริง}}=650\,nm\) · \(a_{\mathrm{จริง}}=75\,\mu m\)</p></article>
-      </div>
-    </section>
-
-    <section class="section" id="procedure" data-title="ขั้นตอน">
-      <header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
-      <ol class="steps">
-        <li><span class="step-n">1</span><div><h3>จัดแนวอุปกรณ์</h3><p>วางเลเซอร์ สลิต และฉากในแนวเดียวกัน ลำแสงตั้งฉากกับฉาก</p><p class="step-caution"><b>ระวัง:</b> เลเซอร์ สลิต และฉากต้องอยู่แนวเดียวและตั้งฉาก วัดระยะ L ให้แม่น</p></div></li>
-        <li><span class="step-n">2</span><div><h3>ตอนที่ 1 · สลิตคู่</h3><p>ฉายผ่านสลิตคู่ (\(d=120\,\mu m\)) ระบุแถบกลาง วัดระยะแถบสว่างอันดับ \(m\) ที่ระยะ \(y\) และระยะฉาก \(L\)</p><p class="step-caution"><b>ระวัง:</b> วัดระยะ y จากกึ่งกลางลายให้ตรงอันดับ m ที่ถูกต้อง</p></div></li>
-        <li><span class="step-n">3</span><div><h3>คำนวณ λ</h3><p>หา \(\lambda=d\,y/(mL)\) หลายอันดับแล้วเฉลี่ย เทียบกับ 650 nm</p><p class="step-caution"><b>ระวัง:</b> ใช้หน่วยให้ตรงกัน (d, y, L) ก่อนแทนในสูตรหา λ</p></div></li>
-        <li><span class="step-n">4</span><div><h3>ตอนที่ 2 · สลิตเดี่ยว</h3><p>เปลี่ยนเป็นสลิตเดี่ยว ฉายเลเซอร์ 650 nm วัดระยะแถบมืดอันดับ \(m\) ที่ระยะ \(y\)</p><p class="step-caution"><b>ระวัง:</b> นับอันดับ m ของสลิตเดี่ยวจากตำแหน่งแถบมืด (minima) ไม่ใช่แถบสว่าง</p></div></li>
-        <li><span class="step-n">5</span><div><h3>คำนวณ a</h3><p>หา \(a=m\lambda L/y\) หลายอันดับแล้วเฉลี่ย เทียบกับ 75 µm</p><p class="step-caution"><b>ระวัง:</b> อย่ามองลำเลเซอร์เข้าตา และเฉลี่ยหลายอันดับเพื่อลดความคลาดเคลื่อน</p></div></li>
-      </ol>
-      <div class="note note-warn"><span class="note-icon" aria-hidden="true">!</span><div><span class="note-kind">ข้อควรระวัง</span><strong>ระวังระหว่างวัด</strong><ul><li>อย่ามองลำเลเซอร์เข้าตาโดยตรง</li><li>ระบุตำแหน่งแถบกลาง (m=0) ให้ชัดก่อนวัด</li><li>แถบอันดับสูงจางและอ่านยาก ระวังการนับอันดับผิด</li></ul></div></div>
-    </section>
-
-    <section class="section band" id="data" data-title="ตารางข้อมูล">
-      <header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>ตารางผลการทดลอง</h2></div></header>
-      <p class="lead">กรอกระยะฉาก \(L\), อันดับ \(m\) และระยะแถบ \(y\) ระบบคำนวณ \(\lambda\) (สลิตคู่) และ \(a\) (สลิตเดี่ยว) ให้อัตโนมัติ พร้อมร้อยละความคลาดเคลื่อน</p>
-      <div class="setup-inputs">
-        <label>ระยะสลิตคู่ <span class="u">\(d\) (µm)</span><input id="dSlit" data-store="dSlit" type="number" min="0" step="1" value="120" inputmode="decimal"></label>
-        <label>ความยาวคลื่นเลเซอร์ <span class="u">\(\lambda\) (nm)</span><input id="lamLaser" data-store="lamLaser" type="number" min="0" step="1" value="650" inputmode="decimal"></label>
-        <label>ความกว้างช่องจริง <span class="u">\(a_{\mathrm{จริง}}\) (µm)</span><input id="aRef" data-store="aRef" type="number" min="0" step="1" value="75" inputmode="decimal"></label>
-      </div>
-
-      <div class="worksheet-block">
-        <h3>ตอนที่ 1 · สลิตคู่ → หาความยาวคลื่น</h3>
-        <aside class="note note-warn note-block" style="margin-bottom:1rem;">
-          <span class="note-icon" aria-hidden="true">!</span>
-          <div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
-          <p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
-        </aside>
-        <div class="table-wrap">
-          <table class="data-table">
-          <thead><tr><th scope="col">\(L\) (m)</th><th scope="col">อันดับ \(m\)</th><th scope="col">\(y\) (mm)</th><th scope="col">\(\lambda=d\,y/(mL)\) (nm)</th></tr></thead>
-          <tbody id="dsBody">
-            <tr data-row="0"><td><input data-L data-store="ds_L0" type="number" step="0.01" inputmode="decimal"></td><td><input data-m data-store="ds_m0" type="number" step="1" inputmode="decimal"></td><td><input data-y data-store="ds_y0" type="number" step="0.1" inputmode="decimal"></td><td data-lam>—</td></tr>
-            <tr data-row="1"><td><input data-L data-store="ds_L1" type="number" step="0.01" inputmode="decimal"></td><td><input data-m data-store="ds_m1" type="number" step="1" inputmode="decimal"></td><td><input data-y data-store="ds_y1" type="number" step="0.1" inputmode="decimal"></td><td data-lam>—</td></tr>
-            <tr data-row="2"><td><input data-L data-store="ds_L2" type="number" step="0.01" inputmode="decimal"></td><td><input data-m data-store="ds_m2" type="number" step="1" inputmode="decimal"></td><td><input data-y data-store="ds_y2" type="number" step="0.1" inputmode="decimal"></td><td data-lam>—</td></tr>
-            <tr data-row="3"><td><input data-L data-store="ds_L3" type="number" step="0.01" inputmode="decimal"></td><td><input data-m data-store="ds_m3" type="number" step="1" inputmode="decimal"></td><td><input data-y data-store="ds_y3" type="number" step="0.1" inputmode="decimal"></td><td data-lam>—</td></tr>
-          </tbody>
-        </table></div>
-      </div>
-
-      <div class="worksheet-block">
-        <h3>ตอนที่ 2 · สลิตเดี่ยว → หาความกว้างช่อง</h3>
-        <aside class="note note-warn note-block" style="margin-bottom:1rem;">
-          <span class="note-icon" aria-hidden="true">!</span>
-          <div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
-          <p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
-        </aside>
-        <div class="table-wrap">
-          <table class="data-table">
-          <thead><tr><th scope="col">\(L\) (m)</th><th scope="col">อันดับ \(m\)</th><th scope="col">\(y\) (mm)</th><th scope="col">\(a=m\lambda L/y\) (µm)</th></tr></thead>
-          <tbody id="ssBody">
-            <tr data-row="0"><td><input data-L data-store="ss_L0" type="number" step="0.01" inputmode="decimal"></td><td><input data-m data-store="ss_m0" type="number" step="1" inputmode="decimal"></td><td><input data-y data-store="ss_y0" type="number" step="0.1" inputmode="decimal"></td><td data-a>—</td></tr>
-            <tr data-row="1"><td><input data-L data-store="ss_L1" type="number" step="0.01" inputmode="decimal"></td><td><input data-m data-store="ss_m1" type="number" step="1" inputmode="decimal"></td><td><input data-y data-store="ss_y1" type="number" step="0.1" inputmode="decimal"></td><td data-a>—</td></tr>
-            <tr data-row="2"><td><input data-L data-store="ss_L2" type="number" step="0.01" inputmode="decimal"></td><td><input data-m data-store="ss_m2" type="number" step="1" inputmode="decimal"></td><td><input data-y data-store="ss_y2" type="number" step="0.1" inputmode="decimal"></td><td data-a>—</td></tr>
-            <tr data-row="3"><td><input data-L data-store="ss_L3" type="number" step="0.01" inputmode="decimal"></td><td><input data-m data-store="ss_m3" type="number" step="1" inputmode="decimal"></td><td><input data-y data-store="ss_y3" type="number" step="0.1" inputmode="decimal"></td><td data-a>—</td></tr>
-          </tbody>
-        </table></div>
-      </div>
-
-      <div class="result-summary">
-        <h3>ผลวิเคราะห์สด</h3>
-        <dl>
-          <div><dt>ความยาวคลื่นเฉลี่ย (สลิตคู่)</dt><dd id="lamAvgOutput">—</dd></div>
-          <div class="rs-em"><dt>คลาดเคลื่อน λ (เทียบ 650 nm)</dt><dd id="lamErrOutput">—</dd></div>
-          <div><dt>ความกว้างช่องเฉลี่ย (สลิตเดี่ยว)</dt><dd id="aAvgOutput">—</dd></div>
-          <div class="rs-em"><dt>คลาดเคลื่อน a (เทียบ 75 µm)</dt><dd id="aErrOutput">—</dd></div>
-        </dl>
-      </div>
-      <div class="actions-row"><button type="button" class="btn btn-soft" id="resetTable">ล้างข้อมูลตาราง</button><span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span></div>
-    </section>
-
-    <section class="section" id="example" data-title="ตัวอย่าง">
-      <header class="section-head"><div><p class="kicker">ทำตามทีละบรรทัด</p><h2>ตัวอย่างการคำนวณ</h2></div></header>
-      <p class="lead">ตัวอย่างค่าสมมติเพื่อแสดงวิธีแทนค่า (ไม่ใช่ค่าจากการทดลองจริง)</p>
-      <div class="reveal-controls"><button type="button" class="btn btn-primary" id="exampleShow">แสดงตัวอย่างการคำนวณ</button><button type="button" class="btn btn-ghost" id="exampleHide" hidden>ซ่อนตัวอย่าง</button></div>
-      <div class="example-body" id="exampleBody" hidden></div>
-    </section>
-
-    <section class="section" id="checkpoint" data-title="ตรวจสอบ">
-      <header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
-      <div class="prompt-card prompt-wide">
-        <p class="prompt-tag">คำถามท้าทาย</p>
-        <p class="prompt-q">ถ้าเลื่อนฉากให้ <strong>ไกลออกไป 2 เท่า</strong> (เพิ่ม \(L\)) ระยะระหว่างแถบสว่าง \(y\) จะเปลี่ยนอย่างไร?</p>
-        <div class="reveal-controls"><button type="button" class="btn btn-primary" id="answerShow">แสดงคำตอบ</button><button type="button" class="btn btn-ghost" id="answerHide" hidden>ซ่อนคำตอบ</button></div>
-        <div class="answer-body" id="answerBody" hidden>
-          <p>จาก \(y=m\lambda L/d\) ระยะแถบ \(y\) แปรผันตรงกับ \(L\) → เพิ่ม \(L\) เป็น 2 เท่า \(y\) <strong>กว้างขึ้น 2 เท่า</strong></p>
-          <ul class="tick-list"><li>ทำให้วัดได้ละเอียดขึ้น (แถบห่างกัน)</li><li>แต่ความเข้มลดลง แถบจางลง</li></ul>
-          <p class="muted">บทเรียน: เลือก \(L\) ให้แถบห่างพอจะวัดง่าย แต่ยังสว่างพอมองเห็น</p>
-        </div>
-      </div>
-      <div class="quick-quiz" data-qid="id-analyze" data-bloom="analyze" data-answer="B">
-        <p class="quiz-label">คำถามสั้น</p>
-        <h3 class="prompt-q">ถ้าวัดระยะสลิตถึงฉาก \(L\) มากกว่าความจริง ค่า \(\lambda=dy/(mL)\) ที่คำนวณจะเป็นอย่างไร?</h3>
-        <div class="quiz-options">
-          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> สูงกว่าความจริง</button>
-          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> ต่ำกว่าความจริง</button>
-          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> ไม่เปลี่ยน</button>
-          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> เป็นศูนย์</button>
-          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ขึ้นกับสีของฉากเท่านั้น</button>
-        </div>
-        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="section" id="analysis" data-title="วิเคราะห์">
-      <header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
-      <div class="split">
-        <ol class="analysis-steps">
-          <li>คำนวณ \(\lambda\) ทุกอันดับของสลิตคู่ แล้วเฉลี่ย เทียบ 650 nm</li>
-          <li>คำนวณ \(a\) ทุกอันดับของสลิตเดี่ยว แล้วเฉลี่ย เทียบ 75 µm</li>
-          <li>รายงานร้อยละความคลาดเคลื่อนของทั้งสองตอน</li>
-          <li>อภิปรายว่าอันดับสูง (แถบจาง) ทำให้ค่าคลาดเคลื่อนมากขึ้นหรือไม่</li>
-        </ol>
-        <aside class="note note-info note-block"><span class="note-icon" aria-hidden="true">◆</span><div><span class="note-kind">ควรรู้</span><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>การระบุตำแหน่งแถบกลางและการนับอันดับ</li><li>การวัดระยะ \(y\) ของแถบจาง</li><li>การวัดระยะฉาก \(L\) และการตั้งฉาก</li></ul></div></aside>
-      </div>
-      <div class="quick-quiz" data-qid="id-evaluate" data-bloom="evaluate" data-answer="D">
-        <p class="quiz-label">คำถามสั้น</p>
-        <h3 class="prompt-q">หลักฐานแบบใดสนับสนุนธรรมชาติแบบคลื่นของแสงได้ดีที่สุดในการทดลองนี้?</h3>
-        <div class="quiz-options">
-          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> เห็นจุดสว่างเพียงจุดเดียว</button>
-          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> เลเซอร์เดินทางเป็นเส้นตรง</button>
-          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> ฉากมีสีขาว</button>
-          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> พบแถบสว่าง–มืดสลับและตำแหน่งสอดคล้องกับอันดับ \(m\)</button>
-          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ค่าระยะ \(L\) มากกว่าศูนย์</button>
-        </div>
-        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="section spotlight" id="conclusion" data-title="สรุป">
-      <header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
-      <div class="conclusion-grid">
-        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong>&nbsp;จากข้อมูลของคุณเอง</p>
-        <ul class="conclusion-points">
-          <li><span class="cp-ico">1</span><div><h3>รายงานความยาวคลื่น</h3><p>ระบุ \(\lambda\) เฉลี่ยจากสลิตคู่ พร้อมหน่วย nm</p></div></li>
-          <li><span class="cp-ico">2</span><div><h3>รายงานความกว้างช่อง</h3><p>ระบุ \(a\) เฉลี่ยจากสลิตเดี่ยว พร้อมหน่วย µm</p></div></li>
-          <li><span class="cp-ico">3</span><div><h3>เทียบกับค่าจริง</h3><p>รายงานร้อยละความคลาดเคลื่อนเทียบ \(\lambda=650\,nm\) และ \(a=75\,\mu m\)</p></div></li>
-          <li><span class="cp-ico">4</span><div><h3>อภิปรายแหล่งคลาดเคลื่อน</h3><p>ระบุสาเหตุหลัก เช่น การนับอันดับ การวัด \(y\) ของแถบจาง และการตั้งฉากของฉาก</p></div></li>
-
-          <li class="cp-extra"><span class="cp-ico">5</span><div><h3>ความรู้ที่ได้เพิ่มเติม</h3><p>เขียนสิ่งที่ค้นคว้าหรือควรรู้เพิ่มเติมจากการทดลองนี้ด้วยคำพูดของตนเอง เช่น การนำหลักการไปใช้ในสถานการณ์จริง ความเชื่อมโยงกับเนื้อหาอื่น หรือเทคนิคลดความคลาดเคลื่อนที่ค้นพบระหว่างทำการทดลอง</p></div></li>
-        </ul>
-      </div>
-      <p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
-    </section>
-
-    <section class="section band" id="discussion" data-title="อภิปราย">
-      <header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
-      <div class="q-grid">
-        <article class="q-card"><span class="q-no">Q1</span><p>เหตุใดต้องใช้แสงอาพันธ์ (coherent) สีเดียวจึงเห็นลวดลายชัด?</p></article>
-        <article class="q-card"><span class="q-no">Q2</span><p>แทรกสอด (สลิตคู่) กับเลี้ยวเบน (สลิตเดี่ยว) ต่างกันอย่างไร?</p></article>
-        <article class="q-card"><span class="q-no">Q3</span><p>ถ้าใช้เลเซอร์สีน้ำเงิน (\(\lambda\) สั้นกว่า) ลวดลายจะเปลี่ยนอย่างไร?</p></article>
-        <article class="q-card"><span class="q-no">Q4</span><p>เหตุใดการวัดอันดับสูง ๆ จึงคลาดเคลื่อนมากกว่า?</p></article>
-        <article class="q-card"><span class="q-no">Q5</span><p>ข้อมูลของกลุ่มสนับสนุนว่าแสงเป็นคลื่นเพียงใด?</p></article>
-      </div>
-      <div class="quick-quiz" data-qid="id-create" data-bloom="create" data-answer="C">
-        <p class="quiz-label">คำถามสั้น</p>
-        <h3 class="prompt-q">หากแถบอยู่ชิดกันมากจนวัดหนึ่งช่วงได้ไม่แม่น ควรออกแบบการวัดอย่างไร?</h3>
-        <div class="quiz-options">
-          <button type="button" data-quiz-option="A"><b class="qo-key">A</b> วัดจากขอบสลิตโดยตรง</button>
-          <button type="button" data-quiz-option="B"><b class="qo-key">B</b> เลือกแถบที่สว่างที่สุดเพียงแถบเดียว</button>
-          <button type="button" data-quiz-option="C"><b class="qo-key">C</b> วัดระยะคร่อมหลายช่วงแล้วหารด้วยจำนวนช่วง</button>
-          <button type="button" data-quiz-option="D"><b class="qo-key">D</b> ลดระยะฉากจนเกือบศูนย์</button>
-          <button type="button" data-quiz-option="E"><b class="qo-key">E</b> ใช้ค่าที่คาดจากทฤษฎีแทนการวัด</button>
-        </div>
-        <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="section band" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
-      <header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
-            <div class="prompt-card prompt-wide" style="margin: 0 auto;">
-        <p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
-          <span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
+<a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+<span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+<header class="topbar" id="topbar">
+<div class="topbar-inner">
+<a aria-label="กลับสู่ด้านบน" class="brand" href="#hero"><span class="brand-badge">05</span><span class="brand-text"><strong>แทรกสอด–เลี้ยวเบน</strong><small>261111 · ปฏิบัติการฟิสิกส์</small></span></a>
+<nav aria-label="สารบัญบทปฏิบัติการ" class="phase-nav" id="chipNav">
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">เริ่มต้น</button><div class="phase-menu" role="menu"><a class="chip" href="#hero" role="menuitem">บทนำ</a><a class="chip" href="#hook" role="menuitem">ชวนคิด</a><a class="chip" href="#objectives" role="menuitem">จุดประสงค์</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">หลักการ</button><div class="phase-menu" role="menu"><a class="chip" href="#concept" role="menuitem">แนวคิดหลัก</a><a class="chip" href="#theory" role="menuitem">ทฤษฎี</a><a class="chip" href="#equipment" role="menuitem">อุปกรณ์</a><a class="chip" href="#formula" role="menuitem">สูตร</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">ลงมือทำ</button><div class="phase-menu" role="menu"><a class="chip" href="#procedure" role="menuitem">ขั้นตอน</a><a class="chip" href="#data" role="menuitem">ตารางข้อมูล</a><a class="chip" href="#example" role="menuitem">ตัวอย่าง</a><a class="chip" href="#checkpoint" role="menuitem">ตรวจสอบ</a></div></div>
+<div class="phase"><button aria-expanded="false" aria-haspopup="true" class="phase-btn" type="button">สรุปผล</button><div class="phase-menu" role="menu"><a class="chip" href="#analysis" role="menuitem">วิเคราะห์</a><a class="chip" href="#additional-knowledge" role="menuitem">ความรู้เพิ่มเติม</a><a class="chip" href="#conclusion" role="menuitem">สรุป</a><a class="chip" href="#discussion" role="menuitem">อภิปราย</a></div></div>
+</nav>
+<div class="topbar-meta">
+<span aria-hidden="true" class="sec-counter"><b id="secNow">01</b><span>/14</span></span>
+<div aria-label="อัตราส่วนการแสดงผล" class="ratio-seg" role="group"><span aria-hidden="true" class="ratio-seg-ico">▭</span><button aria-pressed="true" data-ratio="full" type="button">จอเต็ม</button><button aria-pressed="false" data-ratio="43" type="button">4:3</button><button aria-pressed="false" data-ratio="169" type="button">16:9</button></div>
+<button class="present-toggle" id="presentToggle" type="button">▶ นำเสนอ</button>
+</div>
+</div>
+<div aria-label="ความคืบหน้าการอ่าน" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="read-progress" role="progressbar"><span id="readBar"></span></div>
+</header>
+<main id="main">
+<section class="section hero" data-title="บทนำ" id="hero">
+<div class="hero-top"><p class="hero-eyebrow">261111 · ปฏิบัติการฟิสิกส์ · บทที่ 05</p><h1 class="hero-title">การแทรกสอดและการเลี้ยวเบนของแสง</h1></div>
+<div class="hero-grid">
+<div class="hero-copy">
+<figure class="hero-question"><figcaption class="hq-tag">คำถามชวนคิด</figcaption><blockquote class="hq-text">ทำไมแสงเลเซอร์ผ่านช่องแคบ ๆ จึงเกิด <strong>แถบสว่าง-มืดสลับกัน</strong> บนฉาก? และเราใช้ลวดลายนั้น <strong>วัดความยาวคลื่นแสง</strong> และ <strong>ความกว้างช่อง</strong> ได้อย่างไร</blockquote></figure>
+<ul class="hero-meta"><li><span class="hm-num">λ</span><span class="hm-label">เลเซอร์ ≈ 650 nm (สีแดง · ใช้เทียบผล)</span></li></ul>
+<div class="hero-actions"><a class="btn btn-primary" href="#hook">เริ่มบรรยาย</a><a class="btn btn-ghost" href="#data">ไปที่การทดลอง</a></div>
+</div>
+<figure class="hero-visual">
+<span class="fig-tag">FIG.1 · แถบแทรกสอดจากสลิตคู่</span>
+<svg aria-label="แผนภาพชุดทดลองการแทรกสอด: เลเซอร์ สลิตคู่ และฉากรับแถบ" role="img" viewbox="0 0 460 240">
+<defs>
+<lineargradient id="metalGrad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#edf2fc"></stop><stop offset="1" stop-color="#c1d1ed"></stop></lineargradient>
+</defs>
+<line stroke="#cddffb" stroke-width="2" x1="18" x2="442" y1="216" y2="216"></line>
+<!-- เลเซอร์ -->
+<rect fill="url(#metalGrad)" height="32" rx="5" stroke="#9fb4d6" stroke-width="1" width="36" x="22" y="104"></rect>
+<rect fill="#1d4fd0" height="14" rx="2" width="11" x="29" y="113"></rect>
+<circle cx="58" cy="120" fill="#d9480f" r="2.4"></circle>
+<line stroke="#2563eb" stroke-width="2.5" x1="58" x2="148" y1="120" y2="120"></line>
+<!-- สลิตคู่ (barrier with two slits) -->
+<g fill="#8ea7cf"><rect height="66" rx="2" width="9" x="148" y="40"></rect><rect height="8" rx="1" width="9" x="148" y="118"></rect><rect height="62" rx="2" width="9" x="148" y="138"></rect></g>
+<!-- ลำแสงเลี้ยวเบนจากสองสลิตซ้อนทับกัน -->
+<g fill="none" opacity=".8" stroke="#2563eb" stroke-width="1.4"><path d="M157,112 L418,60"></path><path d="M157,112 L418,120"></path><path d="M157,112 L418,180"></path><path d="M157,132 L418,60"></path><path d="M157,132 L418,120"></path><path d="M157,132 L418,180"></path></g>
+<!-- ฉาก + เส้นความเข้ม (fringe envelope) + แถบสว่าง -->
+<rect fill="#e6eefc" height="168" rx="2" stroke="#9fb4d6" stroke-width="1" width="11" x="418" y="36"></rect>
+<path d="M409,42 Q401,51 409,60 Q400,75 409,90 Q396,105 409,120 Q400,135 409,150 Q400,165 409,180 Q401,189 409,198" fill="none" opacity=".5" stroke="#2563eb" stroke-width="1.6"></path>
+<g fill="#d9480f"><circle cx="424" cy="60" r="3"></circle><circle cx="424" cy="90" r="3"></circle><circle cx="424" cy="120" r="4"></circle><circle cx="424" cy="150" r="3"></circle><circle cx="424" cy="180" r="3"></circle></g>
+<!-- ป้ายกำกับ + y -->
+<text class="d-label" text-anchor="middle" x="40" y="92">เลเซอร์</text>
+<text class="d-label" text-anchor="middle" x="152" y="32">สลิตคู่ d</text>
+<text class="d-label" x="400" y="28">ฉาก (L)</text>
+<line class="dim" x1="440" x2="440" y1="120" y2="150"></line><text class="dim-txt" transform="rotate(90 452 138)" x="452" y="138">y</text>
+</svg>
+<figcaption>ระยะแถบ \(y\) สัมพันธ์กับ \(\lambda\), \(L\), \(d\) ตาม \(y=m\lambda L/d\)</figcaption>
+</figure>
+</div>
+<p aria-hidden="true" class="scroll-hint">เลื่อนลงเพื่อเริ่ม<span class="scroll-dot"></span></p>
+</section>
+<section class="section" data-title="ชวนคิด" id="hook">
+<header class="section-head"><div><p class="kicker">ชวนคิดก่อนเริ่ม</p><h2>แสงเป็นคลื่นจริงไหม?</h2></div></header>
+<div class="split">
+<div class="prose"><p>ถ้าแสงเป็นเพียงลำตรง ผ่านช่องแคบควรได้แถบสว่างเดียว แต่จริง ๆ กลับได้ <strong>แถบสว่าง-มืดสลับ</strong> — หลักฐานว่าแสงเป็น <strong>คลื่น</strong> ที่แทรกสอดและเลี้ยวเบนได้</p><p>เมื่อรู้ลวดลายและระยะ เราย้อนหา \(\lambda\) ของแสง หรือความกว้างช่อง \(a\) ได้</p></div>
+<aside class="prompt-card bloom-quiz-panel">
+<p class="prompt-tag">ตรวจความเข้าใจ</p>
+<div class="quick-quiz" data-answer="B" data-bloom="remember" data-qid="id-remember">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">เงื่อนไขแถบสว่างของการแทรกสอดจากสลิตคู่คือข้อใด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> \(a\sin\theta=m\lambda\)</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> \(d\sin\theta=m\lambda\)</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> \(d\cos\theta=m\lambda\)</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> \(a\cos\theta=m\lambda\)</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> \(L\sin\theta=d\)</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</aside>
+</div>
+</section>
+<section class="section" data-title="จุดประสงค์" id="objectives">
+<header class="section-head"><div><h2>จุดประสงค์การทดลอง</h2></div></header>
+<ol class="objective-list">
+<li><span class="obj-no">1</span><div><h3>ศึกษาการแทรกสอดของแสง</h3><p>ใช้สลิตคู่หาความยาวคลื่นของเลเซอร์จากระยะแถบสว่าง \(\lambda=d\,y/(mL)\)</p></div></li>
+<li><span class="obj-no">2</span><div><h3>ศึกษาการเลี้ยวเบนของแสง</h3><p>ใช้สลิตเดี่ยวหาความกว้างช่องจากระยะแถบมืด \(a=m\lambda L/y\)</p></div></li>
+</ol>
+<div class="note note-info"><span aria-hidden="true" class="note-icon">◆</span><p><span class="note-kind">ควรรู้</span><strong>สิ่งที่จะได้ลงมือทำ:</strong> ฉายเลเซอร์ผ่านสลิตคู่/สลิตเดี่ยว · วัดระยะแถบ \(y\) และระยะฉาก \(L\) · คำนวณ \(\lambda\) และ \(a\) เทียบค่าจริง</p></div>
+</section>
+<section class="section band" data-title="แนวคิดหลัก" id="concept">
+<header class="section-head"><div><p class="kicker">ภาพรวมแนวคิด</p><h2>แทรกสอด vs เลี้ยวเบน</h2></div></header>
+<p class="lead">เมื่อคลื่นแสงสองขบวน (หรือส่วนของหน้าคลื่นเดียว) มารวมกัน เฟสที่ต่างกันทำให้เสริมกัน (สว่าง) หรือหักล้างกัน (มืด) เป็นลวดลายที่ทำนายได้</p>
+<div class="card-grid cols-3">
+<article class="info-card"><span class="ic-step">A</span><h3>แทรกสอดสลิตคู่</h3><p>แถบสว่างเมื่อ \(d\sin\theta=m\lambda\); มุมเล็ก \(y_m=m\lambda L/d\)</p></article>
+<article class="info-card"><span class="ic-step">B</span><h3>เลี้ยวเบนช่องเดี่ยว</h3><p>แถบมืดแรกเมื่อ \(a\sin\theta=m\lambda\) — ช่องแคบลงลวดลายกว้างขึ้น</p></article>
+<article class="info-card"><span class="ic-step">C</span><h3>มุมเล็ก</h3><p>เมื่อ \(L\gg y\): \(\sin\theta\approx\tan\theta=y/L\) ทำให้คำนวณได้ง่าย</p></article>
+</div>
+</section>
+<section class="section spotlight" data-title="ทฤษฎี" id="theory">
+<header class="section-head"><div><p class="kicker">ทฤษฎีพื้นฐาน</p><h2>จากลวดลายสู่ตัวเลข</h2></div></header>
+<div class="theory-grid">
+<div class="prose">
+<p><strong>สลิตคู่:</strong> ผลต่างทางเดิน \(\delta=d\sin\theta\) แถบสว่างเมื่อ \(\delta=m\lambda\) มุมเล็ก \(\sin\theta\approx y/L\) จึงได้</p>
+<p class="derive">\[\lambda=\dfrac{d\,y}{mL}\]</p>
+<p><strong>สลิตเดี่ยว:</strong> แถบมืดเมื่อ \(a\sin\theta=m\lambda\) มุมเล็กได้</p>
+<p class="derive">\[a=\dfrac{m\lambda L}{y}\]</p>
+<ul class="tick-list"><li>วัด \(y\) จากแถบกลาง (m=0) ออกไป</li><li>ยิ่งห่างจากแถบกลาง อันดับ \(m\) สูงขึ้น</li><li>วัด \(L\) จากสลิตถึงฉากตามแนวตั้งฉาก</li></ul>
+</div>
+<aside class="prompt-card bloom-quiz-panel">
+<p class="prompt-tag">ตรวจความเข้าใจ</p>
+<div class="quick-quiz" data-answer="D" data-bloom="understand" data-qid="id-understand">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">ถ้าระยะระหว่างสลิต \(d\) เล็กลง โดย \(\lambda\) และ \(L\) คงที่ แถบสว่างจะเปลี่ยนอย่างไร?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> ชิดกันมากขึ้น</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> หายไปทั้งหมด</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> กว้างเท่าเดิม</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> ห่างกันมากขึ้น</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> สว่างเท่ากันทุกตำแหน่ง</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+<div class="quick-quiz" data-answer="C" data-bloom="apply" data-qid="id-apply">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">สลิตคู่มี \(d=0.25\,\mathrm{mm}\), \(L=1.0\,\mathrm{m}\), \(\lambda=650\,\mathrm{nm}\) แถบอันดับหนึ่งอยู่ห่างกลางประมาณเท่าใด?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> 0.26 mm</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> 1.3 mm</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> 2.6 mm</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> 26 mm</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> 260 mm</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</aside>
+</div>
+</section>
+<section class="section" data-title="อุปกรณ์" id="equipment">
+<header class="section-head"><div><h2>อุปกรณ์การทดลอง</h2></div></header>
+<div class="card-grid cols-3 equip-grid">
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: เลเซอร์" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-1.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>เลเซอร์ (≈650 nm)</h3><p>แหล่งกำเนิดแสงอาพันธ์ (coherent) สีเดียว จำเป็นต่อการเกิดลวดลายแทรกสอด/เลี้ยวเบนที่คมชัด</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: สลิตคู่" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-2.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>สลิตคู่ (d = 120 µm)</h3><p>ช่องแคบสองช่องระยะห่าง \(d\) ที่ทราบค่า ใช้หาความยาวคลื่นจากระยะแถบสว่าง</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: สลิตเดี่ยว" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-3.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>สลิตเดี่ยว</h3><p>ช่องแคบช่องเดียวที่ต้องการหาความกว้าง \(a\) จากระยะแถบมืดของลวดลายเลี้ยวเบน</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: ฉากรับภาพ" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-4.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>ฉากรับภาพ</h3><p>รับลวดลายแถบสว่าง-มืด วางขนานกับสลิต ตั้งฉากกับลำแสง เพื่อให้วัดระยะแถบ \(y\) ได้ตรง</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: ไม้เมตร" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-5.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>ไม้เมตร / สเกล</h3><p>วัดระยะฉาก \(L\) จากสลิตถึงฉาก และระยะแถบ \(y\) บนฉาก</p></figcaption></figure>
+<figure class="equip-card"><button aria-label="ดูภาพขยาย: ฐานจับอุปกรณ์" class="equip-photo" data-photo="" type="button"><img alt="" decoding="async" height="675" loading="lazy" src="assets/equip/equip-6.webp" width="1200"/><span aria-hidden="true" class="equip-zoom">⤢ ดูภาพขยาย</span></button><figcaption><h3>ฐานจับ / ราง</h3><p>ยึดเลเซอร์ สลิต และฉากให้อยู่ในแนวเดียวกันและระยะคงที่ระหว่างวัด</p></figcaption></figure>
+</div>
+</section>
+<section class="section" data-title="สูตร" id="formula">
+<header class="section-head"><div><h2>สูตรหลักของแล็บ</h2></div></header>
+<div class="card-grid cols-3">
+<article class="formula-card"><h3>แทรกสอดสลิตคู่ (สว่าง)</h3><p class="formula">\[d\sin\theta=m\lambda\]</p><p class="formula-note">\(m=0,\pm1,\pm2,\dots\)</p></article>
+<article class="formula-card formula-accent"><h3>ความยาวคลื่น</h3><p class="formula">\[\lambda=\dfrac{d\,y}{mL}\]</p><p class="formula-note">มุมเล็ก \(\sin\theta\approx y/L\)</p></article>
+<article class="formula-card"><h3>เลี้ยวเบนช่องเดี่ยว (มืด)</h3><p class="formula">\[a\sin\theta=m\lambda\]</p><p class="formula-note">\(m=\pm1,\pm2,\dots\)</p></article>
+<article class="formula-card"><h3>ความกว้างช่อง</h3><p class="formula">\[a=\dfrac{m\lambda L}{y}\]</p><p class="formula-note">จากระยะแถบมืด</p></article>
+<article class="formula-card"><h3>ผลต่างทางเดิน</h3><p class="formula">\[\delta=d\sin\theta\]</p><p class="formula-note">เสริม = \(m\lambda\) · หักล้าง = \((m-\tfrac12)\lambda\)</p></article>
+<article class="formula-card"><h3>ร้อยละความคลาดเคลื่อน</h3><p class="formula">\[\%\,\mathrm{err}=\dfrac{|x-x_{\mathrm{จริง}}|}{x_{\mathrm{จริง}}}\times100\]</p><p class="formula-note">\(\lambda_{\mathrm{จริง}}=650\,nm\) · \(a_{\mathrm{จริง}}=75\,\mu m\)</p></article>
+</div>
+</section>
+<section class="section" data-title="ขั้นตอน" id="procedure">
+<header class="section-head"><div><p class="kicker">ลำดับการทดลอง</p><h2>ขั้นตอนการทดลอง</h2></div></header>
+<ol class="steps">
+<li><span class="step-n">1</span><div><h3>จัดแนวอุปกรณ์</h3><p>วางเลเซอร์ สลิต และฉากในแนวเดียวกัน ลำแสงตั้งฉากกับฉาก</p><p class="step-caution"><b>ระวัง:</b> เลเซอร์ สลิต และฉากต้องอยู่แนวเดียวและตั้งฉาก วัดระยะ L ให้แม่น</p></div></li>
+<li><span class="step-n">2</span><div><h3>ตอนที่ 1 · สลิตคู่</h3><p>ฉายผ่านสลิตคู่ (\(d=120\,\mu m\)) ระบุแถบกลาง วัดระยะแถบสว่างอันดับ \(m\) ที่ระยะ \(y\) และระยะฉาก \(L\)</p><p class="step-caution"><b>ระวัง:</b> วัดระยะ y จากกึ่งกลางลายให้ตรงอันดับ m ที่ถูกต้อง</p></div></li>
+<li><span class="step-n">3</span><div><h3>คำนวณ λ</h3><p>หา \(\lambda=d\,y/(mL)\) หลายอันดับแล้วเฉลี่ย เทียบกับ 650 nm</p><p class="step-caution"><b>ระวัง:</b> ใช้หน่วยให้ตรงกัน (d, y, L) ก่อนแทนในสูตรหา λ</p></div></li>
+<li><span class="step-n">4</span><div><h3>ตอนที่ 2 · สลิตเดี่ยว</h3><p>เปลี่ยนเป็นสลิตเดี่ยว ฉายเลเซอร์ 650 nm วัดระยะแถบมืดอันดับ \(m\) ที่ระยะ \(y\)</p><p class="step-caution"><b>ระวัง:</b> นับอันดับ m ของสลิตเดี่ยวจากตำแหน่งแถบมืด (minima) ไม่ใช่แถบสว่าง</p></div></li>
+<li><span class="step-n">5</span><div><h3>คำนวณ a</h3><p>หา \(a=m\lambda L/y\) หลายอันดับแล้วเฉลี่ย เทียบกับ 75 µm</p><p class="step-caution"><b>ระวัง:</b> อย่ามองลำเลเซอร์เข้าตา และเฉลี่ยหลายอันดับเพื่อลดความคลาดเคลื่อน</p></div></li>
+</ol>
+<div class="note note-warn"><span aria-hidden="true" class="note-icon">!</span><div><span class="note-kind">ข้อควรระวัง</span><strong>ระวังระหว่างวัด</strong><ul><li>อย่ามองลำเลเซอร์เข้าตาโดยตรง</li><li>ระบุตำแหน่งแถบกลาง (m=0) ให้ชัดก่อนวัด</li><li>แถบอันดับสูงจางและอ่านยาก ระวังการนับอันดับผิด</li></ul></div></div>
+</section>
+<section class="section band" data-title="ตารางข้อมูล" id="data">
+<header class="section-head"><div><p class="kicker">บันทึกผลและแปลงเป็นหลักฐาน</p><h2>ตารางผลการทดลอง</h2></div></header>
+<p class="lead">กรอกระยะฉาก \(L\), อันดับ \(m\) และระยะแถบ \(y\) ระบบคำนวณ \(\lambda\) (สลิตคู่) และ \(a\) (สลิตเดี่ยว) ให้อัตโนมัติ พร้อมร้อยละความคลาดเคลื่อน</p>
+<div class="setup-inputs">
+<label>ระยะสลิตคู่ <span class="u">\(d\) (µm)</span><input data-store="dSlit" id="dSlit" inputmode="decimal" min="0" step="1" type="number" value="120"/></label>
+<label>ความยาวคลื่นเลเซอร์ <span class="u">\(\lambda\) (nm)</span><input data-store="lamLaser" id="lamLaser" inputmode="decimal" min="0" step="1" type="number" value="650"/></label>
+<label>ความกว้างช่องจริง <span class="u">\(a_{\mathrm{จริง}}\) (µm)</span><input data-store="aRef" id="aRef" inputmode="decimal" min="0" step="1" type="number" value="75"/></label>
+</div>
+<div class="worksheet-block">
+<h3>ตอนที่ 1 · สลิตคู่ → หาความยาวคลื่น</h3>
+<aside class="note note-warn note-block" style="margin-bottom:1rem;">
+<span aria-hidden="true" class="note-icon">!</span>
+<div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
+<p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
+</aside>
+<div class="table-wrap">
+<table class="data-table">
+<thead><tr><th scope="col">\(L\) (m)</th><th scope="col">อันดับ \(m\)</th><th scope="col">\(y\) (mm)</th><th scope="col">\(\lambda=d\,y/(mL)\) (nm)</th></tr></thead>
+<tbody id="dsBody">
+<tr data-row="0"><td><input data-l="" data-store="ds_L0" inputmode="decimal" step="0.01" type="number"/></td><td><input data-m="" data-store="ds_m0" inputmode="decimal" step="1" type="number"/></td><td><input data-store="ds_y0" data-y="" inputmode="decimal" step="0.1" type="number"/></td><td data-lam="">—</td></tr>
+<tr data-row="1"><td><input data-l="" data-store="ds_L1" inputmode="decimal" step="0.01" type="number"/></td><td><input data-m="" data-store="ds_m1" inputmode="decimal" step="1" type="number"/></td><td><input data-store="ds_y1" data-y="" inputmode="decimal" step="0.1" type="number"/></td><td data-lam="">—</td></tr>
+<tr data-row="2"><td><input data-l="" data-store="ds_L2" inputmode="decimal" step="0.01" type="number"/></td><td><input data-m="" data-store="ds_m2" inputmode="decimal" step="1" type="number"/></td><td><input data-store="ds_y2" data-y="" inputmode="decimal" step="0.1" type="number"/></td><td data-lam="">—</td></tr>
+<tr data-row="3"><td><input data-l="" data-store="ds_L3" inputmode="decimal" step="0.01" type="number"/></td><td><input data-m="" data-store="ds_m3" inputmode="decimal" step="1" type="number"/></td><td><input data-store="ds_y3" data-y="" inputmode="decimal" step="0.1" type="number"/></td><td data-lam="">—</td></tr>
+</tbody>
+</table></div>
+</div>
+<div class="worksheet-block">
+<h3>ตอนที่ 2 · สลิตเดี่ยว → หาความกว้างช่อง</h3>
+<aside class="note note-warn note-block" style="margin-bottom:1rem;">
+<span aria-hidden="true" class="note-icon">!</span>
+<div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
+<p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
+</aside>
+<div class="table-wrap">
+<table class="data-table">
+<thead><tr><th scope="col">\(L\) (m)</th><th scope="col">อันดับ \(m\)</th><th scope="col">\(y\) (mm)</th><th scope="col">\(a=m\lambda L/y\) (µm)</th></tr></thead>
+<tbody id="ssBody">
+<tr data-row="0"><td><input data-l="" data-store="ss_L0" inputmode="decimal" step="0.01" type="number"/></td><td><input data-m="" data-store="ss_m0" inputmode="decimal" step="1" type="number"/></td><td><input data-store="ss_y0" data-y="" inputmode="decimal" step="0.1" type="number"/></td><td data-a="">—</td></tr>
+<tr data-row="1"><td><input data-l="" data-store="ss_L1" inputmode="decimal" step="0.01" type="number"/></td><td><input data-m="" data-store="ss_m1" inputmode="decimal" step="1" type="number"/></td><td><input data-store="ss_y1" data-y="" inputmode="decimal" step="0.1" type="number"/></td><td data-a="">—</td></tr>
+<tr data-row="2"><td><input data-l="" data-store="ss_L2" inputmode="decimal" step="0.01" type="number"/></td><td><input data-m="" data-store="ss_m2" inputmode="decimal" step="1" type="number"/></td><td><input data-store="ss_y2" data-y="" inputmode="decimal" step="0.1" type="number"/></td><td data-a="">—</td></tr>
+<tr data-row="3"><td><input data-l="" data-store="ss_L3" inputmode="decimal" step="0.01" type="number"/></td><td><input data-m="" data-store="ss_m3" inputmode="decimal" step="1" type="number"/></td><td><input data-store="ss_y3" data-y="" inputmode="decimal" step="0.1" type="number"/></td><td data-a="">—</td></tr>
+</tbody>
+</table></div>
+</div>
+<div class="result-summary">
+<h3>ผลวิเคราะห์สด</h3>
+<dl>
+<div><dt>ความยาวคลื่นเฉลี่ย (สลิตคู่)</dt><dd id="lamAvgOutput">—</dd></div>
+<div class="rs-em"><dt>คลาดเคลื่อน λ (เทียบ 650 nm)</dt><dd id="lamErrOutput">—</dd></div>
+<div><dt>ความกว้างช่องเฉลี่ย (สลิตเดี่ยว)</dt><dd id="aAvgOutput">—</dd></div>
+<div class="rs-em"><dt>คลาดเคลื่อน a (เทียบ 75 µm)</dt><dd id="aErrOutput">—</dd></div>
+</dl>
+</div>
+<div class="actions-row"><button class="btn btn-soft" id="resetTable" type="button">ล้างข้อมูลตาราง</button><span class="hint">ข้อมูลถูกบันทึกไว้ในเบราว์เซอร์โดยอัตโนมัติ</span></div>
+</section>
+<section class="section" data-title="ตรวจสอบ" id="checkpoint">
+<header class="section-head"><div><p class="kicker">ตรวจความเข้าใจ</p><h2>ลองคิดก่อนดูเฉลย</h2></div></header>
+<div class="prompt-card">
+<p class="prompt-tag">คำถามท้าทาย</p>
+<p class="prompt-q">ถ้าเลื่อนฉากให้ <strong>ไกลออกไป 2 เท่า</strong> (เพิ่ม \(L\)) ระยะระหว่างแถบสว่าง \(y\) จะเปลี่ยนอย่างไร?</p>
+<div class="reveal-controls"><button class="btn btn-primary" id="answerShow" type="button">แสดงคำตอบ</button><button class="btn btn-ghost" hidden="" id="answerHide" type="button">ซ่อนคำตอบ</button></div>
+<div class="answer-body" hidden="" id="answerBody">
+<p>จาก \(y=m\lambda L/d\) ระยะแถบ \(y\) แปรผันตรงกับ \(L\) → เพิ่ม \(L\) เป็น 2 เท่า \(y\) <strong>กว้างขึ้น 2 เท่า</strong></p>
+<ul class="tick-list"><li>ทำให้วัดได้ละเอียดขึ้น (แถบห่างกัน)</li><li>แต่ความเข้มลดลง แถบจางลง</li></ul>
+<p class="muted">บทเรียน: เลือก \(L\) ให้แถบห่างพอจะวัดง่าย แต่ยังสว่างพอมองเห็น</p>
+</div>
+</div>
+<div class="quick-quiz" data-answer="B" data-bloom="analyze" data-qid="id-analyze">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">ถ้าวัดระยะสลิตถึงฉาก \(L\) มากกว่าความจริง ค่า \(\lambda=dy/(mL)\) ที่คำนวณจะเป็นอย่างไร?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> สูงกว่าความจริง</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> ต่ำกว่าความจริง</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> ไม่เปลี่ยน</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> เป็นศูนย์</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> ขึ้นกับสีของฉากเท่านั้น</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+<section class="section" data-title="วิเคราะห์" id="analysis">
+<header class="section-head"><div><p class="kicker">แปลผลให้เป็นข้อสรุป</p><h2>แนวทางการวิเคราะห์ผล</h2></div></header>
+<div class="split">
+<ol class="analysis-steps">
+<li>คำนวณ \(\lambda\) ทุกอันดับของสลิตคู่ แล้วเฉลี่ย เทียบ 650 nm</li>
+<li>คำนวณ \(a\) ทุกอันดับของสลิตเดี่ยว แล้วเฉลี่ย เทียบ 75 µm</li>
+<li>รายงานร้อยละความคลาดเคลื่อนของทั้งสองตอน</li>
+<li>อภิปรายว่าอันดับสูง (แถบจาง) ทำให้ค่าคลาดเคลื่อนมากขึ้นหรือไม่</li>
+</ol>
+<aside class="note note-info note-block"><span aria-hidden="true" class="note-icon">◆</span><div><span class="note-kind">ควรรู้</span><strong>แหล่งความคลาดเคลื่อนที่ควรกล่าวถึง</strong><ul><li>การระบุตำแหน่งแถบกลางและการนับอันดับ</li><li>การวัดระยะ \(y\) ของแถบจาง</li><li>การวัดระยะฉาก \(L\) และการตั้งฉาก</li></ul></div></aside>
+</div>
+<div class="quick-quiz" data-answer="D" data-bloom="evaluate" data-qid="id-evaluate">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">หลักฐานแบบใดสนับสนุนธรรมชาติแบบคลื่นของแสงได้ดีที่สุดในการทดลองนี้?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> เห็นจุดสว่างเพียงจุดเดียว</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> เลเซอร์เดินทางเป็นเส้นตรง</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> ฉากมีสีขาว</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> พบแถบสว่าง–มืดสลับและตำแหน่งสอดคล้องกับอันดับ \(m\)</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> ค่าระยะ \(L\) มากกว่าศูนย์</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+<section class="section spotlight" data-title="สรุป" id="conclusion">
+<header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
+<div class="conclusion-grid">
+<p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong> จากข้อมูลของคุณเอง</p>
+<ul class="conclusion-points">
+<li><span class="cp-ico">1</span><div><h3>รายงานความยาวคลื่น</h3><p>ระบุ \(\lambda\) เฉลี่ยจากสลิตคู่ พร้อมหน่วย nm</p></div></li>
+<li><span class="cp-ico">2</span><div><h3>รายงานความกว้างช่อง</h3><p>ระบุ \(a\) เฉลี่ยจากสลิตเดี่ยว พร้อมหน่วย µm</p></div></li>
+<li><span class="cp-ico">3</span><div><h3>เทียบกับค่าจริง</h3><p>รายงานร้อยละความคลาดเคลื่อนเทียบ \(\lambda=650\,nm\) และ \(a=75\,\mu m\)</p></div></li>
+<li><span class="cp-ico">4</span><div><h3>อภิปรายแหล่งคลาดเคลื่อน</h3><p>ระบุสาเหตุหลัก เช่น การนับอันดับ การวัด \(y\) ของแถบจาง และการตั้งฉากของฉาก</p></div></li>
+<li class="cp-extra"><span class="cp-ico">5</span><div><h3>ความรู้ที่ได้เพิ่มเติม</h3><p>เขียนสิ่งที่ค้นคว้าหรือควรรู้เพิ่มเติมจากการทดลองนี้ด้วยคำพูดของตนเอง เช่น การนำหลักการไปใช้ในสถานการณ์จริง ความเชื่อมโยงกับเนื้อหาอื่น หรือเทคนิคลดความคลาดเคลื่อนที่ค้นพบระหว่างทำการทดลอง</p></div></li>
+</ul>
+</div>
+<p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
+</section>
+<section class="section band" data-title="อภิปราย" id="discussion">
+<header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
+<div class="q-grid">
+<article class="q-card"><span class="q-no">Q1</span><p>เหตุใดต้องใช้แสงอาพันธ์ (coherent) สีเดียวจึงเห็นลวดลายชัด?</p></article>
+<article class="q-card"><span class="q-no">Q2</span><p>แทรกสอด (สลิตคู่) กับเลี้ยวเบน (สลิตเดี่ยว) ต่างกันอย่างไร?</p></article>
+<article class="q-card"><span class="q-no">Q3</span><p>ถ้าใช้เลเซอร์สีน้ำเงิน (\(\lambda\) สั้นกว่า) ลวดลายจะเปลี่ยนอย่างไร?</p></article>
+<article class="q-card"><span class="q-no">Q4</span><p>เหตุใดการวัดอันดับสูง ๆ จึงคลาดเคลื่อนมากกว่า?</p></article>
+<article class="q-card"><span class="q-no">Q5</span><p>ข้อมูลของกลุ่มสนับสนุนว่าแสงเป็นคลื่นเพียงใด?</p></article>
+</div>
+<div class="quick-quiz" data-answer="C" data-bloom="create" data-qid="id-create">
+<p class="quiz-label">คำถามสั้น</p>
+<h3 class="prompt-q">หากแถบอยู่ชิดกันมากจนวัดหนึ่งช่วงได้ไม่แม่น ควรออกแบบการวัดอย่างไร?</h3>
+<div class="quiz-options">
+<button data-quiz-option="A" type="button"><b class="qo-key">A</b> วัดจากขอบสลิตโดยตรง</button>
+<button data-quiz-option="B" type="button"><b class="qo-key">B</b> เลือกแถบที่สว่างที่สุดเพียงแถบเดียว</button>
+<button data-quiz-option="C" type="button"><b class="qo-key">C</b> วัดระยะคร่อมหลายช่วงแล้วหารด้วยจำนวนช่วง</button>
+<button data-quiz-option="D" type="button"><b class="qo-key">D</b> ลดระยะฉากจนเกือบศูนย์</button>
+<button data-quiz-option="E" type="button"><b class="qo-key">E</b> ใช้ค่าที่คาดจากทฤษฎีแทนการวัด</button>
+</div>
+<p aria-live="polite" class="quiz-feedback" data-quiz-feedback=""></p>
+</div>
+</section>
+<section class="section band" data-title="ความรู้เพิ่มเติม" id="additional-knowledge">
+<header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
+<div class="prompt-card prompt-wide" style="margin: 0 auto;">
+<p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
+<span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
           แนวทางการเขียนความรู้เพิ่มเติม
         </p>
-        <p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
-        
-        <div class="q-grid" style="text-align: left;">
-          <article class="q-card">
-            <span class="q-no">01</span>
-            <p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
-          </article>
-          <article class="q-card" style="border-bottom: none;">
-            <span class="q-no">02</span>
-            <p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <nav class="stepper" aria-label="นำทางทีละส่วน"><button type="button" id="prevSec" aria-label="ส่วนก่อนหน้า">‹</button><span id="stepLabel">บทนำ</span><button type="button" id="nextSec" aria-label="ส่วนถัดไป">›</button></nav>
-  <div class="present-bar" id="presentBar" hidden><span class="present-label">▶ โหมดนำเสนอ</span><button type="button" id="presentPrev" aria-label="สไลด์ก่อนหน้า">‹</button><span id="presentCounter">1 / 14</span><button type="button" id="presentNext" aria-label="สไลด์ถัดไป">›</button><button type="button" id="presentExit" class="present-exit">✕ ออก (Esc)</button></div>
-  <div class="present-progress" id="presentProgress" aria-hidden="true"><span></span></div>
-  <div class="toast" id="toast" role="status" aria-live="polite" hidden><span id="toastMsg"></span><button type="button" id="toastUndo">เลิกทำ</button></div>
-  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="ภาพขยายอุปกรณ์"><div class="lightbox-inner"><button class="lightbox-close" id="lightboxClose" type="button" aria-label="ปิดภาพขยาย">✕</button><div class="lightbox-body" id="lightboxBody"></div></div></div>
-  <noscript><p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่การคำนวณและปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p></noscript>
+<p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
+<div class="q-grid" style="text-align: left;">
+<article class="q-card">
+<span class="q-no">01</span>
+<p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
+</article>
+<article class="q-card" style="border-bottom: none;">
+<span class="q-no">02</span>
+<p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
+</article>
+</div>
+</div>
+</section>
+</main>
+<nav aria-label="นำทางทีละส่วน" class="stepper"><button aria-label="ส่วนก่อนหน้า" id="prevSec" type="button">‹</button><span id="stepLabel">บทนำ</span><button aria-label="ส่วนถัดไป" id="nextSec" type="button">›</button></nav>
+<div class="present-bar" hidden="" id="presentBar"><span class="present-label">▶ โหมดนำเสนอ</span><button aria-label="สไลด์ก่อนหน้า" id="presentPrev" type="button">‹</button><span id="presentCounter">1 / 14</span><button aria-label="สไลด์ถัดไป" id="presentNext" type="button">›</button><button class="present-exit" id="presentExit" type="button">✕ ออก (Esc)</button></div>
+<div aria-hidden="true" class="present-progress" id="presentProgress"><span></span></div>
+<div aria-live="polite" class="toast" hidden="" id="toast" role="status"><span id="toastMsg"></span><button id="toastUndo" type="button">เลิกทำ</button></div>
+<div aria-label="ภาพขยายอุปกรณ์" aria-modal="true" class="lightbox" hidden="" id="lightbox" role="dialog"><div class="lightbox-inner"><button aria-label="ปิดภาพขยาย" class="lightbox-close" id="lightboxClose" type="button">✕</button><div class="lightbox-body" id="lightboxBody"></div></div></div>
+<noscript><p style="padding:1rem;text-align:center;background:#fff3cd">หน้านี้อ่านเนื้อหาได้ครบ แต่การคำนวณและปุ่มโต้ตอบต้องเปิดใช้งาน JavaScript</p></noscript>
 </body>
 </html>
