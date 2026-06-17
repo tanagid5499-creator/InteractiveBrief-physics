@@ -208,7 +208,13 @@
 
       <div class="worksheet-block">
         <h3>ตอนที่ 1 · สลิตคู่ → หาความยาวคลื่น</h3>
-        <div class="table-wrap"><table class="data-table">
+        <aside class="note note-warn note-block" style="margin-bottom:1rem;">
+          <span class="note-icon" aria-hidden="true">!</span>
+          <div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
+          <p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
+        </aside>
+        <div class="table-wrap">
+          <table class="data-table">
           <thead><tr><th scope="col">\(L\) (m)</th><th scope="col">อันดับ \(m\)</th><th scope="col">\(y\) (mm)</th><th scope="col">\(\lambda=d\,y/(mL)\) (nm)</th></tr></thead>
           <tbody id="dsBody">
             <tr data-row="0"><td><input data-L data-store="ds_L0" type="number" step="0.01" inputmode="decimal"></td><td><input data-m data-store="ds_m0" type="number" step="1" inputmode="decimal"></td><td><input data-y data-store="ds_y0" type="number" step="0.1" inputmode="decimal"></td><td data-lam>—</td></tr>
@@ -221,7 +227,13 @@
 
       <div class="worksheet-block">
         <h3>ตอนที่ 2 · สลิตเดี่ยว → หาความกว้างช่อง</h3>
-        <div class="table-wrap"><table class="data-table">
+        <aside class="note note-warn note-block" style="margin-bottom:1rem;">
+          <span class="note-icon" aria-hidden="true">!</span>
+          <div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
+          <p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
+        </aside>
+        <div class="table-wrap">
+          <table class="data-table">
           <thead><tr><th scope="col">\(L\) (m)</th><th scope="col">อันดับ \(m\)</th><th scope="col">\(y\) (mm)</th><th scope="col">\(a=m\lambda L/y\) (µm)</th></tr></thead>
           <tbody id="ssBody">
             <tr data-row="0"><td><input data-L data-store="ss_L0" type="number" step="0.01" inputmode="decimal"></td><td><input data-m data-store="ss_m0" type="number" step="1" inputmode="decimal"></td><td><input data-y data-store="ss_y0" type="number" step="0.1" inputmode="decimal"></td><td data-a>—</td></tr>
@@ -305,7 +317,7 @@
     <section class="section spotlight" id="conclusion" data-title="สรุป">
       <header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
       <div class="conclusion-grid">
-        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong> จากข้อมูลของคุณเอง</p>
+        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong>&nbsp;จากข้อมูลของคุณเอง</p>
         <ul class="conclusion-points">
           <li><span class="cp-ico">1</span><div><h3>รายงานความยาวคลื่น</h3><p>ระบุ \(\lambda\) เฉลี่ยจากสลิตคู่ พร้อมหน่วย nm</p></div></li>
           <li><span class="cp-ico">2</span><div><h3>รายงานความกว้างช่อง</h3><p>ระบุ \(a\) เฉลี่ยจากสลิตเดี่ยว พร้อมหน่วย µm</p></div></li>
@@ -341,20 +353,24 @@
       </div>
     </section>
 
-    <section class="section" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
-      <header class="section-head"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
-      <div class="prose">
-        <p>เกณฑ์ของเรย์ลี (Rayleigh criterion) กำหนด <strong>กำลังแยก</strong> (resolving power) ของอุปกรณ์แสง — มุมเล็กที่สุดที่แยกจุดสองจุดออกจากกันได้:</p>
-        <p>\[\theta_{\min} = 1.22\,\frac{\lambda}{D}\]</p>
-        <p>เมื่อ \(D\) คือขนาดรูรับแสง (aperture) ยิ่ง \(\lambda\) สั้นหรือ \(D\) กว้าง ยิ่งแยกรายละเอียดได้ดี</p>
-        <ul>
-          <li><strong>กล้องดาราศาสตร์:</strong> กระจกขนาดใหญ่เพื่อแยกดาวคู่ที่อยู่ใกล้กัน</li>
-          <li><strong>กล้องจุลทรรศน์อิเล็กตรอน:</strong> ใช้ลำอิเล็กตรอน (\(\lambda\) สั้นมาก) แยกโครงสร้างระดับ nm</li>
-          <li><strong>การเลี้ยวเบนรังสีเอกซ์ (X-ray diffraction):</strong> ใช้ \(\lambda\approx0.1\,\text{nm}\) วิเคราะห์ผลึกโปรตีน — วิธีที่นักวิทยาศาสตร์ค้นพบโครงสร้าง DNA</li>
-        </ul>
-        <div class="note note-info">
-          <span class="note-icon" aria-hidden="true">◆</span>
-          <div><span class="note-kind">ควรรู้</span><p>เกรตติงเลี้ยวเบน (diffraction grating) ที่มีร่องหลายพันต่อมิลลิเมตรให้แถบสว่างคมชัดกว่าสลิตคู่มาก ใช้วัด \(\lambda\) ของสเปกตรัมอะตอมและในสเปกโตรมิเตอร์อุตสาหกรรม</p></div>
+    <section class="section band" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
+      <header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
+            <div class="prompt-card prompt-wide" style="margin: 0 auto;">
+        <p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
+          <span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
+          แนวทางการเขียนความรู้เพิ่มเติม
+        </p>
+        <p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
+        
+        <div class="q-grid" style="text-align: left;">
+          <article class="q-card">
+            <span class="q-no">01</span>
+            <p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
+          </article>
+          <article class="q-card" style="border-bottom: none;">
+            <span class="q-no">02</span>
+            <p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
+          </article>
         </div>
       </div>
     </section>

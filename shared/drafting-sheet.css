@@ -307,7 +307,7 @@ main { display: block; }
 .info-card p { color: var(--muted); font-size: 1rem; }
 
 /* split layout (text + aside) */
-.split { display: grid; grid-template-columns: 1.15fr 1fr; gap: var(--gap); align-items: start; }
+.split { display: grid; grid-template-columns: 1.15fr 1fr; gap: var(--gap); align-items: center; }
 /* the hook pairs a short lead with a taller quick-quiz; vertically centre the lead so it sits beside the
    quiz instead of anchoring to the top with a long dangling gap below (analysis keeps top-align: steps). */
 #hook .split { align-items: center; }
@@ -316,6 +316,16 @@ main { display: block; }
 .split-col > * { margin-block: 0; }
 .prose p + p { margin-top: .9rem; }
 .prose { max-width: 60ch; }
+.prose ul { list-style: disc; padding-left: 1.4rem; margin-top: .7rem; }
+.prose ul li { margin-top: .4rem; }
+
+/* Guidance Box Formatting (Additional Knowledge) */
+.text-center { text-align: center; }
+.guidance-prose { margin-inline: auto; max-width: 60ch; }
+.guidance-list { text-align: left; display: inline-block; padding-left: 1.5rem; margin-top: .6rem; }
+.guidance-list li { margin-bottom: .4rem; }
+#additional-knowledge .kicker { font-weight: 800; color: var(--blue-700); letter-spacing: 0.05em; }
+#additional-knowledge h2 { font-weight: 900; }
 
 /* prompt-card (question / prediction) */
 .prompt-card {
@@ -960,10 +970,15 @@ body.present-mode .steps li { padding-block: clamp(.5rem, 1vh, .75rem); }
 /* present mode — FIT DENSE SLIDES: tall single-column sequential stacks flow into 2 columns so a packed
    slide fits one screen instead of forcing the projector to scroll. Reading order stays row-major
    (1│2 / 3│4 …). Applies to procedure steps, the discussion Q-grid, and the theory bloom-quiz stack. */
-body.present-mode .steps { grid-template-columns: 1fr 1fr; column-gap: clamp(1.6rem, 3.5vw, 2.6rem); align-items: start; }
-body.present-mode .q-grid { grid-template-columns: 1fr 1fr; column-gap: clamp(1.4rem, 3vw, 2.2rem); row-gap: .9rem; align-items: start; }
-body.present-mode .bloom-quiz-panel { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 2.4vw, 1.7rem); align-items: start; }
-body.present-mode .bloom-quiz-panel > .prompt-tag { grid-column: 1 / -1; margin-bottom: 0; }
+body.present-mode .steps { display: grid; grid-template-columns: 1fr; gap: clamp(1rem, 2vw, 1.5rem); }
+body.present-mode .steps > li { break-inside: avoid; border-bottom: 1px solid var(--line-2); margin-bottom: 0; padding-bottom: 1rem; }
+
+body.present-mode .q-grid { display: grid; grid-template-columns: 1fr; gap: clamp(1rem, 2vw, 1.5rem); }
+body.present-mode .q-grid > .q-card { break-inside: avoid; border-bottom: 1px solid var(--line-2); margin-bottom: 0; padding-bottom: 1rem; }
+
+body.present-mode .bloom-quiz-panel { display: grid; grid-template-columns: 1fr; gap: clamp(1rem, 2.4vw, 1.7rem); }
+body.present-mode .bloom-quiz-panel > * { break-inside: avoid; margin-bottom: 1.2rem; }
+body.present-mode .bloom-quiz-panel > .prompt-tag { grid-column: 1 / -1; margin-bottom: 1rem; }
 
 /* present mode reading density — reclaim vertical budget on the 4:3 projector (≈768px slide) so dense
    sections scroll far less. Stays projector-legible: text ≥1rem, Thai line-height kept ≥1.6 to avoid
@@ -973,8 +988,8 @@ body.present-mode .section :is(p, li, dd) { line-height: 1.6; }
 body.present-mode .section-head { margin-bottom: 1rem; }
 body.present-mode .lead { font-size: 1.14rem; line-height: 1.5; }
 /* the quiz option pills wrap into 3-4 ragged rows (~180px) — the biggest space hog on quiz slides.
-   In present mode lay them in a tidy 2-col grid (full-width rows = bigger, clearer projector targets). */
-body.present-mode .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem .7rem; }
+   In present mode lay them in a tidy 1-col grid to prevent zigzag reading. */
+body.present-mode .quiz-options { display: grid; grid-template-columns: 1fr; gap: .5rem; }
 body.present-mode .quiz-options button { width: 100%; text-align: left; border-radius: var(--radius); }
 
 /* ── REDESIGN v5 — LIGHT BLUEPRINT (merge: original light base + concept-01 engineering) ──

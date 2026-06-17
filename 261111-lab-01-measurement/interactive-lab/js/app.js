@@ -123,7 +123,7 @@ function drawRuler(canvas, valueCm = 11.28, options = {}) {
   line(context, valueX, dimY, valueX, rEdge + 30, C.mark, 1.4);
   context.restore();
   const labX = Math.min(Math.max((pad + valueX) / 2, 78), width - 78);
-  text(context, `ความยาว = ${valueCm.toFixed(2)} cm`, labX, dimY - 12, { size: 14, weight: "800", color: C.mark });
+  // text(context, `ความยาว = ${valueCm.toFixed(2)} cm`, labX, dimY - 12, { size: 14, weight: "800", color: C.mark });
 
   text(context, `${(valueCm * 10).toFixed(1)} mm`, Math.min(Math.max(valueX, 40), width - 40), rEdge + rH + 14, { size: 12, color: C.muted });
   text(context, "ขีดย่อยเล็กสุด = 0.1 cm · ประมาณเพิ่มอีกหนึ่งหลัก", width / 2, height - 8, { size: 11, color: C.muted });
@@ -192,7 +192,7 @@ function drawVernier(canvas, valueMm = 11.65) {
 
   // ── vernier-0 reading line up through the main scale ──
   line(context, valueX, mainTop - 4, valueX, readY + 23, C.mark, 1.6);
-  text(context, `อ่านค่า: สเกลหลัก ${main} + เวอร์เนียร์ ${fraction.toFixed(2)} = ${valueMm.toFixed(2)} mm`, W / 2, H - 9, { size: 12, weight: "700", color: C.text });
+  // text(context, `อ่านค่า: สเกลหลัก ${main} + เวอร์เนียร์ ${fraction.toFixed(2)} = ${valueMm.toFixed(2)} mm`, W / 2, H - 9, { size: 12, weight: "700", color: C.text });
 }
 
 /* ── MICROMETER simulator ─────────────────────────────────────────────── */
@@ -258,7 +258,7 @@ function drawMicrometer(canvas, valueMm = 7.38) {
   // ── datum index line pointing to the aligned thimble division (the reading) ──
   line(context, thimbleEdgeX - 24, axisY, thimbleEdgeX + 30, axisY, C.mark, 1.6);
 
-  text(context, `อ่านค่า: ปลอก ${sleeve.toFixed(1)} + ทิมเบิล ${thimble.toFixed(3)} = ${valueMm.toFixed(3)} mm`, W / 2, H - 9, { size: 12, weight: "700", color: C.text });
+  // text(context, `อ่านค่า: ปลอก ${sleeve.toFixed(1)} + ทิมเบิล ${thimble.toFixed(3)} = ${valueMm.toFixed(3)} mm`, W / 2, H - 9, { size: 12, weight: "700", color: C.text });
 }
 
 /* ── simulator wiring ─────────────────────────────────────────────────── */

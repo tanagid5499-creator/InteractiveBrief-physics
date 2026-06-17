@@ -209,7 +209,13 @@
 
       <div class="worksheet-block">
         <h3>ตอนที่ 1 · องค์ประกอบของแรง</h3>
-        <div class="table-wrap"><table class="data-table">
+        <aside class="note note-warn note-block" style="margin-bottom:1rem;">
+          <span class="note-icon" aria-hidden="true">!</span>
+          <div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
+          <p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
+        </aside>
+        <div class="table-wrap">
+          <table class="data-table">
           <thead><tr><th scope="col">\(F\) (g)</th><th scope="col">\(\theta\) (°)</th><th scope="col">\(F_x=F\cos\theta\) (g)</th><th scope="col">\(F_x\) วัด (g)</th><th scope="col">\(F_y=F\sin\theta\) (g)</th><th scope="col">\(F_y\) วัด (g)</th></tr></thead>
           <tbody id="fcBody">
             <tr data-row="0"><td><input data-F data-store="fc_F0" type="number" step="1" inputmode="decimal"></td><td><input data-th data-store="fc_th0" type="number" step="1" inputmode="decimal"></td><td data-fxc>—</td><td><input data-fxm data-store="fc_fxm0" type="number" step="1" inputmode="decimal"></td><td data-fyc>—</td><td><input data-fym data-store="fc_fym0" type="number" step="1" inputmode="decimal"></td></tr>
@@ -222,7 +228,13 @@
 
       <div class="worksheet-block">
         <h3>ตอนที่ 2 · โมเมนต์และสมดุลของคาน</h3>
-        <div class="table-wrap"><table class="data-table">
+        <aside class="note note-warn note-block" style="margin-bottom:1rem;">
+          <span class="note-icon" aria-hidden="true">!</span>
+          <div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
+          <p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
+        </aside>
+        <div class="table-wrap">
+          <table class="data-table">
           <thead><tr><th scope="col">\(m_1\) (g)</th><th scope="col">\(d_1\) (cm)</th><th scope="col">\(m_2\) (g)</th><th scope="col">\(d_2\) (cm)</th><th scope="col">\(M_1=m_1d_1\)</th><th scope="col">\(M_2=m_2d_2\)</th><th scope="col">% ต่าง</th></tr></thead>
           <tbody id="mmBody">
             <tr data-row="0"><td><input data-m1 data-store="mm_m1_0" type="number" step="1" inputmode="decimal"></td><td><input data-d1 data-store="mm_d1_0" type="number" step="0.1" inputmode="decimal"></td><td><input data-m2 data-store="mm_m2_0" type="number" step="1" inputmode="decimal"></td><td><input data-d2 data-store="mm_d2_0" type="number" step="0.1" inputmode="decimal"></td><td data-M1>—</td><td data-M2>—</td><td data-md>—</td></tr>
@@ -297,7 +309,7 @@
     <section class="section spotlight" id="conclusion" data-title="สรุป">
       <header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
       <div class="conclusion-grid">
-        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong> จากข้อมูลของคุณเอง</p>
+        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong>&nbsp;จากข้อมูลของคุณเอง</p>
         <ul class="conclusion-points">
           <li><span class="cp-ico">1</span><div><h3>รายงานองค์ประกอบแรง</h3><p>เทียบ \(F_x,F_y\) ที่คำนวณกับที่วัด พร้อมร้อยละความคลาดเคลื่อน</p></div></li>
           <li><span class="cp-ico">2</span><div><h3>ยืนยันสมดุลของแรง</h3><p>รายงานว่า \(\sum F_x,\sum F_y\) เข้าใกล้ศูนย์เพียงใด</p></div></li>
@@ -333,19 +345,24 @@
       </div>
     </section>
 
-    <section class="section" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
-      <header class="section-head"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
-      <div class="prose">
-        <p>แผนภาพวัตถุอิสระ (Free Body Diagram, FBD) คือเครื่องมือหลักในการวิเคราะห์แรง — วาดวัตถุเดี่ยวและลูกศรแรงทุกแรงที่กระทำต่อมัน ก่อนเขียนสมการ \(\sum F = ma\)</p>
-        <p>ประเภทของแรงเสียดทาน:</p>
-        <ul>
-          <li><strong>แรงเสียดทานสถิต</strong> \(f_s \leq \mu_s N\): ป้องกันการเคลื่อนที่ มักใหญ่กว่าแรงเสียดทานจลน์</li>
-          <li><strong>แรงเสียดทานจลน์</strong> \(f_k = \mu_k N\): เกิดขณะเคลื่อนที่ ค่าคงที่ตราบที่ \(N\) คงที่</li>
-          <li><strong>แรงเสียดทานการกลิ้ง:</strong> เล็กกว่าแรงเสียดทานจลน์มาก — เหตุที่ล้อถูกประดิษฐ์ขึ้น</li>
-        </ul>
-        <div class="note note-info">
-          <span class="note-icon" aria-hidden="true">◆</span>
-          <div><span class="note-kind">ควรรู้</span><p>โมเมนต์ของแรง (torque) \(\tau = rF\sin\theta\) คือหลักการเดียวกับที่ใช้ในประแจ คาน และเกียร์ — ยิ่งแขนโมเมนต์ \(r\) ยาว ยิ่งหมุนได้ง่ายด้วยแรงน้อยลง</p></div>
+    <section class="section band" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
+      <header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
+            <div class="prompt-card prompt-wide" style="margin: 0 auto;">
+        <p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
+          <span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
+          แนวทางการเขียนความรู้เพิ่มเติม
+        </p>
+        <p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
+        
+        <div class="q-grid" style="text-align: left;">
+          <article class="q-card">
+            <span class="q-no">01</span>
+            <p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
+          </article>
+          <article class="q-card" style="border-bottom: none;">
+            <span class="q-no">02</span>
+            <p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
+          </article>
         </div>
       </div>
     </section>

@@ -289,8 +289,13 @@
         <label>ความยาวที่สั่น <span class="u">\(L\) (m)</span><input id="Lvib" data-store="Lvib" type="number" min="0" step="0.01" value="0.600" inputmode="decimal"></label>
         <label>ความถี่อ้างอิง <span class="u">\(f_0\) (Hz)</span><input id="fRef" data-store="fRef" type="number" min="0" step="1" value="50" inputmode="decimal"></label>
       </div>
-      <div class="table-wrap">
-        <table class="data-table">
+      <aside class="note note-warn note-block" style="margin-bottom:1rem;">
+          <span class="note-icon" aria-hidden="true">!</span>
+          <div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
+          <p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
+        </aside>
+        <div class="table-wrap">
+          <table class="data-table">
           <thead><tr><th scope="col">\(n\) (ลูป)</th><th scope="col">\(m\) (kg)</th><th scope="col">\(F=mg\) (N)</th><th scope="col">\(\lambda=2L/n\) (m)</th><th scope="col">\(\lambda^2\) (m²)</th><th scope="col">\(v=\sqrt{F/\mu}\) (m/s)</th></tr></thead>
           <tbody id="waveBody">
             <tr data-row="0" data-n="6"><th scope="row">6</th><td><input data-m data-store="m6" type="number" min="0" step="0.001" inputmode="decimal" aria-label="มวลแขวนที่ทำให้เกิด 6 ลูป"></td><td data-fcell>—</td><td data-lam>—</td><td data-lam2>—</td><td data-v>—</td></tr>
@@ -393,7 +398,7 @@
     <section class="section spotlight" id="conclusion" data-title="สรุป">
       <header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
       <div class="conclusion-grid">
-        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong> จากข้อมูลของคุณเอง</p>
+        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong>&nbsp;จากข้อมูลของคุณเอง</p>
         <ul class="conclusion-points">
           <li><span class="cp-ico">1</span><div><h3>รายงานความถี่ที่หาได้</h3><p>ระบุ \(f\) ทั้งจากค่าเฉลี่ยรายจุดและจากความชันกราฟ \(F\)–\(\lambda^2\) พร้อมหน่วย Hz</p></div></li>
           <li><span class="cp-ico">2</span><div><h3>เทียบกับค่าอ้างอิง</h3><p>เปรียบเทียบกับความถี่ไฟบ้าน \(\approx50\,\mathrm{Hz}\) แล้วรายงานร้อยละความคลาดเคลื่อน</p></div></li>
@@ -431,20 +436,24 @@
     </section>
 
     <!-- 16 · ADDITIONAL-KNOWLEDGE -->
-    <section class="section" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
-      <header class="section-head"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
-      <div class="prose">
-        <p>กฎของเมอร์แซนน์ (Mersenne's Laws) อธิบายความถี่มูลฐานของสายที่สั่นด้วยสมการเดียวกับที่ใช้ในบทนี้:</p>
-        <p>\[f_1 = \frac{1}{2L}\sqrt{\frac{F}{\mu}}\]</p>
-        <ul>
-          <li>ความถี่แปรผกผันกับความยาว \(L\) — เหตุที่การกดนิ้วบนกีตาร์เปลี่ยนโน้ต</li>
-          <li>ความถี่แปรผันกับ \(\sqrt{F}\) — เหตุที่การขันลูกบิดปรับเสียง</li>
-          <li>ความถี่แปรผกผันกับ \(\sqrt{\mu}\) — เหตุที่สายทุ้มต้องหนากว่า</li>
-        </ul>
-        <p>นอกจากโหมดมูลฐาน ยังมี <strong>ฮาร์โมนิกส์</strong> (harmonics) อันดับสูง: \(f_n = nf_1\) เมื่อ \(n=2,3,\ldots\) เสียงดนตรีจริงเป็นผลรวมของ \(f_1\) และฮาร์โมนิกส์หลายตัว สัดส่วนที่ต่างกันทำให้ไวโอลินกับกีตาร์ฟังต่างกันแม้เล่นโน้ตเดียวกัน</p>
-        <div class="note note-info">
-          <span class="note-icon" aria-hidden="true">◆</span>
-          <div><span class="note-kind">ควรรู้</span><p>ท่อออร์แกน (organ pipe) ใช้หลักการคลื่นนิ่งในอากาศ: ท่อปลายเปิดทั้งสองข้างมีโหมดที่ \(\lambda_n=2L/n\) ส่วนท่อปลายปิดข้างหนึ่งมีเฉพาะฮาร์โมนิกส์คี่ (\(n=1,3,5,\ldots\)) ทำให้เสียงนุ่มกว่า</p></div>
+    <section class="section band" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
+      <header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
+            <div class="prompt-card prompt-wide" style="margin: 0 auto;">
+        <p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
+          <span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
+          แนวทางการเขียนความรู้เพิ่มเติม
+        </p>
+        <p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
+        
+        <div class="q-grid" style="text-align: left;">
+          <article class="q-card">
+            <span class="q-no">01</span>
+            <p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
+          </article>
+          <article class="q-card" style="border-bottom: none;">
+            <span class="q-no">02</span>
+            <p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
+          </article>
         </div>
       </div>
     </section>

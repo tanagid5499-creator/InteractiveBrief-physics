@@ -205,7 +205,13 @@
       <div class="worksheet-block">
         <h3>ตอนที่ 1 · การสะท้อนของแสง</h3>
         <div class="note note-warn compact"><span class="note-icon" aria-hidden="true">!</span><div><span class="note-kind">ข้อควรระวัง</span>กฎการสะท้อน: มุมสะท้อนควรเท่ากับมุมตกกระทบ — คอลัมน์ \(|\theta_1-\theta_2|\) ควรเข้าใกล้ 0</div></div>
-        <div class="table-wrap"><table class="data-table">
+        <aside class="note note-warn note-block" style="margin-bottom:1rem;">
+          <span class="note-icon" aria-hidden="true">!</span>
+          <div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
+          <p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
+        </aside>
+        <div class="table-wrap">
+          <table class="data-table">
           <thead><tr><th scope="col">มุมตกกระทบ \(\theta_1\) (°)</th><th scope="col">มุมสะท้อน \(\theta_2\) (°)</th><th scope="col">\(|\theta_1-\theta_2|\) (°)</th></tr></thead>
           <tbody id="reflBody">
             <tr data-a1="0"><th scope="row">0</th><td><input data-r2 data-store="r2_0" type="number" step="1" inputmode="decimal"></td><td data-rdiff>—</td></tr>
@@ -223,7 +229,13 @@
 
       <div class="worksheet-block">
         <h3>ตอนที่ 2 · การหักเหของแสง</h3>
-        <div class="table-wrap"><table class="data-table">
+        <aside class="note note-warn note-block" style="margin-bottom:1rem;">
+          <span class="note-icon" aria-hidden="true">!</span>
+          <div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
+          <p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
+        </aside>
+        <div class="table-wrap">
+          <table class="data-table">
           <thead><tr><th scope="col">มุมตกกระทบ \(\theta_1\) (°)</th><th scope="col">มุมหักเห \(\theta_2\) (°)</th><th scope="col">\(\sin\theta_1\)</th><th scope="col">\(\sin\theta_2\)</th><th scope="col">\(n=\sin\theta_1/\sin\theta_2\)</th></tr></thead>
           <tbody id="refrBody">
             <tr data-a1="0"><th scope="row">0</th><td><input data-x2 data-store="x2_0" type="number" step="1" inputmode="decimal"></td><td data-sin1>—</td><td data-sin2>—</td><td data-n>—</td></tr>
@@ -242,7 +254,13 @@
 
       <div class="worksheet-block">
         <h3>ตอนที่ 3 · มุมวิกฤตและการสะท้อนกลับหมด</h3>
-        <div class="table-wrap"><table class="data-table">
+        <aside class="note note-warn note-block" style="margin-bottom:1rem;">
+          <span class="note-icon" aria-hidden="true">!</span>
+          <div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
+          <p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
+        </aside>
+        <div class="table-wrap">
+          <table class="data-table">
           <thead><tr><th scope="col">ครั้งที่</th><th scope="col">มุมวิกฤต \(\theta_c\) (°)</th><th scope="col">\(\sin\theta_c\)</th><th scope="col">\(n=1/\sin\theta_c\)</th></tr></thead>
           <tbody id="critBody">
             <tr data-row="0"><th scope="row">1</th><td><input data-thc data-store="thc_0" type="number" step="0.1" inputmode="decimal"></td><td data-sinc>—</td><td data-ncrit>—</td></tr>
@@ -324,7 +342,7 @@
     <section class="section spotlight" id="conclusion" data-title="สรุป">
       <header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
       <div class="conclusion-grid">
-        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong> จากข้อมูลของคุณเอง</p>
+        <p class="lead conclusion-lead">บทสรุปที่ดีคือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong>&nbsp;จากข้อมูลของคุณเอง</p>
         <ul class="conclusion-points">
           <li><span class="cp-ico">1</span><div><h3>ยืนยันกฎการสะท้อน</h3><p>รายงานว่า \(\theta_1=\theta_2\) ภายในความคลาดเคลื่อนหรือไม่</p></div></li>
           <li><span class="cp-ico">2</span><div><h3>รายงานดัชนีหักเห</h3><p>ระบุ \(n\) จากความชันกราฟ และ \(n\) เฉลี่ยจากมุมวิกฤต พร้อมหน่วย (ไม่มีหน่วย)</p></div></li>
@@ -360,20 +378,24 @@
       </div>
     </section>
 
-    <section class="section" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
-      <header class="section-head"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
-      <div class="prose">
-        <p>การสะท้อนกลับหมด (Total Internal Reflection, TIR) เกิดเมื่อแสงเดินทางจากตัวกลางหนาแน่นกว่าไปยังตัวกลางเบากว่า โดยมุมตกกระทบเกินมุมวิกฤต \(\theta_c\):</p>
-        <p>\[\sin\theta_c = \frac{n_2}{n_1}, \qquad n_1 > n_2\]</p>
-        <p>การประยุกต์สำคัญ:</p>
-        <ul>
-          <li><strong>เส้นใยนำแสง (optical fiber):</strong> แกนกลาง (core) มี \(n\) สูงกว่าเปลือก (cladding) เล็กน้อย แสงวิ่งโดยสะท้อนกลับหมดทั้งหมดตลอดความยาวหลายกิโลเมตร</li>
-          <li><strong>ปริซึมสะท้อน:</strong> กล้องทรงกระบอก (periscope) และกล้องสองตา (binoculars) ใช้ปริซึม 45° แทนกระจกเพราะสะท้อนได้เกือบ 100%</li>
-          <li><strong>เพชร:</strong> มุมวิกฤตต่ำมาก (\(\theta_c \approx 24°\)) ทำให้แสงถูกกักไว้และหักเหออกมาเป็นสีรุ้ง</li>
-        </ul>
-        <div class="note note-info">
-          <span class="note-icon" aria-hidden="true">◆</span>
-          <div><span class="note-kind">ควรรู้</span><p>ดัชนีหักเหขึ้นกับความยาวคลื่นของแสง — เรียกว่า <em>dispersion</em> แสงขาวจึงแยกเป็นสีต่าง ๆ เมื่อผ่านปริซึมหรือหยดน้ำ ทำให้เกิดรุ้งกินน้ำ</p></div>
+    <section class="section band" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
+      <header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
+            <div class="prompt-card prompt-wide" style="margin: 0 auto;">
+        <p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
+          <span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
+          แนวทางการเขียนความรู้เพิ่มเติม
+        </p>
+        <p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
+        
+        <div class="q-grid" style="text-align: left;">
+          <article class="q-card">
+            <span class="q-no">01</span>
+            <p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
+          </article>
+          <article class="q-card" style="border-bottom: none;">
+            <span class="q-no">02</span>
+            <p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
+          </article>
         </div>
       </div>
     </section>

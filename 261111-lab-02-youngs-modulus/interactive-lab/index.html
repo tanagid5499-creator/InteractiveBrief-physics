@@ -579,8 +579,13 @@
         </label>
       </div>
 
-      <div class="table-wrap">
-        <table class="data-table">
+      <aside class="note note-warn note-block" style="margin-bottom:1rem;">
+          <span class="note-icon" aria-hidden="true">!</span>
+          <div><span class="note-kind">ข้อควรระวังในการบันทึกผล</span>
+          <p>กรอกตัวเลขให้สอดคล้องกับความละเอียดของเครื่องมือ และใช้สัญกรณ์วิทยาศาสตร์ (Scientific Notation) เมื่อจำเป็น</p></div>
+        </aside>
+        <div class="table-wrap">
+          <table class="data-table">
           <thead>
             <tr>
               <th scope="col">มวล (kg)</th>
@@ -838,20 +843,24 @@
     </section>
 
     <!-- ══════════════ 15 · ADDITIONAL-KNOWLEDGE ══════════════ -->
-    <section class="section" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
-      <header class="section-head"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
-      <div class="prose">
-        <p>นอกจากโมดูลัสของยัง \(Y\) ที่วัดในบทนี้ วัสดุยังมีค่าความยืดหยุ่นอีกสองแบบ:</p>
-        <ul>
-          <li><strong>Shear modulus (G):</strong> อัตราส่วนความเค้นเฉือนต่อความเครียดเฉือน — เกี่ยวข้องกับการบิดตัว</li>
-          <li><strong>Bulk modulus (K):</strong> ความต้านทานต่อการอัดปริมาตร — สำคัญในของไหลและวัสดุรับแรงดัน</li>
-        </ul>
-        <p>ทั้งสามค่าสัมพันธ์กันผ่าน <strong>อัตราส่วนปัวซ็อง</strong> \(\nu\):</p>
-        <p>\[G = \frac{Y}{2(1+\nu)}, \qquad K = \frac{Y}{3(1-2\nu)}\]</p>
-        <p>สำหรับเหล็กกล้า: \(Y \approx 2.0\times10^{11}\,\mathrm{Pa},\;\nu \approx 0.29\)</p>
-        <div class="note note-info">
-          <span class="note-icon" aria-hidden="true">◆</span>
-          <div><span class="note-kind">ควรรู้</span><p>วัสดุที่ \(\nu \approx 0.5\) (เช่น ยาง) แทบไม่เปลี่ยนปริมาตรเมื่อถูกดึง เรียกว่า <em>incompressible</em> — ใช้ประโยชน์ในการออกแบบซีลและปะเก็นที่ต้องรับแรงดันสูง</p></div>
+    <section class="section band" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
+      <header class="section-head text-center"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
+            <div class="prompt-card prompt-wide" style="margin: 0 auto;">
+        <p class="quiz-label" style="display: flex; align-items: center; gap: .5rem; font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .05em; color: var(--blue-600); margin: 0 0 1rem;">
+          <span style="display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--blue-100); color: var(--blue-700);">i</span>
+          แนวทางการเขียนความรู้เพิ่มเติม
+        </p>
+        <p class="lead" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.05rem;">ในส่วนนี้ให้คุณค้นคว้าและนำเสนอความรู้ที่น่าสนใจ ซึ่งสามารถเป็นได้ทั้ง:</p>
+        
+        <div class="q-grid" style="text-align: left;">
+          <article class="q-card">
+            <span class="q-no">01</span>
+            <p><strong>ความรู้ใหม่:</strong> เรื่องที่คุณค้นคว้าเพิ่มเติม ซึ่งต่อยอดจากหลักการในบทปฏิบัติการนี้</p>
+          </article>
+          <article class="q-card" style="border-bottom: none;">
+            <span class="q-no">02</span>
+            <p><strong>พื้นฐานหรือเกร็ดความรู้:</strong> ความรู้ที่คนทั่วไปอาจไม่ค่อยรู้จัก (แม้จะไม่เกี่ยวกับเนื้อหาใน Lab โดยตรง แต่มีความน่าสนใจและเชื่อมโยงกับฟิสิกส์)</p>
+          </article>
         </div>
       </div>
     </section>
