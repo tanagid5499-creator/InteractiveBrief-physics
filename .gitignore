@@ -26,3 +26,10 @@ Desktop.ini
 *.tmp
 *.temp
 ~$*
+
+# Internal dev files
+.claude/
+COPILOT_*.md
+IMPLEMENTATION_PLAN.md
+section-templates.md
+*.bat
