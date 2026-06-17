@@ -68,14 +68,15 @@
           <button class="phase-btn" type="button" aria-expanded="false" aria-haspopup="true">สรุปผล</button>
           <div class="phase-menu" role="menu">
             <a class="chip" role="menuitem" href="#analysis">วิเคราะห์</a>
-            <a class="chip" role="menuitem" href="#discussion">อภิปราย</a>
+            <a class="chip" role="menuitem" href="#additional-knowledge">ความรู้เพิ่มเติม</a>
             <a class="chip" role="menuitem" href="#conclusion">สรุป</a>
+            <a class="chip" role="menuitem" href="#discussion">อภิปราย</a>
           </div>
         </div>
       </nav>
 
       <div class="topbar-meta">
-        <span class="sec-counter" aria-hidden="true"><b id="secNow">01</b><span>/13</span></span>
+        <span class="sec-counter" aria-hidden="true"><b id="secNow">01</b><span>/14</span></span>
         <div class="ratio-seg" role="group" aria-label="อัตราส่วนการแสดงผล (จอเต็ม / 4:3 โปรเจกเตอร์ / 16:9 ทีวี)">
           <span class="ratio-seg-ico" aria-hidden="true">▭</span>
           <button type="button" data-ratio="full" aria-pressed="true" title="แสดงเต็มความกว้างจอ">จอเต็ม</button>
@@ -560,7 +561,30 @@
       </div>
     </section>
 
-    <!-- ══════════════ 12 · DISCUSSION (band) ══════════════ -->
+    <!-- ══════════════ 12 · ADDITIONAL-KNOWLEDGE ══════════════ -->
+    <section class="section" id="additional-knowledge" data-title="ความรู้เพิ่มเติม">
+      <header class="section-head"><div><p class="kicker">เสริมความรู้</p><h2>ความรู้ที่ได้เพิ่มเติม</h2></div></header>
+      <div class="prose">
+        <p><em>(เพิ่มเนื้อหาเสริมที่เหมาะสมสำหรับบทนี้)</em></p>
+      </div>
+    </section>
+
+    <!-- ══════════════ 13 · CONCLUSION (spotlight) ══════════════ -->
+    <section class="section spotlight" id="conclusion" data-title="สรุป">
+      <header class="section-head"><div><p class="kicker">แนวทางวิเคราะห์และสรุปผล</p><h2>สรุปผลการทดลอง</h2></div></header>
+      <div class="conclusion-grid">
+        <p class="lead conclusion-lead">บทสรุปที่ดีไม่ใช่การเล่าว่า "ได้ฝึกใช้เครื่องมือ" แต่คือการ <strong>ตอบจุดประสงค์ด้วยตัวเลขและหลักฐาน</strong> จากข้อมูลของคุณเอง</p>
+        <ul class="conclusion-points">
+          <li><span class="cp-ico">1</span><div><h3>รายงานผลหลัก</h3><p>ระบุ \(\pi_{\mathrm{exp}}\), ความหนาแน่นทรงกระบอก และพื้นที่หน้าตัดเส้นลวด พร้อมหน่วยและเลขนัยสำคัญที่เหมาะสม</p></div></li>
+          <li><span class="cp-ico">2</span><div><h3>เทียบกับค่าจริง</h3><p>รายงานร้อยละความคลาดเคลื่อนของ \(\pi_{\mathrm{exp}}\) เทียบ \(\pi\) และร้อยละความแตกต่างของผลจากสองเครื่องมือ</p></div></li>
+          <li><span class="cp-ico">3</span><div><h3>ตัดสินความน่าเชื่อถือ</h3><p>บอกว่าค่าใดน่าเชื่อถือที่สุด โดยอ้างความละเอียดเครื่องมือและการกระจายของค่าที่วัดซ้ำ</p></div></li>
+          <li><span class="cp-ico">4</span><div><h3>แหล่งคลาดเคลื่อนและการปรับปรุง</h3><p>ระบุสาเหตุหลักหนึ่งอย่าง (เช่น parallax, zero error, แรงกด) และเสนอวิธีลดในการทดลองครั้งถัดไป</p></div></li>
+        </ul>
+      </div>
+      <p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>
+    </section>
+
+    <!-- ══════════════ 14 · DISCUSSION (band) ══════════════ -->
     <section class="section band" id="discussion" data-title="อภิปราย">
       <header class="section-head"><div><p class="kicker">ชวนอภิปรายในชั้นเรียน</p><h2>คำถามอภิปราย</h2></div></header>
       <aside class="prompt-card" style="margin-bottom:1.2rem">
@@ -596,7 +620,6 @@
           <li><span class="cp-ico">2</span><div><h3>เทียบกับค่าจริง</h3><p>รายงานร้อยละความคลาดเคลื่อนของ \(\pi_{\mathrm{exp}}\) เทียบ \(\pi\) และร้อยละความแตกต่างของผลจากสองเครื่องมือ</p></div></li>
           <li><span class="cp-ico">3</span><div><h3>ตัดสินความน่าเชื่อถือ</h3><p>บอกว่าค่าใดน่าเชื่อถือที่สุด โดยอ้างความละเอียดเครื่องมือและการกระจายของค่าที่วัดซ้ำ</p></div></li>
           <li><span class="cp-ico">4</span><div><h3>แหล่งคลาดเคลื่อนและการปรับปรุง</h3><p>ระบุสาเหตุหลักหนึ่งอย่าง (เช่น parallax, zero error, แรงกด) และเสนอวิธีลดในการทดลองครั้งถัดไป</p></div></li>
-          <li class="cp-extra"><span class="cp-ico">5</span><div><h3>ความรู้ที่ได้เพิ่มเติม</h3><p>เขียนสิ่งที่ค้นคว้าหรือควรรู้เพิ่มเติมจากการทดลองนี้ด้วยคำพูดของตนเอง เช่น การนำเครื่องมือวัดไปใช้ในงานจริง ความเชื่อมโยงกับเลขนัยสำคัญในวิชาอื่น หรือเทคนิคลดความคลาดเคลื่อนที่ค้นพบระหว่างทำการทดลอง</p></div></li>
         </ul>
       </div>
       <p class="end-note">เลื่อนขึ้นเพื่อทบทวนส่วนใดก็ได้ หรือกดหัวข้อในแถบด้านบนเพื่อข้ามไปยังส่วนนั้น</p>

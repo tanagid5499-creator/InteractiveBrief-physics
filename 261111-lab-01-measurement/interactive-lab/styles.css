@@ -76,7 +76,8 @@
 /* FIG.1 — vernier PHOTO with teaching-label pins (replaces the .fig-caliper SVG blueprint above,
    which is now unused but kept harmless). Each .fig-pin is positioned by inline left/top % — nudge
    those to sit over the right part of the photo. */
-.fig-photo .fig-photo-wrap { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-sm); background: #fff; }
+figure.hero-visual.fig-photo { padding-top: 2.2rem; }
+.fig-photo .fig-photo-wrap { position: relative; border-radius: var(--radius); overflow: hidden; background: #fff; }
 .fig-photo .fig-photo-wrap img { display: block; width: 100%; height: auto; }
 .fig-pin { position: absolute; transform: translate(-50%, -50%); font-family: var(--font-mono); font-size: clamp(.58rem, 1.3vw, .76rem); line-height: 1; white-space: nowrap; color: var(--blue-700); background: rgba(255, 255, 255, .9); border: 1px solid var(--blue-200); border-radius: 999px; padding: .2rem .55rem; box-shadow: var(--shadow-xs); pointer-events: none; }
 @media (max-width: 560px) { .fig-pin { font-size: .56rem; padding: .12rem .4rem; } }
