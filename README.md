@@ -1,76 +1,45 @@
-# Interactive Physics Lab Briefs
+# Interactive Brief - Physics
 
-เว็บ Lab Brief แบบโต้ตอบสำหรับรายวิชาปฏิบัติการฟิสิกส์:
+ชุดสื่อปฏิบัติการฟิสิกส์แบบอินเทอร์แอกทีฟ (Interactive Physics Labs) สำหรับรายวิชา 261111 และ 261112 โครงสร้างเป็นรูปแบบเว็บไซต์ Static HTML/CSS/JS ทำให้นำไปใช้งานและแก้ไขได้ง่าย
 
-- `261111` ปฏิบัติการฟิสิกส์ 1 จำนวน 10 บท
-- `261112` ปฏิบัติการฟิสิกส์ 2 จำนวน 9 บท
+## 🚀 วิธีการเปิดใช้งาน (How to run)
 
-โครงการใช้ Vanilla HTML, CSS และ JavaScript ไม่มี framework, npm หรือขั้นตอน
-build แต่ละบทสามารถเปิดใช้งานแยกจากกันได้
+โปรเจกต์นี้เป็นไฟล์เว็บแบบ Static ธรรมดา (ไม่มีระบบ Backend หรือ Database) เพื่อประสบการณ์การใช้งานที่ดีที่สุด (ป้องกันปัญหาการโหลดไฟล์ข้ามโฟลเดอร์ หรือปัญหา CORS จากเบราว์เซอร์) **แนะนำให้รันผ่าน Local Web Server** ตามวิธีใดวิธีหนึ่งด้านล่างนี้ครับ:
 
-## Current Status
+### วิธีที่ 1: ใช้ VS Code (แนะนำสำหรับนักพัฒนา)
+1. เปิดโฟลเดอร์โปรเจกต์นี้ด้วยโปรแกรม **Visual Studio Code**
+2. ติดตั้ง Extension ที่ชื่อว่า **[Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)**
+3. คลิกขวาที่ไฟล์ `index.html` ของแล็บที่ต้องการเปิด แล้วเลือก **"Open with Live Server"** หรือกดปุ่ม `Go Live` ที่แถบสถานะด้านล่างของ VS Code
 
-- Lab Brief ครบ 19/19 บท
-- `261111` มีคำถาม Bloom ครบ 10 บท รวม 62 ข้อ
-- ทุกข้อของ `261111` มีตัวเลือก A-E และ metadata สำหรับ clicker
-- รูปอุปกรณ์ `261111` เป็น WebP แล้ว 52/58 การ์ด
-- Clicker local demo ใช้ `BroadcastChannel` และรองรับ Lab 01
-- Shared asset cache version ปัจจุบันคือ `?v=7`
+### วิธีที่ 2: ใช้ Python (สะดวกรวดเร็วที่สุด)
+ถ้าในเครื่องมี Python ติดตั้งอยู่แล้ว:
+1. เปิด Command Prompt หรือ Terminal ขึ้นมาในโฟลเดอร์นี้
+2. พิมพ์คำสั่ง: `python -m http.server 8000`
+3. เปิดเบราว์เซอร์แล้วเข้าไปที่: `http://localhost:8000`
 
-## Run Locally
+### วิธีที่ 3: ใช้ Node.js (npx serve)
+ถ้าในเครื่องมี Node.js:
+1. เปิด Command Prompt หรือ Terminal ขึ้นมาในโฟลเดอร์นี้
+2. พิมพ์คำสั่ง: `npx serve`
+3. เปิดเบราว์เซอร์ตามลิงก์ที่แสดงผลในหน้าจอ (มักจะเป็น `http://localhost:3000`)
 
-```powershell
-python verify_project.py
-python serve.py
-```
+---
 
-จากนั้นเปิด [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+## 📁 โครงสร้างโปรเจกต์ (Project Structure)
 
-สามารถกำหนด host หรือ port ได้:
+- `shared/` - เก็บไฟล์สไตล์ (CSS), รูปภาพ (Images) และสคริปต์ (JS) ที่ใช้งานร่วมกันทุกแล็บ
+- `261111-lab-XX.../` - โฟลเดอร์เนื้อหาปฏิบัติการของรหัสวิชา 261111
+- `261112-lab-XX.../` - โฟลเดอร์เนื้อหาปฏิบัติการของรหัสวิชา 261112
 
-```powershell
-python serve.py --host 127.0.0.1 --port 8138
-```
+ทุกแล็บจะมีโครงสร้างภายในเหมือนกันคือ:
+- `interactive-lab/index.html` (หน้าเว็บหลักของแล็บนั้นๆ)
+- `interactive-lab/js/app.js` (สคริปต์ควบคุม Interactive Simulator)
 
-## Project Structure
+---
 
-```text
-index.html
-shared/
-clicker/
-261111-lab-01-*/ ... 261111-lab-10-*/
-261112-lab-01-*/ ... 261112-lab-09-*/
-serve.py
-verify_project.py
-```
-
-แต่ละบทมีโครงสร้าง:
-
-```text
-<course>-lab-XX-<slug>/
-  interactive-lab/
-    index.html
-    styles.css
-    js/app.js
-    assets/
-```
-
-## Continue Development
-
-ผู้พัฒนาคนถัดไปควรอ่านตามลำดับ:
-
-1. `CLAUDE.md`
-2. `HANDOFF.md`
-3. `NEXT_STEPS.md`
-
-งานถัดไปที่แนะนำคือ Clicker Phase 2A: สร้างคลังคำถาม local ครบ 62 ข้อของ
-`261111` และเพิ่มการเลือกบทบนหน้าครู ก่อนเริ่ม Supabase production transport
-
-## Verification
-
-รัน `python verify_project.py` ก่อนและหลังแก้งานสำคัญ ตัวตรวจครอบคลุมจำนวนบท,
-asset references, shared cache version, โครง HTML, Bloom metadata, ตัวเลือก A-E
-และ baseline รูปอุปกรณ์
-
-ควรตรวจหน้าเว็บจริงที่ desktop และ mobile width เพิ่มเติม เพราะ structural
-verification ไม่ทดแทน visual QA
+## 🎨 การปรับแต่ง UI/UX ล่าสุด
+โปรเจกต์นี้ได้รับการปรับแต่งโดยยึดหลัก Gestalt และ Impeccable Design:
+- **Presentation Layout:** ออกแบบมารองรับการอ่านแบบ Top-to-Bottom อย่างสมบูรณ์ เพื่อลดความสับสนทางสายตา
+- **Simulator Practice:** นำตัวเลขเฉลยออกจากการฝึกหัดอ่านสเกลจำลอง (เช่น ไม้บรรทัด, เวอร์เนียร์, ไมโครมิเตอร์) เพื่อบังคับให้ผู้เรียนฝึกอ่านค่าด้วยตนเอง
+- **Warning Prompts:** เพิ่มกล่องแจ้งเตือนการบันทึกผลทางวิทยาศาสตร์แบบ Auto-inject
+- **Structured Knowledge Blocks:** เปลี่ยนเนื้อหาแนะนำการเขียนเสริมความรู้ให้เป็น Card Layout ที่อ่านง่ายและน่าสนใจ
